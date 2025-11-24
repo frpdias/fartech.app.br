@@ -299,13 +299,11 @@
     gap: clamp(20px, 4vw, 40px);
     align-items: center;
     width: 100%;
-    max-width: 900px;
   }
 
   @media (max-width: 1024px) {
     .hero-visual-stack {
       grid-template-columns: 1fr;
-      max-width: 500px;
     }
 
     .dashboard-card,

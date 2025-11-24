@@ -59,6 +59,10 @@
 
   .hero-visual {
     position: relative;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    max-width: 600px;
   }
 
   .hero-meta {
