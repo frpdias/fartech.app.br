@@ -7,10 +7,10 @@ function __memo(fn) {
 return {
 	appDir: "_app",
 	appPath: "_app",
-	assets: new Set(["images/dashboard-card.png","images/hero-factory.jpg","images/logo.png","images/logo3.png","images/logo4.png"]),
-	mimeTypes: {".png":"image/png",".jpg":"image/jpeg"},
+	assets: new Set(["images/hero-factory.jpg","images/logo.png","images/logo3.png","images/logo4.png"]),
+	mimeTypes: {".jpg":"image/jpeg",".png":"image/png"},
 	_: {
-		client: {start:"_app/immutable/entry/start.ieuAdQTR.js",app:"_app/immutable/entry/app.CZSgV_lf.js",imports:["_app/immutable/entry/start.ieuAdQTR.js","_app/immutable/chunks/D80NWaxn.js","_app/immutable/chunks/Cic3LXh-.js","_app/immutable/chunks/DiQ5VlDJ.js","_app/immutable/entry/app.CZSgV_lf.js","_app/immutable/chunks/Cic3LXh-.js","_app/immutable/chunks/tHfPhL_P.js","_app/immutable/chunks/BdPJ2nMw.js","_app/immutable/chunks/DiQ5VlDJ.js","_app/immutable/chunks/CJF7e3YA.js","_app/immutable/chunks/A2Km-dPo.js"],stylesheets:[],fonts:[],uses_env_dynamic_public:false},
+		client: {start:"_app/immutable/entry/start.D6GeTsxh.js",app:"_app/immutable/entry/app.DosZouza.js",imports:["_app/immutable/entry/start.D6GeTsxh.js","_app/immutable/chunks/5m9ksIdI.js","_app/immutable/chunks/Cic3LXh-.js","_app/immutable/chunks/DiQ5VlDJ.js","_app/immutable/entry/app.DosZouza.js","_app/immutable/chunks/Cic3LXh-.js","_app/immutable/chunks/tHfPhL_P.js","_app/immutable/chunks/BdPJ2nMw.js","_app/immutable/chunks/DiQ5VlDJ.js","_app/immutable/chunks/CJF7e3YA.js","_app/immutable/chunks/A2Km-dPo.js"],stylesheets:[],fonts:[],uses_env_dynamic_public:false},
 		nodes: [
 			__memo(() => import('./nodes/0.js')),
 			__memo(() => import('./nodes/1.js')),

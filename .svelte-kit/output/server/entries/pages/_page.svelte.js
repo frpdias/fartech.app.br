@@ -1,7 +1,6 @@
 import { w as ensure_array_like, F as attr_style, x as attr, G as sanitize_slots, z as slot, y as bind_props, J as spread_props } from "../../chunks/index.js";
 import { j as fallback } from "../../chunks/utils2.js";
 import { e as escape_html } from "../../chunks/context.js";
-import "clsx";
 function BubbleBackground($$renderer) {
   const bubbles = [
     { x: 8, y: 12, size: 220, delay: 0, duration: 22, blur: 14 },
@@ -95,9 +94,6 @@ function CaseCard($$renderer, $$props) {
   let href = fallback($$props["href"], "/cases");
   $$renderer.push(`<article class="card case-card svelte-3pufga"><p class="eyebrow">${escape_html(metric)}</p> <h3 class="svelte-3pufga">${escape_html(title)}</h3> <p class="summary svelte-3pufga">${escape_html(description)}</p> <a class="btn btn-secondary"${attr("href", href)}>Ver Case</a></article>`);
   bind_props($$props, { title, description, metric, href });
-}
-function DashboardCard($$renderer) {
-  $$renderer.push(`<section class="dashboard-section svelte-546m52"><div class="dashboard-container svelte-546m52"><img src="/images/dashboard-card.png" alt="Dashboard de Desempenho" class="dashboard-card-image svelte-546m52"/></div></section>`);
 }
 function _page($$renderer) {
   const diferenciais = [
@@ -231,9 +227,7 @@ function _page($$renderer) {
     let depo = each_array_3[$$index_3];
     Depoimento($$renderer, spread_props([depo]));
   }
-  $$renderer.push(`<!--]--></div></div></section> `);
-  DashboardCard($$renderer);
-  $$renderer.push(`<!----> <section class="section svelte-1uha8ag"><div class="container card svelte-1uha8ag" style="text-align:center;"><p class="eyebrow">Next Step</p> <h2 class="section-title">Destrave a versão cloud da sua operação.</h2> <p class="section-subtitle">Faça um discovery com nossos product engineers e receba um blueprint com integrações, KPIs e roadmap em até 7 dias.</p> <a class="btn btn-primary" href="/contato">Quero meu blueprint</a></div></section>`);
+  $$renderer.push(`<!--]--></div></div></section> <section class="section svelte-1uha8ag"><div class="container card svelte-1uha8ag" style="text-align:center;"><p class="eyebrow">Next Step</p> <h2 class="section-title">Destrave a versão cloud da sua operação.</h2> <p class="section-subtitle">Faça um discovery com nossos product engineers e receba um blueprint com integrações, KPIs e roadmap em até 7 dias.</p> <a class="btn btn-primary" href="/contato">Quero meu blueprint</a></div></section>`);
 }
 export {
   _page as default

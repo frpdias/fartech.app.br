@@ -3,7 +3,6 @@
   import CardServico from '$components/CardServico.svelte';
   import Depoimento from '$components/Depoimento.svelte';
   import CaseCard from '$components/CaseCard.svelte';
-  import DashboardCard from '$components/DashboardCard.svelte';
 
   const diferenciais = [
     {
@@ -280,8 +279,6 @@
     </div>
   </div>
 </section>
-
-<DashboardCard />
 
 <section class="section">
   <div class="container card" style="text-align:center;">
