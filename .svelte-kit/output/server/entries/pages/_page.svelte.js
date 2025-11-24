@@ -294,7 +294,7 @@ function _page($$renderer) {
     let depo = each_array_3[$$index_3];
     Depoimento($$renderer, spread_props([depo]));
   }
-  $$renderer.push(`<!--]--></div></div></section> <section class="section svelte-1uha8ag" id="dashboards"><div class="container svelte-1uha8ag"><p class="eyebrow">Dashboards &amp; Integrações</p> <h2 class="section-title">Visualize dados em tempo real com painéis intuitivos.</h2> `);
+  $$renderer.push(`<!--]--></div></div></section> <section class="section svelte-1uha8ag" id="dashboards"><div class="container svelte-1uha8ag"><p class="eyebrow">Dashboards &amp; Integrações</p> <h2 class="section-title">Visualize dados em tempo real com painéis intuitivos.</h2> <div class="dashboards-showcase svelte-1uha8ag"><div class="dashboard-left svelte-1uha8ag">`);
   DashboardPreview($$renderer, {
     eyebrow: "Rocket Rides",
     title: "Rocket Rides",
@@ -345,12 +345,12 @@ function _page($$renderer) {
     },
     $$slots: { default: true }
   });
-  $$renderer.push(`<!----> <div style="margin-top: 60px; display: flex; justify-content: center;">`);
+  $$renderer.push(`<!----></div> <div class="dashboard-right svelte-1uha8ag">`);
   EnemShowcase($$renderer, {
     title: "ENEM ULTRA",
     description: "Plataforma de simulados com IA para preparação ENEM"
   });
-  $$renderer.push(`<!----></div></div></section> <section class="section svelte-1uha8ag"><div class="container card svelte-1uha8ag" style="text-align:center;"><p class="eyebrow">Next Step</p> <h2 class="section-title">Destrave a versão cloud da sua operação.</h2> <p class="section-subtitle">Faça um discovery com nossos product engineers e receba um blueprint com integrações, KPIs e roadmap em até 7 dias.</p> <a class="btn btn-primary" href="/contato">Quero meu blueprint</a></div></section>`);
+  $$renderer.push(`<!----></div></div></div></section> <section class="section svelte-1uha8ag"><div class="container card svelte-1uha8ag" style="text-align:center;"><p class="eyebrow">Next Step</p> <h2 class="section-title">Destrave a versão cloud da sua operação.</h2> <p class="section-subtitle">Faça um discovery com nossos product engineers e receba um blueprint com integrações, KPIs e roadmap em até 7 dias.</p> <a class="btn btn-primary" href="/contato">Quero meu blueprint</a></div></section>`);
 }
 export {
   _page as default

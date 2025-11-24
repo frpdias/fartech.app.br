@@ -288,40 +288,44 @@
     <p class="eyebrow">Dashboards & Integrações</p>
     <h2 class="section-title">Visualize dados em tempo real com painéis intuitivos.</h2>
     
-    <DashboardPreview 
-      eyebrow="Rocket Rides"
-      title="Rocket Rides"
-      subtitle="Dashboard de vendas"
-      stats={[
-        { label: 'Volume liquidado hoje', value: 'R$ 3.528.198,72', chart: true },
-        { label: 'Ticket médio', value: 'R$ 392,74' }
-      ]}
-      transactions={[
-        { value: 'R$ 1.284,90', label: 'Pix - Rocket Rides', status: 'Pago' },
-        { value: 'R$ 892,40', label: 'Cartão - Orion Labs', status: 'Análise' },
-        { value: 'R$ 2.394,10', label: 'Pix - Villa Auto', status: 'Pago' },
-        { value: 'R$ 742,00', label: 'Cartão - Estaieiro Sul', status: 'Falha' }
-      ]}
-    >
-      <PaymentCard 
-        status="Online"
-        statusColor="#10b981"
-        title="Integração Pix Ready"
-        subtitle="Checkout Fartech Pay"
-        amount="R$ 1.284,90"
-        customer="Rocket Rides"
-        card="•••• •••• •••• 4487"
-        holder="Fernanda V."
-        cvv="123"
-        buttonText="Confirmar pagamento"
-      />
-    </DashboardPreview>
+    <div class="dashboards-showcase">
+      <div class="dashboard-left">
+        <DashboardPreview 
+          eyebrow="Rocket Rides"
+          title="Rocket Rides"
+          subtitle="Dashboard de vendas"
+          stats={[
+            { label: 'Volume liquidado hoje', value: 'R$ 3.528.198,72', chart: true },
+            { label: 'Ticket médio', value: 'R$ 392,74' }
+          ]}
+          transactions={[
+            { value: 'R$ 1.284,90', label: 'Pix - Rocket Rides', status: 'Pago' },
+            { value: 'R$ 892,40', label: 'Cartão - Orion Labs', status: 'Análise' },
+            { value: 'R$ 2.394,10', label: 'Pix - Villa Auto', status: 'Pago' },
+            { value: 'R$ 742,00', label: 'Cartão - Estaieiro Sul', status: 'Falha' }
+          ]}
+        >
+          <PaymentCard 
+            status="Online"
+            statusColor="#10b981"
+            title="Integração Pix Ready"
+            subtitle="Checkout Fartech Pay"
+            amount="R$ 1.284,90"
+            customer="Rocket Rides"
+            card="•••• •••• •••• 4487"
+            holder="Fernanda V."
+            cvv="123"
+            buttonText="Confirmar pagamento"
+          />
+        </DashboardPreview>
+      </div>
 
-    <div style="margin-top: 60px; display: flex; justify-content: center;">
-      <EnemShowcase 
-        title="ENEM ULTRA"
-        description="Plataforma de simulados com IA para preparação ENEM"
-      />
+      <div class="dashboard-right">
+        <EnemShowcase 
+          title="ENEM ULTRA"
+          description="Plataforma de simulados com IA para preparação ENEM"
+        />
+      </div>
     </div>
   </div>
 </section>
@@ -1051,6 +1055,41 @@
   .section > .container > :global(.card):hover {
     background: linear-gradient(135deg, var(--color-surface), rgba(0, 102, 255, 0.05));
     border-color: var(--color-blue);
+  }
+
+  /* Dashboard showcase layout */
+  .dashboards-showcase {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: clamp(32px, 6vw, 64px);
+    align-items: center;
+    width: 100%;
+    max-width: 1400px;
+    margin: 0 auto;
+  }
+
+  .dashboard-left {
+    display: flex;
+    justify-content: flex-start;
+    align-items: stretch;
+  }
+
+  .dashboard-right {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  @media (max-width: 1024px) {
+    .dashboards-showcase {
+      grid-template-columns: 1fr;
+      gap: 40px;
+    }
+
+    .dashboard-right {
+      max-width: 350px;
+      margin: 0 auto;
+    }
   }
 
   @media (max-width: 768px) {

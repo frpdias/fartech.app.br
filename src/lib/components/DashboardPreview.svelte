@@ -65,9 +65,9 @@
     gap: clamp(24px, 4vw, 48px);
     align-items: center;
     width: 100%;
-    max-width: 1300px;
+    max-width: 100%;
     margin: 0 auto;
-    padding: 0 clamp(20px, 5vw, 120px);
+    padding: 0;
   }
 
   .preview-left {
