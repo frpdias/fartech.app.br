@@ -1,4 +1,4 @@
-import { w as ensure_array_like, F as attr_style, x as attr, G as sanitize_slots, z as slot, y as bind_props, J as spread_props } from "../../chunks/index.js";
+import { w as ensure_array_like, F as attr_style, x as attr, G as sanitize_slots, z as slot, y as bind_props, v as attr_class, J as stringify, K as spread_props } from "../../chunks/index.js";
 import { j as fallback } from "../../chunks/utils2.js";
 import { e as escape_html } from "../../chunks/context.js";
 function BubbleBackground($$renderer) {
@@ -94,6 +94,73 @@ function CaseCard($$renderer, $$props) {
   let href = fallback($$props["href"], "/cases");
   $$renderer.push(`<article class="card case-card svelte-3pufga"><p class="eyebrow">${escape_html(metric)}</p> <h3 class="svelte-3pufga">${escape_html(title)}</h3> <p class="summary svelte-3pufga">${escape_html(description)}</p> <a class="btn btn-secondary"${attr("href", href)}>Ver Case</a></article>`);
   bind_props($$props, { title, description, metric, href });
+}
+function DashboardPreview($$renderer, $$props) {
+  $$renderer.component(($$renderer2) => {
+    let eyebrow = fallback($$props["eyebrow"], "Dashboard Preview");
+    let title = fallback($$props["title"], "Rocket Rides");
+    let subtitle = fallback($$props["subtitle"], "Dashboard de vendas");
+    let stats = fallback($$props["stats"], () => [], true);
+    let transactions = fallback($$props["transactions"], () => [], true);
+    $$renderer2.push(`<section class="dashboard-preview svelte-qb4tgk"><div class="preview-container svelte-qb4tgk"><div class="preview-left svelte-qb4tgk"><div class="preview-header svelte-qb4tgk"><span class="preview-tag svelte-qb4tgk">${escape_html(eyebrow.toUpperCase())}</span> <button class="btn-ghost svelte-qb4tgk">Pesquisar</button></div> <h3 class="preview-title svelte-qb4tgk">${escape_html(title)}</h3> <p class="preview-subtitle svelte-qb4tgk">${escape_html(subtitle)}</p> <div class="stats-grid svelte-qb4tgk"><!--[-->`);
+    const each_array = ensure_array_like(stats);
+    for (let $$index = 0, $$length = each_array.length; $$index < $$length; $$index++) {
+      let stat = each_array[$$index];
+      $$renderer2.push(`<div class="stat-box svelte-qb4tgk"><p class="stat-label svelte-qb4tgk">${escape_html(stat.label)}</p> <p class="stat-value svelte-qb4tgk">${escape_html(stat.value)}</p> `);
+      if (stat.chart) {
+        $$renderer2.push("<!--[-->");
+        $$renderer2.push(`<div class="mini-chart svelte-qb4tgk"></div>`);
+      } else {
+        $$renderer2.push("<!--[!-->");
+      }
+      $$renderer2.push(`<!--]--></div>`);
+    }
+    $$renderer2.push(`<!--]--></div> <div class="transactions svelte-qb4tgk"><p class="transactions-label svelte-qb4tgk">Transações recentes</p> <p class="transactions-meta svelte-qb4tgk">Atualizado há 2min</p> <!--[-->`);
+    const each_array_1 = ensure_array_like(transactions);
+    for (let $$index_1 = 0, $$length = each_array_1.length; $$index_1 < $$length; $$index_1++) {
+      let tx = each_array_1[$$index_1];
+      $$renderer2.push(`<div class="transaction-item svelte-qb4tgk"><div class="tx-info svelte-qb4tgk"><p class="tx-value svelte-qb4tgk">${escape_html(tx.value)}</p> <p class="tx-label svelte-qb4tgk">${escape_html(tx.label)}</p></div> <span${attr_class("tx-status svelte-qb4tgk", void 0, {
+        "pago": tx.status === "Pago",
+        "analise": tx.status === "Análise",
+        "falha": tx.status === "Falha"
+      })}>${escape_html(tx.status)}</span></div>`);
+    }
+    $$renderer2.push(`<!--]--></div></div> <div class="preview-right svelte-qb4tgk"><!--[-->`);
+    slot($$renderer2, $$props, "default", {});
+    $$renderer2.push(`<!--]--></div></div></section>`);
+    bind_props($$props, { eyebrow, title, subtitle, stats, transactions });
+  });
+}
+function PaymentCard($$renderer, $$props) {
+  let status = fallback($$props["status"], "Online");
+  let statusColor = fallback($$props["statusColor"], "#10b981");
+  let title = fallback($$props["title"], "Integração Pix Ready");
+  let subtitle = fallback($$props["subtitle"], "Checkout Fartech Pay");
+  let amount = fallback($$props["amount"], "R$ 1.284,90");
+  let customer = fallback($$props["customer"], "Rocket Rides");
+  let card = fallback($$props["card"], "•••• •••• •••• 4487");
+  let holder = fallback($$props["holder"], "Fernanda V.");
+  let cvv = fallback($$props["cvv"], "123");
+  let buttonText = fallback($$props["buttonText"], "Confirmar pagamento");
+  $$renderer.push(`<div class="payment-card svelte-13y0f6w"><div class="card-header svelte-13y0f6w"><div class="header-info svelte-13y0f6w"><p class="status svelte-13y0f6w"${attr_style(`--status-color: ${stringify(statusColor)}`)}>● ${escape_html(status)}</p> <h3 class="card-title svelte-13y0f6w">${escape_html(title)}</h3> <p class="card-subtitle svelte-13y0f6w">${escape_html(subtitle)}</p></div></div> <div class="card-content svelte-13y0f6w"><div class="amount-section svelte-13y0f6w"><div class="amount-row svelte-13y0f6w"><span class="amount-label svelte-13y0f6w">Valor a receber</span> <span class="amount-value svelte-13y0f6w">${escape_html(amount)}</span></div> <div class="amount-row svelte-13y0f6w"><span class="amount-label svelte-13y0f6w">Cliente</span> <span class="amount-value svelte-13y0f6w">${escape_html(customer)}</span></div></div> <div class="form-section svelte-13y0f6w"><input type="text" class="input-field svelte-13y0f6w"${attr("value", card)} readonly/> <input type="text" class="input-field svelte-13y0f6w"${attr("value", holder)} readonly/> <input type="text" class="input-field input-small svelte-13y0f6w"${attr("value", cvv)} readonly/></div> <button class="btn-payment svelte-13y0f6w">${escape_html(buttonText)}</button></div></div>`);
+  bind_props($$props, {
+    status,
+    statusColor,
+    title,
+    subtitle,
+    amount,
+    customer,
+    card,
+    holder,
+    cvv,
+    buttonText
+  });
+}
+function EnemShowcase($$renderer, $$props) {
+  let title = fallback($$props["title"], "ENEM ULTRA");
+  let description = fallback($$props["description"], "Plataforma de simulados com IA");
+  $$renderer.push(`<div class="enem-showcase svelte-vwe5a0"><img src="/images/enem-ultra.png"${attr("alt", title)} class="enem-image svelte-vwe5a0"/> <div class="enem-info svelte-vwe5a0"><h3 class="enem-title svelte-vwe5a0">${escape_html(title)}</h3> <p class="enem-description svelte-vwe5a0">${escape_html(description)}</p></div></div>`);
+  bind_props($$props, { title, description });
 }
 function _page($$renderer) {
   const diferenciais = [
@@ -227,7 +294,63 @@ function _page($$renderer) {
     let depo = each_array_3[$$index_3];
     Depoimento($$renderer, spread_props([depo]));
   }
-  $$renderer.push(`<!--]--></div></div></section> <section class="section svelte-1uha8ag"><div class="container card svelte-1uha8ag" style="text-align:center;"><p class="eyebrow">Next Step</p> <h2 class="section-title">Destrave a versão cloud da sua operação.</h2> <p class="section-subtitle">Faça um discovery com nossos product engineers e receba um blueprint com integrações, KPIs e roadmap em até 7 dias.</p> <a class="btn btn-primary" href="/contato">Quero meu blueprint</a></div></section>`);
+  $$renderer.push(`<!--]--></div></div></section> <section class="section svelte-1uha8ag" id="dashboards"><div class="container svelte-1uha8ag"><p class="eyebrow">Dashboards &amp; Integrações</p> <h2 class="section-title">Visualize dados em tempo real com painéis intuitivos.</h2> `);
+  DashboardPreview($$renderer, {
+    eyebrow: "Rocket Rides",
+    title: "Rocket Rides",
+    subtitle: "Dashboard de vendas",
+    stats: [
+      {
+        label: "Volume liquidado hoje",
+        value: "R$ 3.528.198,72",
+        chart: true
+      },
+      { label: "Ticket médio", value: "R$ 392,74" }
+    ],
+    transactions: [
+      {
+        value: "R$ 1.284,90",
+        label: "Pix - Rocket Rides",
+        status: "Pago"
+      },
+      {
+        value: "R$ 892,40",
+        label: "Cartão - Orion Labs",
+        status: "Análise"
+      },
+      {
+        value: "R$ 2.394,10",
+        label: "Pix - Villa Auto",
+        status: "Pago"
+      },
+      {
+        value: "R$ 742,00",
+        label: "Cartão - Estaieiro Sul",
+        status: "Falha"
+      }
+    ],
+    children: ($$renderer2) => {
+      PaymentCard($$renderer2, {
+        status: "Online",
+        statusColor: "#10b981",
+        title: "Integração Pix Ready",
+        subtitle: "Checkout Fartech Pay",
+        amount: "R$ 1.284,90",
+        customer: "Rocket Rides",
+        card: "•••• •••• •••• 4487",
+        holder: "Fernanda V.",
+        cvv: "123",
+        buttonText: "Confirmar pagamento"
+      });
+    },
+    $$slots: { default: true }
+  });
+  $$renderer.push(`<!----> <div style="margin-top: 60px; display: flex; justify-content: center;">`);
+  EnemShowcase($$renderer, {
+    title: "ENEM ULTRA",
+    description: "Plataforma de simulados com IA para preparação ENEM"
+  });
+  $$renderer.push(`<!----></div></div></section> <section class="section svelte-1uha8ag"><div class="container card svelte-1uha8ag" style="text-align:center;"><p class="eyebrow">Next Step</p> <h2 class="section-title">Destrave a versão cloud da sua operação.</h2> <p class="section-subtitle">Faça um discovery com nossos product engineers e receba um blueprint com integrações, KPIs e roadmap em até 7 dias.</p> <a class="btn btn-primary" href="/contato">Quero meu blueprint</a></div></section>`);
 }
 export {
   _page as default

@@ -48,6 +48,6 @@ declare module "$app/types" {
 		};
 		Pathname(): "/" | "/blog" | "/blog/" | "/cases" | "/cases/" | "/clientes" | "/clientes/" | "/contato" | "/contato/" | "/quem-somos" | "/quem-somos/" | "/servicos" | "/servicos/" | "/servicos/analise-oleos" | "/servicos/analise-oleos/" | "/servicos/automacao" | "/servicos/automacao/" | "/servicos/inspecoes-tecnicas" | "/servicos/inspecoes-tecnicas/" | "/servicos/lubrificacao" | "/servicos/lubrificacao/" | "/servicos/manutencao-corretiva" | "/servicos/manutencao-corretiva/" | "/servicos/manutencao-preventiva" | "/servicos/manutencao-preventiva/";
 		ResolvedPathname(): `${"" | `/${string}`}${ReturnType<AppTypes['Pathname']>}`;
-		Asset(): "/images/hero-factory.jpg" | "/images/logo.png" | "/images/logo3.png" | "/images/logo4.png" | string & {};
+		Asset(): "/images/enem-ultra.png" | "/images/hero-factory.jpg" | "/images/logo.png" | "/images/logo3.png" | "/images/logo4.png" | string & {};
 	}
 }

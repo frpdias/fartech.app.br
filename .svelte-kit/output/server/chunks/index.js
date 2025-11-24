@@ -821,6 +821,9 @@ function spread_props(props) {
   }
   return merged_props;
 }
+function stringify(value) {
+  return typeof value === "string" ? value : value == null ? "" : value + "";
+}
 function attr_class(value, hash, directives) {
   var result = to_class(value, hash, directives);
   return result ? ` class="${escape_html(result, true)}"` : "";
@@ -871,7 +874,8 @@ export {
   sanitize_slots as G,
   HYDRATION_ERROR as H,
   INERT as I,
-  spread_props as J,
+  stringify as J,
+  spread_props as K,
   LEGACY_PROPS as L,
   MAYBE_DIRTY as M,
   ROOT_EFFECT as R,

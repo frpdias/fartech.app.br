@@ -3,6 +3,9 @@
   import CardServico from '$components/CardServico.svelte';
   import Depoimento from '$components/Depoimento.svelte';
   import CaseCard from '$components/CaseCard.svelte';
+  import DashboardPreview from '$components/DashboardPreview.svelte';
+  import PaymentCard from '$components/PaymentCard.svelte';
+  import EnemShowcase from '$components/EnemShowcase.svelte';
 
   const diferenciais = [
     {
@@ -276,6 +279,49 @@
       {#each depoimentos as depo}
         <Depoimento {...depo} />
       {/each}
+    </div>
+  </div>
+</section>
+
+<section class="section" id="dashboards">
+  <div class="container">
+    <p class="eyebrow">Dashboards & Integrações</p>
+    <h2 class="section-title">Visualize dados em tempo real com painéis intuitivos.</h2>
+    
+    <DashboardPreview 
+      eyebrow="Rocket Rides"
+      title="Rocket Rides"
+      subtitle="Dashboard de vendas"
+      stats={[
+        { label: 'Volume liquidado hoje', value: 'R$ 3.528.198,72', chart: true },
+        { label: 'Ticket médio', value: 'R$ 392,74' }
+      ]}
+      transactions={[
+        { value: 'R$ 1.284,90', label: 'Pix - Rocket Rides', status: 'Pago' },
+        { value: 'R$ 892,40', label: 'Cartão - Orion Labs', status: 'Análise' },
+        { value: 'R$ 2.394,10', label: 'Pix - Villa Auto', status: 'Pago' },
+        { value: 'R$ 742,00', label: 'Cartão - Estaieiro Sul', status: 'Falha' }
+      ]}
+    >
+      <PaymentCard 
+        status="Online"
+        statusColor="#10b981"
+        title="Integração Pix Ready"
+        subtitle="Checkout Fartech Pay"
+        amount="R$ 1.284,90"
+        customer="Rocket Rides"
+        card="•••• •••• •••• 4487"
+        holder="Fernanda V."
+        cvv="123"
+        buttonText="Confirmar pagamento"
+      />
+    </DashboardPreview>
+
+    <div style="margin-top: 60px; display: flex; justify-content: center;">
+      <EnemShowcase 
+        title="ENEM ULTRA"
+        description="Plataforma de simulados com IA para preparação ENEM"
+      />
     </div>
   </div>
 </section>
