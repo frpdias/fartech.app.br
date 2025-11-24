@@ -59,11 +59,13 @@
   .hero-content {
     max-width: 100%;
     width: 100%;
+    min-width: 0;
   }
 
   .hero-text-wrapper {
     width: 100%;
     max-width: 700px;
+    min-width: 0;
   }
 
   .hero-visual {
@@ -80,6 +82,7 @@
     grid-template-columns: repeat(3, 1fr);
     gap: 24px;
     margin-top: 56px;
+    width: 100%;
   }
 
   .hero-meta article {
