@@ -111,6 +111,10 @@ img {
   isolation: isolate;
 }
 
+.section-tight {
+  padding-block: clamp(64px, 10vw, 120px);
+}
+
 .grid-12 {
   display: grid;
   grid-template-columns: repeat(12, minmax(0, 1fr));
@@ -183,7 +187,7 @@ img {
   background: var(--color-surface);
   border: 1px solid var(--color-line);
   border-radius: var(--radius-card);
-  padding: 36px;
+  padding: 28px;
   box-shadow: var(--shadow-sm);
   transition: var(--transition);
   overflow: hidden;
@@ -209,7 +213,7 @@ img {
   font-family: var(--font-display);
   font-size: clamp(38px, 4.5vw, 64px);
   line-height: 1.1;
-  margin-bottom: 24px;
+  margin-bottom: 18px;
   color: var(--color-primary);
   letter-spacing: -0.03em;
   font-weight: 800;
@@ -217,8 +221,8 @@ img {
 
 .section-subtitle {
   color: var(--color-text-secondary);
-  max-width: 720px;
-  margin-bottom: 64px;
+  max-width: 780px;
+  margin-bottom: 42px;
   font-size: 1.15rem;
   line-height: 1.7;
   font-weight: 400;

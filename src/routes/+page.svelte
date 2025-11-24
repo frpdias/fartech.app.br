@@ -3,9 +3,6 @@
   import CardServico from '$components/CardServico.svelte';
   import Depoimento from '$components/Depoimento.svelte';
   import CaseCard from '$components/CaseCard.svelte';
-  import DashboardPreview from '$components/DashboardPreview.svelte';
-  import PaymentCard from '$components/PaymentCard.svelte';
-  import EnemShowcase from '$components/EnemShowcase.svelte';
 
   const diferenciais = [
     {
@@ -98,6 +95,33 @@
       role: 'COO • Indústria Térmica Sul'
     }
   ];
+
+  const pagamentos = [
+    { valor: 'R$ 1.284,90', cliente: 'Rocket Rides', mascara: '•••• •••• •••• 4487', validade: '12/28' },
+    { valor: 'R$ 2.394,10', cliente: 'Vitta Auto', mascara: '•••• •••• •••• 5521', validade: '09/27' },
+    { valor: 'R$ 892,40', cliente: 'Orion Labs', mascara: '•••• •••• •••• 1123', validade: '03/29' },
+    { valor: 'R$ 742,00', cliente: 'Estaleiro Sul', mascara: '•••• •••• •••• 9001', validade: '07/26' },
+    { valor: 'R$ 1.990,00', cliente: 'Grupo Aurora', mascara: '•••• •••• •••• 3311', validade: '11/28' }
+  ];
+
+  let idxPagamento = 0;
+
+  import { onMount, onDestroy } from 'svelte';
+
+  let pagamentoAtual = pagamentos[idxPagamento];
+
+  let intervalId: ReturnType<typeof setInterval> | undefined;
+
+  onMount(() => {
+    intervalId = setInterval(() => {
+      idxPagamento = (idxPagamento + 1) % pagamentos.length;
+      pagamentoAtual = pagamentos[idxPagamento];
+    }, 5000);
+  });
+
+  onDestroy(() => {
+    if (intervalId) clearInterval(intervalId);
+  });
 </script>
 
 <Hero
@@ -205,65 +229,71 @@
         </div>
       </div>
     </div>
+  </div>
+</Hero>
 
-    <div class="phone phone-pay">
-      <div class="phone-notch dark"></div>
+<section class="section">
+  <div class="container">
+    <div class="por-que-layout">
+      <div class="por-que-text">
+        <p class="eyebrow">Por que Fartech</p>
+        <h2 class="section-title">Produto, dados e confiabilidade em uma única stack.</h2>
+        <p class="section-subtitle">Desenhamos jornadas digitais de alto impacto com times ágeis, observabilidade total e entregas mensuráveis.</p>
+        <div class="diferenciais-grid">
+          {#each diferenciais as item}
+            <CardServico {...item} />
+          {/each}
+        </div>
+      </div>
+      <div class="phone phone-pay">
+        <div class="phone-notch dark"></div>
       <div class="phone-body">
         <header class="device-header">
           <div>
             <span class="device-label">Integração Pix Ready</span>
             <p class="device-sub">Checkout Fartech Pay</p>
           </div>
-          <span class="status-pill">Online</span>
-        </header>
-        <div class="device-card">
+            <span class="status-pill">Online</span>
+          </header>
+          <div class="device-card">
           <div>
             <span class="muted">Valor a receber</span>
-            <strong>R$ 1.284,90</strong>
+            <strong>{pagamentoAtual.valor}</strong>
           </div>
           <div>
             <span class="muted">Cliente</span>
-            <strong>Rocket Rides</strong>
+            <strong>{pagamentoAtual.cliente}</strong>
           </div>
         </div>
         <div class="device-form">
           <div class="fake-field" aria-label="Cartão ilustrativo">
             <span>Cartão</span>
             <div class="input fake-input">
-              <span>•••• •••• •••• 4487</span>
-              <span class="muted">12/28</span>
+              <span>{pagamentoAtual.mascara}</span>
+              <span class="muted">{pagamentoAtual.validade}</span>
             </div>
           </div>
-          <div class="fake-field" aria-label="Nome ilustrativo">
-            <span>Nome</span>
-            <div class="input fake-input">Fernanda V.</div>
+            <div class="fake-field" aria-label="Nome ilustrativo">
+              <span>Nome</span>
+              <div class="input fake-input">Fernanda V.</div>
+            </div>
+            <div class="fake-field split" aria-label="CVV ilustrativo">
+              <span>CVV</span>
+              <div class="input fake-input">123</div>
+            </div>
           </div>
-          <div class="fake-field split" aria-label="CVV ilustrativo">
-            <span>CVV</span>
-            <div class="input fake-input">123</div>
+          <button class="btn device-btn">Confirmar pagamento</button>
+          <div class="device-icons">
+            <span>Pix</span>
+            <span>Visa</span>
+            <span>Mastercard</span>
+            <span>Apple Pay</span>
           </div>
-        </div>
-        <button class="btn device-btn">Confirmar pagamento</button>
-        <div class="device-icons">
-          <span>Pix</span>
-          <span>Visa</span>
-          <span>Mastercard</span>
-          <span>Apple Pay</span>
+          <div class="checkout-logo">
+            <img src="/images/logo.png" alt="Fartech" loading="lazy" />
+          </div>
         </div>
       </div>
-    </div>
-  </div>
-</Hero>
-
-<section class="section">
-  <div class="container">
-    <p class="eyebrow">Por que Fartech</p>
-    <h2 class="section-title">Produto, dados e confiabilidade em uma única stack.</h2>
-    <p class="section-subtitle">Desenhamos jornadas digitais de alto impacto com times ágeis, observabilidade total e entregas mensuráveis.</p>
-    <div class="diferenciais-grid">
-      {#each diferenciais as item}
-        <CardServico {...item} />
-      {/each}
     </div>
   </div>
 </section>
@@ -314,41 +344,172 @@
     
     <div class="dashboards-showcase">
       <div class="dashboard-left">
-        <DashboardPreview 
-          eyebrow="Rocket Rides"
-          title="Rocket Rides"
-          subtitle="Dashboard de vendas"
-          stats={[
-            { label: 'Volume liquidado hoje', value: 'R$ 3.528.198,72', chart: true },
-            { label: 'Ticket médio', value: 'R$ 392,74' }
-          ]}
-          transactions={[
-            { value: 'R$ 1.284,90', label: 'Pix - Rocket Rides', status: 'Pago' },
-            { value: 'R$ 892,40', label: 'Cartão - Orion Labs', status: 'Análise' },
-            { value: 'R$ 2.394,10', label: 'Pix - Villa Auto', status: 'Pago' },
-            { value: 'R$ 742,00', label: 'Cartão - Estaieiro Sul', status: 'Falha' }
-          ]}
-        >
-          <PaymentCard 
-            status="Online"
-            statusColor="#10b981"
-            title="Integração Pix Ready"
-            subtitle="Checkout Fartech Pay"
-            amount="R$ 1.284,90"
-            customer="Rocket Rides"
-            card="•••• •••• •••• 4487"
-            holder="Fernanda V."
-            cvv="123"
-            buttonText="Confirmar pagamento"
-          />
-        </DashboardPreview>
+        <div class="desktop-frame">
+          <div class="desktop-sidebar">
+            <div class="logo-mark">
+              <span class="star">★</span>
+              <div>
+                <strong>FARTECH</strong>
+                <small>Educacional</small>
+              </div>
+            </div>
+            <nav class="desktop-nav">
+              <a class="nav-item active">
+                <span>🎯</span>
+                <div>
+                  <strong>Painel do Aluno</strong>
+                  <small>Desempenho detalhado</small>
+                </div>
+              </a>
+              <a class="nav-item">
+                <span>🏆</span>
+                <div>
+                  <strong>Ranking</strong>
+                  <small>Compare seu desempenho</small>
+                </div>
+              </a>
+              <a class="nav-item">
+                <span>📊</span>
+                <div>
+                  <strong>Estatísticas</strong>
+                  <small>Métricas avançadas</small>
+                </div>
+              </a>
+              <a class="nav-item">
+                <span>🧠</span>
+                <div>
+                  <strong>Simulados ENEM</strong>
+                  <small>Escolha novos desafios</small>
+                </div>
+              </a>
+              <a class="nav-item">
+                <span>🖥</span>
+                <div>
+                  <strong>Monitor</strong>
+                  <small>Status em tempo real</small>
+                </div>
+              </a>
+            </nav>
+          </div>
+
+          <div class="desktop-main">
+            <header class="desktop-topbar">
+              <div class="status-group">
+                <span class="pill outline">Online</span>
+                <span class="pill muted">17:50</span>
+                <span class="pill danger">Sair</span>
+              </div>
+            </header>
+
+            <div class="desktop-hero">
+              <div>
+                <p class="eyebrow">Central do estudante</p>
+                <h3>Simulados com experiência Stripe-level em qualquer tela.</h3>
+                <p class="muted">Continue de onde parou, acompanhe o progresso e explore novos desafios com interface fluida.</p>
+                <div class="pill-group">
+                  <span class="pill primary">Todos</span>
+                  <span class="pill muted">Não respondidos</span>
+                  <span class="pill muted">Respondidos</span>
+                </div>
+              </div>
+              <div class="cta-group">
+                <button class="btn btn-primary">Continuar simulado</button>
+                <button class="btn btn-secondary">Ver estatísticas</button>
+              </div>
+            </div>
+
+            <div class="desktop-cards">
+              <div class="desktop-card">
+                <p class="eyebrow">Enem 2024</p>
+                <h4>50 questões</h4>
+                <p class="muted">Seu progresso: 20%</p>
+                <div class="progress">
+                  <span style="width:20%"></span>
+                </div>
+                <button class="btn btn-secondary">Iniciar</button>
+              </div>
+              <div class="desktop-card">
+                <p class="eyebrow">Enem 2023</p>
+                <h4>185 questões</h4>
+                <p class="muted">Seu progresso: 3%</p>
+                <div class="progress">
+                  <span style="width:3%"></span>
+                </div>
+                <button class="btn btn-secondary">Iniciar</button>
+              </div>
+              <div class="desktop-card">
+                <p class="eyebrow">Enem 2009</p>
+                <h4>180 questões</h4>
+                <p class="muted">Seu progresso: 0%</p>
+                <div class="progress">
+                  <span style="width:0%"></span>
+                </div>
+                <button class="btn btn-secondary">Iniciar</button>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
 
       <div class="dashboard-right">
-        <EnemShowcase 
-          title="ENEM ULTRA"
-          description="Plataforma de simulados com IA para preparação ENEM"
-        />
+        <div class="imac-frame">
+          <div class="imac-screen">
+            <header class="imac-header">
+              <div>
+                <p class="eyebrow">Avaliações ENEM</p>
+                <h3>Histórico de desempenho 1998-2025</h3>
+                <p class="muted">Acompanhe a evolução da rede nos simulados oficiais e resultados do ENEM.</p>
+              </div>
+              <span class="pill outline">Próx. atualização: dez/2025</span>
+            </header>
+            <div class="imac-cards">
+              <div class="imac-card">
+                <p class="muted">2024</p>
+                <h4>Melhor média histórica</h4>
+                <strong>712 pts</strong>
+                <small class="muted">Rede municipal de Belo Horizonte</small>
+              </div>
+              <div class="imac-card">
+                <p class="muted">2023</p>
+                <h4>Maior salto em simulados</h4>
+                <strong>+18 pts</strong>
+                <small class="muted">Telemetria ENEM</small>
+              </div>
+              <div class="imac-card">
+                <p class="muted">2015</p>
+                <h4>Programa de tutoria</h4>
+                <strong>+12 pts</strong>
+                <small class="muted">Mentorias para 3º ano</small>
+              </div>
+            </div>
+            <div class="imac-table">
+              <header>
+                <span>Ano</span>
+                <span>Simulados (média)</span>
+                <span>ENEM oficial (média)</span>
+                <span>Diferença</span>
+              </header>
+              <div class="imac-rows">
+                <div class="imac-row">
+                  <span>2024</span><span>712 pts</span><span>655 pts</span><span class="pos">+57 pts</span>
+                </div>
+                <div class="imac-row">
+                  <span>2023</span><span>698 pts</span><span>662 pts</span><span class="pos">+36 pts</span>
+                </div>
+                <div class="imac-row">
+                  <span>2022</span><span>683 pts</span><span>662 pts</span><span class="pos">+21 pts</span>
+                </div>
+                <div class="imac-row">
+                  <span>2021</span><span>671 pts</span><span>659 pts</span><span class="pos">+12 pts</span>
+                </div>
+                <div class="imac-row">
+                  <span>2020</span><span>660 pts</span><span>662 pts</span><span class="neg">-2 pts</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="imac-stand"></div>
+        </div>
       </div>
     </div>
   </div>
@@ -367,16 +528,18 @@
 
 <style>
   
+  
   .hero-visual-stack {
     position: relative;
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content: flex-start;
     gap: clamp(22px, 4vw, 48px);
     width: 100%;
-    max-width: 1200px;
+    max-width: 1320px;
     margin: 0 auto;
     flex-wrap: nowrap;
+    transform: translateX(-160px);
   }
 
   .hero-visual-stack > .phone {
@@ -388,11 +551,15 @@
       flex-wrap: wrap;
       justify-content: center;
       max-width: 760px;
+      margin: 0 auto;
+      transform: none;
     }
 
     .phone {
       max-width: 100%;
       width: 100%;
+      min-height: auto;
+      aspect-ratio: auto;
     }
   }
 
@@ -468,10 +635,12 @@
   /* Phones base */
   .phone {
     position: relative;
-    width: 340px;
-    max-width: 340px;
-    border-radius: 26px;
-    padding: 14px;
+    width: 390px;
+    max-width: 390px;
+    min-height: 844px;
+    aspect-ratio: 390 / 844;
+    border-radius: 28px;
+    padding: 16px;
     background: #0b1021;
     box-shadow: 0 30px 80px rgba(5, 10, 30, 0.3);
     border: 1px solid rgba(0, 0, 0, 0.08);
@@ -490,7 +659,10 @@
 
   .phone-pay {
     background: linear-gradient(180deg, #0c1228 0%, #101a38 100%);
-    border-color: rgba(255, 255, 255, 0.08);
+    border-color: rgba(255, 255, 255, 0.12);
+    box-shadow: 0 28px 70px rgba(5, 10, 30, 0.35), 0 12px 28px rgba(0, 0, 0, 0.12);
+    position: sticky;
+    top: 120px;
   }
 
   .phone-notch {
@@ -515,6 +687,7 @@
     display: grid;
     gap: 12px;
     overflow: hidden;
+    max-height: 100%;
   }
 
   .phone-light .phone-body {
@@ -532,6 +705,131 @@
     background: linear-gradient(180deg, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.02));
     border: 1px solid rgba(255, 255, 255, 0.08);
     color: #e5e7eb;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    justify-content: space-between;
+    align-items: stretch;
+  }
+
+  /* Checkout phone */
+  .device-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 8px;
+  }
+
+  .device-label {
+    font-weight: 700;
+    color: #e5e7eb;
+    font-size: 1rem;
+  }
+
+  .device-sub {
+    font-size: 0.85rem;
+    color: rgba(229, 231, 235, 0.75);
+    margin: 2px 0 0 0;
+  }
+
+  .status-pill {
+    font-size: 0.78rem;
+    padding: 6px 14px;
+    border-radius: var(--radius-pill);
+    background: rgba(16, 185, 129, 0.16);
+    color: #34d399;
+    font-weight: 700;
+    border: 1px solid rgba(16, 185, 129, 0.3);
+  }
+
+  .device-card {
+    border-radius: 16px;
+    background: rgba(255, 255, 255, 0.06);
+    padding: 14px;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 8px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+  }
+
+  .device-card strong {
+    font-size: 1rem;
+    color: #fff;
+    display: block;
+    font-weight: 800;
+  }
+
+  .device-card span {
+    font-size: 0.86rem;
+    color: rgba(229, 231, 235, 0.8);
+  }
+
+  .device-form {
+    display: grid;
+    gap: 14px;
+  }
+
+  .fake-field {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    font-size: 0.9rem;
+    color: rgba(229, 231, 235, 0.9);
+  }
+
+  .input {
+    border-radius: 16px;
+    padding: 12px 14px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    background: rgba(255, 255, 255, 0.06);
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.05);
+  }
+
+  .fake-input {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-weight: 700;
+    color: #fff;
+  }
+
+  .split {
+    max-width: 120px;
+  }
+
+  .device-btn {
+    width: 100%;
+    border-radius: 16px;
+    justify-content: center;
+    font-size: 1rem;
+    background: linear-gradient(120deg, #0f8bff, #7c4dff);
+    border: none;
+    box-shadow: 0 16px 45px rgba(0, 102, 255, 0.35);
+    padding: 14px;
+    margin-top: auto;
+  }
+
+  .device-icons {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.78rem;
+    color: rgba(229, 231, 235, 0.7);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+  }
+
+  .checkout-logo {
+    margin-top: 10px;
+    display: flex;
+    justify-content: center;
+    padding: 8px 0 0;
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+  }
+
+  .checkout-logo img {
+    max-width: 120px;
+    height: auto;
+    filter: drop-shadow(0 8px 24px rgba(0, 0, 0, 0.3));
   }
 
   .phone-top {
@@ -705,6 +1003,298 @@
   .edu-card span {
     color: #9ca3af;
     font-size: 0.8rem;
+  }
+
+  /* Desktop dashboard (reconstruído) */
+  .desktop-frame {
+    display: grid;
+    grid-template-columns: 220px 1fr;
+    gap: 16px;
+    background: linear-gradient(180deg, #11172f 0%, #0b1024 100%);
+    border-radius: 18px;
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    box-shadow: 0 30px 80px rgba(5, 10, 30, 0.32);
+    padding: 16px;
+    color: #e5e7eb;
+  }
+
+  .desktop-sidebar {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 14px;
+    padding: 12px;
+    display: grid;
+    gap: 12px;
+  }
+
+  .logo-mark {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .logo-mark .star {
+    font-size: 1.3rem;
+  }
+
+  .logo-mark strong {
+    color: #60a5fa;
+    display: block;
+  }
+
+  .logo-mark small {
+    color: #9ca3af;
+    font-size: 0.8rem;
+  }
+
+  .desktop-nav {
+    display: grid;
+    gap: 8px;
+  }
+
+  .nav-item {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 10px;
+    align-items: center;
+    padding: 10px;
+    border-radius: 10px;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    color: #e5e7eb;
+  }
+
+  .nav-item small {
+    color: #9ca3af;
+  }
+
+  .nav-item.active {
+    background: rgba(59, 130, 246, 0.15);
+    border-color: rgba(59, 130, 246, 0.25);
+  }
+
+  .desktop-main {
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    border-radius: 14px;
+    padding: 14px;
+    display: grid;
+    gap: 14px;
+  }
+
+  .desktop-topbar {
+    display: flex;
+    justify-content: flex-end;
+    gap: 8px;
+  }
+
+  .status-group {
+    display: flex;
+    gap: 8px;
+  }
+
+  .desktop-hero {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 12px;
+    padding: 14px;
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 12px;
+  }
+
+  .desktop-hero h3 {
+    margin: 4px 0;
+    color: #f8fafc;
+  }
+
+  .pill-group {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+  }
+
+  .cta-group {
+    display: grid;
+    gap: 8px;
+    align-content: start;
+  }
+
+  .desktop-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 12px;
+  }
+
+  .desktop-card {
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    border-radius: 12px;
+    padding: 12px;
+    display: grid;
+    gap: 6px;
+    color: #e5e7eb;
+  }
+
+  .desktop-card h4 {
+    margin: 0;
+    color: #fff;
+  }
+
+  .progress {
+    width: 100%;
+    height: 6px;
+    background: rgba(255, 255, 255, 0.08);
+    border-radius: 999px;
+    overflow: hidden;
+  }
+
+  .progress span {
+    display: block;
+    height: 100%;
+    background: linear-gradient(90deg, #60a5fa, #7c3aed);
+  }
+  /* iMac dashboard */
+  .imac-frame {
+    position: relative;
+    width: 520px;
+    max-width: 100%;
+    margin: 0 auto;
+    background: #0c1024;
+    border-radius: 16px 16px 8px 8px;
+    box-shadow: 0 30px 80px rgba(5, 10, 30, 0.35);
+    border: 1px solid rgba(255, 255, 255, 0.04);
+    overflow: hidden;
+    display: grid;
+    gap: 0;
+  }
+
+  .imac-screen {
+    background: radial-gradient(circle at 20% 20%, rgba(59, 130, 246, 0.14), transparent 45%),
+      radial-gradient(circle at 80% 10%, rgba(124, 58, 237, 0.16), transparent 45%),
+      #0f1328;
+    padding: 24px;
+    display: grid;
+    gap: 16px;
+  }
+
+  .imac-header {
+    display: flex;
+    justify-content: space-between;
+    gap: 16px;
+    align-items: flex-start;
+    color: #e5e7eb;
+  }
+
+  .imac-header h3 {
+    margin: 6px 0;
+    color: #f8fafc;
+  }
+
+  .imac-header .muted {
+    color: #b5bed1;
+  }
+
+  .imac-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    gap: 12px;
+  }
+
+  .imac-card {
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 12px;
+    padding: 12px;
+    color: #e5e7eb;
+    display: grid;
+    gap: 6px;
+  }
+
+  .imac-card h4 {
+    margin: 0;
+    color: #fff;
+    font-size: 1rem;
+  }
+
+  .imac-card strong {
+    font-size: 1.1rem;
+    color: #60a5fa;
+  }
+
+  .imac-card .muted {
+    color: #9ca3af;
+  }
+
+  .imac-table {
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    border-radius: 12px;
+    padding: 12px;
+    display: grid;
+    gap: 10px;
+    color: #e5e7eb;
+  }
+
+  .imac-table header,
+  .imac-row {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 8px;
+    font-size: 0.85rem;
+  }
+
+  .imac-row {
+    color: #d1d5db;
+  }
+
+  .imac-row .pos {
+    color: #34d399;
+  }
+
+  .imac-row .neg {
+    color: #f87171;
+  }
+
+  .imac-rows {
+    display: grid;
+    gap: 6px;
+  }
+
+  .imac-stand {
+    height: 14px;
+    background: linear-gradient(90deg, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.02));
+    border-radius: 0 0 8px 8px;
+  }
+
+  @media (max-width: 768px) {
+    .imac-frame {
+      width: 100%;
+    }
+  }
+
+  /* Layout Por que Fartech com phone */
+  .por-que-layout {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 380px;
+    gap: clamp(32px, 4vw, 64px);
+    align-items: start;
+  }
+
+  .por-que-text {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+  }
+
+  @media (max-width: 1024px) {
+    .por-que-layout {
+      grid-template-columns: 1fr;
+    }
+
+    .por-que-layout .phone {
+      margin: 0 auto;
+    }
   }
 :global(.hero) {
     isolation: isolate;
