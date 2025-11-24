@@ -34,60 +34,60 @@
     top: 0;
     z-index: 50;
     backdrop-filter: blur(12px);
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.06);
+    box-shadow: var(--shadow-sm);
   }
 
   .site-header::after {
     content: '';
     position: absolute;
     inset: 0;
-    background: rgba(255, 255, 255, 0.85);
+    background: rgba(255, 255, 255, 0.95);
     z-index: -1;
     border-bottom: 1px solid var(--color-line);
   }
 
   .site-header.is-transparent::after {
-    background: rgba(255, 255, 255, 0.75);
+    background: rgba(255, 255, 255, 0.92);
   }
 
   .header-inner {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding-block: 16px;
-    gap: 32px;
+    padding-block: 18px;
+    gap: 36px;
   }
 
   nav {
     display: flex;
-    gap: 2px;
+    gap: 4px;
     font-weight: 500;
-    color: var(--color-text);
-    font-size: 0.93rem;
-    letter-spacing: 0.01em;
+    color: var(--color-text-primary);
+    font-size: 0.94rem;
+    letter-spacing: -0.01em;
   }
 
   nav a {
-    padding: 8px 12px;
-    border-radius: 6px;
+    padding: 10px 14px;
+    border-radius: 8px;
     transition: var(--transition);
     border: 1px solid transparent;
   }
 
   nav a:hover {
-    color: var(--color-accent);
-    background: rgba(9, 105, 218, 0.08);
-    border-color: rgba(9, 105, 218, 0.12);
+    color: var(--color-blue);
+    background: var(--color-blue-light);
+    border-color: var(--color-blue);
   }
 
   .logo {
     font-family: var(--font-display);
     display: flex;
     flex-direction: column;
-    font-weight: 700;
-    letter-spacing: 0.02em;
-    font-size: 1.1rem;
-    color: var(--color-text);
+    font-weight: 800;
+    letter-spacing: -0.02em;
+    font-size: 1.15rem;
+    color: var(--color-text-primary);
   }
 
   .logo span {
@@ -98,10 +98,10 @@
 
   .logo small {
     font-size: 0.65rem;
-    font-weight: 500;
-    color: var(--color-muted);
-    margin-top: 2px;
-    letter-spacing: 0.08em;
+    font-weight: 600;
+    color: var(--color-text-tertiary);
+    margin-top: 3px;
+    letter-spacing: 0.12em;
     text-transform: uppercase;
   }
 
@@ -111,7 +111,7 @@
     }
 
     .header-inner {
-      gap: 16px;
+      gap: 20px;
     }
   }
 </style>
