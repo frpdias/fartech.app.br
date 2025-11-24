@@ -55,8 +55,8 @@
 <style>
   .hero-grid {
     display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: clamp(60px, 8vw, 120px);
+    grid-template-columns: minmax(0, 1.2fr) minmax(340px, 520px);
+    gap: clamp(40px, 6vw, 100px);
     align-items: center;
     width: 100%;
     max-width: 100%;
@@ -66,6 +66,7 @@
     max-width: 100%;
     width: 100%;
     min-width: 0;
+    max-width: 720px;
   }
 
   .hero-text-wrapper {

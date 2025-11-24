@@ -100,7 +100,7 @@ img {
 }
 
 .container {
-  width: min(var(--max-width), 100% - clamp(80px, 10vw, 280px));
+  width: min(var(--max-width), 100% - clamp(48px, 10vw, 220px));
   margin-inline: auto;
 }
 

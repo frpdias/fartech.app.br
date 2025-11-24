@@ -108,7 +108,7 @@
   primaryLabel="Solicitar Orçamento"
   secondaryHref="/servicos"
   secondaryLabel="Conhecer serviços"
-  showEnemUltra={true}
+  showEnemUltra={false}
   meta={[
     { label: 'Empresas conectadas', value: '350+' },
     { label: 'Go-live médio', value: '14 dias' },
@@ -116,24 +116,20 @@
   ]}
 >
   <div slot="visual" class="hero-visual-stack">
-    <div class="dashboard-card">
-      <header class="dashboard-header">
-        <div class="logo-stack">
-          <span class="logo-pill">ROCKET RIDES</span>
-          <small>Dashboard de vendas</small>
-        </div>
-        <div class="search-pill">
-          <span>Pesquisar</span>
-        </div>
-      </header>
-      <div class="dashboard-body">
-        <div class="stat-grid">
+    <div class="phone phone-light">
+      <div class="phone-notch"></div>
+      <div class="phone-body">
+        <header class="phone-top">
+          <span class="pill ghost">Rocket Rides</span>
+          <span class="pill muted">Pesquisar</span>
+        </header>
+        <div class="phone-stats">
           <div class="stat-card">
-            <p class="muted">Volume líquido hoje</p>
+            <p class="muted">Volume liquidado hoje</p>
             <strong>R$ 3.528.198,72</strong>
             <div class="sparkline"></div>
           </div>
-          <div class="stat-card compact">
+          <div class="stat-card">
             <p class="muted">Ticket médio</p>
             <strong>R$ 392,74</strong>
             <div class="pill success">+12% vs. ontem</div>
@@ -144,7 +140,6 @@
             <div class="pill neutral">Em tempo real</div>
           </div>
         </div>
-
         <div class="orders-card">
           <div class="orders-header">
             <p class="muted">Transações recentes</p>
@@ -183,51 +178,79 @@
         </div>
       </div>
     </div>
-    <div class="hero-device">
-      <div class="device-notch"></div>
-    <div class="device-content">
-      <header class="device-header">
-        <div>
-          <span class="device-label">Integração Pix Ready</span>
-          <p class="device-sub">Checkout Fartech Pay</p>
-        </div>
-        <span class="status-pill">Online</span>
-      </header>
-      <div class="device-card">
-        <div>
-          <span class="muted">Valor a receber</span>
-          <strong>R$ 1.284,90</strong>
-        </div>
-        <div>
-          <span class="muted">Cliente</span>
-          <strong>Rocket Rides</strong>
-        </div>
-      </div>
-      <div class="device-form">
-        <div class="fake-field" aria-label="Cartão ilustrativo">
-          <span>Cartão</span>
-          <div class="input fake-input">
-            <span>•••• •••• •••• 4487</span>
-            <span class="muted">12/28</span>
+
+    <div class="phone phone-dark">
+      <div class="phone-notch dark"></div>
+      <div class="phone-body">
+        <header class="education-head">
+          <p class="eyebrow">SaaS Educacional Municipal</p>
+          <h3>Plataforma oficial da Secretaria Municipal de Educação.</h3>
+          <p class="muted">Acompanhe matrículas, transporte e operações críticas em tempo real.</p>
+          <div class="edu-actions">
+            <span class="pill primary">Acessar Central Operacional</span>
+            <span class="pill outline">Secretaria Parceira</span>
           </div>
+          <small class="muted">Próxima atualização 15/11</small>
+        </header>
+        <div class="edu-stats">
+          <div><strong>128</strong><span>Escolas conectadas</span></div>
+          <div><strong>52.430</strong><span>Estudantes</span></div>
+          <div><strong>2.348</strong><span>Turmas monitoradas</span></div>
         </div>
-        <div class="fake-field" aria-label="Nome ilustrativo">
-          <span>Nome</span>
-          <div class="input fake-input">Fernanda V.</div>
+        <div class="edu-grid">
+          <div class="edu-card">Evasão<span>Fluxo de gravação</span></div>
+          <div class="edu-card">Painel da Secretaria<span>Indicadores em tempo real</span></div>
+          <div class="edu-card">Matrícula Online<span>Inscrição municipal</span></div>
+          <div class="edu-card">Gestão Escolar<span>Visão por unidade</span></div>
         </div>
-        <div class="fake-field split" aria-label="CVV ilustrativo">
-          <span>CVV</span>
-          <div class="input fake-input">123</div>
-        </div>
-      </div>
-      <button class="btn device-btn">Confirmar pagamento</button>
-      <div class="device-icons">
-        <span>Pix</span>
-        <span>Visa</span>
-        <span>Mastercard</span>
-        <span>Apple Pay</span>
       </div>
     </div>
+
+    <div class="phone phone-pay">
+      <div class="phone-notch dark"></div>
+      <div class="phone-body">
+        <header class="device-header">
+          <div>
+            <span class="device-label">Integração Pix Ready</span>
+            <p class="device-sub">Checkout Fartech Pay</p>
+          </div>
+          <span class="status-pill">Online</span>
+        </header>
+        <div class="device-card">
+          <div>
+            <span class="muted">Valor a receber</span>
+            <strong>R$ 1.284,90</strong>
+          </div>
+          <div>
+            <span class="muted">Cliente</span>
+            <strong>Rocket Rides</strong>
+          </div>
+        </div>
+        <div class="device-form">
+          <div class="fake-field" aria-label="Cartão ilustrativo">
+            <span>Cartão</span>
+            <div class="input fake-input">
+              <span>•••• •••• •••• 4487</span>
+              <span class="muted">12/28</span>
+            </div>
+          </div>
+          <div class="fake-field" aria-label="Nome ilustrativo">
+            <span>Nome</span>
+            <div class="input fake-input">Fernanda V.</div>
+          </div>
+          <div class="fake-field split" aria-label="CVV ilustrativo">
+            <span>CVV</span>
+            <div class="input fake-input">123</div>
+          </div>
+        </div>
+        <button class="btn device-btn">Confirmar pagamento</button>
+        <div class="device-icons">
+          <span>Pix</span>
+          <span>Visa</span>
+          <span>Mastercard</span>
+          <span>Apple Pay</span>
+        </div>
+      </div>
     </div>
   </div>
 </Hero>
@@ -343,155 +366,37 @@
 </section>
 
 <style>
+  
   .hero-visual-stack {
     position: relative;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: clamp(24px, 3vw, 36px);
+    display: flex;
     align-items: center;
-    justify-items: center;
+    justify-content: space-between;
+    gap: clamp(22px, 4vw, 48px);
     width: 100%;
-    max-width: 900px;
+    max-width: 1200px;
     margin: 0 auto;
+    flex-wrap: nowrap;
+  }
+
+  .hero-visual-stack > .phone {
+    flex: 0 0 auto;
   }
 
   @media (max-width: 1024px) {
     .hero-visual-stack {
-      grid-template-columns: 1fr;
-      max-width: 450px;
+      flex-wrap: wrap;
+      justify-content: center;
+      max-width: 760px;
     }
 
-    .dashboard-card,
-    .hero-device {
+    .phone {
       max-width: 100%;
       width: 100%;
     }
   }
 
-  .dashboard-card {
-    flex: 1;
-    width: 100%;
-    max-width: 420px;
-    background: var(--color-surface);
-    border-radius: var(--radius-lg);
-    padding: 20px;
-    box-shadow: var(--shadow-lg);
-    transform: translateY(6px) rotate(-1deg);
-    border: 1px solid var(--color-line);
-    backdrop-filter: blur(12px);
-    position: relative;
-    overflow: hidden;
-    isolation: isolate;
-  }
-
-  .dashboard-card::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background: radial-gradient(circle at 20% 10%, rgba(0, 102, 255, 0.08), transparent 40%),
-      radial-gradient(circle at 80% 0%, rgba(124, 58, 237, 0.08), transparent 46%);
-    z-index: 0;
-  }
-
-  .dashboard-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 12px;
-    position: relative;
-    z-index: 1;
-    gap: 12px;
-  }
-
-  .logo-stack {
-    display: flex;
-    flex-direction: column;
-    gap: 2px;
-    flex: 1;
-  }
-
-  .logo-stack small {
-    color: var(--color-text-secondary);
-    letter-spacing: 0.08em;
-    font-weight: 500;
-    font-size: 0.75rem;
-  }
-
-  .logo-pill {
-    font-size: 0.68rem;
-    letter-spacing: 0.24em;
-    color: var(--color-primary);
-    padding: 5px 10px;
-    border-radius: var(--radius-pill);
-    background: var(--color-blue-light);
-    border: 1px solid var(--color-blue);
-    box-shadow: 0 6px 12px rgba(0, 102, 255, 0.12);
-    white-space: nowrap;
-  }
-
-  .search-pill {
-    background: var(--color-line-light);
-    border-radius: var(--radius-pill);
-    padding: 5px 12px;
-    font-size: 0.75rem;
-    color: var(--color-text-secondary);
-    border: 1px solid var(--color-line);
-    white-space: nowrap;
-  }
-
-  .dashboard-body {
-    display: grid;
-    gap: 12px;
-    position: relative;
-    z-index: 1;
-  }
-
-  .stat-grid {
-    display: grid;
-    gap: 10px;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
-
-  .stat-card {
-    background: var(--color-surface);
-    border-radius: 12px;
-    padding: 12px;
-    box-shadow: var(--shadow-sm);
-    border: 1px solid var(--color-line);
-  }
-
-  .stat-card strong {
-    display: block;
-    color: var(--color-primary);
-    font-size: 0.95rem;
-    margin-bottom: 4px;
-    font-weight: 700;
-  }
-
-  .stat-card p {
-    color: var(--color-text-secondary);
-    font-size: 0.75rem;
-    margin: 0;
-  }
-
-  .sparkline {
-    height: 32px;
-    border-radius: 10px;
-    background: linear-gradient(180deg, rgba(0, 102, 255, 0.08), rgba(124, 58, 237, 0.05));
-    position: relative;
-    overflow: hidden;
-    margin-top: 6px;
-  }
-
-  .sparkline::after {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background: url('data:image/svg+xml,%3Csvg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 200 80\" preserveAspectRatio=\"none\"%3E%3Cpolyline fill=\"none\" stroke=\"%230066ff\" stroke-width=\"6\" stroke-linecap=\"round\" points=\"0,60 40,50 80,60 120,35 160,45 200,30\"/%3E%3C/svg%3E');
-    background-size: cover;
-    opacity: 0.85;
-  }
-
+  /* Pills gerais */
   .pill {
     display: inline-flex;
     align-items: center;
@@ -533,6 +438,157 @@
     background: rgba(0, 0, 0, 0.04);
     color: var(--color-text-secondary);
     border-color: var(--color-line);
+  }
+
+  .pill.ghost {
+    background: rgba(0, 102, 255, 0.06);
+    color: var(--color-blue-dark);
+    border: 1px solid rgba(0, 102, 255, 0.18);
+  }
+
+  .pill.muted {
+    background: var(--color-line-light);
+    color: var(--color-text-secondary);
+    border: 1px solid var(--color-line);
+  }
+
+  .pill.primary {
+    background: linear-gradient(120deg, #2563eb, #7c3aed);
+    color: #fff;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 0 12px 30px rgba(37, 99, 235, 0.2);
+  }
+
+  .pill.outline {
+    background: rgba(255, 255, 255, 0.06);
+    color: #e5e7eb;
+    border: 1px solid rgba(255, 255, 255, 0.15);
+  }
+
+  /* Phones base */
+  .phone {
+    position: relative;
+    width: 340px;
+    max-width: 340px;
+    border-radius: 26px;
+    padding: 14px;
+    background: #0b1021;
+    box-shadow: 0 30px 80px rgba(5, 10, 30, 0.3);
+    border: 1px solid rgba(0, 0, 0, 0.08);
+  }
+
+  .phone-light {
+    background: #e9edf4;
+    border: 1px solid rgba(0, 0, 0, 0.06);
+    box-shadow: 0 24px 60px rgba(0, 0, 0, 0.18);
+  }
+
+  .phone-dark {
+    background: linear-gradient(180deg, #0e1228 0%, #0b0f23 100%);
+    border-color: rgba(255, 255, 255, 0.06);
+  }
+
+  .phone-pay {
+    background: linear-gradient(180deg, #0c1228 0%, #101a38 100%);
+    border-color: rgba(255, 255, 255, 0.08);
+  }
+
+  .phone-notch {
+    position: absolute;
+    top: 12px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 120px;
+    height: 8px;
+    border-radius: 999px;
+    background: rgba(0, 0, 0, 0.25);
+  }
+
+  .phone-notch.dark {
+    background: rgba(255, 255, 255, 0.1);
+  }
+
+  .phone-body {
+    background: rgba(255, 255, 255, 0.96);
+    border-radius: 22px;
+    padding: 18px;
+    display: grid;
+    gap: 12px;
+    overflow: hidden;
+  }
+
+  .phone-light .phone-body {
+    background: rgba(255, 255, 255, 0.94);
+    border: 1px solid rgba(0, 0, 0, 0.05);
+  }
+
+  .phone-dark .phone-body {
+    background: linear-gradient(180deg, #101632 0%, #0b1022 100%);
+    color: #e5e7eb;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+  }
+
+  .phone-pay .phone-body {
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.02));
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    color: #e5e7eb;
+  }
+
+  .phone-top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+  }
+
+  .phone-stats {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 10px;
+  }
+
+  .phone-stats .stat-card:last-child {
+    grid-column: span 2;
+  }
+
+  .stat-card {
+    background: var(--color-surface);
+    border-radius: 12px;
+    padding: 12px;
+    box-shadow: var(--shadow-sm);
+    border: 1px solid var(--color-line);
+  }
+
+  .stat-card strong {
+    display: block;
+    color: var(--color-primary);
+    font-size: 0.95rem;
+    margin-bottom: 4px;
+    font-weight: 700;
+  }
+
+  .stat-card p {
+    color: var(--color-text-secondary);
+    font-size: 0.75rem;
+    margin: 0;
+  }
+
+  .sparkline {
+    height: 32px;
+    border-radius: 10px;
+    background: linear-gradient(180deg, rgba(0, 102, 255, 0.08), rgba(124, 58, 237, 0.05));
+    position: relative;
+    overflow: hidden;
+    margin-top: 6px;
+  }
+
+  .sparkline::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: url('data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 80" preserveAspectRatio="none"%3E%3Cpolyline fill="none" stroke="%230066ff" stroke-width="6" stroke-linecap="round" points="0,60 40,50 80,60 120,35 160,45 200,30"/%3E%3C/svg%3E');
+    background-size: cover;
+    opacity: 0.85;
   }
 
   .orders-card {
@@ -589,160 +645,119 @@
     font-size: 0.75rem;
   }
 
-  .hero-device {
-    position: relative;
-    z-index: 1;
-    border-radius: var(--radius-lg);
-    padding: 16px;
-    width: 100%;
-    max-width: 420px;
-    background: linear-gradient(135deg, var(--color-primary-dark) 0%, var(--color-primary) 100%);
-    box-shadow: var(--shadow-lg);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    overflow: hidden;
+  /* Phone educação */
+  .education-head h3 {
+    margin: 6px 0;
+    color: #e5e7eb;
   }
 
-  .hero-device::after {
-    content: '';
-    position: absolute;
-    inset: 10% -34% auto auto;
-    width: 72%;
-    height: 40%;
-    background: radial-gradient(circle, rgba(0, 102, 255, 0.15), transparent 60%);
-    filter: blur(20px);
+  .education-head .muted {
+    color: #b5bed1;
   }
 
-  .device-notch {
-    position: absolute;
-    top: 12px;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 110px;
-    height: 8px;
-    border-radius: var(--radius-pill);
-    background: rgba(10, 15, 35, 0.25);
-    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.1);
-  }
-
-  .device-content {
-    border-radius: 18px;
-    background: rgba(255, 255, 255, 0.95);
-    padding: 20px 16px;
+  .edu-actions {
     display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    gap: 12px;
-    min-height: 100%;
-    color: var(--color-primary);
-    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.1);
-    border: 1px solid rgba(255, 255, 255, 0.15);
+    gap: 10px;
+    flex-wrap: wrap;
+    margin: 8px 0;
   }
 
-  .device-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+  .edu-stats {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 8px;
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    border-radius: 14px;
+    padding: 10px;
   }
 
-  .device-label {
-    font-weight: 600;
-    color: var(--color-primary);
-    font-size: 0.9rem;
+  .edu-stats div {
+    display: grid;
+    gap: 4px;
   }
 
-  .device-sub {
+  .edu-stats strong {
+    color: #fff;
+  }
+
+  .edu-stats span {
+    color: #b5bed1;
     font-size: 0.8rem;
-    color: var(--color-text-secondary);
-    margin: 2px 0 0 0;
   }
 
-  .status-pill {
-    font-size: 0.7rem;
-    padding: 5px 12px;
-    border-radius: var(--radius-pill);
-    background: var(--color-green-light);
-    color: var(--color-green);
-    font-weight: 600;
-    border: 1px solid var(--color-green);
-  }
-
-  .device-card {
-    border-radius: 16px;
-    background: var(--color-line-light);
-    padding: 14px;
+  .edu-grid {
     display: grid;
     grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: 10px;
-    border: 1px solid var(--color-line);
   }
 
-  .device-card strong {
-    font-size: 0.95rem;
-    color: var(--color-primary);
-    display: block;
-    font-weight: 700;
-  }
-
-  .device-card span {
-    font-size: 0.8rem;
-    color: var(--color-text-secondary);
-  }
-
-  .muted {
-    color: var(--color-text-secondary);
-    font-size: 0.78rem;
-  }
-
-  .device-form {
+  .edu-card {
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    border-radius: 12px;
+    padding: 10px;
+    color: #e5e7eb;
     display: grid;
-    gap: 16px;
+    gap: 4px;
   }
 
-  .fake-field {
-    display: flex;
-    flex-direction: column;
-    gap: 6px;
-    font-size: 0.85rem;
-    color: rgba(233, 241, 255, 0.86);
+  .edu-card span {
+    color: #9ca3af;
+    font-size: 0.8rem;
+  }
+:global(.hero) {
+    isolation: isolate;
   }
 
-  .input {
-    border-radius: 16px;
-    padding: 10px 14px;
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    background: rgba(10, 14, 36, 0.6);
-    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.05);
+  :global(.hero)::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 50%;
+    background: url('/images/fartecvetorizada.png') 82% center no-repeat;
+    background-size: 110%;
+    opacity: 0.14;
+    pointer-events: none;
+    mix-blend-mode: normal;
+    z-index: 0;
+    animation: watermarkFloat 14s ease-in-out infinite alternate;
   }
 
-  .fake-input {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    font-weight: 600;
-    color: #f7fbff;
+  @keyframes watermarkFloat {
+    0% {
+      transform: translate3d(12px, -12px, 0) scale(1.04) rotate(-1.5deg);
+      opacity: 0.14;
+    }
+    50% {
+      transform: translate3d(-8px, 10px, 0) scale(1.08) rotate(1.2deg);
+      opacity: 0.18;
+    }
+    100% {
+      transform: translate3d(10px, 14px, 0) scale(1.1) rotate(2deg);
+      opacity: 0.14;
+    }
   }
 
-  .split {
-    max-width: 110px;
-  }
+  @media (max-width: 640px) {
+    .hero-visual-stack {
+      display: grid;
+      grid-template-columns: 1fr;
+      max-width: 380px;
+    }
 
-  .device-btn {
-    width: 100%;
-    border-radius: 16px;
-    justify-content: center;
-    font-size: 0.95rem;
-    background: linear-gradient(120deg, #0f8bff, #7c4dff);
-    border: none;
-    box-shadow: 0 16px 45px rgba(0, 102, 255, 0.35);
-  }
+    .mini-app-card {
+      max-width: 100%;
+      transform: none;
+    }
 
-  .device-icons {
-    display: flex;
-    justify-content: space-between;
-    font-size: 0.75rem;
-    color: rgba(233, 241, 255, 0.68);
-    text-transform: uppercase;
-    letter-spacing: 0.08em;
+    :global(.hero)::before {
+      left: 30%;
+      background-size: 140%;
+      opacity: 0.16;
+    }
   }
 
   /* ==================== PAGE-WIDE STRIPE EFFECTS ==================== */
