@@ -14,8 +14,7 @@
 <header class={`site-header ${transparent ? 'is-transparent' : ''}`}>
   <div class="container header-inner">
     <a class="logo" href="/">
-      <span>Fartech</span>
-      <small>Startup de Inteligência</small>
+      <img src="/images/logo3.png" alt="Fartech Logo" />
     </a>
 
     <nav>
@@ -81,13 +80,17 @@
   }
 
   .logo {
-    font-family: var(--font-display);
     display: flex;
-    flex-direction: column;
-    font-weight: 800;
-    letter-spacing: -0.02em;
-    font-size: 1.15rem;
-    color: var(--color-text-primary);
+    align-items: center;
+    justify-content: center;
+    height: 50px;
+    flex-shrink: 0;
+  }
+
+  .logo img {
+    height: 100%;
+    width: auto;
+    object-fit: contain;
   }
 
   .logo span {

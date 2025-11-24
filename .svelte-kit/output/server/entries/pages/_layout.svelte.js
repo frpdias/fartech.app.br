@@ -12,7 +12,7 @@ function Header($$renderer, $$props) {
     { label: "Clientes", href: "/clientes" },
     { label: "Contato", href: "/contato" }
   ];
-  $$renderer.push(`<header${attr_class(`site-header ${transparent ? "is-transparent" : ""}`, "svelte-1elxaub")}><div class="container header-inner svelte-1elxaub"><a class="logo svelte-1elxaub" href="/"><span class="svelte-1elxaub">Fartech</span> <small class="svelte-1elxaub">Startup de Inteligência</small></a> <nav class="svelte-1elxaub"><!--[-->`);
+  $$renderer.push(`<header${attr_class(`site-header ${transparent ? "is-transparent" : ""}`, "svelte-1elxaub")}><div class="container header-inner svelte-1elxaub"><a class="logo svelte-1elxaub" href="/"><img src="/images/logo3.png" alt="Fartech Logo" class="svelte-1elxaub"/></a> <nav class="svelte-1elxaub"><!--[-->`);
   const each_array = ensure_array_like(links);
   for (let $$index = 0, $$length = each_array.length; $$index < $$length; $$index++) {
     let link = each_array[$$index];
