@@ -13,11 +13,9 @@
 
 <header class={`site-header ${transparent ? 'is-transparent' : ''}`}>
   <div class="container header-inner">
-    <a class="logo" href="/">
-      <img src="/images/logo3.png" alt="Fartech Logo" />
-    </a>
-
-    <nav>
+	<a class="logo" href="/">
+		<img src="/images/logo.png" alt="Fartech Logo" />
+	</a>    <nav>
       {#each links as link}
         <a href={link.href}>{link.label}</a>
       {/each}
