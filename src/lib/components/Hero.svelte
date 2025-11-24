@@ -17,23 +17,25 @@
   <BubbleBackground />
   <div class="container hero-grid">
     <div class="hero-content">
-      <p class="eyebrow">{eyebrow}</p>
-      <h1>{title}</h1>
-      <p>{subtitle}</p>
-      <div class="hero-actions">
-        <a class="btn btn-primary" href={primaryHref}>{primaryLabel}</a>
-        <a class="btn btn-secondary" href={secondaryHref}>{secondaryLabel}</a>
-      </div>
-      {#if meta.length}
-        <div class="hero-meta">
-          {#each meta as item}
-            <article>
-              <strong>{item.value}</strong>
-              <span>{item.label}</span>
-            </article>
-          {/each}
+      <div class="hero-text-wrapper">
+        <p class="eyebrow">{eyebrow}</p>
+        <h1>{title}</h1>
+        <p>{subtitle}</p>
+        <div class="hero-actions">
+          <a class="btn btn-primary" href={primaryHref}>{primaryLabel}</a>
+          <a class="btn btn-secondary" href={secondaryHref}>{secondaryLabel}</a>
         </div>
-      {/if}
+        {#if meta.length}
+          <div class="hero-meta">
+            {#each meta as item}
+              <article>
+                <strong>{item.value}</strong>
+                <span>{item.label}</span>
+              </article>
+            {/each}
+          </div>
+        {/if}
+      </div>
     </div>
 
     {#if hasVisual}
@@ -56,7 +58,12 @@
 
   .hero-content {
     max-width: 100%;
-    padding-right: clamp(20px, 3vw, 40px);
+    width: 100%;
+  }
+
+  .hero-text-wrapper {
+    width: 100%;
+    max-width: 700px;
   }
 
   .hero-visual {

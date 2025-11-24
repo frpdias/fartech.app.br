@@ -38,7 +38,7 @@ function Hero($$renderer, $$props) {
     const hasVisual = Boolean($$slots.visual);
     $$renderer2.push(`<section class="hero">`);
     BubbleBackground($$renderer2);
-    $$renderer2.push(`<!----> <div class="container hero-grid svelte-1q37ri0"><div class="hero-content svelte-1q37ri0"><p class="eyebrow">${escape_html(eyebrow)}</p> <h1>${escape_html(title)}</h1> <p>${escape_html(subtitle)}</p> <div class="hero-actions"><a class="btn btn-primary"${attr("href", primaryHref)}>${escape_html(primaryLabel)}</a> <a class="btn btn-secondary"${attr("href", secondaryHref)}>${escape_html(secondaryLabel)}</a></div> `);
+    $$renderer2.push(`<!----> <div class="container hero-grid svelte-1q37ri0"><div class="hero-content svelte-1q37ri0"><div class="hero-text-wrapper svelte-1q37ri0"><p class="eyebrow">${escape_html(eyebrow)}</p> <h1>${escape_html(title)}</h1> <p>${escape_html(subtitle)}</p> <div class="hero-actions"><a class="btn btn-primary"${attr("href", primaryHref)}>${escape_html(primaryLabel)}</a> <a class="btn btn-secondary"${attr("href", secondaryHref)}>${escape_html(secondaryLabel)}</a></div> `);
     if (meta.length) {
       $$renderer2.push("<!--[-->");
       $$renderer2.push(`<div class="hero-meta svelte-1q37ri0"><!--[-->`);
@@ -51,7 +51,7 @@ function Hero($$renderer, $$props) {
     } else {
       $$renderer2.push("<!--[!-->");
     }
-    $$renderer2.push(`<!--]--></div> `);
+    $$renderer2.push(`<!--]--></div></div> `);
     if (hasVisual) {
       $$renderer2.push("<!--[-->");
       $$renderer2.push(`<div class="hero-visual svelte-1q37ri0"><!--[-->`);
