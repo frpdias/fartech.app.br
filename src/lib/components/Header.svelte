@@ -81,7 +81,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    height: 70px;
+    height: 100px;
     flex-shrink: 0;
   }
 
