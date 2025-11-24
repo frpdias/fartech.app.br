@@ -296,30 +296,36 @@
     position: relative;
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: clamp(20px, 4vw, 40px);
+    gap: clamp(24px, 3vw, 36px);
     align-items: center;
+    justify-items: center;
     width: 100%;
+    max-width: 900px;
+    margin: 0 auto;
   }
 
   @media (max-width: 1024px) {
     .hero-visual-stack {
       grid-template-columns: 1fr;
+      max-width: 450px;
     }
 
     .dashboard-card,
     .hero-device {
       max-width: 100%;
+      width: 100%;
     }
   }
 
   .dashboard-card {
     flex: 1;
-    max-width: 100%;
+    width: 100%;
+    max-width: 420px;
     background: var(--color-surface);
     border-radius: var(--radius-lg);
-    padding: 24px;
+    padding: 20px;
     box-shadow: var(--shadow-lg);
-    transform: translateY(8px) rotate(-1deg);
+    transform: translateY(6px) rotate(-1deg);
     border: 1px solid var(--color-line);
     backdrop-filter: blur(12px);
     position: relative;
@@ -340,60 +346,65 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-bottom: 14px;
+    margin-bottom: 12px;
     position: relative;
     z-index: 1;
+    gap: 12px;
   }
 
   .logo-stack {
     display: flex;
     flex-direction: column;
-    gap: 4px;
+    gap: 2px;
+    flex: 1;
   }
 
   .logo-stack small {
-    color: #7782a3;
+    color: var(--color-text-secondary);
     letter-spacing: 0.08em;
-    font-weight: 600;
+    font-weight: 500;
+    font-size: 0.75rem;
   }
 
   .logo-pill {
-    font-size: 0.7rem;
+    font-size: 0.68rem;
     letter-spacing: 0.24em;
     color: var(--color-primary);
-    padding: 6px 12px;
+    padding: 5px 10px;
     border-radius: var(--radius-pill);
     background: var(--color-blue-light);
     border: 1px solid var(--color-blue);
-    box-shadow: 0 8px 16px rgba(0, 102, 255, 0.15);
+    box-shadow: 0 6px 12px rgba(0, 102, 255, 0.12);
+    white-space: nowrap;
   }
 
   .search-pill {
-    background: rgba(12, 19, 43, 0.04);
-    border-radius: 999px;
-    padding: 6px 14px;
-    font-size: 0.78rem;
-    color: #5e667a;
-    border: 1px solid rgba(12, 19, 43, 0.08);
+    background: var(--color-line-light);
+    border-radius: var(--radius-pill);
+    padding: 5px 12px;
+    font-size: 0.75rem;
+    color: var(--color-text-secondary);
+    border: 1px solid var(--color-line);
+    white-space: nowrap;
   }
 
   .dashboard-body {
     display: grid;
-    gap: 16px;
+    gap: 12px;
     position: relative;
     z-index: 1;
   }
 
   .stat-grid {
     display: grid;
-    gap: 12px;
+    gap: 10px;
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
   .stat-card {
     background: var(--color-surface);
-    border-radius: 16px;
-    padding: 16px;
+    border-radius: 12px;
+    padding: 12px;
     box-shadow: var(--shadow-sm);
     border: 1px solid var(--color-line);
   }
@@ -401,24 +412,24 @@
   .stat-card strong {
     display: block;
     color: var(--color-primary);
-    font-size: 1.15rem;
-    margin-bottom: 8px;
+    font-size: 0.95rem;
+    margin-bottom: 4px;
     font-weight: 700;
   }
 
   .stat-card p {
     color: var(--color-text-secondary);
-    font-size: 0.85rem;
+    font-size: 0.75rem;
     margin: 0;
   }
 
   .sparkline {
-    height: 40px;
-    border-radius: 12px;
+    height: 32px;
+    border-radius: 10px;
     background: linear-gradient(180deg, rgba(0, 102, 255, 0.08), rgba(124, 58, 237, 0.05));
     position: relative;
     overflow: hidden;
-    margin-top: 8px;
+    margin-top: 6px;
   }
 
   .sparkline::after {
@@ -475,12 +486,12 @@
 
   .orders-card {
     background: var(--color-surface);
-    border-radius: 18px;
+    border-radius: 14px;
     border: 1px solid var(--color-line);
     box-shadow: var(--shadow-sm);
-    padding: 18px;
+    padding: 12px;
     display: grid;
-    gap: 14px;
+    gap: 10px;
   }
 
   .orders-header {
@@ -493,24 +504,25 @@
 
   .orders-header p {
     color: var(--color-text-secondary);
-    font-size: 0.85rem;
+    font-size: 0.8rem;
     margin: 0;
     font-weight: 500;
   }
 
   .orders-list {
     display: grid;
-    gap: 10px;
+    gap: 8px;
   }
 
   .order {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 12px;
-    border-radius: 12px;
+    padding: 10px;
+    border-radius: 10px;
     background: var(--color-line-light);
     border: 1px solid var(--color-line);
+    font-size: 0.8rem;
   }
 
   .order strong {
@@ -518,22 +530,23 @@
     color: var(--color-primary);
     font-weight: 700;
     margin-bottom: 2px;
+    font-size: 0.9rem;
   }
 
   .order .muted {
     color: var(--color-text-secondary);
-    font-size: 0.8rem;
+    font-size: 0.75rem;
   }
 
   .hero-device {
     position: relative;
     z-index: 1;
     border-radius: var(--radius-lg);
-    padding: 20px;
+    padding: 16px;
     width: 100%;
-    max-width: 100%;
+    max-width: 420px;
     background: linear-gradient(135deg, var(--color-primary-dark) 0%, var(--color-primary) 100%);
-    box-shadow: var(--shadow-xl);
+    box-shadow: var(--shadow-lg);
     border: 1px solid rgba(255, 255, 255, 0.1);
     overflow: hidden;
   }
@@ -550,24 +563,24 @@
 
   .device-notch {
     position: absolute;
-    top: 14px;
+    top: 12px;
     left: 50%;
     transform: translateX(-50%);
-    width: 128px;
-    height: 9px;
-    border-radius: 999px;
+    width: 110px;
+    height: 8px;
+    border-radius: var(--radius-pill);
     background: rgba(10, 15, 35, 0.25);
     box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.1);
   }
 
   .device-content {
-    border-radius: 20px;
+    border-radius: 18px;
     background: rgba(255, 255, 255, 0.95);
-    padding: 28px 20px;
+    padding: 20px 16px;
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
-    gap: 18px;
+    gap: 12px;
     min-height: 100%;
     color: var(--color-primary);
     box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.1);
@@ -583,18 +596,18 @@
   .device-label {
     font-weight: 600;
     color: var(--color-primary);
-    font-size: 0.95rem;
+    font-size: 0.9rem;
   }
 
   .device-sub {
-    font-size: 0.85rem;
+    font-size: 0.8rem;
     color: var(--color-text-secondary);
     margin: 2px 0 0 0;
   }
 
   .status-pill {
-    font-size: 0.75rem;
-    padding: 6px 14px;
+    font-size: 0.7rem;
+    padding: 5px 12px;
     border-radius: var(--radius-pill);
     background: var(--color-green-light);
     color: var(--color-green);
@@ -603,30 +616,30 @@
   }
 
   .device-card {
-    border-radius: 18px;
+    border-radius: 16px;
     background: var(--color-line-light);
-    padding: 18px;
+    padding: 14px;
     display: grid;
     grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 12px;
+    gap: 10px;
     border: 1px solid var(--color-line);
   }
 
   .device-card strong {
-    font-size: 1.05rem;
+    font-size: 0.95rem;
     color: var(--color-primary);
     display: block;
     font-weight: 700;
   }
 
   .device-card span {
-    font-size: 0.85rem;
+    font-size: 0.8rem;
     color: var(--color-text-secondary);
   }
 
   .muted {
     color: var(--color-text-secondary);
-    font-size: 0.82rem;
+    font-size: 0.78rem;
   }
 
   .device-form {
