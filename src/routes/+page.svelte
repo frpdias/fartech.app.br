@@ -295,10 +295,10 @@
   .hero-visual-stack {
     position: relative;
     display: flex;
-    align-items: stretch;
-    gap: clamp(18px, 3vw, 36px);
-    justify-content: space-between;
-    flex-wrap: nowrap;
+    align-items: center;
+    gap: clamp(12px, 2vw, 20px);
+    justify-content: center;
+    flex-wrap: wrap;
   }
 
   @media (max-width: 1024px) {
@@ -318,10 +318,8 @@
   }
 
   .dashboard-card {
-    flex: 0 0 420px;
+    flex: 0 1 auto;
     max-width: 430px;
-    min-height: 912px;
-    aspect-ratio: 430 / 932;
     background: linear-gradient(140deg, rgba(255, 255, 255, 0.96), rgba(236, 244, 255, 0.94));
     border-radius: 28px;
     padding: 18px;
@@ -435,10 +433,6 @@
     opacity: 0.9;
   }
 
-  .sparkline.small {
-    height: 34px;
-  }
-
   .pill {
     display: inline-flex;
     align-items: center;
@@ -517,9 +511,7 @@
     z-index: 1;
     border-radius: 36px;
     padding: 16px;
-    width: min(430px, 80vw);
-    min-height: 912px;
-    aspect-ratio: 430 / 932;
+    width: min(380px, 80vw);
     background: radial-gradient(120% 120% at 20% 10%, rgba(30, 60, 120, 0.55), transparent),
       radial-gradient(100% 120% at 80% 0%, rgba(120, 70, 255, 0.35), transparent),
       linear-gradient(160deg, #0a122b 0%, #0b1024 60%, #0b0f24 100%);

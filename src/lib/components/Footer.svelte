@@ -9,9 +9,9 @@
       <div>
         <h4 class="footer-title">Contato</h4>
         <ul class="list-reset">
-          <li><a href="#">Endereço: Av. Industrial, 1000 • São Paulo - SP</a></li>
-          <li><a href="#">WhatsApp: (11) 99999-0000</a></li>
-          <li><a href="#">Email: contato@fartech.com.br</a></li>
+          <li><span>Endereço: Av. Industrial, 1000 • São Paulo - SP</span></li>
+          <li><span>WhatsApp: (11) 99999-0000</span></li>
+          <li><span>Email: contato@fartech.com.br</span></li>
         </ul>
       </div>
       <div>
@@ -67,11 +67,13 @@
     margin-bottom: 12px;
   }
 
-  .list-reset a {
+  .list-reset a,
+  .list-reset span {
     color: rgba(230, 237, 243, 0.88);
     text-decoration: none;
     font-size: 0.93rem;
     transition: var(--transition);
+    display: inline;
   }
 
   .list-reset a:hover {
