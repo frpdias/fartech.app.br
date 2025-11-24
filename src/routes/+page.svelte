@@ -294,32 +294,29 @@
 <style>
   .hero-visual-stack {
     position: relative;
-    display: flex;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: clamp(20px, 4vw, 40px);
     align-items: center;
-    gap: clamp(12px, 2vw, 20px);
-    justify-content: center;
-    flex-wrap: wrap;
+    width: 100%;
+    max-width: 900px;
   }
 
   @media (max-width: 1024px) {
     .hero-visual-stack {
-      flex-wrap: wrap;
-      justify-content: flex-start;
+      grid-template-columns: 1fr;
+      max-width: 500px;
     }
 
     .dashboard-card,
     .hero-device {
-      flex: 1 1 100%;
       max-width: 100%;
-      min-height: auto;
-      aspect-ratio: unset;
-      transform: none;
     }
   }
 
   .dashboard-card {
-    flex: 0 1 auto;
-    max-width: 430px;
+    flex: 1;
+    max-width: 100%;
     background: linear-gradient(140deg, rgba(255, 255, 255, 0.96), rgba(236, 244, 255, 0.94));
     border-radius: 28px;
     padding: 18px;
@@ -511,7 +508,8 @@
     z-index: 1;
     border-radius: 36px;
     padding: 16px;
-    width: min(380px, 80vw);
+    width: 100%;
+    max-width: 100%;
     background: radial-gradient(120% 120% at 20% 10%, rgba(30, 60, 120, 0.55), transparent),
       radial-gradient(100% 120% at 80% 0%, rgba(120, 70, 255, 0.35), transparent),
       linear-gradient(160deg, #0a122b 0%, #0b1024 60%, #0b0f24 100%);
@@ -545,11 +543,11 @@
   .device-content {
     border-radius: 34px;
     background: linear-gradient(170deg, rgba(9, 14, 36, 0.9), rgba(14, 28, 58, 0.92));
-    padding: 34px 24px 38px;
+    padding: 28px 20px;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
-    gap: 22px;
+    justify-content: flex-start;
+    gap: 18px;
     min-height: 100%;
     color: #e9f1ff;
     box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.1);
