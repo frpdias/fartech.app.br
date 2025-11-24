@@ -203,31 +203,31 @@ function _page($$renderer) {
       }
     }
   });
-  $$renderer.push(`<!----> <section class="section"><div class="container"><p class="eyebrow">Por que Fartech</p> <h2 class="section-title">Produto, dados e confiabilidade em uma única stack.</h2> <p class="section-subtitle">Desenhamos jornadas digitais de alto impacto com times ágeis, observabilidade total e entregas mensuráveis.</p> <div class="diferenciais-grid"><!--[-->`);
+  $$renderer.push(`<!----> <section class="section svelte-1uha8ag"><div class="container svelte-1uha8ag"><p class="eyebrow">Por que Fartech</p> <h2 class="section-title">Produto, dados e confiabilidade em uma única stack.</h2> <p class="section-subtitle">Desenhamos jornadas digitais de alto impacto com times ágeis, observabilidade total e entregas mensuráveis.</p> <div class="diferenciais-grid"><!--[-->`);
   const each_array = ensure_array_like(diferenciais);
   for (let $$index = 0, $$length = each_array.length; $$index < $$length; $$index++) {
     let item = each_array[$$index];
     CardServico($$renderer, spread_props([item]));
   }
-  $$renderer.push(`<!--]--></div></div></section> <section class="section" id="servicos"><div class="container"><p class="eyebrow">Serviços</p> <div class="section-title">Portfólio modular pronto para plug-and-play.</div> <div class="services-grid"><!--[-->`);
+  $$renderer.push(`<!--]--></div></div></section> <section class="section svelte-1uha8ag" id="servicos"><div class="container svelte-1uha8ag"><p class="eyebrow">Serviços</p> <div class="section-title">Portfólio modular pronto para plug-and-play.</div> <div class="services-grid"><!--[-->`);
   const each_array_1 = ensure_array_like(services);
   for (let $$index_1 = 0, $$length = each_array_1.length; $$index_1 < $$length; $$index_1++) {
     let service = each_array_1[$$index_1];
     CardServico($$renderer, spread_props([service]));
   }
-  $$renderer.push(`<!--]--></div> <div style="margin-top:40px"><a class="btn btn-secondary" href="/servicos">Ver todos os serviços</a></div></div></section> <section class="section" id="cases"><div class="container"><p class="eyebrow">Cases</p> <h2 class="section-title">Resultados escaláveis monitorados em tempo real.</h2> <div class="cases-grid"><!--[-->`);
+  $$renderer.push(`<!--]--></div> <div style="margin-top:40px"><a class="btn btn-secondary" href="/servicos">Ver todos os serviços</a></div></div></section> <section class="section svelte-1uha8ag" id="cases"><div class="container svelte-1uha8ag"><p class="eyebrow">Cases</p> <h2 class="section-title">Resultados escaláveis monitorados em tempo real.</h2> <div class="cases-grid"><!--[-->`);
   const each_array_2 = ensure_array_like(cases);
   for (let $$index_2 = 0, $$length = each_array_2.length; $$index_2 < $$length; $$index_2++) {
     let caseItem = each_array_2[$$index_2];
     CaseCard($$renderer, spread_props([caseItem]));
   }
-  $$renderer.push(`<!--]--></div></div></section> <section class="section" id="depoimentos"><div class="container"><p class="eyebrow">Depoimentos</p> <h2 class="section-title">Clientes que colocaram o core industrial na nuvem.</h2> <div class="depoimentos-grid"><!--[-->`);
+  $$renderer.push(`<!--]--></div></div></section> <section class="section svelte-1uha8ag" id="depoimentos"><div class="container svelte-1uha8ag"><p class="eyebrow">Depoimentos</p> <h2 class="section-title">Clientes que colocaram o core industrial na nuvem.</h2> <div class="depoimentos-grid"><!--[-->`);
   const each_array_3 = ensure_array_like(depoimentos);
   for (let $$index_3 = 0, $$length = each_array_3.length; $$index_3 < $$length; $$index_3++) {
     let depo = each_array_3[$$index_3];
     Depoimento($$renderer, spread_props([depo]));
   }
-  $$renderer.push(`<!--]--></div></div></section> <section class="section"><div class="container card" style="text-align:center;"><p class="eyebrow">Next Step</p> <h2 class="section-title">Destrave a versão cloud da sua operação.</h2> <p class="section-subtitle">Faça um discovery com nossos product engineers e receba um blueprint com integrações, KPIs e roadmap em até 7 dias.</p> <a class="btn btn-primary" href="/contato">Quero meu blueprint</a></div></section>`);
+  $$renderer.push(`<!--]--></div></div></section> <section class="section svelte-1uha8ag"><div class="container card svelte-1uha8ag" style="text-align:center;"><p class="eyebrow">Next Step</p> <h2 class="section-title">Destrave a versão cloud da sua operação.</h2> <p class="section-subtitle">Faça um discovery com nossos product engineers e receba um blueprint com integrações, KPIs e roadmap em até 7 dias.</p> <a class="btn btn-primary" href="/contato">Quero meu blueprint</a></div></section>`);
 }
 export {
   _page as default

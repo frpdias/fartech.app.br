@@ -693,4 +693,334 @@
     text-transform: uppercase;
     letter-spacing: 0.08em;
   }
+
+  /* ==================== PAGE-WIDE STRIPE EFFECTS ==================== */
+
+  :global(section) {
+    position: relative;
+    z-index: 1;
+  }
+
+  /* Apply fade-in to all sections */
+  :global(section):nth-of-type(1) {
+    animation: slideUp 0.8s ease-out 0.1s backwards;
+  }
+
+  :global(section):nth-of-type(2) {
+    animation: slideUp 0.8s ease-out 0.2s backwards;
+  }
+
+  :global(section):nth-of-type(3) {
+    animation: slideUp 0.8s ease-out 0.3s backwards;
+  }
+
+  :global(section):nth-of-type(4) {
+    animation: slideUp 0.8s ease-out 0.4s backwards;
+  }
+
+  :global(section):nth-of-type(5) {
+    animation: slideUp 0.8s ease-out 0.5s backwards;
+  }
+
+  /* Enhanced eyebrow with gradient */
+  :global(.eyebrow) {
+    position: relative;
+    color: var(--color-blue);
+    letter-spacing: 0.2em;
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    animation: slideUp 0.6s ease-out forwards;
+  }
+
+  :global(.eyebrow)::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -8px;
+    width: 60px;
+    height: 3px;
+    background: var(--gradient-primary);
+    border-radius: 999px;
+    opacity: 0;
+    animation: slideUp 0.6s ease-out 0.1s forwards;
+  }
+
+  /* Section titles with enhanced gradient animation */
+  :global(.section-title) {
+    animation: slideUp 0.8s ease-out forwards;
+  }
+
+  /* Section subtitles with fade-in */
+  :global(.section-subtitle) {
+    animation: slideUp 0.8s ease-out 0.1s backwards;
+    color: var(--color-text-secondary);
+  }
+
+  /* Card components with Stripe effects */
+  :global(.card) {
+    position: relative;
+    animation: slideUp 0.6s ease-out forwards;
+  }
+
+  /* Diagonal gradient overlay on hover for all cards */
+  :global(.card)::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border-radius: var(--radius-card);
+    background: linear-gradient(135deg, transparent, rgba(0, 102, 255, 0.05));
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 300ms ease-out;
+  }
+
+  :global(.card:hover)::before {
+    opacity: 1;
+  }
+
+  /* Grid items with stagger effect */
+  .hero-visual-stack > div:nth-child(1) {
+    animation: slideUp 0.8s ease-out 0.2s backwards;
+  }
+
+  .hero-visual-stack > div:nth-child(2) {
+    animation: slideUp 0.8s ease-out 0.4s backwards;
+  }
+
+  /* Dashboard card special effects */
+  .dashboard-card {
+    animation: slideUp 0.8s ease-out 0.2s backwards;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .dashboard-card::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.05), transparent);
+    pointer-events: none;
+    border-radius: var(--radius-card);
+  }
+
+  /* Device card animation */
+  .hero-device {
+    animation: slideUp 0.8s ease-out 0.4s backwards;
+    position: relative;
+  }
+
+  /* Stat cards with delayed animation */
+  .stat-card {
+    animation: slideUp 0.6s ease-out forwards;
+  }
+
+  .stat-card:nth-child(1) {
+    animation-delay: 0.3s;
+  }
+
+  .stat-card:nth-child(2) {
+    animation-delay: 0.4s;
+  }
+
+  .stat-card:nth-child(3) {
+    animation-delay: 0.5s;
+  }
+
+  /* Orders card with animation */
+  .orders-card {
+    animation: slideUp 0.6s ease-out 0.5s backwards;
+  }
+
+  /* Button animations */
+  :global(.btn) {
+    position: relative;
+    overflow: hidden;
+    transition: var(--transition-smooth);
+  }
+
+  :global(.btn)::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(circle at var(--mouse-x, 50%) var(--mouse-y, 50%), rgba(255, 255, 255, 0.3), transparent 80%);
+    opacity: 0;
+    transition: opacity 300ms ease-out;
+  }
+
+  :global(.btn:hover)::before {
+    opacity: 1;
+  }
+
+  /* Primary button enhanced */
+  :global(.btn-primary) {
+    position: relative;
+    overflow: hidden;
+  }
+
+  :global(.btn-primary)::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+    opacity: 0;
+    animation: shimmerSlide 2s infinite;
+  }
+
+  :global(.btn-primary:hover)::after {
+    animation: shimmerSlide 1.5s infinite;
+  }
+
+  /* Secondary button with border animation */
+  :global(.btn-secondary) {
+    position: relative;
+  }
+
+  :global(.btn-secondary)::before {
+    content: '';
+    position: absolute;
+    inset: -2px;
+    border-radius: 8px;
+    background: transparent;
+    border: 2px solid var(--color-blue);
+    opacity: 0;
+    transition: opacity 300ms ease-out;
+    pointer-events: none;
+  }
+
+  :global(.btn-secondary:hover)::before {
+    opacity: 0;
+  }
+
+  /* Link animations */
+  :global(a:not(.btn)) {
+    position: relative;
+  }
+
+  :global(a:not(.btn))::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: var(--gradient-primary);
+    transition: width 400ms cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  :global(a:not(.btn):hover) {
+    color: var(--color-blue);
+  }
+
+  :global(a:not(.btn):hover)::after {
+    width: 100%;
+  }
+
+  /* Hover effects for service grid */
+  :global(.services-grid > *),
+  :global(.cases-grid > *),
+  :global(.diferenciais-grid > *),
+  :global(.depoimentos-grid > *) {
+    animation: slideUp 0.6s ease-out forwards;
+    transition: var(--transition-smooth);
+  }
+
+  :global(.services-grid > *:nth-child(1)) {
+    animation-delay: 0.1s;
+  }
+
+  :global(.services-grid > *:nth-child(2)) {
+    animation-delay: 0.2s;
+  }
+
+  :global(.services-grid > *:nth-child(3)) {
+    animation-delay: 0.3s;
+  }
+
+  :global(.services-grid > *:nth-child(4)) {
+    animation-delay: 0.4s;
+  }
+
+  :global(.services-grid > *:nth-child(5)) {
+    animation-delay: 0.5s;
+  }
+
+  :global(.services-grid > *:nth-child(6)) {
+    animation-delay: 0.6s;
+  }
+
+  /* Cases grid animation */
+  :global(.cases-grid > *:nth-child(1)) {
+    animation-delay: 0.1s;
+  }
+
+  :global(.cases-grid > *:nth-child(2)) {
+    animation-delay: 0.2s;
+  }
+
+  :global(.cases-grid > *:nth-child(3)) {
+    animation-delay: 0.3s;
+  }
+
+  /* Depoimentos grid animation */
+  :global(.depoimentos-grid > *:nth-child(1)) {
+    animation-delay: 0.1s;
+  }
+
+  :global(.depoimentos-grid > *:nth-child(2)) {
+    animation-delay: 0.2s;
+  }
+
+  :global(.depoimentos-grid > *:nth-child(3)) {
+    animation-delay: 0.3s;
+  }
+
+  /* Diferenciais grid animation */
+  :global(.diferenciais-grid > *:nth-child(1)) {
+    animation-delay: 0.1s;
+  }
+
+  :global(.diferenciais-grid > *:nth-child(2)) {
+    animation-delay: 0.2s;
+  }
+
+  :global(.diferenciais-grid > *:nth-child(3)) {
+    animation-delay: 0.3s;
+  }
+
+  :global(.diferenciais-grid > *:nth-child(4)) {
+    animation-delay: 0.4s;
+  }
+
+  /* Special CTA card enhancement */
+  .section > .container > :global(.card) {
+    background: linear-gradient(135deg, var(--color-surface), rgba(0, 102, 255, 0.02));
+    border: 1px solid var(--color-line);
+    backdrop-filter: blur(10px);
+  }
+
+  .section > .container > :global(.card):hover {
+    background: linear-gradient(135deg, var(--color-surface), rgba(0, 102, 255, 0.05));
+    border-color: var(--color-blue);
+  }
+
+  @media (max-width: 768px) {
+    :global(section) {
+      animation: none !important;
+    }
+
+    :global(.eyebrow)::before {
+      animation: none !important;
+      opacity: 1;
+    }
+
+    .hero-visual-stack > div {
+      animation: none !important;
+      opacity: 1;
+    }
+  }
+
 </style>
