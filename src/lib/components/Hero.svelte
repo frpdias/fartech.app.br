@@ -56,6 +56,7 @@
 
   .hero-content {
     max-width: 100%;
+    padding-right: clamp(20px, 3vw, 40px);
   }
 
   .hero-visual {
