@@ -35,6 +35,7 @@ function Hero($$renderer, $$props) {
     let secondaryHref = $$props["secondaryHref"];
     let secondaryLabel = $$props["secondaryLabel"];
     let meta = fallback($$props["meta"], () => [], true);
+    let showEnemUltra = fallback($$props["showEnemUltra"], false);
     const hasVisual = Boolean($$slots.visual);
     $$renderer2.push(`<section class="hero">`);
     BubbleBackground($$renderer2);
@@ -46,6 +47,13 @@ function Hero($$renderer, $$props) {
       for (let $$index = 0, $$length = each_array.length; $$index < $$length; $$index++) {
         let item = each_array[$$index];
         $$renderer2.push(`<article class="svelte-1q37ri0"><strong class="svelte-1q37ri0">${escape_html(item.value)}</strong> <span class="svelte-1q37ri0">${escape_html(item.label)}</span></article>`);
+      }
+      $$renderer2.push(`<!--]--> `);
+      if (showEnemUltra) {
+        $$renderer2.push("<!--[-->");
+        $$renderer2.push(`<article class="enem-card svelte-1q37ri0"><img src="/images/enem-ultra.png" alt="ENEM ULTRA" class="enem-preview svelte-1q37ri0"/></article>`);
+      } else {
+        $$renderer2.push("<!--[!-->");
       }
       $$renderer2.push(`<!--]--></div>`);
     } else {
@@ -69,7 +77,8 @@ function Hero($$renderer, $$props) {
       primaryLabel,
       secondaryHref,
       secondaryLabel,
-      meta
+      meta,
+      showEnemUltra
     });
   });
 }
@@ -259,6 +268,7 @@ function _page($$renderer) {
     primaryLabel: "Solicitar Orçamento",
     secondaryHref: "/servicos",
     secondaryLabel: "Conhecer serviços",
+    showEnemUltra: true,
     meta: [
       { label: "Empresas conectadas", value: "350+" },
       { label: "Go-live médio", value: "14 dias" },

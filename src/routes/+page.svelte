@@ -108,6 +108,7 @@
   primaryLabel="Solicitar Orçamento"
   secondaryHref="/servicos"
   secondaryLabel="Conhecer serviços"
+  showEnemUltra={true}
   meta={[
     { label: 'Empresas conectadas', value: '350+' },
     { label: 'Go-live médio', value: '14 dias' },

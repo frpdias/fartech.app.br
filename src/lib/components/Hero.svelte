@@ -9,6 +9,7 @@
   export let secondaryHref: string;
   export let secondaryLabel: string;
   export let meta: { label: string; value: string }[] = [];
+  export let showEnemUltra: boolean = false;
 
   const hasVisual = Boolean($$slots.visual);
 </script>
@@ -33,6 +34,11 @@
                 <span>{item.label}</span>
               </article>
             {/each}
+            {#if showEnemUltra}
+              <article class="enem-card">
+                <img src="/images/enem-ultra.png" alt="ENEM ULTRA" class="enem-preview" />
+              </article>
+            {/if}
           </div>
         {/if}
       </div>
@@ -91,6 +97,14 @@
     border-radius: 14px;
     background: var(--color-surface);
     box-shadow: var(--shadow-md);
+    transition: all 300ms var(--transition-smooth);
+    animation: slideUp 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  .hero-meta article:hover {
+    border-color: var(--color-blue);
+    box-shadow: var(--shadow-lg);
+    transform: translateY(-4px);
   }
 
   .hero-meta strong {
@@ -105,6 +119,26 @@
     font-size: 0.85rem;
     margin-top: 6px;
     display: block;
+  }
+
+  .enem-card {
+    padding: 16px !important;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+  }
+
+  .enem-preview {
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+    border-radius: 8px;
+    transition: all 400ms var(--transition-smooth);
+  }
+
+  .enem-card:hover .enem-preview {
+    transform: scale(1.05);
   }
 
   @media (max-width: 960px) {
