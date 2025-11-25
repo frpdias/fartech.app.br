@@ -533,13 +533,13 @@
     position: relative;
     display: flex;
     align-items: center;
-    justify-content: flex-start;
+    justify-content: center;
     gap: clamp(22px, 4vw, 48px);
     width: 100%;
     max-width: 1320px;
     margin: 0 auto;
     flex-wrap: nowrap;
-    transform: translateX(-160px);
+    transform: none;
   }
 
   .hero-visual-stack > .phone {
@@ -647,9 +647,10 @@
   }
 
   .phone-light {
-    background: #e9edf4;
-    border: 1px solid rgba(0, 0, 0, 0.06);
-    box-shadow: 0 24px 60px rgba(0, 0, 0, 0.18);
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    box-shadow: 0 24px 60px rgba(0, 0, 0, 0.14);
+    backdrop-filter: blur(6px);
   }
 
   .phone-dark {
@@ -681,7 +682,7 @@
   }
 
   .phone-body {
-    background: rgba(255, 255, 255, 0.96);
+    background: rgba(255, 255, 255, 0.78);
     border-radius: 22px;
     padding: 18px;
     display: grid;
@@ -691,8 +692,8 @@
   }
 
   .phone-light .phone-body {
-    background: rgba(255, 255, 255, 0.94);
-    border: 1px solid rgba(0, 0, 0, 0.05);
+    background: rgba(255, 255, 255, 0.72);
+    border: 1px solid rgba(255, 255, 255, 0.2);
   }
 
   .phone-dark .phone-body {
