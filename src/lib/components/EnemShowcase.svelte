@@ -4,7 +4,7 @@
 </script>
 
 <div class="enem-showcase">
-  <img src="/images/enem-ultra.png" alt={title} class="enem-image" />
+  <img src="/images/enem-ultra.png" alt={title} class="enem-image" loading="lazy" decoding="async" />
   <div class="enem-info">
     <h3 class="enem-title">{title}</h3>
     <p class="enem-description">{description}</p>

@@ -36,7 +36,7 @@
             {/each}
             {#if showEnemUltra}
               <article class="enem-card">
-                <img src="/images/enem-ultra.png" alt="ENEM ULTRA" class="enem-preview" />
+                <img src="/images/enem-ultra.png" alt="ENEM ULTRA" class="enem-preview" loading="lazy" decoding="async" />
               </article>
             {/if}
           </div>

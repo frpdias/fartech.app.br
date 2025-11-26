@@ -1,5 +1,6 @@
-import { w as ensure_array_like, G as attr_style, x as attr } from "../../../chunks/index.js";
-import { e as escape_html } from "../../../chunks/context.js";
+import { w as ensure_array_like, F as attr_style } from "../../../chunks/index.js";
+import { e as escape_html } from "../../../chunks/escaping.js";
+import { a as attr } from "../../../chunks/attributes.js";
 function _page($$renderer) {
   const cases = [
     {

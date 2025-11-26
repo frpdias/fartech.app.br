@@ -37,10 +37,13 @@
 </svelte:head>
 
 <div class="app-shell">
+  <!-- Skip to content link for accessibility -->
+  <a href="#main-content" class="skip-to-content">Pular para o conteúdo principal</a>
+  
   <Particles />
   <div class="app-content">
     <Header transparent />
-    <main class="page-shell">
+    <main id="main-content" class="page-shell">
       <slot />
     </main>
     <Footer />
@@ -48,6 +51,24 @@
 </div>
 
 <style>
+  .skip-to-content {
+    position: absolute;
+    left: -9999px;
+    z-index: 999;
+    padding: 12px 24px;
+    background: var(--color-primary);
+    color: white;
+    text-decoration: none;
+    border-radius: 4px;
+    font-weight: 600;
+  }
+  
+  .skip-to-content:focus {
+    left: 50%;
+    top: 20px;
+    transform: translateX(-50%);
+  }
+  
   .app-shell {
     position: relative;
     background: transparent;

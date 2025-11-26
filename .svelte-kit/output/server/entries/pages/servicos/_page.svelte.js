@@ -1,5 +1,6 @@
-import { w as ensure_array_like, x as attr } from "../../../chunks/index.js";
-import { e as escape_html } from "../../../chunks/context.js";
+import { w as ensure_array_like } from "../../../chunks/index.js";
+import { a as attr } from "../../../chunks/attributes.js";
+import { e as escape_html } from "../../../chunks/escaping.js";
 function _page($$renderer) {
   const services = [
     {

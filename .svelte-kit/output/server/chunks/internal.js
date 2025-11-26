@@ -2536,7 +2536,54 @@ const options = {
   service_worker: false,
   service_worker_options: void 0,
   templates: {
-    app: ({ head, body, assets, nonce, env }) => '<!doctype html>\n<html lang="pt-BR">\n  <head>\n    <meta charset="utf-8" />\n    <link rel="icon" href="/favicon.png" />\n    <meta name="viewport" content="width=device-width, initial-scale=1" />\n    ' + head + '\n  </head>\n  <body data-sveltekit-preload-data="hover">\n    <div style="display: contents">' + body + "</div>\n  </body>\n</html>\n",
+    app: ({ head, body, assets, nonce, env }) => `<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" href="/favicon.png" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    
+    <!-- Primary Meta Tags -->
+    <meta name="title" content="Fartech Platform OS - Infraestrutura Digital Industrial" />
+    <meta name="description" content="Plataforma SaaS que conecta IoT, automação, manutenção e dados corporativos para operações críticas sempre online. 350+ empresas conectadas, 99.95% disponibilidade." />
+    <meta name="keywords" content="IoT industrial, automação industrial, manutenção preditiva, SaaS industrial, indústria 4.0, digital twin, SCADA, telemetria, lubrificação inteligente" />
+    <meta name="author" content="Fartech Soluções Industriais" />
+    <meta name="robots" content="index, follow" />
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://fartech.com.br/" />
+    <meta property="og:title" content="Fartech Platform OS - Infraestrutura Digital Industrial" />
+    <meta property="og:description" content="Plataforma SaaS que conecta IoT, automação, manutenção e dados corporativos para operações críticas sempre online." />
+    <meta property="og:image" content="https://fartech.com.br/images/og-image.jpg" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:locale" content="pt_BR" />
+    <meta property="og:site_name" content="Fartech Platform OS" />
+    
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:url" content="https://fartech.com.br/" />
+    <meta name="twitter:title" content="Fartech Platform OS - Infraestrutura Digital Industrial" />
+    <meta name="twitter:description" content="Plataforma SaaS que conecta IoT, automação, manutenção e dados corporativos para operações críticas sempre online." />
+    <meta name="twitter:image" content="https://fartech.com.br/images/og-image.jpg" />
+    
+    <!-- Canonical -->
+    <link rel="canonical" href="https://fartech.com.br/" />
+    
+    <!-- Google Analytics 4 - Substitua G-XXXXXXXXXX pelo seu ID real -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"><\/script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-XXXXXXXXXX', {
+        page_path: window.location.pathname,
+        anonymize_ip: true
+      });
+    <\/script>
+    
+    ` + head + '\n  </head>\n  <body data-sveltekit-preload-data="hover">\n    <div style="display: contents">' + body + "</div>\n  </body>\n</html>\n",
     error: ({ status, message }) => '<!doctype html>\n<html lang="en">\n	<head>\n		<meta charset="utf-8" />\n		<title>' + message + `</title>
 
 		<style>
@@ -2608,7 +2655,7 @@ const options = {
 		<div class="error">
 			<span class="status">` + status + '</span>\n			<div class="message">\n				<h1>' + message + "</h1>\n			</div>\n		</div>\n	</body>\n</html>\n"
   },
-  version_hash: "1ji52wn"
+  version_hash: "1wt6x8w"
 };
 async function get_hooks() {
   let handle;

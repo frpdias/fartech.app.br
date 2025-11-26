@@ -9,6 +9,13 @@
       "_environment.js"
     ]
   },
+  "_attributes.js": {
+    "file": "chunks/attributes.js",
+    "name": "attributes",
+    "imports": [
+      "_escaping.js"
+    ]
+  },
   "_context.js": {
     "file": "chunks/context.js",
     "name": "context"
@@ -20,6 +27,10 @@
   "_equality.js": {
     "file": "chunks/equality.js",
     "name": "equality"
+  },
+  "_escaping.js": {
+    "file": "chunks/escaping.js",
+    "name": "escaping"
   },
   "_exports.js": {
     "file": "chunks/exports.js",
@@ -33,6 +44,8 @@
     "file": "chunks/index.js",
     "name": "index",
     "imports": [
+      "_attributes.js",
+      "_escaping.js",
       "_context.js"
     ]
   },
@@ -78,10 +91,11 @@
     "src": "node_modules/@sveltejs/kit/src/runtime/components/svelte-5/error.svelte",
     "isEntry": true,
     "imports": [
-      "_context.js",
+      "_escaping.js",
       "_utils2.js",
       "_exports.js",
-      "_utils.js"
+      "_utils.js",
+      "_context.js"
     ]
   },
   "node_modules/@sveltejs/kit/src/runtime/server/index.js": {
@@ -104,11 +118,12 @@
     "isEntry": true,
     "imports": [
       "_index.js",
-      "_context.js",
+      "_attributes.js",
+      "_escaping.js",
       "_utils2.js"
     ],
     "css": [
-      "_app/immutable/assets/_layout.DOpHqx8S.css"
+      "_app/immutable/assets/_layout.CiknI5aZ.css"
     ]
   },
   "src/routes/+page.svelte": {
@@ -118,11 +133,13 @@
     "isEntry": true,
     "imports": [
       "_index.js",
+      "_attributes.js",
       "_utils2.js",
+      "_escaping.js",
       "_context.js"
     ],
     "css": [
-      "_app/immutable/assets/_page.DDlNMPqG.css"
+      "_app/immutable/assets/_page.wqe5QIzp.css"
     ]
   },
   "src/routes/blog/+page.svelte": {
@@ -138,7 +155,8 @@
     "isEntry": true,
     "imports": [
       "_index.js",
-      "_context.js"
+      "_escaping.js",
+      "_attributes.js"
     ],
     "css": [
       "_app/immutable/assets/_page.DKtmIck0.css"
@@ -151,7 +169,7 @@
     "isEntry": true,
     "imports": [
       "_index.js",
-      "_context.js"
+      "_escaping.js"
     ],
     "css": [
       "_app/immutable/assets/_page.Be-YZx5h.css"
@@ -162,8 +180,12 @@
     "name": "entries/pages/contato/_page.svelte",
     "src": "src/routes/contato/+page.svelte",
     "isEntry": true,
+    "imports": [
+      "_attributes.js",
+      "_escaping.js"
+    ],
     "css": [
-      "_app/immutable/assets/_page.sVmr8JHX.css"
+      "_app/immutable/assets/_page.IEOVyN1h.css"
     ]
   },
   "src/routes/quem-somos/+page.svelte": {
@@ -182,7 +204,8 @@
     "isEntry": true,
     "imports": [
       "_index.js",
-      "_context.js"
+      "_attributes.js",
+      "_escaping.js"
     ],
     "css": [
       "_app/immutable/assets/_page.hDl3jwxF.css"

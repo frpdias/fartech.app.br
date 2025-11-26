@@ -11,17 +11,18 @@
   ];
 </script>
 
-<header class={`site-header ${transparent ? 'is-transparent' : ''}`}>
+<header class={`site-header ${transparent ? 'is-transparent' : ''}`} role="banner">
   <div class="container header-inner">
-	<a class="logo" href="/">
+	<a class="logo" href="/" aria-label="Fartech - Página inicial">
 		<img src="/images/logo.png" alt="Fartech Logo" />
-	</a>    <nav>
+	</a>
+    <nav aria-label="Navegação principal">
       {#each links as link}
         <a href={link.href}>{link.label}</a>
       {/each}
     </nav>
 
-    <a class="btn btn-primary" href="/contato">Solicitar Orçamento</a>
+    <a class="btn btn-primary" href="/contato" aria-label="Solicitar orçamento">Solicitar Orçamento</a>
   </div>
 </header>
 

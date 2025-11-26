@@ -1,4 +1,4 @@
-<footer class="footer">
+<footer class="footer" role="contentinfo">
   <div class="container">
     <div class="footer-columns">
       <div>
@@ -8,15 +8,15 @@
       </div>
       <div>
         <h4 class="footer-title">Contato</h4>
-        <ul class="list-reset">
+        <ul class="list-reset" aria-label="Informações de contato">
           <li><span>Endereço: Av. Industrial, 1000 • São Paulo - SP</span></li>
-          <li><span>WhatsApp: (11) 99999-0000</span></li>
-          <li><span>Email: contato@fartech.com.br</span></li>
+          <li><a href="https://wa.me/5511999990000" aria-label="WhatsApp">WhatsApp: (11) 99999-0000</a></li>
+          <li><a href="mailto:contato@fartech.com.br" aria-label="Email">Email: contato@fartech.com.br</a></li>
         </ul>
       </div>
       <div>
         <h4 class="footer-title">Links</h4>
-        <ul class="list-reset">
+        <ul class="list-reset" aria-label="Links de navegação">
           <li><a href="/quem-somos">Quem Somos</a></li>
           <li><a href="/servicos">Serviços</a></li>
           <li><a href="/cases">Cases</a></li>

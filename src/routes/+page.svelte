@@ -4,6 +4,33 @@
   import Depoimento from '$components/Depoimento.svelte';
   import CaseCard from '$components/CaseCard.svelte';
 
+  // JSON-LD Structured Data
+  const structuredData = {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "Fartech Soluções Industriais",
+    "url": "https://fartech.com.br",
+    "logo": "https://fartech.com.br/images/logo.png",
+    "description": "Plataforma SaaS que conecta IoT, automação, manutenção e dados corporativos para operações críticas sempre online.",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Av. Industrial, 1000",
+      "addressLocality": "São Paulo",
+      "addressRegion": "SP",
+      "addressCountry": "BR"
+    },
+    "contactPoint": {
+      "@type": "ContactPoint",
+      "telephone": "+55-11-99999-0000",
+      "contactType": "Customer Service",
+      "availableLanguage": "Portuguese"
+    },
+    "sameAs": [
+      "https://www.linkedin.com/company/fartech",
+      "https://twitter.com/fartech"
+    ]
+  };
+
   const diferenciais = [
     {
       title: 'Squads de produto dedicados',
@@ -156,6 +183,12 @@
   });
 </script>
 
+<svelte:head>
+  <script type="application/ld+json">
+    {JSON.stringify(structuredData)}
+  </script>
+</svelte:head>
+
 <Hero
   eyebrow="Fartech Platform OS"
   title="Infraestrutura digital que mantém operações críticas sempre online."
@@ -290,7 +323,7 @@
           <span>Apple Pay</span>
         </div>
         <div class="checkout-logo">
-          <img src="/images/logo.png" alt="Fartech" loading="lazy" />
+          <img src="/images/logo.png" alt="Fartech" loading="lazy" decoding="async" />
         </div>
       </div>
     </div>
