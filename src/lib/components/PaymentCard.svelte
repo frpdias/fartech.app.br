@@ -110,12 +110,12 @@
   }
 
   .amount-label {
-    font-size: 12px;
+    font-size: clamp(13px, 1.6vw, 14px);
     color: #9ca3af;
   }
 
   .amount-value {
-    font-size: 14px;
+    font-size: clamp(15px, 1.8vw, 16px);
     font-weight: 700;
     color: #ffffff;
   }

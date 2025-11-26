@@ -52,7 +52,7 @@
   h3 {
     font-family: var(--font-display);
     margin: 0;
-    font-size: 1.15rem;
+    font-size: clamp(18px, 2.2vw, 22px);
     font-weight: 600;
     color: var(--color-text);
   }
@@ -60,7 +60,7 @@
   .summary {
     margin: 0;
     color: var(--color-muted);
-    font-size: 0.95rem;
-    line-height: 1.6;
+    font-size: clamp(14px, 1.8vw, 16px);
+    line-height: 1.7;
   }
 </style>

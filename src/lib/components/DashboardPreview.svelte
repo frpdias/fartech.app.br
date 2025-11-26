@@ -145,7 +145,7 @@
   }
 
   .stat-label {
-    font-size: 12px;
+    font-size: clamp(13px, 1.6vw, 15px);
     color: #9ca3af;
     margin: 0 0 8px 0;
   }
@@ -173,14 +173,14 @@
   }
 
   .transactions-label {
-    font-size: 14px;
+    font-size: clamp(15px, 1.8vw, 16px);
     font-weight: 600;
     color: #1f2937;
     margin: 0;
   }
 
   .transactions-meta {
-    font-size: 12px;
+    font-size: clamp(13px, 1.6vw, 14px);
     color: #9ca3af;
     margin: 0 0 8px 0;
   }
@@ -212,7 +212,7 @@
   }
 
   .tx-label {
-    font-size: 12px;
+    font-size: clamp(13px, 1.6vw, 14px);
     color: #6b7280;
     margin: 0;
   }
@@ -220,7 +220,7 @@
   .tx-status {
     padding: 4px 12px;
     border-radius: 12px;
-    font-size: 12px;
+    font-size: clamp(13px, 1.6vw, 14px);
     font-weight: 600;
   }
 

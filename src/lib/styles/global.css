@@ -230,7 +230,7 @@ img {
 }
 
 .eyebrow {
-  font-size: 0.8rem;
+  font-size: clamp(13px, 1.6vw, 16px);
   letter-spacing: 0.15em;
   text-transform: uppercase;
   color: var(--color-blue);
@@ -416,8 +416,8 @@ input, textarea, select {
 
 .hero .eyebrow {
   color: var(--color-blue);
-  letter-spacing: 0.2em;
-  font-size: 0.75rem;
+  letter-spacing: 0.15em;
+  font-size: clamp(13px, 1.6vw, 16px);
   font-weight: 700;
   text-transform: uppercase;
 }

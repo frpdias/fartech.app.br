@@ -64,7 +64,7 @@
     gap: 4px;
     font-weight: 500;
     color: var(--color-text-primary);
-    font-size: 0.94rem;
+    font-size: clamp(14px, 1.8vw, 16px);
     letter-spacing: -0.01em;
   }
 

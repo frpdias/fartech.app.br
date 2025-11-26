@@ -37,7 +37,7 @@
 
   .footer-title {
     font-family: var(--font-display);
-    font-size: 0.95rem;
+    font-size: clamp(14px, 1.8vw, 16px);
     font-weight: 600;
     letter-spacing: 0.1em;
     text-transform: uppercase;
@@ -53,8 +53,8 @@
 
   .footer p {
     margin: 0 0 16px 0;
-    font-size: 0.95rem;
-    line-height: 1.6;
+    font-size: clamp(14px, 1.8vw, 16px);
+    line-height: 1.7;
   }
 
   .list-reset {
@@ -71,7 +71,7 @@
   .list-reset span {
     color: rgba(230, 237, 243, 0.88);
     text-decoration: none;
-    font-size: 0.93rem;
+    font-size: clamp(13px, 1.6vw, 15px);
     transition: var(--transition);
     display: inline;
   }
@@ -82,7 +82,7 @@
 
   .footer small {
     color: rgba(255, 255, 255, 0.52);
-    font-size: 0.85rem;
+    font-size: clamp(12px, 1.4vw, 14px);
     margin-top: 20px;
     display: block;
   }

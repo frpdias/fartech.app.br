@@ -62,8 +62,8 @@
     color: var(--color-muted);
     position: relative;
     z-index: 1;
-    font-size: 0.95rem;
-    line-height: 1.5;
+    font-size: clamp(14px, 1.8vw, 16px);
+    line-height: 1.6;
   }
 
   span {
@@ -71,7 +71,7 @@
     color: var(--color-accent);
     position: relative;
     z-index: 1;
-    font-size: 0.93rem;
+    font-size: clamp(14px, 1.8vw, 16px);
     transition: var(--transition);
   }
 

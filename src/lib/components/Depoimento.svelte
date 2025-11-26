@@ -50,21 +50,21 @@
 
   strong {
     font-family: var(--font-display);
-    font-size: 1rem;
+    font-size: clamp(15px, 1.8vw, 17px);
     color: var(--color-text);
     font-weight: 600;
   }
 
   span {
     color: var(--color-muted);
-    font-size: 0.88rem;
+    font-size: clamp(13px, 1.6vw, 15px);
   }
 
   .quote {
     margin: 0;
     color: var(--color-text);
-    font-size: 1rem;
-    line-height: 1.7;
+    font-size: clamp(15px, 1.8vw, 17px);
+    line-height: 1.75;
     font-style: italic;
   }
 </style>
