@@ -82,7 +82,8 @@ body {
   font-family: var(--font-body);
   color: var(--color-text-primary);
   background: transparent;
-  line-height: 1.6;
+  line-height: 1.72;
+  font-size: clamp(16px, 1.8vw, 18px);
   letter-spacing: -0.01em;
   overflow-x: hidden;
   -webkit-font-smoothing: antialiased;
@@ -100,7 +101,7 @@ img {
 }
 
 .container {
-  width: min(var(--max-width), 100% - clamp(48px, 10vw, 220px));
+  width: min(1840px, 100% - clamp(16px, 2vw, 48px));
   margin-inline: auto;
 }
 
@@ -138,11 +139,11 @@ img {
   align-items: center;
   justify-content: center;
   gap: 8px;
-  padding: 11px 24px;
+  padding: 12px 28px;
   border-radius: 8px;
   border: 1px solid transparent;
   font-weight: 500;
-  font-size: 0.95rem;
+  font-size: 1rem;
   transition: var(--transition);
   font-family: var(--font-body);
   letter-spacing: -0.01em;
@@ -211,9 +212,9 @@ img {
 
 .section-title {
   font-family: var(--font-display);
-  font-size: clamp(38px, 4.5vw, 64px);
-  line-height: 1.1;
-  margin-bottom: 18px;
+  font-size: clamp(48px, 5.5vw, 84px);
+  line-height: 1.12;
+  margin-bottom: 24px;
   color: var(--color-primary);
   letter-spacing: -0.03em;
   font-weight: 800;
@@ -222,23 +223,24 @@ img {
 .section-subtitle {
   color: var(--color-text-secondary);
   max-width: 780px;
-  margin-bottom: 42px;
-  font-size: 1.15rem;
-  line-height: 1.7;
+  margin-bottom: 48px;
+  font-size: clamp(18px, 2.2vw, 22px);
+  line-height: 1.8;
   font-weight: 400;
 }
 
 .eyebrow {
-  font-size: 0.75rem;
-  letter-spacing: 0.2em;
+  font-size: 0.8rem;
+  letter-spacing: 0.15em;
   text-transform: uppercase;
   color: var(--color-blue);
   font-weight: 700;
+  margin-bottom: 12px;
 }
 
 .hero {
   color: var(--color-primary);
-  background: var(--gradient-hero);
+  background: transparent;
   padding-block: clamp(120px, 14vw, 200px);
   min-height: 100vh;
   display: flex;
@@ -288,20 +290,20 @@ img {
 
 .hero h1 {
   font-family: var(--font-display);
-  font-size: clamp(60px, 7.5vw, 96px);
-  line-height: 1.08;
-  margin: 0 0 28px 0;
+  font-size: clamp(68px, 8.5vw, 110px);
+  line-height: 1.1;
+  margin: 0 0 32px 0;
   color: var(--color-primary);
   font-weight: 900;
   letter-spacing: -0.03em;
 }
 
 .hero p {
-  font-size: clamp(20px, 2.8vw, 28px);
+  font-size: clamp(18px, 2.6vw, 24px);
   color: var(--color-text-secondary);
   max-width: 700px;
-  margin: 0 0 44px 0;
-  line-height: 1.65;
+  margin: 0 0 48px 0;
+  line-height: 1.75;
   font-weight: 400;
 }
 
@@ -389,7 +391,9 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 p {
-  margin: 0 0 1em 0;
+  margin: 0 0 1.2em 0;
+  font-size: clamp(16px, 1.8vw, 18px);
+  line-height: 1.7;
 }
 
 a {

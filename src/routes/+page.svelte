@@ -244,33 +244,18 @@
         </div>
       </div>
     </div>
-  </div>
-</Hero>
 
-<section class="section">
-  <div class="container">
-    <div class="por-que-layout">
-      <div class="por-que-text">
-        <p class="eyebrow">Por que Fartech</p>
-        <h2 class="section-title">Produto, dados e confiabilidade em uma única stack.</h2>
-        <p class="section-subtitle">Desenhamos jornadas digitais de alto impacto com times ágeis, observabilidade total e entregas mensuráveis.</p>
-        <div class="diferenciais-grid">
-          {#each diferenciais as item}
-            <CardServico {...item} />
-          {/each}
-        </div>
-      </div>
-      <div class="phone phone-pay">
-        <div class="phone-notch dark"></div>
+    <div class="phone phone-pay hero-pay">
+      <div class="phone-notch dark"></div>
       <div class="phone-body">
         <header class="device-header">
           <div>
             <span class="device-label">Integração Pix Ready</span>
             <p class="device-sub">Checkout Fartech Pay</p>
           </div>
-            <span class="status-pill">Online</span>
-          </header>
-          <div class="device-card">
+          <span class="status-pill">Online</span>
+        </header>
+        <div class="device-card">
           <div>
             <span class="muted">Valor a receber</span>
             <strong>{pagamentoAtual.valor}</strong>
@@ -288,25 +273,41 @@
               <span class="muted">{pagamentoAtual.validade}</span>
             </div>
           </div>
-            <div class="fake-field" aria-label="Nome ilustrativo">
-              <span>Nome</span>
-              <div class="input fake-input">Fernanda V.</div>
-            </div>
-            <div class="fake-field split" aria-label="CVV ilustrativo">
-              <span>CVV</span>
-              <div class="input fake-input">123</div>
-            </div>
+          <div class="fake-field" aria-label="Nome ilustrativo">
+            <span>Nome</span>
+            <div class="input fake-input">Fernanda V.</div>
           </div>
-          <button class="btn device-btn">Confirmar pagamento</button>
-          <div class="device-icons">
-            <span>Pix</span>
-            <span>Visa</span>
-            <span>Mastercard</span>
-            <span>Apple Pay</span>
+          <div class="fake-field split" aria-label="CVV ilustrativo">
+            <span>CVV</span>
+            <div class="input fake-input">123</div>
           </div>
-          <div class="checkout-logo">
-            <img src="/images/logo.png" alt="Fartech" loading="lazy" />
-          </div>
+        </div>
+        <button class="btn device-btn">Confirmar pagamento</button>
+        <div class="device-icons">
+          <span>Pix</span>
+          <span>Visa</span>
+          <span>Mastercard</span>
+          <span>Apple Pay</span>
+        </div>
+        <div class="checkout-logo">
+          <img src="/images/logo.png" alt="Fartech" loading="lazy" />
+        </div>
+      </div>
+    </div>
+  </div>
+</Hero>
+
+<section class="section">
+  <div class="container">
+    <div class="por-que-layout">
+      <div class="por-que-text">
+        <p class="eyebrow">Por que Fartech</p>
+        <h2 class="section-title">Produto, dados e confiabilidade em uma única stack.</h2>
+        <p class="section-subtitle">Desenhamos jornadas digitais de alto impacto com times ágeis, observabilidade total e entregas mensuráveis.</p>
+        <div class="diferenciais-grid">
+          {#each diferenciais as item}
+            <CardServico {...item} />
+          {/each}
         </div>
       </div>
     </div>
@@ -548,17 +549,22 @@
     position: relative;
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: flex-start;
     gap: clamp(22px, 4vw, 48px);
     width: 100%;
     max-width: 1320px;
     margin: 0 auto;
     flex-wrap: nowrap;
-    transform: none;
+    transform: translateX(-760px);
   }
 
   .hero-visual-stack > .phone {
     flex: 0 0 auto;
+  }
+
+  .hero-visual-stack .hero-pay {
+    position: relative;
+    top: auto;
   }
 
   @media (max-width: 1024px) {
@@ -1307,7 +1313,7 @@
   /* Layout Por que Fartech com phone */
   .por-que-layout {
     display: grid;
-    grid-template-columns: minmax(0, 1fr) 380px;
+    grid-template-columns: 1fr;
     gap: clamp(32px, 4vw, 64px);
     align-items: start;
   }
@@ -1321,10 +1327,6 @@
   @media (max-width: 1024px) {
     .por-que-layout {
       grid-template-columns: 1fr;
-    }
-
-    .por-que-layout .phone {
-      margin: 0 auto;
     }
   }
 :global(.hero) {

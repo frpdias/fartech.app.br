@@ -180,10 +180,6 @@
     max-width: 100%;
   }
 
-  .infografico svg text {
-    paint-order: stroke fill;
-  }
-
   .info-col {
     display: grid;
     gap: 12px;
