@@ -1,4 +1,4 @@
-import { v as attr_class, w as ensure_array_like, x as attr, y as bind_props, z as slot } from "../../chunks/index.js";
+import { v as attr_class, w as ensure_array_like, x as attr, y as bind_props, z as head, F as slot } from "../../chunks/index.js";
 import { e as escape_html } from "../../chunks/context.js";
 import { j as fallback } from "../../chunks/utils2.js";
 import "clsx";
@@ -24,14 +24,27 @@ function Header($$renderer, $$props) {
 function Footer($$renderer) {
   $$renderer.push(`<footer class="footer svelte-jz8lnl"><div class="container"><div class="footer-columns svelte-jz8lnl"><div><h4 class="footer-title svelte-jz8lnl">Fartech</h4> <p class="svelte-jz8lnl">Fartech Platform — infraestrutura digital para operações críticas, dados em tempo real e squads de produto embarcados.</p> <small class="svelte-jz8lnl">© Fartech 2025 • CNPJ 00.000.000/0000-00</small></div> <div><h4 class="footer-title svelte-jz8lnl">Contato</h4> <ul class="list-reset svelte-jz8lnl"><li class="svelte-jz8lnl"><span class="svelte-jz8lnl">Endereço: Av. Industrial, 1000 • São Paulo - SP</span></li> <li class="svelte-jz8lnl"><span class="svelte-jz8lnl">WhatsApp: (11) 99999-0000</span></li> <li class="svelte-jz8lnl"><span class="svelte-jz8lnl">Email: contato@fartech.com.br</span></li></ul></div> <div><h4 class="footer-title svelte-jz8lnl">Links</h4> <ul class="list-reset svelte-jz8lnl"><li class="svelte-jz8lnl"><a href="/quem-somos" class="svelte-jz8lnl">Quem Somos</a></li> <li class="svelte-jz8lnl"><a href="/servicos" class="svelte-jz8lnl">Serviços</a></li> <li class="svelte-jz8lnl"><a href="/cases" class="svelte-jz8lnl">Cases</a></li> <li class="svelte-jz8lnl"><a href="/contato" class="svelte-jz8lnl">Contato</a></li></ul></div></div></div></footer>`);
 }
+function Particles($$renderer, $$props) {
+  $$renderer.component(($$renderer2) => {
+    $$renderer2.push(`<canvas class="particles-canvas svelte-ljratz" aria-hidden="true"></canvas>`);
+  });
+}
 function _layout($$renderer, $$props) {
-  $$renderer.push(`<div class="app-shell">`);
+  head("12qhfyh", $$renderer, ($$renderer2) => {
+    $$renderer2.title(($$renderer3) => {
+      $$renderer3.push(`<title>Fartech Platform OS | Infraestrutura digital para operações críticas</title>`);
+    });
+    $$renderer2.push(`<meta name="description" content="Fartech Platform OS conecta IoT, automação e dados corporativos com observabilidade total, segurança e entregas rápidas para operações críticas."/> <meta name="viewport" content="width=device-width, initial-scale=1"/> <link rel="icon" href="/favicon.png"/> <link rel="preconnect" href="https://fonts.googleapis.com"/> <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin=""/> <meta property="og:type" content="website"/> <meta property="og:title" content="Fartech Platform OS | Infraestrutura digital"/> <meta property="og:description" content="Plataforma que integra automação, IA e dashboards em tempo real para manter operações críticas sempre online."/> <meta property="og:image" content="/images/hero-factory.jpg"/> <meta property="og:url" content="https://fartech.com"/> <meta name="twitter:card" content="summary_large_image"/> <meta name="twitter:title" content="Fartech Platform OS | Infraestrutura digital"/> <meta name="twitter:description" content="Automação, IA e observabilidade total para operações críticas sempre online."/> <meta name="twitter:image" content="/images/hero-factory.jpg"/>`);
+  });
+  $$renderer.push(`<div class="app-shell svelte-12qhfyh">`);
+  Particles($$renderer);
+  $$renderer.push(`<!----> <div class="app-content svelte-12qhfyh">`);
   Header($$renderer, { transparent: true });
   $$renderer.push(`<!----> <main class="page-shell"><!--[-->`);
   slot($$renderer, $$props, "default", {});
   $$renderer.push(`<!--]--></main> `);
   Footer($$renderer);
-  $$renderer.push(`<!----></div>`);
+  $$renderer.push(`<!----></div></div>`);
 }
 export {
   _layout as default

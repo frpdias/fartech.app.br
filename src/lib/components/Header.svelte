@@ -95,21 +95,6 @@
     object-fit: contain;
   }
 
-  .logo span {
-    background: var(--gradient-primary);
-    -webkit-background-clip: text;
-    color: transparent;
-  }
-
-  .logo small {
-    font-size: 0.65rem;
-    font-weight: 600;
-    color: var(--color-text-tertiary);
-    margin-top: 3px;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-  }
-
   @media (max-width: 768px) {
     nav {
       display: none;

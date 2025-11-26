@@ -75,6 +75,24 @@
     min-width: 0;
   }
 
+  .hero h1 {
+    background: linear-gradient(
+      90deg,
+      #0ea5e9 0%,
+      #3b82f6 20%,
+      #7c3aed 40%,
+      #a855f7 60%,
+      #22d3ee 80%,
+      #0ea5e9 100%
+    );
+    background-size: 400% 400%;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: transparent;
+    animation: heroParallax 6s ease-in-out infinite;
+    text-shadow: 0 8px 24px rgba(59, 130, 246, 0.25);
+  }
+
   .hero-visual {
     position: relative;
     display: flex;
@@ -154,6 +172,18 @@
 
     .hero-meta {
       grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    }
+  }
+
+  @keyframes heroParallax {
+    0% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+    100% {
+      background-position: 0% 50%;
     }
   }
 </style>

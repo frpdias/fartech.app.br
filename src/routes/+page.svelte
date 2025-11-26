@@ -104,6 +104,30 @@
     { valor: 'R$ 1.990,00', cliente: 'Grupo Aurora', mascara: '•••• •••• •••• 3311', validade: '11/28' }
   ];
 
+  type Status = 'pago' | 'analise' | 'falha';
+  type Transacao = { id: number; valor: string; descricao: string; status: Status };
+
+  let transacoes: Transacao[] = [
+    { id: 1, valor: 'R$ 1.284,90', descricao: 'Pix • Rocket Rides', status: 'pago' },
+    { id: 2, valor: 'R$ 892,40', descricao: 'Cartão • Orion Labs', status: 'analise' },
+    { id: 3, valor: 'R$ 2.394,10', descricao: 'Pix • Vitta Auto', status: 'pago' },
+    { id: 4, valor: 'R$ 742,00', descricao: 'Cartão • Estaleiro Sul', status: 'falha' }
+  ];
+
+  const novasVendas: Transacao[] = [
+    { id: 101, valor: 'R$ 1.120,50', descricao: 'Pix • Nova Rota', status: 'pago' },
+    { id: 102, valor: 'R$ 2.018,30', descricao: 'Cartão • Cygnus', status: 'analise' },
+    { id: 103, valor: 'R$ 1.678,90', descricao: 'Pix • Atlas Cargo', status: 'pago' }
+  ];
+
+  let idxNova = 0;
+
+  const badgeClass = (status: Status) => {
+    if (status === 'pago') return 'success';
+    if (status === 'analise') return 'warning';
+    return 'danger';
+  };
+
   let idxPagamento = 0;
 
   import { onMount, onDestroy } from 'svelte';
@@ -111,16 +135,24 @@
   let pagamentoAtual = pagamentos[idxPagamento];
 
   let intervalId: ReturnType<typeof setInterval> | undefined;
+  let transInterval: ReturnType<typeof setInterval> | undefined;
 
   onMount(() => {
     intervalId = setInterval(() => {
       idxPagamento = (idxPagamento + 1) % pagamentos.length;
       pagamentoAtual = pagamentos[idxPagamento];
     }, 5000);
+
+    transInterval = setInterval(() => {
+      const nova = novasVendas[idxNova % novasVendas.length];
+      idxNova = (idxNova + 1) % novasVendas.length;
+      transacoes = [nova, ...transacoes].slice(0, 4);
+    }, 3500);
   });
 
   onDestroy(() => {
     if (intervalId) clearInterval(intervalId);
+    if (transInterval) clearInterval(transInterval);
   });
 </script>
 
@@ -167,37 +199,20 @@
         <div class="orders-card">
           <div class="orders-header">
             <p class="muted">Transações recentes</p>
-            <span class="pill subtle">Atualizado há 2min</span>
+            <span class="pill subtle">Atualizado em tempo real</span>
           </div>
           <div class="orders-list">
-            <div class="order">
-              <div>
-                <strong>R$ 1.284,90</strong>
-                <p class="muted">Pix • Rocket Rides</p>
+            {#each transacoes as trans (trans.id)}
+              <div class="order animate">
+                <div>
+                  <strong>{trans.valor}</strong>
+                  <p class="muted">{trans.descricao}</p>
+                </div>
+                <span class={`pill ${badgeClass(trans.status)}`}>
+                  {trans.status === 'pago' ? 'Pago' : trans.status === 'analise' ? 'Análise' : 'Falha'}
+                </span>
               </div>
-              <span class="pill success">Pago</span>
-            </div>
-            <div class="order">
-              <div>
-                <strong>R$ 892,40</strong>
-                <p class="muted">Cartão • Orion Labs</p>
-              </div>
-              <span class="pill warning">Análise</span>
-            </div>
-            <div class="order">
-              <div>
-                <strong>R$ 2.394,10</strong>
-                <p class="muted">Pix • Vitta Auto</p>
-              </div>
-              <span class="pill success">Pago</span>
-            </div>
-            <div class="order">
-              <div>
-                <strong>R$ 742,00</strong>
-                <p class="muted">Cartão • Estaleiro Sul</p>
-              </div>
-              <span class="pill danger">Falha</span>
-            </div>
+            {/each}
           </div>
         </div>
       </div>
@@ -354,35 +369,35 @@
               </div>
             </div>
             <nav class="desktop-nav">
-              <a class="nav-item active">
+              <a class="nav-item active" href="#dashboards">
                 <span>🎯</span>
                 <div>
                   <strong>Painel do Aluno</strong>
                   <small>Desempenho detalhado</small>
                 </div>
               </a>
-              <a class="nav-item">
+              <a class="nav-item" href="#dashboards">
                 <span>🏆</span>
                 <div>
                   <strong>Ranking</strong>
                   <small>Compare seu desempenho</small>
                 </div>
               </a>
-              <a class="nav-item">
+              <a class="nav-item" href="#dashboards">
                 <span>📊</span>
                 <div>
                   <strong>Estatísticas</strong>
                   <small>Métricas avançadas</small>
                 </div>
               </a>
-              <a class="nav-item">
+              <a class="nav-item" href="#dashboards">
                 <span>🧠</span>
                 <div>
                   <strong>Simulados ENEM</strong>
                   <small>Escolha novos desafios</small>
                 </div>
               </a>
-              <a class="nav-item">
+              <a class="nav-item" href="#dashboards">
                 <span>🖥</span>
                 <div>
                   <strong>Monitor</strong>
@@ -929,6 +944,21 @@
     background: var(--color-line-light);
     border: 1px solid var(--color-line);
     font-size: 0.8rem;
+  }
+
+  .order.animate {
+    animation: fadeSlide 0.35s ease-out;
+  }
+
+  @keyframes fadeSlide {
+    from {
+      opacity: 0;
+      transform: translateY(10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
   }
 
   .order strong {

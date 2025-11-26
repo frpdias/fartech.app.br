@@ -108,7 +108,7 @@
       "_utils2.js"
     ],
     "css": [
-      "_app/immutable/assets/_layout.DnGsbekM.css"
+      "_app/immutable/assets/_layout.DNj3fsYX.css"
     ]
   },
   "src/routes/+page.svelte": {
@@ -122,7 +122,7 @@
       "_context.js"
     ],
     "css": [
-      "_app/immutable/assets/_page.Bv0YCn9L.css"
+      "_app/immutable/assets/_page.D11IxGFU.css"
     ]
   },
   "src/routes/blog/+page.svelte": {
@@ -139,6 +139,9 @@
     "imports": [
       "_index.js",
       "_context.js"
+    ],
+    "css": [
+      "_app/immutable/assets/_page.DKtmIck0.css"
     ]
   },
   "src/routes/clientes/+page.svelte": {
@@ -167,7 +170,10 @@
     "file": "entries/pages/quem-somos/_page.svelte.js",
     "name": "entries/pages/quem-somos/_page.svelte",
     "src": "src/routes/quem-somos/+page.svelte",
-    "isEntry": true
+    "isEntry": true,
+    "css": [
+      "_app/immutable/assets/_page.CpK3afSH.css"
+    ]
   },
   "src/routes/servicos/+page.svelte": {
     "file": "entries/pages/servicos/_page.svelte.js",
