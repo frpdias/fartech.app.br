@@ -260,7 +260,7 @@ img {
   display: flex;
   align-items: center;
   position: relative;
-  overflow: hidden;
+  overflow: visible;
 }
 
 .hero::before {

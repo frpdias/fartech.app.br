@@ -586,13 +586,13 @@
     flex-wrap: nowrap;
     transform: translateX(0);
     pointer-events: none;
-    z-index: -10;
+    z-index: 1;
   }
 
   .hero-visual-stack > .phone {
     flex: 0 0 auto;
     pointer-events: auto;
-    z-index: -10;
+    z-index: 0;
   }
 
   .hero-visual-stack .hero-pay {
@@ -1358,25 +1358,25 @@
     left: 50%;
     background: url('/images/fartecvetorizada.png') 82% center no-repeat;
     background-size: 110%;
-    opacity: 0.04;
+    opacity: 0.02;
     pointer-events: none;
     mix-blend-mode: multiply;
-    z-index: -200;
+    z-index: -300;
     animation: watermarkFloat 14s ease-in-out infinite alternate;
   }
 
   @keyframes watermarkFloat {
     0% {
       transform: translate3d(12px, -12px, 0) scale(1.04) rotate(-1.5deg);
-      opacity: 0.04;
+      opacity: 0.02;
     }
     50% {
       transform: translate3d(-8px, 10px, 0) scale(1.08) rotate(1.2deg);
-      opacity: 0.06;
+      opacity: 0.03;
     }
     100% {
       transform: translate3d(10px, 14px, 0) scale(1.1) rotate(2deg);
-      opacity: 0.04;
+      opacity: 0.02;
     }
   }
 

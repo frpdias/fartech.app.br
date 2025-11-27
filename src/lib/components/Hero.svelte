@@ -55,13 +55,12 @@
 <style>
   .hero-grid {
     display: grid;
-    grid-template-columns: 1fr;
+    grid-template-columns: minmax(0, 1.1fr) minmax(320px, 520px);
     gap: clamp(40px, 6vw, 100px);
     align-items: center;
     width: 100%;
     max-width: 100%;
     overflow: visible;
-    position: relative;
   }
 
   .hero-content {
@@ -70,10 +69,8 @@
     min-width: 0;
     max-width: 720px;
     position: relative;
-    z-index: 1000;
+    z-index: 10;
     isolation: isolate;
-    will-change: transform;
-    transform: translateZ(0);
   }
 
   .hero-text-wrapper {
@@ -81,9 +78,7 @@
     max-width: 700px;
     min-width: 0;
     position: relative;
-    z-index: 1001;
-    will-change: transform;
-    transform: translateZ(0);
+    z-index: 10;
   }
 
   .hero h1 {
@@ -91,27 +86,37 @@
     font-size: clamp(76px, 9vw, 120px);
     line-height: 1.1;
     margin: 0 0 32px 0;
-    color: #0ea5e9;
+    background: linear-gradient(
+      90deg,
+      #0ea5e9 0%,
+      #3b82f6 20%,
+      #7c3aed 40%,
+      #a855f7 60%,
+      #22d3ee 80%,
+      #0ea5e9 100%
+    );
+    background-size: 400% 400%;
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: transparent;
+    animation: heroParallax 6s ease-in-out infinite;
     font-weight: 900;
     letter-spacing: -0.03em;
     position: relative;
-    z-index: 9999;
-    will-change: transform;
-    transform: translateZ(100px);
+    z-index: 100;
+    word-break: keep-all;
+    overflow-wrap: normal;
   }
 
   .hero-visual {
-    position: absolute;
-    right: -10%;
-    top: 50%;
-    transform: translateY(-50%);
+    position: relative;
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 45%;
+    width: 100%;
     max-width: 100%;
     pointer-events: none;
-    z-index: -1;
   }
 
   .hero-meta {
