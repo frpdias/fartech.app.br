@@ -656,7 +656,7 @@
     width: 100%;
     max-width: 100%;
     margin: 0;
-    padding-left: clamp(40px, 5vw, 113px);
+    padding-left: 0;
     flex-wrap: nowrap;
     transform: translateX(0);
     pointer-events: none;
