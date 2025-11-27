@@ -55,12 +55,13 @@
 <style>
   .hero-grid {
     display: grid;
-    grid-template-columns: minmax(0, 1.2fr) minmax(340px, 520px);
+    grid-template-columns: 1fr;
     gap: clamp(40px, 6vw, 100px);
     align-items: center;
     width: 100%;
     max-width: 100%;
     overflow: visible;
+    position: relative;
   }
 
   .hero-content {
@@ -103,13 +104,17 @@
   }
 
   .hero-visual {
-    position: relative;
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 100%;
+    width: 50%;
     max-width: 100%;
     pointer-events: none;
+    z-index: 0;
   }
 
   .hero-meta {
