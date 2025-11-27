@@ -1348,36 +1348,7 @@
     isolation: isolate;
   }
 
-  :global(.hero)::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    right: 0;
-    left: 50%;
-    background: url('/images/fartecvetorizada.png') 82% center no-repeat;
-    background-size: 110%;
-    opacity: 0.14;
-    pointer-events: none;
-    mix-blend-mode: normal;
-    z-index: 0;
-    animation: watermarkFloat 14s ease-in-out infinite alternate;
-  }
-
-  @keyframes watermarkFloat {
-    0% {
-      transform: translate3d(12px, -12px, 0) scale(1.04) rotate(-1.5deg);
-      opacity: 0.14;
-    }
-    50% {
-      transform: translate3d(-8px, 10px, 0) scale(1.08) rotate(1.2deg);
-      opacity: 0.18;
-    }
-    100% {
-      transform: translate3d(10px, 14px, 0) scale(1.1) rotate(2deg);
-      opacity: 0.14;
-    }
-  }
+  /* Marca d'água removida para não cobrir o texto */
 
   @media (max-width: 640px) {
     .hero-visual-stack {
