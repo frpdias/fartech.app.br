@@ -60,6 +60,7 @@
     align-items: center;
     width: 100%;
     max-width: 100%;
+    overflow: visible;
   }
 
   .hero-content {
@@ -107,7 +108,7 @@
     align-items: center;
     width: 100%;
     max-width: 100%;
-    z-index: -1;
+    pointer-events: none;
   }
 
   .hero-meta {
