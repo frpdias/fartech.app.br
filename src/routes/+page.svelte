@@ -204,129 +204,8 @@
     { label: 'Disponibilidade', value: '99.95%' }
   ]}
 >
-  <div slot="visual" class="hero-visual-stack">
-    <div class="phone phone-light">
-      <div class="phone-notch"></div>
-      <div class="phone-body">
-        <header class="phone-top">
-          <span class="pill ghost">Rocket Rides</span>
-          <span class="pill muted">Pesquisar</span>
-        </header>
-        <div class="phone-stats">
-          <div class="stat-card">
-            <p class="muted">Volume liquidado hoje</p>
-            <strong>R$ 3.528.198,72</strong>
-            <div class="sparkline"></div>
-          </div>
-          <div class="stat-card">
-            <p class="muted">Ticket médio</p>
-            <strong>R$ 392,74</strong>
-            <div class="pill success">+12% vs. ontem</div>
-          </div>
-          <div class="stat-card compact">
-            <p class="muted">Aprovação</p>
-            <strong>98,4%</strong>
-            <div class="pill neutral">Em tempo real</div>
-          </div>
-        </div>
-        <div class="orders-card">
-          <div class="orders-header">
-            <p class="muted">Transações recentes</p>
-            <span class="pill subtle">Atualizado em tempo real</span>
-          </div>
-          <div class="orders-list">
-            {#each transacoes as trans (trans.id)}
-              <div class="order animate">
-                <div>
-                  <strong>{trans.valor}</strong>
-                  <p class="muted">{trans.descricao}</p>
-                </div>
-                <span class={`pill ${badgeClass(trans.status)}`}>
-                  {trans.status === 'pago' ? 'Pago' : trans.status === 'analise' ? 'Análise' : 'Falha'}
-                </span>
-              </div>
-            {/each}
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div class="phone phone-dark">
-      <div class="phone-notch dark"></div>
-      <div class="phone-body">
-        <header class="education-head">
-          <p class="eyebrow">SaaS Educacional Municipal</p>
-          <h3>Plataforma oficial da Secretaria Municipal de Educação.</h3>
-          <p class="muted">Acompanhe matrículas, transporte e operações críticas em tempo real.</p>
-          <div class="edu-actions">
-            <span class="pill primary">Acessar Central Operacional</span>
-            <span class="pill outline">Secretaria Parceira</span>
-          </div>
-          <small class="muted">Próxima atualização 15/11</small>
-        </header>
-        <div class="edu-stats">
-          <div><strong>128</strong><span>Escolas conectadas</span></div>
-          <div><strong>52.430</strong><span>Estudantes</span></div>
-          <div><strong>2.348</strong><span>Turmas monitoradas</span></div>
-        </div>
-        <div class="edu-grid">
-          <div class="edu-card">Evasão<span>Fluxo de gravação</span></div>
-          <div class="edu-card">Painel da Secretaria<span>Indicadores em tempo real</span></div>
-          <div class="edu-card">Matrícula Online<span>Inscrição municipal</span></div>
-          <div class="edu-card">Gestão Escolar<span>Visão por unidade</span></div>
-        </div>
-      </div>
-    </div>
-
-    <div class="phone phone-pay hero-pay">
-      <div class="phone-notch dark"></div>
-      <div class="phone-body">
-        <header class="device-header">
-          <div>
-            <span class="device-label">Integração Pix Ready</span>
-            <p class="device-sub">Checkout Fartech Pay</p>
-          </div>
-          <span class="status-pill">Online</span>
-        </header>
-        <div class="device-card">
-          <div>
-            <span class="muted">Valor a receber</span>
-            <strong>{pagamentoAtual.valor}</strong>
-          </div>
-          <div>
-            <span class="muted">Cliente</span>
-            <strong>{pagamentoAtual.cliente}</strong>
-          </div>
-        </div>
-        <div class="device-form">
-          <div class="fake-field" aria-label="Cartão ilustrativo">
-            <span>Cartão</span>
-            <div class="input fake-input">
-              <span>{pagamentoAtual.mascara}</span>
-              <span class="muted">{pagamentoAtual.validade}</span>
-            </div>
-          </div>
-          <div class="fake-field" aria-label="Nome ilustrativo">
-            <span>Nome</span>
-            <div class="input fake-input">Fernanda V.</div>
-          </div>
-          <div class="fake-field split" aria-label="CVV ilustrativo">
-            <span>CVV</span>
-            <div class="input fake-input">123</div>
-          </div>
-        </div>
-        <button class="btn device-btn">Confirmar pagamento</button>
-        <div class="device-icons">
-          <span>Pix</span>
-          <span>Visa</span>
-          <span>Mastercard</span>
-          <span>Apple Pay</span>
-        </div>
-        <div class="checkout-logo">
-          <img src="/images/logo.png" alt="Fartech" loading="lazy" decoding="async" />
-        </div>
-      </div>
-    </div>
+  <div slot="visual">
+    <!-- Phones movidos para seção de Dashboards -->
   </div>
 </Hero>
 
@@ -387,6 +266,120 @@
     <p class="eyebrow">Dashboards & Integrações</p>
     <h2 class="section-title">Visualize dados em tempo real com painéis intuitivos.</h2>
     
+    <div class="hero-visual-stack" style="margin-bottom: 60px;">
+      <div class="phone phone-light">
+        <div class="phone-notch"></div>
+        <div class="phone-body">
+          <header class="phone-top">
+            <span class="pill ghost">Rocket Rides</span>
+            <span class="pill muted">Pesquisar</span>
+          </header>
+          <div class="phone-stats">
+            <div class="stat-card">
+              <p class="muted">Volume liquidado hoje</p>
+              <strong>R$ 3.528.198,72</strong>
+              <div class="sparkline"></div>
+            </div>
+            <div class="stat-card">
+              <p class="muted">Ticket médio</p>
+              <strong>R$ 392,74</strong>
+              <div class="pill success">+12% vs. ontem</div>
+            </div>
+            <div class="stat-card compact">
+              <p class="muted">Aprovação</p>
+              <strong>98,4%</strong>
+              <div class="pill neutral">Em tempo real</div>
+            </div>
+          </div>
+          <div class="orders-card">
+            <div class="orders-header">
+              <p class="muted">Transações recentes</p>
+              <span class="pill subtle">Atualizado em tempo real</span>
+            </div>
+            <div class="orders-list">
+              {#each transacoes as trans (trans.id)}
+                <div class="order animate">
+                  <div>
+                    <strong>{trans.valor}</strong>
+                    <p class="muted">{trans.descricao}</p>
+                  </div>
+                  <span class={`pill ${badgeClass(trans.status)}`}>
+                    {trans.status === 'pago' ? 'Pago' : trans.status === 'analise' ? 'Análise' : 'Falha'}
+                  </span>
+                </div>
+              {/each}
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="phone phone-dark">
+        <div class="phone-notch dark"></div>
+        <div class="phone-body">
+          <header class="education-head">
+            <p class="eyebrow">SaaS Educacional Municipal</p>
+            <h3>Plataforma oficial da Secretaria Municipal de Educação.</h3>
+            <p class="muted">Acompanhe matrículas, transporte e operações críticas em tempo real.</p>
+            <div class="edu-actions">
+              <span class="pill primary">Acessar Central Operacional</span>
+              <span class="pill outline">Secretaria Parceira</span>
+            </div>
+            <small class="muted">Próxima atualização 15/11</small>
+          </header>
+          <div class="edu-stats">
+            <div><strong>128</strong><span>Escolas conectadas</span></div>
+            <div><strong>52.430</strong><span>Estudantes</span></div>
+            <div><strong>2.348</strong><span>Turmas monitoradas</span></div>
+          </div>
+          <div class="edu-grid">
+            <div class="edu-card">Evasão<span>Fluxo de gravação</span></div>
+            <div class="edu-card">Painel da Secretaria<span>Indicadores em tempo real</span></div>
+            <div class="edu-card">Matrícula Online<span>Inscrição municipal</span></div>
+            <div class="edu-card">Gestão Escolar<span>Visão por unidade</span></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="phone phone-pay hero-pay">
+        <div class="phone-notch dark"></div>
+        <div class="phone-body">
+          <header class="device-header">
+            <div>
+              <span class="device-label">Integração Pix Ready</span>
+              <p class="device-sub">Checkout Fartech Pay</p>
+            </div>
+            <span class="status-pill">Online</span>
+          </header>
+          <div class="device-card">
+            <div>
+              <span class="muted">Valor a receber</span>
+              <strong>{pagamentoAtual.valor}</strong>
+            </div>
+            <div>
+              <span class="muted">Cliente</span>
+              <strong>{pagamentoAtual.cliente}</strong>
+            </div>
+          </div>
+          <div class="device-form">
+            <div class="fake-field" aria-label="Cartão ilustrativo">
+              <span>Cartão</span>
+              <div class="input fake-input">
+                <span>{pagamentoAtual.mascara}</span>
+                <span class="muted">{pagamentoAtual.validade}</span>
+              </div>
+            </div>
+            <div class="fake-field" aria-label="Nome ilustrativo">
+              <span>Nome</span>
+              <div class="input fake-input">
+                <span>{pagamentoAtual.cliente}</span>
+              </div>
+            </div>
+            <button class="btn btn-primary" style="width:100%">Confirmar pagamento</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
     <div class="dashboards-showcase">
       <div class="dashboard-left">
         <div class="desktop-frame">
