@@ -972,8 +972,7 @@
   .checkout-logo img {
     max-width: 120px;
     height: auto;
-    filter: brightness(0) invert(1);
-    opacity: 0.85;
+    filter: drop-shadow(0 8px 24px rgba(0, 0, 0, 0.3));
   }
 
   .phone-top {
