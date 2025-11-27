@@ -437,6 +437,135 @@
           </div>
         </div>
       </div>
+
+      <div class="phone phone-landscape phone-dark">
+        <div class="phone-body" style="display: grid; grid-template-columns: 240px 1fr 280px; gap: 0; padding: 0; height: 100%;">
+          <!-- Sidebar -->
+          <div style="background: linear-gradient(180deg, #1e293b 0%, #0f172a 100%); padding: 20px; display: flex; flex-direction: column; gap: 16px; border-right: 1px solid rgba(255,255,255,0.08);">
+            <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 8px;">
+              <div style="width: 32px; height: 32px; background: linear-gradient(135deg, #3b82f6, #1d4ed8); border-radius: 8px; display: flex; align-items: center; justify-content: center; font-weight: 900; color: white; font-size: 18px;">📘</div>
+              <strong style="color: #e5e7eb; font-size: 1rem;">CEA</strong>
+            </div>
+            
+            <div style="background: rgba(59, 130, 246, 0.15); border: 1px solid rgba(59, 130, 246, 0.3); border-radius: 8px; padding: 12px; margin-bottom: 8px;">
+              <p style="color: rgba(229, 231, 235, 0.7); font-size: 0.72rem; margin: 0 0 4px 0;">SIMULADOS</p>
+              <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 6px; margin-top: 8px;">
+                <div style="background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.12); border-radius: 6px; padding: 8px; text-align: center; font-size: 0.85rem; color: #94a3b8;">1</div>
+                <div style="background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.12); border-radius: 6px; padding: 8px; text-align: center; font-size: 0.85rem; color: #94a3b8;">2</div>
+                <div style="background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.12); border-radius: 6px; padding: 8px; text-align: center; font-size: 0.85rem; color: #94a3b8;">3</div>
+                <div style="background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.12); border-radius: 6px; padding: 8px; text-align: center; font-size: 0.85rem; color: #94a3b8;">4</div>
+                <div style="background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.12); border-radius: 6px; padding: 8px; text-align: center; font-size: 0.85rem; color: #94a3b8;">5</div>
+                <div style="background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.12); border-radius: 6px; padding: 8px; text-align: center; font-size: 0.85rem; color: #94a3b8;">6</div>
+                <div style="background: linear-gradient(135deg, #0ea5e9, #3b82f6); border: 1px solid rgba(14, 165, 233, 0.5); border-radius: 6px; padding: 8px; text-align: center; font-size: 0.85rem; color: white; font-weight: 700; box-shadow: 0 0 12px rgba(14, 165, 233, 0.4);">7</div>
+                <div style="background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.12); border-radius: 6px; padding: 8px; text-align: center; font-size: 0.85rem; color: #94a3b8;">8</div>
+                <div style="background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.12); border-radius: 6px; padding: 8px; text-align: center; font-size: 0.85rem; color: #94a3b8;">9</div>
+                <div style="background: rgba(139, 92, 246, 0.25); border: 1px solid rgba(139, 92, 246, 0.4); border-radius: 6px; padding: 8px; text-align: center; font-size: 0.7rem; color: #e9d5ff; font-weight: 600; grid-column: span 1;">10<br/><span style="font-size: 0.6rem;">Novo 7.0</span></div>
+              </div>
+            </div>
+
+            <div style="display: flex; align-items: center; gap: 8px; padding: 10px; background: rgba(255,255,255,0.05); border-radius: 6px; cursor: pointer;">
+              <span style="font-size: 1.1rem;">🎯</span>
+              <span style="color: #cbd5e1; font-size: 0.82rem;">Produtos e Investimentos</span>
+            </div>
+            <div style="display: flex; align-items: center; gap: 8px; padding: 10px; background: rgba(255,255,255,0.05); border-radius: 6px; cursor: pointer;">
+              <span style="font-size: 1.1rem;">📝</span>
+              <span style="color: #cbd5e1; font-size: 0.82rem;">Análise & Gestão</span>
+            </div>
+            <div style="display: flex; align-items: center; gap: 8px; padding: 10px; background: rgba(255,255,255,0.05); border-radius: 6px; cursor: pointer;">
+              <span style="font-size: 1.1rem;">💹</span>
+              <span style="color: #cbd5e1; font-size: 0.82rem;">Mercado Financeiro</span>
+            </div>
+          </div>
+
+          <!-- Área da Questão -->
+          <div style="background: linear-gradient(180deg, #f8fafc 0%, #f1f5f9 100%); padding: 24px; overflow-y: auto;">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
+              <h3 style="color: #1e293b; font-size: 0.9rem; letter-spacing: 0.05em; font-weight: 700; margin: 0;">QUESTÃO 5</h3>
+              <span style="background: rgba(148, 163, 184, 0.15); color: #475569; padding: 6px 14px; border-radius: 20px; font-size: 0.75rem; font-weight: 600;">Perfil e Comportamento do Investidor</span>
+            </div>
+            
+            <div style="color: #334155; font-size: 0.85rem; line-height: 1.6; margin-bottom: 20px;">
+              <p style="margin: 0 0 12px 0;">No último encontro de analistas de uma corretora em uma capital brasileira, discutiu-se de que forma a disponibilidade de informações afeta preços dos ativos no mercado acionário. Surgiu, então, o debate sobre a Hipótese do Mercado Eficiente (HME) e seus diferentes níveis (fraca, semiforte e forte). Romário Teixeira alega que seria fácil obter ganhos acima da média se fossem realizadas análises detalhadas de dados passados,</p>
+              <p style="margin: 0 0 12px 0;">enquanto Ana Maria defende que todas as informações disponíveis já estariam refletidas nos preços. O ponto central dessa discussão sobre a eficiência de mercado está relacionado principalmente ao fato de que:</p>
+              <p style="margin: 0;">Se o Índice Preço Lucro (P/L) médio do segmento é R$19,00, um especialista em investimento deverá recomendar, em função da análise da P/L das empresas, a:</p>
+            </div>
+
+            <div style="border: 2px solid #cbd5e1; border-radius: 12px; overflow: hidden; background: white;">
+              <table style="width: 100%; border-collapse: collapse;">
+                <thead>
+                  <tr style="background: linear-gradient(90deg, #1e293b, #334155);">
+                    <th style="padding: 14px; text-align: left; color: white; font-size: 0.9rem; font-weight: 700; border-right: 1px solid rgba(255,255,255,0.1);">Empresa</th>
+                    <th style="padding: 14px; text-align: center; color: white; font-size: 0.9rem; font-weight: 700; border-right: 1px solid rgba(255,255,255,0.1);">Preço de Mercado</th>
+                    <th style="padding: 14px; text-align: center; color: white; font-size: 0.9rem; font-weight: 700;">Lucro por Ação</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr style="border-bottom: 1px solid #e2e8f0;">
+                    <td style="padding: 16px; text-align: center; font-size: 1.3rem; font-weight: 900; color: #1e293b;">X</td>
+                    <td style="padding: 16px; text-align: center; font-size: 1rem; font-weight: 700; color: #0f172a;">R$ 19,00</td>
+                    <td style="padding: 16px; text-align: center; font-size: 1rem; font-weight: 700; color: #0f172a;">R$ 0,82</td>
+                  </tr>
+                  <tr style="border-bottom: 1px solid #e2e8f0; background: rgba(248, 250, 252, 0.5);">
+                    <td style="padding: 16px; text-align: center; font-size: 1.3rem; font-weight: 900; color: #1e293b;">Y</td>
+                    <td style="padding: 16px; text-align: center; font-size: 1rem; font-weight: 700; color: #0f172a;">R$ 20,00</td>
+                    <td style="padding: 16px; text-align: center; font-size: 1rem; font-weight: 700; color: #0f172a;">R$ 1,10</td>
+                  </tr>
+                  <tr>
+                    <td style="padding: 16px; text-align: center; font-size: 1.3rem; font-weight: 900; color: #1e293b;">W</td>
+                    <td style="padding: 16px; text-align: center; font-size: 1rem; font-weight: 700; color: #0f172a;">R$ 23,50</td>
+                    <td style="padding: 16px; text-align: center; font-size: 1rem; font-weight: 700; color: #0f172a;">R$ 1,05</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+          <!-- Sidebar Direita -->
+          <div style="background: linear-gradient(180deg, #1e293b 0%, #0f172a 100%); padding: 20px; border-left: 1px solid rgba(255,255,255,0.08); display: flex; flex-direction: column; gap: 20px;">
+            <div style="text-align: center;">
+              <div style="font-size: 2.8rem; font-weight: 900; color: white; margin-bottom: 4px;">0.00%</div>
+              <p style="color: rgba(229, 231, 235, 0.6); font-size: 0.72rem; margin: 0; letter-spacing: 0.08em;">APROVEITAMENTO</p>
+              <p style="color: rgba(229, 231, 235, 0.5); font-size: 0.68rem; margin: 4px 0 0 0;">0 simulado(s)</p>
+            </div>
+
+            <div style="background: rgba(14, 165, 233, 0.1); border: 1px solid rgba(14, 165, 233, 0.3); border-radius: 10px; padding: 16px;">
+              <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 12px;">
+                <span style="font-size: 1.2rem;">📊</span>
+                <strong style="color: #38bdf8; font-size: 0.85rem;">ESTATÍSTICAS</strong>
+              </div>
+              <div style="display: flex; flex-direction: column; gap: 10px;">
+                <div>
+                  <div style="color: #38bdf8; font-size: 1.6rem; font-weight: 900;">0</div>
+                  <div style="color: rgba(229, 231, 235, 0.6); font-size: 0.7rem;">Total de Questões</div>
+                </div>
+                <div>
+                  <div style="color: #10b981; font-size: 1.6rem; font-weight: 900;">0</div>
+                  <div style="color: rgba(229, 231, 235, 0.6); font-size: 0.7rem;">Questões Certas</div>
+                </div>
+                <div>
+                  <div style="color: #ef4444; font-size: 1.6rem; font-weight: 900;">0</div>
+                  <div style="color: rgba(229, 231, 235, 0.6); font-size: 0.7rem;">Questões Erradas</div>
+                </div>
+                <div>
+                  <div style="color: #22d3ee; font-size: 1.3rem; font-weight: 900;">0:00</div>
+                  <div style="color: rgba(229, 231, 235, 0.6); font-size: 0.7rem;">Tempo Médio</div>
+                </div>
+              </div>
+            </div>
+
+            <div style="background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); border-radius: 10px; padding: 14px;">
+              <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 8px;">
+                <span style="font-size: 1rem;">⚡</span>
+                <strong style="color: #fbbf24; font-size: 0.8rem;">AÇÕES RÁPIDAS</strong>
+              </div>
+              <div style="display: flex; flex-direction: column; gap: 8px;">
+                <button style="background: rgba(59, 130, 246, 0.2); border: 1px solid rgba(59, 130, 246, 0.4); color: #93c5fd; padding: 8px; border-radius: 6px; font-size: 0.72rem; cursor: pointer;">📋 Revisar Questões</button>
+                <button style="background: rgba(168, 85, 247, 0.2); border: 1px solid rgba(168, 85, 247, 0.4); color: #d8b4fe; padding: 8px; border-radius: 6px; font-size: 0.72rem; cursor: pointer;">🎲 Simulado Aleatório</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
 
     <div class="dashboards-showcase">
@@ -643,6 +772,16 @@
     box-shadow: 0 30px 80px rgba(5, 10, 30, 0.3);
     border: 1px solid rgba(0, 0, 0, 0.08);
     z-index: 0;
+  }
+
+  .phone-landscape {
+    width: 844px;
+    max-width: 844px;
+    min-height: 390px;
+    height: 390px;
+    aspect-ratio: 844 / 390;
+    border-radius: 28px;
+    padding: 8px;
   }
 
   .phone-light {
