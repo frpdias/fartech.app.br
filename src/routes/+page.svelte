@@ -658,7 +658,7 @@
     margin: 0;
     padding-left: 0;
     flex-wrap: nowrap;
-    transform: translateX(0);
+    transform: translateX(-40px);
     pointer-events: none;
     z-index: 1;
   }
