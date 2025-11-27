@@ -266,7 +266,7 @@
     <p class="eyebrow">Dashboards & Integrações</p>
     <h2 class="section-title">Visualize dados em tempo real com painéis intuitivos.</h2>
     
-    <div class="hero-visual-stack" style="margin-bottom: 60px;">
+    <div class="hero-visual-stack" style="margin-bottom: 60px; align-items: flex-start;">
       <div class="phone phone-light">
         <div class="phone-notch"></div>
         <div class="phone-body">
@@ -378,9 +378,7 @@
           </div>
         </div>
       </div>
-    </div>
 
-    <div class="hero-visual-stack" style="margin-bottom: 60px;">
       <div class="phone phone-dark">
         <div class="phone-notch dark"></div>
         <div class="phone-body">
