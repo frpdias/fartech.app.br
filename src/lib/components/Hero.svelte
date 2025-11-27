@@ -70,8 +70,10 @@
     min-width: 0;
     max-width: 720px;
     position: relative;
-    z-index: 10;
+    z-index: 1000;
     isolation: isolate;
+    will-change: transform;
+    transform: translateZ(0);
   }
 
   .hero-text-wrapper {
@@ -79,7 +81,9 @@
     max-width: 700px;
     min-width: 0;
     position: relative;
-    z-index: 10;
+    z-index: 1001;
+    will-change: transform;
+    transform: translateZ(0);
   }
 
   .hero h1 {
@@ -100,7 +104,9 @@
     animation: heroParallax 6s ease-in-out infinite;
     text-shadow: 0 8px 24px rgba(59, 130, 246, 0.25);
     position: relative;
-    z-index: 100;
+    z-index: 1002;
+    will-change: transform;
+    transform: translateZ(0);
   }
 
   .hero-visual {
@@ -114,7 +120,7 @@
     width: 50%;
     max-width: 100%;
     pointer-events: none;
-    z-index: 0;
+    z-index: -1;
   }
 
   .hero-meta {

@@ -586,11 +586,13 @@
     flex-wrap: nowrap;
     transform: translateX(-500px);
     pointer-events: none;
+    z-index: -10;
   }
 
   .hero-visual-stack > .phone {
     flex: 0 0 auto;
     pointer-events: auto;
+    z-index: -10;
   }
 
   .hero-visual-stack .hero-pay {
