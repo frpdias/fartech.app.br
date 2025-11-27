@@ -83,7 +83,7 @@ body {
   color: var(--color-text-primary);
   background: transparent;
   line-height: 1.72;
-  font-size: clamp(16px, 1.8vw, 18px);
+  font-size: clamp(18px, 2vw, 22px);
   letter-spacing: -0.01em;
   overflow-x: hidden;
   -webkit-font-smoothing: antialiased;
@@ -226,7 +226,7 @@ img {
 
 .section-title {
   font-family: var(--font-display);
-  font-size: clamp(48px, 5.5vw, 84px);
+  font-size: clamp(56px, 6vw, 96px);
   line-height: 1.12;
   margin-bottom: 24px;
   color: var(--color-primary);
@@ -238,13 +238,13 @@ img {
   color: var(--color-text-secondary);
   max-width: 780px;
   margin-bottom: 48px;
-  font-size: clamp(18px, 2.2vw, 22px);
+  font-size: clamp(20px, 2.4vw, 26px);
   line-height: 1.8;
   font-weight: 400;
 }
 
 .eyebrow {
-  font-size: clamp(13px, 1.6vw, 16px);
+  font-size: clamp(15px, 1.8vw, 18px);
   letter-spacing: 0.15em;
   text-transform: uppercase;
   color: var(--color-blue);
@@ -292,7 +292,7 @@ img {
 
 .hero h1 {
   font-family: var(--font-display);
-  font-size: clamp(68px, 8.5vw, 110px);
+  font-size: clamp(76px, 9vw, 120px);
   line-height: 1.1;
   margin: 0 0 32px 0;
   color: var(--color-primary);
@@ -301,7 +301,7 @@ img {
 }
 
 .hero p {
-  font-size: clamp(18px, 2.6vw, 24px);
+  font-size: clamp(22px, 2.8vw, 28px);
   color: var(--color-text-secondary);
   max-width: 700px;
   margin: 0 0 48px 0;
@@ -419,7 +419,7 @@ input, textarea, select {
 .hero .eyebrow {
   color: var(--color-blue);
   letter-spacing: 0.15em;
-  font-size: clamp(13px, 1.6vw, 16px);
+  font-size: clamp(15px, 1.8vw, 18px);
   font-weight: 700;
   text-transform: uppercase;
 }
@@ -583,7 +583,7 @@ input, textarea, select {
 /* Premium section titles with gradient effect */
 .section-title {
   font-family: var(--font-display);
-  font-size: clamp(38px, 4.5vw, 64px);
+  font-size: clamp(48px, 5.5vw, 76px);
   line-height: 1.1;
   margin-bottom: 24px;
   color: var(--color-primary);
@@ -635,7 +635,7 @@ input, textarea, select {
 
 .hero h1 {
   font-family: var(--font-display);
-  font-size: clamp(60px, 7.5vw, 96px);
+  font-size: clamp(72px, 8.5vw, 110px);
   line-height: 1.08;
   margin: 0 0 28px 0;
   color: var(--color-primary);
@@ -645,7 +645,7 @@ input, textarea, select {
 }
 
 .hero p {
-  font-size: clamp(20px, 2.8vw, 28px);
+  font-size: clamp(22px, 3vw, 30px);
   color: var(--color-text-secondary);
   max-width: 700px;
   margin: 0 0 44px 0;
@@ -1038,7 +1038,7 @@ a:not(.btn):hover::after {
 
 .hero h1 {
   font-family: var(--font-display);
-  font-size: clamp(60px, 7.5vw, 96px);
+  font-size: clamp(72px, 8.5vw, 110px);
   line-height: 1.08;
   margin: 0 0 28px 0;
   color: var(--color-primary);
@@ -1052,7 +1052,7 @@ a:not(.btn):hover::after {
 }
 
 .hero p {
-  font-size: clamp(20px, 2.8vw, 28px);
+  font-size: clamp(22px, 3vw, 30px);
   color: var(--color-text-secondary);
   max-width: 700px;
   margin: 0 0 44px 0;
