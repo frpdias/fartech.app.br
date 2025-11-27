@@ -972,9 +972,8 @@
   .checkout-logo img {
     max-width: 120px;
     height: auto;
-    filter: drop-shadow(0 8px 24px rgba(0, 0, 0, 0.3));
-    mix-blend-mode: screen;
-    opacity: 0.9;
+    filter: brightness(0) invert(1);
+    opacity: 0.85;
   }
 
   .phone-top {
