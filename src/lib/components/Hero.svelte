@@ -96,6 +96,8 @@
     color: transparent;
     animation: heroParallax 6s ease-in-out infinite;
     text-shadow: 0 8px 24px rgba(59, 130, 246, 0.25);
+    position: relative;
+    z-index: 100;
   }
 
   .hero-visual {
