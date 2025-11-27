@@ -377,7 +377,7 @@
             <button class="btn btn-primary" style="width:100%">Confirmar pagamento</button>
           </div>
           <div class="checkout-logo">
-            <img src="/images/fartecvetorizada.png" alt="Fartech Logo" />
+            <img src="/images/logo.png" alt="Fartech Logo" />
           </div>
         </div>
       </div>
