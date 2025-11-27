@@ -380,6 +380,67 @@
       </div>
     </div>
 
+    <div class="hero-visual-stack" style="margin-bottom: 60px;">
+      <div class="phone phone-dark">
+        <div class="phone-notch dark"></div>
+        <div class="phone-body">
+          <header class="imac-header" style="padding: 20px 18px 16px 18px;">
+            <div>
+              <p class="eyebrow">Avaliações ENEM</p>
+              <h3 style="font-size: 1.4rem; line-height: 1.3; margin: 8px 0 12px 0;">Histórico de desempenho 1998-2025</h3>
+              <p class="muted" style="font-size: 0.88rem;">Acompanhe a evolução da rede nos simulados oficiais e resultados do ENEM.</p>
+            </div>
+            <span class="pill outline" style="margin-top: 12px;">Próx. atualização: dez/2025</span>
+          </header>
+          <div class="imac-cards" style="padding: 0 18px; gap: 10px; grid-template-columns: 1fr;">
+            <div class="imac-card" style="padding: 14px;">
+              <p class="muted" style="font-size: 0.78rem;">2024</p>
+              <h4 style="font-size: 0.95rem; margin: 4px 0;">Melhor média histórica</h4>
+              <strong style="font-size: 1.3rem; color: #10b981;">712 pts</strong>
+              <small class="muted" style="font-size: 0.76rem; display: block; margin-top: 4px;">Rede municipal de Belo Horizonte</small>
+            </div>
+            <div class="imac-card" style="padding: 14px;">
+              <p class="muted" style="font-size: 0.78rem;">2023</p>
+              <h4 style="font-size: 0.95rem; margin: 4px 0;">Maior salto em simulados</h4>
+              <strong style="font-size: 1.3rem; color: #10b981;">+18 pts</strong>
+              <small class="muted" style="font-size: 0.76rem; display: block; margin-top: 4px;">Telemetria ENEM</small>
+            </div>
+            <div class="imac-card" style="padding: 14px;">
+              <p class="muted" style="font-size: 0.78rem;">2015</p>
+              <h4 style="font-size: 0.95rem; margin: 4px 0;">Programa de tutoria</h4>
+              <strong style="font-size: 1.3rem; color: #10b981;">+12 pts</strong>
+              <small class="muted" style="font-size: 0.76rem; display: block; margin-top: 4px;">Mentorias para 3º ano</small>
+            </div>
+          </div>
+          <div class="imac-table" style="margin: 16px 18px 0 18px; font-size: 0.82rem;">
+            <header style="font-size: 0.76rem; padding: 10px 12px;">
+              <span>Ano</span>
+              <span>Simulados</span>
+              <span>ENEM</span>
+              <span>Dif.</span>
+            </header>
+            <div class="imac-rows">
+              <div class="imac-row" style="padding: 10px 12px; font-size: 0.82rem;">
+                <span>2024</span><span>712</span><span>655</span><span class="pos">+57</span>
+              </div>
+              <div class="imac-row" style="padding: 10px 12px; font-size: 0.82rem;">
+                <span>2023</span><span>698</span><span>662</span><span class="pos">+36</span>
+              </div>
+              <div class="imac-row" style="padding: 10px 12px; font-size: 0.82rem;">
+                <span>2022</span><span>683</span><span>662</span><span class="pos">+21</span>
+              </div>
+              <div class="imac-row" style="padding: 10px 12px; font-size: 0.82rem;">
+                <span>2021</span><span>671</span><span>659</span><span class="pos">+12</span>
+              </div>
+              <div class="imac-row" style="padding: 10px 12px; font-size: 0.82rem;">
+                <span>2020</span><span>660</span><span>662</span><span class="neg">-2</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
     <div class="dashboards-showcase">
       <div class="dashboard-right">
         <div class="imac-frame">
