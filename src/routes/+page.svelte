@@ -163,6 +163,30 @@
 
   let intervalId: ReturnType<typeof setInterval> | undefined;
   let transInterval: ReturnType<typeof setInterval> | undefined;
+  let mostrarRecibo = false;
+  let dadosRecibo = {
+    valor: '',
+    cliente: '',
+    data: '',
+    hora: '',
+    transacaoId: ''
+  };
+
+  function confirmarPagamento() {
+    const agora = new Date();
+    dadosRecibo = {
+      valor: pagamentoAtual.valor,
+      cliente: pagamentoAtual.cliente,
+      data: agora.toLocaleDateString('pt-BR'),
+      hora: agora.toLocaleTimeString('pt-BR', { hour: '2-digit', minute: '2-digit' }),
+      transacaoId: `TXN${Math.random().toString(36).substr(2, 9).toUpperCase()}`
+    };
+    mostrarRecibo = true;
+    
+    setTimeout(() => {
+      mostrarRecibo = false;
+    }, 8000);
+  }
 
   onMount(() => {
     intervalId = setInterval(() => {
@@ -343,6 +367,7 @@
       <div class="phone phone-pay hero-pay">
         <div class="phone-notch dark"></div>
         <div class="phone-body">
+          {#if !mostrarRecibo}
           <header class="device-header">
             <div>
               <span class="device-label">Integração Pix Ready</span>
@@ -374,11 +399,49 @@
                 <span>{pagamentoAtual.cliente}</span>
               </div>
             </div>
-            <button class="btn btn-primary" style="width:100%">Confirmar pagamento</button>
+            <button class="btn btn-primary" style="width:100%" on:click={confirmarPagamento}>Confirmar pagamento</button>
           </div>
           <div class="checkout-logo">
             <img src="/images/logo.png" alt="Fartech Logo" />
           </div>
+          {:else}
+          <div class="recibo-container">
+            <div class="recibo-header">
+              <div class="check-icon">✓</div>
+              <h3>Pagamento Confirmado</h3>
+              <p class="muted">Transação processada com sucesso</p>
+            </div>
+            <div class="recibo-details">
+              <div class="recibo-row">
+                <span class="muted">Valor</span>
+                <strong>{dadosRecibo.valor}</strong>
+              </div>
+              <div class="recibo-row">
+                <span class="muted">Cliente</span>
+                <strong>{dadosRecibo.cliente}</strong>
+              </div>
+              <div class="recibo-row">
+                <span class="muted">Data</span>
+                <strong>{dadosRecibo.data}</strong>
+              </div>
+              <div class="recibo-row">
+                <span class="muted">Horário</span>
+                <strong>{dadosRecibo.hora}</strong>
+              </div>
+              <div class="recibo-row">
+                <span class="muted">ID Transação</span>
+                <strong style="font-size: 0.85rem;">{dadosRecibo.transacaoId}</strong>
+              </div>
+            </div>
+            <div class="recibo-footer">
+              <span class="pill success">Pago</span>
+              <p class="muted" style="font-size: 0.75rem; margin-top: 12px;">Comprovante enviado por e-mail</p>
+            </div>
+            <div class="checkout-logo">
+              <img src="/images/logo.png" alt="Fartech Logo" />
+            </div>
+          </div>
+          {/if}
         </div>
       </div>
 
@@ -975,6 +1038,88 @@
     filter: drop-shadow(0 8px 24px rgba(0, 0, 0, 0.3));
     background: transparent;
     mix-blend-mode: multiply;
+  }
+
+  .recibo-container {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding: 20px 0;
+    animation: slideUp 0.4s ease-out;
+  }
+
+  @keyframes slideUp {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .recibo-header {
+    text-align: center;
+    padding-bottom: 16px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  }
+
+  .check-icon {
+    width: 56px;
+    height: 56px;
+    margin: 0 auto 12px;
+    background: linear-gradient(135deg, #10b981, #059669);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 32px;
+    color: white;
+    font-weight: bold;
+    box-shadow: 0 8px 24px rgba(16, 185, 129, 0.35);
+  }
+
+  .recibo-header h3 {
+    font-size: 1.25rem;
+    color: #fff;
+    margin: 0 0 6px 0;
+    font-weight: 700;
+  }
+
+  .recibo-details {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    padding: 0 4px;
+  }
+
+  .recibo-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+  }
+
+  .recibo-row:last-child {
+    border-bottom: none;
+  }
+
+  .recibo-row span {
+    font-size: 0.88rem;
+  }
+
+  .recibo-row strong {
+    font-size: 0.95rem;
+    color: #fff;
+    font-weight: 700;
+  }
+
+  .recibo-footer {
+    text-align: center;
+    padding-top: 12px;
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
   }
 
   .phone-top {
