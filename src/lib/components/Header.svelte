@@ -54,10 +54,6 @@
     justify-content: space-between;
     padding-block: 18px;
     gap: 24px;
-    width: calc(100% - clamp(8px, 3vw, 80px));
-    max-width: 1920px;
-    margin-inline: auto;
-    padding-inline: clamp(6px, 1.5vw, 16px);
   }
 
   nav {
