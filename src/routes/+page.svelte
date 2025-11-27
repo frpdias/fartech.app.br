@@ -632,6 +632,170 @@
           </div>
         </div>
       </div>
+
+      <!-- Novo Phone: Simulado ENEM 2024 Portrait -->
+      <div class="phone phone-dark">
+        <div class="phone-notch dark"></div>
+        <div class="phone-body" style="display: grid; grid-template-columns: 260px 1fr 380px; gap: 0; padding: 0; height: 100%;">
+          <!-- Sidebar Esquerda -->
+          <div style="background: linear-gradient(180deg, #0f172a 0%, #020617 100%); padding: 20px 16px; display: flex; flex-direction: column; gap: 12px; border-right: 1px solid rgba(255,255,255,0.06);">
+            <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 12px; padding-bottom: 12px; border-bottom: 1px solid rgba(255,255,255,0.08);">
+              <span style="font-size: 0.7rem; color: #64748b; text-transform: uppercase; letter-spacing: 0.1em;">Simulado em Tempo</span>
+            </div>
+
+            <div style="background: rgba(30, 41, 59, 0.5); border-radius: 12px; padding: 14px; border: 1px solid rgba(255,255,255,0.08);">
+              <p style="color: #64748b; font-size: 0.65rem; margin: 0 0 6px 0; text-transform: uppercase; letter-spacing: 0.08em;">Indicadores do aluno</p>
+              <div style="display: flex; gap: 12px; margin-top: 10px;">
+                <div style="flex: 1; background: rgba(59, 130, 246, 0.12); border: 1px solid rgba(59, 130, 246, 0.25); border-radius: 8px; padding: 10px; text-align: center;">
+                  <div style="color: #94a3b8; font-size: 0.65rem; margin-bottom: 4px;">RESPONDIDAS</div>
+                  <div style="color: #3b82f6; font-size: 1.6rem; font-weight: 900;">1</div>
+                  <div style="color: #475569; font-size: 0.6rem; margin-top: 2px;">de 50</div>
+                </div>
+                <div style="flex: 1; background: rgba(16, 185, 129, 0.12); border: 1px solid rgba(16, 185, 129, 0.25); border-radius: 8px; padding: 10px; text-align: center;">
+                  <div style="color: #94a3b8; font-size: 0.65rem; margin-bottom: 4px;">CORRETAS</div>
+                  <div style="color: #10b981; font-size: 1.6rem; font-weight: 900;">0</div>
+                  <div style="color: #475569; font-size: 0.6rem; margin-top: 2px;">0%</div>
+                </div>
+              </div>
+            </div>
+
+            <div style="background: rgba(30, 41, 59, 0.5); border-radius: 12px; padding: 12px; border: 1px solid rgba(255,255,255,0.08);">
+              <p style="color: #64748b; font-size: 0.65rem; margin: 0 0 8px 0; text-transform: uppercase; letter-spacing: 0.08em;">Progresso Geral</p>
+              <div style="color: #cbd5e1; font-size: 1.1rem; font-weight: 700; margin-bottom: 6px;">1/50</div>
+              <div style="background: rgba(15, 23, 42, 0.6); height: 8px; border-radius: 4px; overflow: hidden; margin-bottom: 8px;">
+                <div style="background: linear-gradient(90deg, #3b82f6, #0ea5e9); width: 2%; height: 100%; border-radius: 4px;"></div>
+              </div>
+            </div>
+
+            <div style="background: rgba(30, 41, 59, 0.5); border-radius: 12px; padding: 12px; border: 1px solid rgba(255,255,255,0.08);">
+              <p style="color: #64748b; font-size: 0.65rem; margin: 0 0 6px 0; text-transform: uppercase; letter-spacing: 0.08em;">Taxa de Acerto</p>
+              <div style="color: #cbd5e1; font-size: 2rem; font-weight: 900;">0.0%</div>
+            </div>
+
+            <div style="background: rgba(30, 41, 59, 0.5); border-radius: 12px; padding: 12px; border: 1px solid rgba(255,255,255,0.08); margin-top: auto;">
+              <p style="color: #64748b; font-size: 0.65rem; margin: 0 0 6px 0; text-transform: uppercase; letter-spacing: 0.08em;">Tempo Médio por Questão</p>
+              <div style="color: #38bdf8; font-size: 1.8rem; font-weight: 900;">52.4 s</div>
+            </div>
+          </div>
+
+          <!-- Área Central: Questão -->
+          <div style="background: linear-gradient(180deg, #1e293b 0%, #0f172a 100%); padding: 24px 20px; overflow-y: auto; display: flex; flex-direction: column;">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px; padding-bottom: 12px; border-bottom: 1px solid rgba(255,255,255,0.08);">
+              <button style="background: transparent; border: none; color: #94a3b8; font-size: 0.85rem; cursor: pointer; display: flex; align-items: center; gap: 6px;">
+                ← Voltar
+              </button>
+              <div style="display: flex; align-items: center; gap: 8px;">
+                <span style="color: #64748b; font-size: 0.7rem;">Usuário #55 | Respostas salvas automaticamente</span>
+              </div>
+            </div>
+
+            <div style="margin-bottom: 20px;">
+              <h2 style="color: #e2e8f0; font-size: 1.4rem; font-weight: 700; margin: 0 0 12px 0;">Enem 2024</h2>
+              <p style="color: #94a3b8; font-size: 0.85rem; margin: 0;">Enem 2024</p>
+              <p style="color: #64748b; font-size: 0.8rem; margin: 4px 0 0 0;">Questão 1 de 50 · 1 respondidas</p>
+            </div>
+
+            <div style="background: rgba(30, 41, 59, 0.6); border-radius: 12px; padding: 20px; border: 1px solid rgba(255,255,255,0.08); margin-bottom: 20px;">
+              <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 16px;">
+                <span style="background: rgba(59, 130, 246, 0.2); color: #60a5fa; padding: 6px 12px; border-radius: 6px; font-size: 0.75rem; font-weight: 600;">Linguagens</span>
+                <span style="background: rgba(245, 158, 11, 0.2); color: #fbbf24; padding: 6px 12px; border-radius: 6px; font-size: 0.75rem; font-weight: 600;">Médio</span>
+                <span style="background: rgba(139, 92, 246, 0.2); color: #a78bfa; padding: 6px 12px; border-radius: 6px; font-size: 0.75rem; font-weight: 600;">ENEM 2024</span>
+              </div>
+
+              <h3 style="color: #e2e8f0; font-size: 1rem; font-weight: 700; margin: 0 0 12px 0;">Questão 2024006</h3>
+
+              <div style="background: rgba(59, 130, 246, 0.08); border-left: 3px solid #3b82f6; padding: 12px 14px; border-radius: 6px; margin-bottom: 16px;">
+                <p style="color: #cbd5e1; font-size: 0.82rem; line-height: 1.5; margin: 0;">**Expressões e termos utilizados no Amazonas são retratados em livro e em camisetas**</p>
+              </div>
+
+              <div style="color: #cbd5e1; font-size: 0.82rem; line-height: 1.7; margin-bottom: 16px;">
+                <p style="margin: 0 0 12px 0;">"Na linguagem, podemos nos ver da forma mais verdadeira: nossas crenças, nossos valores, nosso lugar no mundo", afirmou o doutor em linguística e professor da Ufam em seu livro "Amazonês: expressões e termos usados no Amazonas". Portanto, o amazonense, com todas as suas "cunhantãs" e "curumin", acaba por encontrar um lugar no mundo e formar uma unidade linguística, informalmente denominada de português "caboco", que muito se diferencia do português "mineiro", "gaúcho", "carioca" e outras "tribos" espalhadas pelo Brasil.</p>
+              </div>
+
+              <p style="color: #94a3b8; font-size: 0.75rem; line-height: 1.5; margin-bottom: 16px;">Um designer amazonense também achou o amazonês "xibata", tanto é que criou uma série de camisetas estampadas com o nome de Cabocqués Ilustrado, que une arte e humor com as expressões típicas da região. A coleção Cabocqués ilustrado já foi lançada, e os modelos têm nomes: Leseira Baré, Xibata no Balde e Até o Tucupi, e 43 ainda na fila de espera. Para o criador, as camisetas têm como objetivo "resgatar o orgulho do povo manauara, do povo do Norte".</p>
+
+              <p style="color: #94a3b8; font-size: 0.75rem; margin: 0;">Disponível em: g1.globo.com. Acesso em: 15 jan. 2024 (adaptado).</p>
+
+              <div style="background: rgba(59, 130, 246, 0.1); border: 1px solid rgba(59, 130, 246, 0.25); border-radius: 8px; padding: 14px; margin-top: 16px;">
+                <div style="display: flex; align-items: flex-start; gap: 10px;">
+                  <span style="color: #60a5fa; font-size: 1.2rem; flex-shrink: 0;">💡</span>
+                  <p style="color: #cbd5e1; font-size: 0.8rem; line-height: 1.5; margin: 0;">A reportagem apresenta duas iniciativas: o livro "Amazonês" e as camisetas do "Cabocqués ilustrado". Com temática em comum, essas iniciativas</p>
+                </div>
+              </div>
+            </div>
+
+            <div style="margin-top: auto;">
+              <p style="color: #64748b; font-size: 0.75rem; margin-bottom: 12px; font-weight: 600;">Alternativas:</p>
+              <div style="display: flex; flex-direction: column; gap: 10px;">
+                <div style="background: rgba(16, 185, 129, 0.15); border: 2px solid rgba(16, 185, 129, 0.4); border-radius: 10px; padding: 14px; cursor: pointer; display: flex; align-items: flex-start; gap: 12px;">
+                  <div style="width: 24px; height: 24px; background: rgba(16, 185, 129, 0.3); border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
+                    <span style="color: #10b981; font-weight: 900; font-size: 0.9rem;">✓</span>
+                  </div>
+                  <p style="color: #d1fae5; font-size: 0.85rem; line-height: 1.5; margin: 0;">valorizam o repertório linguístico do povo do Amazonas.</p>
+                </div>
+
+                <div style="background: rgba(239, 68, 68, 0.12); border: 2px solid rgba(239, 68, 68, 0.3); border-radius: 10px; padding: 14px; cursor: pointer; display: flex; align-items: flex-start; gap: 12px;">
+                  <div style="width: 24px; height: 24px; background: rgba(239, 68, 68, 0.25); border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
+                    <span style="color: #ef4444; font-weight: 900; font-size: 0.9rem;">✕</span>
+                  </div>
+                  <p style="color: #fecaca; font-size: 0.85rem; line-height: 1.5; margin: 0;">evidenciam produtos feitos por empreendedores da região Norte.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Painel Auxiliar Direita -->
+          <div style="background: linear-gradient(180deg, #0f172a 0%, #020617 100%); padding: 20px; border-left: 1px solid rgba(255,255,255,0.06); display: flex; flex-direction: column; gap: 16px;">
+            <div style="text-align: center; padding-bottom: 16px; border-bottom: 1px solid rgba(255,255,255,0.08);">
+              <p style="color: #64748b; font-size: 0.7rem; margin: 0 0 4px 0; text-transform: uppercase; letter-spacing: 0.1em;">Painel Auxiliar</p>
+              <h3 style="color: #e2e8f0; font-size: 1rem; font-weight: 700; margin: 0;">Insights do simulado</h3>
+            </div>
+
+            <div style="background: rgba(30, 41, 59, 0.5); border-radius: 12px; padding: 16px; text-align: center; border: 1px solid rgba(255,255,255,0.08);">
+              <div style="width: 80px; height: 80px; margin: 0 auto 12px; border-radius: 50%; background: conic-gradient(#3b82f6 0deg 7.2deg, rgba(30, 41, 59, 0.3) 7.2deg); display: flex; align-items: center; justify-content: center; position: relative;">
+                <div style="width: 60px; height: 60px; background: #0f172a; border-radius: 50%; display: flex; align-items: center; justify-content: center;">
+                  <span style="color: #3b82f6; font-size: 1.2rem; font-weight: 900;">2%</span>
+                </div>
+              </div>
+              <p style="color: #64748b; font-size: 0.65rem; margin: 0; text-transform: uppercase; letter-spacing: 0.08em;">Progresso</p>
+              <p style="color: #94a3b8; font-size: 0.75rem; margin: 4px 0 0 0;">1 de 50 questões</p>
+            </div>
+
+            <div style="background: rgba(30, 41, 59, 0.5); border-radius: 12px; padding: 16px; border: 1px solid rgba(255,255,255,0.08);">
+              <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px;">
+                <p style="color: #64748b; font-size: 0.7rem; margin: 0; text-transform: uppercase; letter-spacing: 0.08em;">Tempo Médio</p>
+                <span style="color: #cbd5e1; font-size: 0.8rem; font-weight: 600;">ritmo ideal</span>
+              </div>
+              <div style="color: #38bdf8; font-size: 2rem; font-weight: 900; margin-bottom: 6px;">52.4s</div>
+              <p style="color: #64748b; font-size: 0.7rem; margin: 0;">Atualizado em tempo real conforme o aluno confirma cada questão.</p>
+            </div>
+
+            <div style="background: rgba(30, 41, 59, 0.5); border-radius: 12px; padding: 16px; border: 1px solid rgba(255,255,255,0.08);">
+              <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 12px;">
+                <span style="font-size: 1rem;">📊</span>
+                <p style="color: #64748b; font-size: 0.7rem; margin: 0; text-transform: uppercase; letter-spacing: 0.08em;">Tendências</p>
+              </div>
+              <div style="display: flex; justify-content: flex-end; align-items: center; gap: 6px; margin-bottom: 8px;">
+                <button style="background: rgba(59, 130, 246, 0.15); border: none; color: #60a5fa; padding: 4px 8px; border-radius: 4px; font-size: 0.7rem; cursor: pointer;">📈</button>
+              </div>
+              <div style="display: flex; flex-direction: column; gap: 8px;">
+                <div style="display: flex; justify-content: space-between; align-items: center;">
+                  <span style="color: #fbbf24; font-size: 0.75rem;">● Em revisão</span>
+                  <span style="color: #cbd5e1; font-weight: 700; font-size: 0.85rem;">1</span>
+                </div>
+                <div style="display: flex; justify-content: space-between; align-items: center;">
+                  <span style="color: #cbd5e1; font-size: 0.75rem;">● Pendentes</span>
+                  <span style="color: #cbd5e1; font-weight: 700; font-size: 0.85rem;">49</span>
+                </div>
+              </div>
+            </div>
+
+            <button style="background: linear-gradient(135deg, #06b6d4, #3b82f6); border: none; color: white; padding: 12px; border-radius: 10px; font-size: 0.85rem; font-weight: 700; cursor: pointer; box-shadow: 0 4px 12px rgba(6, 182, 212, 0.3); margin-top: auto;">
+              Aa
+            </button>
+          </div>
+        </div>
+      </div>
     </div>
 
     <div class="dashboards-showcase">
