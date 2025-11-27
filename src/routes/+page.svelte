@@ -503,7 +503,11 @@
           </div>
         </div>
       </div>
+    </div>
 
+    <!-- Container para CEA e ENEM lado a lado -->
+    <div style="display: flex; gap: 60px; margin-top: 40px; flex-wrap: wrap; justify-content: center; width: 100%;">
+      <!-- Phone CEA -->
       <div class="phone phone-landscape phone-dark">
         <div class="phone-body" style="display: grid; grid-template-columns: 240px 1fr 280px; gap: 0; padding: 0; height: 100%;">
           <!-- Sidebar -->
@@ -632,29 +636,28 @@
           </div>
         </div>
       </div>
-    </div>
 
-    <!-- Novo Phone: Simulado ENEM 2024 Landscape -->
-    <div class="phone phone-landscape phone-dark" style="margin-top: 40px;">
-      <div class="phone-body" style="display: grid; grid-template-columns: 260px 1fr 380px; gap: 0; padding: 0; height: 100%;">
+      <!-- Phone ENEM -->
+      <div class="phone phone-landscape phone-dark">
+        <div class="phone-body" style="display: grid; grid-template-columns: 180px 1fr 180px; gap: 0; padding: 0; height: 100%;">
         <!-- Sidebar Esquerda -->
-          <div style="background: linear-gradient(180deg, #0f172a 0%, #020617 100%); padding: 20px 16px; display: flex; flex-direction: column; gap: 12px; border-right: 1px solid rgba(255,255,255,0.06);">
-            <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 12px; padding-bottom: 12px; border-bottom: 1px solid rgba(255,255,255,0.08);">
-              <span style="font-size: 0.7rem; color: #64748b; text-transform: uppercase; letter-spacing: 0.1em;">Simulado em Tempo</span>
-            </div>
+            <div style="background: linear-gradient(180deg, #0f172a 0%, #020617 100%); padding: 16px 12px; display: flex; flex-direction: column; gap: 10px; border-right: 1px solid rgba(255,255,255,0.06);">
+              <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 12px; padding-bottom: 12px; border-bottom: 1px solid rgba(255,255,255,0.08);">
+                <span style="font-size: 0.7rem; color: #64748b; text-transform: uppercase; letter-spacing: 0.1em;">Simulado em Tempo</span>
+              </div>
 
-            <div style="background: rgba(30, 41, 59, 0.5); border-radius: 12px; padding: 14px; border: 1px solid rgba(255,255,255,0.08);">
-              <p style="color: #64748b; font-size: 0.65rem; margin: 0 0 6px 0; text-transform: uppercase; letter-spacing: 0.08em;">Indicadores do aluno</p>
-              <div style="display: flex; gap: 12px; margin-top: 10px;">
-                <div style="flex: 1; background: rgba(59, 130, 246, 0.12); border: 1px solid rgba(59, 130, 246, 0.25); border-radius: 8px; padding: 10px; text-align: center;">
-                  <div style="color: #94a3b8; font-size: 0.65rem; margin-bottom: 4px;">RESPONDIDAS</div>
-                  <div style="color: #3b82f6; font-size: 1.6rem; font-weight: 900;">1</div>
-                  <div style="color: #475569; font-size: 0.6rem; margin-top: 2px;">de 50</div>
+              <div style="background: rgba(30, 41, 59, 0.5); border-radius: 10px; padding: 10px; border: 1px solid rgba(255,255,255,0.08);">
+                <p style="color: #64748b; font-size: 0.6rem; margin: 0 0 6px 0; text-transform: uppercase; letter-spacing: 0.08em;">Indicadores</p>
+                <div style="display: flex; gap: 8px; margin-top: 8px;">
+                  <div style="flex: 1; background: rgba(59, 130, 246, 0.12); border: 1px solid rgba(59, 130, 246, 0.25); border-radius: 6px; padding: 6px; text-align: center;">
+                    <div style="color: #94a3b8; font-size: 0.6rem; margin-bottom: 2px;">RESP.</div>
+                  <div style="color: #3b82f6; font-size: 1.2rem; font-weight: 900;">1</div>
+                  <div style="color: #475569; font-size: 0.55rem; margin-top: 1px;">de 50</div>
                 </div>
-                <div style="flex: 1; background: rgba(16, 185, 129, 0.12); border: 1px solid rgba(16, 185, 129, 0.25); border-radius: 8px; padding: 10px; text-align: center;">
-                  <div style="color: #94a3b8; font-size: 0.65rem; margin-bottom: 4px;">CORRETAS</div>
-                  <div style="color: #10b981; font-size: 1.6rem; font-weight: 900;">0</div>
-                  <div style="color: #475569; font-size: 0.6rem; margin-top: 2px;">0%</div>
+                <div style="flex: 1; background: rgba(16, 185, 129, 0.12); border: 1px solid rgba(16, 185, 129, 0.25); border-radius: 6px; padding: 6px; text-align: center;">
+                  <div style="color: #94a3b8; font-size: 0.6rem; margin-bottom: 2px;">CORRETAS</div>
+                  <div style="color: #10b981; font-size: 1.2rem; font-weight: 900;">0</div>
+                  <div style="color: #475569; font-size: 0.55rem; margin-top: 1px;">0%</div>
                 </div>
               </div>
             </div>
@@ -745,117 +748,52 @@
           </div>
 
           <!-- Painel Auxiliar Direita -->
-          <div style="background: linear-gradient(180deg, #0f172a 0%, #020617 100%); padding: 20px; border-left: 1px solid rgba(255,255,255,0.06); display: flex; flex-direction: column; gap: 16px;">
-            <div style="text-align: center; padding-bottom: 16px; border-bottom: 1px solid rgba(255,255,255,0.08);">
-              <p style="color: #64748b; font-size: 0.7rem; margin: 0 0 4px 0; text-transform: uppercase; letter-spacing: 0.1em;">Painel Auxiliar</p>
-              <h3 style="color: #e2e8f0; font-size: 1rem; font-weight: 700; margin: 0;">Insights do simulado</h3>
+          <div style="background: linear-gradient(180deg, #0f172a 0%, #020617 100%); padding: 16px 12px; border-left: 1px solid rgba(255,255,255,0.06); display: flex; flex-direction: column; gap: 12px;">
+            <div style="text-align: center; padding-bottom: 12px; border-bottom: 1px solid rgba(255,255,255,0.08);">
+              <p style="color: #64748b; font-size: 0.65rem; margin: 0 0 4px 0; text-transform: uppercase; letter-spacing: 0.1em;">Painel Auxiliar</p>
+              <h3 style="color: #e2e8f0; font-size: 0.9rem; font-weight: 700; margin: 0;">Insights</h3>
             </div>
 
-            <div style="background: rgba(30, 41, 59, 0.5); border-radius: 12px; padding: 16px; text-align: center; border: 1px solid rgba(255,255,255,0.08);">
-              <div style="width: 80px; height: 80px; margin: 0 auto 12px; border-radius: 50%; background: conic-gradient(#3b82f6 0deg 7.2deg, rgba(30, 41, 59, 0.3) 7.2deg); display: flex; align-items: center; justify-content: center; position: relative;">
-                <div style="width: 60px; height: 60px; background: #0f172a; border-radius: 50%; display: flex; align-items: center; justify-content: center;">
-                  <span style="color: #3b82f6; font-size: 1.2rem; font-weight: 900;">2%</span>
+            <div style="background: rgba(30, 41, 59, 0.5); border-radius: 10px; padding: 12px; text-align: center; border: 1px solid rgba(255,255,255,0.08);">
+              <div style="width: 60px; height: 60px; margin: 0 auto 8px; border-radius: 50%; background: conic-gradient(#3b82f6 0deg 7.2deg, rgba(30, 41, 59, 0.3) 7.2deg); display: flex; align-items: center; justify-content: center; position: relative;">
+                <div style="width: 45px; height: 45px; background: #0f172a; border-radius: 50%; display: flex; align-items: center; justify-content: center;">
+                  <span style="color: #3b82f6; font-size: 1rem; font-weight: 900;">2%</span>
                 </div>
               </div>
               <p style="color: #64748b; font-size: 0.65rem; margin: 0; text-transform: uppercase; letter-spacing: 0.08em;">Progresso</p>
               <p style="color: #94a3b8; font-size: 0.75rem; margin: 4px 0 0 0;">1 de 50 questões</p>
             </div>
 
-            <div style="background: rgba(30, 41, 59, 0.5); border-radius: 12px; padding: 16px; border: 1px solid rgba(255,255,255,0.08);">
-              <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px;">
-                <p style="color: #64748b; font-size: 0.7rem; margin: 0; text-transform: uppercase; letter-spacing: 0.08em;">Tempo Médio</p>
-                <span style="color: #cbd5e1; font-size: 0.8rem; font-weight: 600;">ritmo ideal</span>
+            <div style="background: rgba(30, 41, 59, 0.5); border-radius: 10px; padding: 12px; border: 1px solid rgba(255,255,255,0.08);">
+              <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
+                <p style="color: #64748b; font-size: 0.65rem; margin: 0; text-transform: uppercase; letter-spacing: 0.08em;">Tempo Médio</p>
+                <span style="color: #cbd5e1; font-size: 0.7rem; font-weight: 600;">ritmo ideal</span>
               </div>
-              <div style="color: #38bdf8; font-size: 2rem; font-weight: 900; margin-bottom: 6px;">52.4s</div>
-              <p style="color: #64748b; font-size: 0.7rem; margin: 0;">Atualizado em tempo real conforme o aluno confirma cada questão.</p>
+              <div style="color: #38bdf8; font-size: 1.6rem; font-weight: 900; margin-bottom: 4px;">52.4s</div>
+              <p style="color: #64748b; font-size: 0.65rem; margin: 0;">Tempo real</p>
             </div>
 
-            <div style="background: rgba(30, 41, 59, 0.5); border-radius: 12px; padding: 16px; border: 1px solid rgba(255,255,255,0.08);">
-              <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 12px;">
-                <span style="font-size: 1rem;">📊</span>
-                <p style="color: #64748b; font-size: 0.7rem; margin: 0; text-transform: uppercase; letter-spacing: 0.08em;">Tendências</p>
+            <div style="background: rgba(30, 41, 59, 0.5); border-radius: 10px; padding: 12px; border: 1px solid rgba(255,255,255,0.08);">
+              <div style="display: flex; align-items: center; gap: 6px; margin-bottom: 10px;">
+                <span style="font-size: 0.9rem;">📊</span>
+                <p style="color: #64748b; font-size: 0.65rem; margin: 0; text-transform: uppercase; letter-spacing: 0.08em;">Tendências</p>
               </div>
-              <div style="display: flex; justify-content: flex-end; align-items: center; gap: 6px; margin-bottom: 8px;">
-                <button style="background: rgba(59, 130, 246, 0.15); border: none; color: #60a5fa; padding: 4px 8px; border-radius: 4px; font-size: 0.7rem; cursor: pointer;">📈</button>
-              </div>
-              <div style="display: flex; flex-direction: column; gap: 8px;">
+              <div style="display: flex; flex-direction: column; gap: 6px;">
                 <div style="display: flex; justify-content: space-between; align-items: center;">
-                  <span style="color: #fbbf24; font-size: 0.75rem;">● Em revisão</span>
-                  <span style="color: #cbd5e1; font-weight: 700; font-size: 0.85rem;">1</span>
+                  <span style="color: #fbbf24; font-size: 0.7rem;">● Em revisão</span>
+                  <span style="color: #cbd5e1; font-weight: 700; font-size: 0.8rem;">1</span>
                 </div>
                 <div style="display: flex; justify-content: space-between; align-items: center;">
-                  <span style="color: #cbd5e1; font-size: 0.75rem;">● Pendentes</span>
-                  <span style="color: #cbd5e1; font-weight: 700; font-size: 0.85rem;">49</span>
+                  <span style="color: #cbd5e1; font-size: 0.7rem;">● Pendentes</span>
+                  <span style="color: #cbd5e1; font-weight: 700; font-size: 0.8rem;">49</span>
                 </div>
               </div>
             </div>
 
-            <button style="background: linear-gradient(135deg, #06b6d4, #3b82f6); border: none; color: white; padding: 12px; border-radius: 10px; font-size: 0.85rem; font-weight: 700; cursor: pointer; box-shadow: 0 4px 12px rgba(6, 182, 212, 0.3); margin-top: auto;">
+            <button style="background: linear-gradient(135deg, #06b6d4, #3b82f6); border: none; color: white; padding: 10px; border-radius: 8px; font-size: 0.75rem; font-weight: 700; cursor: pointer; box-shadow: 0 4px 12px rgba(6, 182, 212, 0.3); margin-top: auto;">
               Aa
             </button>
           </div>
-        </div>
-      </div>
-
-    <div class="dashboards-showcase">
-      <div class="dashboard-right">
-        <div class="imac-frame">
-          <div class="imac-screen">
-            <header class="imac-header">
-              <div>
-                <p class="eyebrow">Avaliações ENEM</p>
-                <h3>Histórico de desempenho 1998-2025</h3>
-                <p class="muted">Acompanhe a evolução da rede nos simulados oficiais e resultados do ENEM.</p>
-              </div>
-              <span class="pill outline">Próx. atualização: dez/2025</span>
-            </header>
-            <div class="imac-cards">
-              <div class="imac-card">
-                <p class="muted">2024</p>
-                <h4>Melhor média histórica</h4>
-                <strong>712 pts</strong>
-                <small class="muted">Rede municipal de Belo Horizonte</small>
-              </div>
-              <div class="imac-card">
-                <p class="muted">2023</p>
-                <h4>Maior salto em simulados</h4>
-                <strong>+18 pts</strong>
-                <small class="muted">Telemetria ENEM</small>
-              </div>
-              <div class="imac-card">
-                <p class="muted">2015</p>
-                <h4>Programa de tutoria</h4>
-                <strong>+12 pts</strong>
-                <small class="muted">Mentorias para 3º ano</small>
-              </div>
-            </div>
-            <div class="imac-table">
-              <header>
-                <span>Ano</span>
-                <span>Simulados (média)</span>
-                <span>ENEM oficial (média)</span>
-                <span>Diferença</span>
-              </header>
-              <div class="imac-rows">
-                <div class="imac-row">
-                  <span>2024</span><span>712 pts</span><span>655 pts</span><span class="pos">+57 pts</span>
-                </div>
-                <div class="imac-row">
-                  <span>2023</span><span>698 pts</span><span>662 pts</span><span class="pos">+36 pts</span>
-                </div>
-                <div class="imac-row">
-                  <span>2022</span><span>683 pts</span><span>662 pts</span><span class="pos">+21 pts</span>
-                </div>
-                <div class="imac-row">
-                  <span>2021</span><span>671 pts</span><span>659 pts</span><span class="pos">+12 pts</span>
-                </div>
-                <div class="imac-row">
-                  <span>2020</span><span>660 pts</span><span>662 pts</span><span class="neg">-2 pts</span>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="imac-stand"></div>
         </div>
       </div>
     </div>
@@ -880,14 +818,14 @@
     position: relative;
     display: flex;
     align-items: center;
-    justify-content: flex-start;
+    justify-content: center;
     gap: clamp(12px, 1.5vw, 20px);
     width: 100%;
     max-width: 100%;
     margin: 0;
     padding-left: 0;
     flex-wrap: nowrap;
-    transform: translateX(-80px);
+    transform: translateX(0);
     pointer-events: none;
     z-index: 1;
   }
@@ -1745,17 +1683,17 @@
     isolation: isolate;
   }
 
-  /* Marca d'água com z-index muito baixo para não cobrir texto */
+  /* Marca d'água fixa com maior intensidade */
   :global(.hero)::before {
     content: '';
-    position: absolute;
+    position: fixed;
     top: 0;
     bottom: 0;
     right: 0;
     left: 50%;
     background: url('/images/fartecvetorizada.png') 82% center no-repeat;
     background-size: 110%;
-    opacity: 0.08;
+    opacity: 0.15;
     pointer-events: none;
     mix-blend-mode: multiply;
     z-index: -300;
@@ -1765,15 +1703,15 @@
   @keyframes watermarkFloat {
     0% {
       transform: translate3d(12px, -12px, 0) scale(1.04) rotate(-1.5deg);
-      opacity: 0.08;
+      opacity: 0.15;
     }
     50% {
       transform: translate3d(-8px, 10px, 0) scale(1.08) rotate(1.2deg);
-      opacity: 0.10;
+      opacity: 0.18;
     }
     100% {
       transform: translate3d(10px, 14px, 0) scale(1.1) rotate(2deg);
-      opacity: 0.08;
+      opacity: 0.15;
     }
   }
 
