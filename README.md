@@ -36,3 +36,4 @@ npm run preview
 - [ ] Revisar SEO e acessibilidade.
 - [ ] Ativar analytics.
 - [ ] Testar pipeline no Amplify.
+# Deploy configurado - Thu Nov 27 18:14:30 -03 2025
