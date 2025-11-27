@@ -271,6 +271,7 @@ img {
     radial-gradient(circle at 20% 50%, rgba(0, 102, 255, 0.08), transparent 50%),
     radial-gradient(circle at 80% 80%, rgba(124, 58, 237, 0.08), transparent 50%);
   pointer-events: none;
+  z-index: -50;
 }
 
 .hero::after {
@@ -283,6 +284,7 @@ img {
   background: radial-gradient(circle, rgba(0, 102, 255, 0.05), transparent 70%);
   border-radius: 50%;
   filter: blur(40px);
+  z-index: -50;
 }
 
 .hero h1 {
