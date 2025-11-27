@@ -652,7 +652,7 @@
     display: flex;
     align-items: center;
     justify-content: flex-start;
-    gap: clamp(22px, 4vw, 48px);
+    gap: clamp(12px, 1.5vw, 20px);
     width: 100%;
     max-width: 100%;
     margin: 0;
