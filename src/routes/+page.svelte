@@ -585,12 +585,12 @@
     margin: 0 auto;
     flex-wrap: nowrap;
     transform: translateX(-760px);
-    z-index: 1;
+    z-index: -1;
   }
 
   .hero-visual-stack > .phone {
     flex: 0 0 auto;
-    z-index: 1;
+    z-index: 0;
   }
 
   .hero-visual-stack .hero-pay {
@@ -696,6 +696,7 @@
     background: #0b1021;
     box-shadow: 0 30px 80px rgba(5, 10, 30, 0.3);
     border: 1px solid rgba(0, 0, 0, 0.08);
+    z-index: 0;
   }
 
   .phone-light {
