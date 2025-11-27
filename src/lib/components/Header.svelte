@@ -84,6 +84,8 @@
     justify-content: center;
     height: 100px;
     flex-shrink: 0;
+    background: transparent;
+    mix-blend-mode: multiply;
   }
 
   .logo img {
