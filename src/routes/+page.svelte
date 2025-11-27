@@ -796,7 +796,6 @@
           </div>
         </div>
       </div>
-    </div>
 
     <div class="dashboards-showcase">
       <div class="dashboard-right">
