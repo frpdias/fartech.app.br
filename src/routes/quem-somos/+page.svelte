@@ -9,10 +9,10 @@
     </div>
     <div class="blob-stack">
       <div class="blob-card b1">
-        <div class="blob-img" aria-label="Fundador 1">
+        <div class="blob-img" aria-label="Fernando Dias">
         </div>
         <p class="blob-caption">
-          <strong>⭐ CEO – Chief Executive Officer</strong><br />
+          <strong>Fernando Dias<br />CEO</strong><br />
           Lidera a Fartech com visão estratégica, impulsionando crescimento, inovação e direção do negócio.
         </p>
       </div>
@@ -20,7 +20,7 @@
         <div class="blob-img" aria-label="Fundador 2">
         </div>
         <p class="blob-caption">
-          <strong>💡 CTO – Chief Technology Officer</strong><br />
+          <strong>CTO – Chief Technology Officer</strong><br />
           Responsável por toda a tecnologia da Fartech, garantindo inovação, segurança e alta performance das soluções.
         </p>
       </div>
@@ -28,7 +28,7 @@
         <div class="blob-img" aria-label="Fundador 3">
         </div>
         <p class="blob-caption">
-          <strong>💰 CFO – Chief Financial Officer</strong><br />
+          <strong>CFO – Chief Financial Officer</strong><br />
           Cuida da saúde financeira da Fartech, planejando investimentos e garantindo sustentabilidade e resultados.
         </p>
       </div>
@@ -107,16 +107,16 @@
 
   .blob-stack {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-    gap: clamp(12px, 3vw, 20px);
+    grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+    gap: clamp(18px, 4.5vw, 30px);
     justify-items: center;
   }
 
   .blob-card {
     width: 100%;
-    max-width: 220px;
+    max-width: 330px;
     display: grid;
-    gap: 8px;
+    gap: 12px;
     text-align: center;
   }
 
@@ -156,7 +156,7 @@
     background:
       linear-gradient(135deg, rgba(37, 99, 235, 0.55), rgba(14, 165, 233, 0.35)),
       radial-gradient(circle at 30% 20%, rgba(124, 58, 237, 0.4), transparent 55%),
-      url('/images/founder1.jpg');
+      url('/images/fernando-dias.jpg');
     background-size: cover;
     background-position: center;
     color: transparent;
@@ -243,7 +243,7 @@
     color: #0f172a;
     font-weight: 800;
     letter-spacing: 0.01em;
-    font-size: 1.05rem;
+    font-size: 1.26rem;
     animation: fadeUp 0.7s ease forwards;
     opacity: 0;
   }
@@ -251,7 +251,7 @@
   .valor-card p {
     margin: 0;
     color: rgba(15, 23, 42, 0.9);
-    font-size: 1rem;
+    font-size: 1.2rem;
   }
 
 .destaque-valor {
@@ -306,12 +306,12 @@
 
   .mv-card h3 {
     color: #0f172a;
-    font-size: 1.4rem;
+    font-size: 1.68rem;
   }
 
   .mv-card p {
     color: rgba(15, 23, 42, 0.9);
-    font-size: 1rem;
+    font-size: 1.2rem;
   }
 </style>
 

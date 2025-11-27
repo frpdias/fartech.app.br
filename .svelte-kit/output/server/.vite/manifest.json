@@ -111,6 +111,12 @@
       "_shared.js"
     ]
   },
+  "src/routes/+layout.js": {
+    "file": "entries/pages/_layout.js",
+    "name": "entries/pages/_layout",
+    "src": "src/routes/+layout.js",
+    "isEntry": true
+  },
   "src/routes/+layout.svelte": {
     "file": "entries/pages/_layout.svelte.js",
     "name": "entries/pages/_layout.svelte",
@@ -123,7 +129,7 @@
       "_utils2.js"
     ],
     "css": [
-      "_app/immutable/assets/_layout.QoRNX13j.css"
+      "_app/immutable/assets/_layout.-iqj_vuc.css"
     ]
   },
   "src/routes/+page.svelte": {
@@ -139,7 +145,7 @@
       "_context.js"
     ],
     "css": [
-      "_app/immutable/assets/_page.Cg9D6XL1.css"
+      "_app/immutable/assets/_page.Dwyeb5OA.css"
     ]
   },
   "src/routes/blog/+page.svelte": {
@@ -194,7 +200,7 @@
     "src": "src/routes/quem-somos/+page.svelte",
     "isEntry": true,
     "css": [
-      "_app/immutable/assets/_page.Dj3uLf0t.css"
+      "_app/immutable/assets/_page.CT843r2D.css"
     ]
   },
   "src/routes/servicos/+page.svelte": {

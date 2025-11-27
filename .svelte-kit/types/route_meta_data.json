@@ -1,15 +1,42 @@
 {
-	"/": [],
-	"/blog": [],
-	"/cases": [],
-	"/clientes": [],
-	"/contato": [],
-	"/quem-somos": [],
-	"/servicos": [],
-	"/servicos/analise-oleos": [],
-	"/servicos/automacao": [],
-	"/servicos/inspecoes-tecnicas": [],
-	"/servicos/lubrificacao": [],
-	"/servicos/manutencao-corretiva": [],
-	"/servicos/manutencao-preventiva": []
+	"/": [
+		"src/routes/+layout.js",
+		"src/routes/+layout.js"
+	],
+	"/blog": [
+		"src/routes/+layout.js"
+	],
+	"/cases": [
+		"src/routes/+layout.js"
+	],
+	"/clientes": [
+		"src/routes/+layout.js"
+	],
+	"/contato": [
+		"src/routes/+layout.js"
+	],
+	"/quem-somos": [
+		"src/routes/+layout.js"
+	],
+	"/servicos": [
+		"src/routes/+layout.js"
+	],
+	"/servicos/analise-oleos": [
+		"src/routes/+layout.js"
+	],
+	"/servicos/automacao": [
+		"src/routes/+layout.js"
+	],
+	"/servicos/inspecoes-tecnicas": [
+		"src/routes/+layout.js"
+	],
+	"/servicos/lubrificacao": [
+		"src/routes/+layout.js"
+	],
+	"/servicos/manutencao-corretiva": [
+		"src/routes/+layout.js"
+	],
+	"/servicos/manutencao-preventiva": [
+		"src/routes/+layout.js"
+	]
 }
