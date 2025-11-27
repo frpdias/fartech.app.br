@@ -108,6 +108,17 @@ img {
   padding-right: clamp(24px, 5vw, 80px);
 }
 
+/* Force consistent container width across all sections */
+.hero .container,
+.section .container,
+.site-header .container {
+  max-width: 1440px !important;
+  width: 100% !important;
+  margin-inline: auto !important;
+  padding-left: clamp(24px, 5vw, 80px) !important;
+  padding-right: clamp(24px, 5vw, 80px) !important;
+}
+
 .section {
   padding-block: var(--section-padding);
   width: 100%;
