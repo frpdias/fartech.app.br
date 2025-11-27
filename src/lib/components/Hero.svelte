@@ -55,7 +55,7 @@
 <style>
   .hero-grid {
     display: grid;
-    grid-template-columns: minmax(0, 1.1fr) minmax(320px, 520px);
+    grid-template-columns: minmax(0, 1.4fr) minmax(320px, 480px);
     gap: clamp(40px, 6vw, 100px);
     align-items: center;
     width: 100%;
@@ -64,10 +64,8 @@
   }
 
   .hero-content {
-    max-width: 100%;
     width: 100%;
     min-width: 0;
-    max-width: 720px;
     position: relative;
     z-index: 10;
     isolation: isolate;
@@ -75,7 +73,6 @@
 
   .hero-text-wrapper {
     width: 100%;
-    max-width: 700px;
     min-width: 0;
     position: relative;
     z-index: 10;
@@ -107,6 +104,7 @@
     z-index: 100;
     word-break: keep-all;
     overflow-wrap: normal;
+    hyphens: none;
   }
 
   .hero-visual {
