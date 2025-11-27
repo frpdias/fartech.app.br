@@ -584,7 +584,7 @@
     max-width: 1320px;
     margin: 0 auto;
     flex-wrap: nowrap;
-    transform: translateX(-500px);
+    transform: translateX(-200px);
     pointer-events: none;
     z-index: -10;
   }
