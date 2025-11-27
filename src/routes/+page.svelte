@@ -332,17 +332,13 @@
 
 <section class="section">
   <div class="container">
-    <div class="por-que-layout">
-      <div class="por-que-text">
-        <p class="eyebrow">Por que Fartech</p>
-        <h2 class="section-title">Produto, dados e confiabilidade em uma única stack.</h2>
-        <p class="section-subtitle">Desenhamos jornadas digitais de alto impacto com times ágeis, observabilidade total e entregas mensuráveis.</p>
-        <div class="diferenciais-grid">
-          {#each diferenciais as item}
-            <CardServico {...item} />
-          {/each}
-        </div>
-      </div>
+    <p class="eyebrow">Por que Fartech</p>
+    <h2 class="section-title">Produto, dados e confiabilidade em uma única stack.</h2>
+    <p class="section-subtitle">Desenhamos jornadas digitais de alto impacto com times ágeis, observabilidade total e entregas mensuráveis.</p>
+    <div class="diferenciais-grid">
+      {#each diferenciais as item}
+        <CardServico {...item} />
+      {/each}
     </div>
   </div>
 </section>
@@ -1343,26 +1339,7 @@
     }
   }
 
-  /* Layout Por que Fartech com phone */
-  .por-que-layout {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: clamp(32px, 4vw, 64px);
-    align-items: start;
-  }
-
-  .por-que-text {
-    display: flex;
-    flex-direction: column;
-    gap: 24px;
-  }
-
-  @media (max-width: 1024px) {
-    .por-que-layout {
-      grid-template-columns: 1fr;
-    }
-  }
-:global(.hero) {
+  :global(.hero) {
     isolation: isolate;
   }
 

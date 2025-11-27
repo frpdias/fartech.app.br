@@ -298,13 +298,13 @@ function _page($$renderer, $$props) {
         }
       }
     });
-    $$renderer2.push(`<!----> <section class="section svelte-1uha8ag"><div class="container svelte-1uha8ag"><div class="por-que-layout svelte-1uha8ag"><div class="por-que-text svelte-1uha8ag"><p class="eyebrow svelte-1uha8ag">Por que Fartech</p> <h2 class="section-title svelte-1uha8ag">Produto, dados e confiabilidade em uma única stack.</h2> <p class="section-subtitle svelte-1uha8ag">Desenhamos jornadas digitais de alto impacto com times ágeis, observabilidade total e entregas mensuráveis.</p> <div class="diferenciais-grid svelte-1uha8ag"><!--[-->`);
+    $$renderer2.push(`<!----> <section class="section svelte-1uha8ag"><div class="container svelte-1uha8ag"><p class="eyebrow svelte-1uha8ag">Por que Fartech</p> <h2 class="section-title svelte-1uha8ag">Produto, dados e confiabilidade em uma única stack.</h2> <p class="section-subtitle svelte-1uha8ag">Desenhamos jornadas digitais de alto impacto com times ágeis, observabilidade total e entregas mensuráveis.</p> <div class="diferenciais-grid svelte-1uha8ag"><!--[-->`);
     const each_array_1 = ensure_array_like(diferenciais);
     for (let $$index_1 = 0, $$length = each_array_1.length; $$index_1 < $$length; $$index_1++) {
       let item = each_array_1[$$index_1];
       CardServico($$renderer2, spread_props([item]));
     }
-    $$renderer2.push(`<!--]--></div></div></div></div></section> <section class="section svelte-1uha8ag" id="servicos"><div class="container svelte-1uha8ag"><p class="eyebrow svelte-1uha8ag">Serviços</p> <div class="section-title svelte-1uha8ag">Portfólio modular pronto para plug-and-play.</div> <div class="services-grid svelte-1uha8ag"><!--[-->`);
+    $$renderer2.push(`<!--]--></div></div></section> <section class="section svelte-1uha8ag" id="servicos"><div class="container svelte-1uha8ag"><p class="eyebrow svelte-1uha8ag">Serviços</p> <div class="section-title svelte-1uha8ag">Portfólio modular pronto para plug-and-play.</div> <div class="services-grid svelte-1uha8ag"><!--[-->`);
     const each_array_2 = ensure_array_like(services);
     for (let $$index_2 = 0, $$length = each_array_2.length; $$index_2 < $$length; $$index_2++) {
       let service = each_array_2[$$index_2];
