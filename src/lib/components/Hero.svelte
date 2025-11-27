@@ -60,8 +60,6 @@
     align-items: center;
     width: 100%;
     max-width: 100%;
-    position: relative;
-    z-index: 2;
   }
 
   .hero-content {
@@ -107,7 +105,7 @@
     align-items: center;
     width: 100%;
     max-width: 100%;
-    z-index: 0;
+    z-index: -1;
   }
 
   .hero-meta {
