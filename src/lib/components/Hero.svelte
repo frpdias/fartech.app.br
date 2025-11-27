@@ -102,13 +102,13 @@
 
   .hero-visual {
     position: absolute;
-    right: 0;
+    right: -10%;
     top: 50%;
     transform: translateY(-50%);
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 50%;
+    width: 45%;
     max-width: 100%;
     pointer-events: none;
     z-index: -1;
