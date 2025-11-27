@@ -654,8 +654,9 @@
     justify-content: flex-start;
     gap: clamp(22px, 4vw, 48px);
     width: 100%;
-    max-width: 1320px;
-    margin: 0 auto;
+    max-width: 100%;
+    margin: 0;
+    padding-left: clamp(40px, 5vw, 113px);
     flex-wrap: nowrap;
     transform: translateX(0);
     pointer-events: none;
