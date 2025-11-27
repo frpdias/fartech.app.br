@@ -735,7 +735,7 @@
   }
 
   .phone-body {
-    background: rgba(255, 255, 255, 0.78);
+    background: rgba(255, 255, 255, 0.35);
     border-radius: 22px;
     padding: 18px;
     display: grid;
@@ -745,7 +745,7 @@
   }
 
   .phone-light .phone-body {
-    background: rgba(255, 255, 255, 0.72);
+    background: rgba(255, 255, 255, 0.28);
     border: 1px solid rgba(255, 255, 255, 0.2);
   }
 
