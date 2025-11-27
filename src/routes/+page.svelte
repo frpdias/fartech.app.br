@@ -1447,7 +1447,7 @@
     left: 50%;
     background: url('/images/fartecvetorizada.png') 82% center no-repeat;
     background-size: 110%;
-    opacity: 0.02;
+    opacity: 0.08;
     pointer-events: none;
     mix-blend-mode: multiply;
     z-index: -300;
@@ -1457,15 +1457,15 @@
   @keyframes watermarkFloat {
     0% {
       transform: translate3d(12px, -12px, 0) scale(1.04) rotate(-1.5deg);
-      opacity: 0.02;
+      opacity: 0.08;
     }
     50% {
       transform: translate3d(-8px, 10px, 0) scale(1.08) rotate(1.2deg);
-      opacity: 0.03;
+      opacity: 0.10;
     }
     100% {
       transform: translate3d(10px, 14px, 0) scale(1.1) rotate(2deg);
-      opacity: 0.02;
+      opacity: 0.08;
     }
   }
 
