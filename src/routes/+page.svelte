@@ -585,10 +585,12 @@
     margin: 0 auto;
     flex-wrap: nowrap;
     transform: translateX(-760px);
+    z-index: 1;
   }
 
   .hero-visual-stack > .phone {
     flex: 0 0 auto;
+    z-index: 1;
   }
 
   .hero-visual-stack .hero-pay {

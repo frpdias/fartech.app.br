@@ -67,12 +67,16 @@
     width: 100%;
     min-width: 0;
     max-width: 720px;
+    position: relative;
+    z-index: 10;
   }
 
   .hero-text-wrapper {
     width: 100%;
     max-width: 700px;
     min-width: 0;
+    position: relative;
+    z-index: 10;
   }
 
   .hero h1 {
