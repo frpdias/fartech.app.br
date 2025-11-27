@@ -599,7 +599,7 @@ input, textarea, select {
 /* Hero section with enhanced visual effects */
 .hero {
   color: var(--color-primary);
-  background: var(--gradient-hero);
+  background: transparent;
   padding-block: clamp(120px, 14vw, 200px);
   min-height: 100vh;
   display: flex;
@@ -1000,7 +1000,7 @@ a:not(.btn):hover::after {
 /* Enhanced hero with mesh background */
 .hero {
   color: var(--color-primary);
-  background: var(--gradient-hero);
+  background: transparent;
   padding-block: clamp(120px, 14vw, 200px);
   min-height: 100vh;
   display: flex;
