@@ -973,6 +973,8 @@
     max-width: 120px;
     height: auto;
     filter: drop-shadow(0 8px 24px rgba(0, 0, 0, 0.3));
+    background: transparent;
+    mix-blend-mode: multiply;
   }
 
   .phone-top {
