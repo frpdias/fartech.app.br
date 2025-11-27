@@ -70,6 +70,7 @@
     max-width: 720px;
     position: relative;
     z-index: 10;
+    isolation: isolate;
   }
 
   .hero-text-wrapper {
