@@ -632,12 +632,12 @@
           </div>
         </div>
       </div>
+    </div>
 
-      <!-- Novo Phone: Simulado ENEM 2024 Portrait -->
-      <div class="phone phone-dark">
-        <div class="phone-notch dark"></div>
-        <div class="phone-body" style="display: grid; grid-template-columns: 260px 1fr 380px; gap: 0; padding: 0; height: 100%;">
-          <!-- Sidebar Esquerda -->
+    <!-- Novo Phone: Simulado ENEM 2024 Landscape -->
+    <div class="phone phone-landscape phone-dark" style="margin-top: 40px;">
+      <div class="phone-body" style="display: grid; grid-template-columns: 260px 1fr 380px; gap: 0; padding: 0; height: 100%;">
+        <!-- Sidebar Esquerda -->
           <div style="background: linear-gradient(180deg, #0f172a 0%, #020617 100%); padding: 20px 16px; display: flex; flex-direction: column; gap: 12px; border-right: 1px solid rgba(255,255,255,0.06);">
             <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 12px; padding-bottom: 12px; border-bottom: 1px solid rgba(255,255,255,0.08);">
               <span style="font-size: 0.7rem; color: #64748b; text-transform: uppercase; letter-spacing: 0.1em;">Simulado em Tempo</span>
