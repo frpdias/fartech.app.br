@@ -33,4 +33,7 @@ jobs:
           protocol: ftps
           local-dir: build/
           server-dir: /public_html/
-          dangerous-clean-slate: true
+          exclude: |
+            **/.git*
+            **/.git*/**
+            **/node_modules/**
