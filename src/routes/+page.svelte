@@ -185,7 +185,7 @@
     
     setTimeout(() => {
       mostrarRecibo = false;
-    }, 8000);
+    }, 30000);
   }
 
   onMount(() => {

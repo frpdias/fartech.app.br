@@ -10,7 +10,7 @@ return {
 	assets: new Set(["favicon.png","images/enem-ultra.png","images/fartecvetorizada.png","images/fernando-dias.jpg","images/founder1.jpg","images/hero-factory.jpg","images/logo.png","images/logo3.png","images/logo4.png","robots.txt","sitemap.xml"]),
 	mimeTypes: {".png":"image/png",".jpg":"image/jpeg",".txt":"text/plain",".xml":"text/xml"},
 	_: {
-		client: {start:"_app/immutable/entry/start.CCkDc9ic.js",app:"_app/immutable/entry/app.iKIE0a9K.js",imports:["_app/immutable/entry/start.CCkDc9ic.js","_app/immutable/chunks/xgeScYWn.js","_app/immutable/chunks/BFNcXGEy.js","_app/immutable/chunks/fIb7srva.js","_app/immutable/entry/app.iKIE0a9K.js","_app/immutable/chunks/BFNcXGEy.js","_app/immutable/chunks/Dhqx1P-U.js","_app/immutable/chunks/DtrOx_13.js","_app/immutable/chunks/fIb7srva.js","_app/immutable/chunks/D-3Jfg5U.js","_app/immutable/chunks/wOykGSzW.js","_app/immutable/chunks/2_aWtOj_.js"],stylesheets:[],fonts:[],uses_env_dynamic_public:false},
+		client: {start:"_app/immutable/entry/start.BkLsoXJo.js",app:"_app/immutable/entry/app.DmqTRUVu.js",imports:["_app/immutable/entry/start.BkLsoXJo.js","_app/immutable/chunks/CwY4sNH7.js","_app/immutable/chunks/BFNcXGEy.js","_app/immutable/chunks/fIb7srva.js","_app/immutable/entry/app.DmqTRUVu.js","_app/immutable/chunks/BFNcXGEy.js","_app/immutable/chunks/Dhqx1P-U.js","_app/immutable/chunks/DtrOx_13.js","_app/immutable/chunks/fIb7srva.js","_app/immutable/chunks/D-3Jfg5U.js","_app/immutable/chunks/wOykGSzW.js","_app/immutable/chunks/2_aWtOj_.js"],stylesheets:[],fonts:[],uses_env_dynamic_public:false},
 		nodes: [
 			__memo(() => import('./nodes/0.js')),
 			__memo(() => import('./nodes/1.js'))
