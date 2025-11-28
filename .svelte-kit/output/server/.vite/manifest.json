@@ -200,7 +200,7 @@
     "src": "src/routes/quem-somos/+page.svelte",
     "isEntry": true,
     "css": [
-      "_app/immutable/assets/_page.CT843r2D.css"
+      "_app/immutable/assets/_page._c59L0Xs.css"
     ]
   },
   "src/routes/servicos/+page.svelte": {

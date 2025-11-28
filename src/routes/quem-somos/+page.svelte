@@ -169,16 +169,28 @@
 
   @keyframes morph {
     0% {
-      border-radius: 46% 54% 52% 48%;
+      border-radius: 73% 27% 40% 60% / 63% 44% 56% 37%;
       transform: translate3d(0, 0px, 0) scale(1);
     }
-    50% {
-      border-radius: 60% 40% 46% 54%;
-      transform: translate3d(-8px, -16px, 0) scale(1.06);
+    20% {
+      border-radius: 35% 65% 72% 28% / 48% 68% 32% 52%;
+      transform: translate3d(-14px, -22px, 0) scale(1.1);
+    }
+    40% {
+      border-radius: 68% 32% 51% 49% / 71% 29% 71% 29%;
+      transform: translate3d(14px, 22px, 0) scale(0.92);
+    }
+    60% {
+      border-radius: 28% 72% 63% 37% / 54% 71% 29% 46%;
+      transform: translate3d(-12px, 20px, 0) scale(1.08);
+    }
+    80% {
+      border-radius: 61% 39% 28% 72% / 38% 58% 42% 62%;
+      transform: translate3d(16px, -18px, 0) scale(0.94);
     }
     100% {
-      border-radius: 68% 32% 60% 40%;
-      transform: translate3d(8px, 14px, 0) scale(0.96);
+      border-radius: 73% 27% 40% 60% / 63% 44% 56% 37%;
+      transform: translate3d(0, 0px, 0) scale(1);
     }
   }
 
@@ -240,12 +252,34 @@
 
   .valor-card h4 {
     margin: 0;
-    color: #0f172a;
     font-weight: 800;
     letter-spacing: 0.01em;
     font-size: 1.26rem;
-    animation: fadeUp 0.7s ease forwards;
+    animation: fadeUp 0.7s ease forwards, shine 1.5s linear infinite;
     opacity: 0;
+    background: linear-gradient(
+      90deg,
+      #1e293b 0%,
+      #1e293b 30%,
+      #3b82f6 45%,
+      #60a5fa 50%,
+      #3b82f6 55%,
+      #1e293b 70%,
+      #1e293b 100%
+    );
+    background-size: 200% 100%;
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  @keyframes shine {
+    0% {
+      background-position: 200% center;
+    }
+    100% {
+      background-position: -200% center;
+    }
   }
 
   .valor-card p {
@@ -314,31 +348,3 @@
     font-size: 1.2rem;
   }
 </style>
-
-<section class="section">
-  <div class="container">
-    <p class="eyebrow">Quem Somos</p>
-    <h1 class="section-title">Construindo a plataforma digital da indústria.</h1>
-    <p class="section-subtitle">
-      A Fartech é uma startup de tecnologia focada em confiabilidade e automação. Unimos engenharia pesada, software e dados para que operações críticas funcionem como um produto digital — previsíveis, escaláveis e seguras.
-    </p>
-    <div class="grid-12" style="align-items:start;">
-      <div class="card" style="grid-column: span 7;">
-        <p>
-          Nossos squads são formados por especialistas em software, dados e confiabilidade. Trabalhamos lado a lado com metalúrgicas, automotivas, químicas e scale-ups industriais para mapear jornadas, integrar sistemas e lançar novos fluxos digitais em semanas.
-        </p>
-        <p>
-          Operamos como parceiros de produto: discovery contínuo, roadmap vivo e indicadores compartilhados. Cada sprint precisa gerar insight acionável, redução de falhas e aumento de disponibilidade.
-        </p>
-      </div>
-      <div class="card" style="grid-column: span 5;">
-        <h3>Missão</h3>
-        <p>Oferecer soluções digitais que elevem a performance industrial e mantenham operações sempre online.</p>
-        <h3>Visão</h3>
-        <p>Ser a plataforma número 1 em confiabilidade industrial data-driven na América Latina.</p>
-        <h3>Valores</h3>
-        <p>Ética • Precisão • Segurança • Compromisso • Inovação</p>
-      </div>
-    </div>
-  </div>
-</section>
