@@ -399,7 +399,7 @@
                 <span>{pagamentoAtual.cliente}</span>
               </div>
             </div>
-            <button class="btn btn-primary" style="width:100%" on:click={confirmarPagamento}>Confirmar pagamento</button>
+            <button class="btn btn-primary" type="button" style="width:100%" on:click={confirmarPagamento}>Confirmar pagamento</button>
           </div>
           <div class="checkout-logo">
             <img src="/images/logo.png" alt="Fartech Logo" />
@@ -826,7 +826,7 @@
     padding-left: 0;
     flex-wrap: nowrap;
     transform: translateX(0);
-    pointer-events: none;
+    pointer-events: auto;
     z-index: 1;
   }
 
@@ -970,6 +970,49 @@
     box-shadow: 0 28px 70px rgba(5, 10, 30, 0.35), 0 12px 28px rgba(0, 0, 0, 0.12);
     position: sticky;
     top: 120px;
+  }
+
+  @media (max-width: 640px) {
+    .phone-pay {
+      position: relative;
+      top: auto;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .phone,
+    .phone-landscape {
+      width: 100%;
+      max-width: 100%;
+      min-height: auto;
+      height: auto;
+      aspect-ratio: auto;
+      padding: 12px;
+    }
+
+    .phone-body {
+      padding: 14px;
+      border-radius: 18px;
+      gap: 10px;
+    }
+
+    .hero-visual-stack {
+      gap: 12px;
+    }
+  }
+
+  @media (max-width: 640px) {
+    :global(.hero)::before {
+      background-size: 120%;
+      opacity: 0.1;
+      left: 45%;
+    }
+
+    .section,
+    .container {
+      padding-left: 14px;
+      padding-right: 14px;
+    }
   }
 
   .phone-notch {
@@ -1411,155 +1454,6 @@
     font-size: 0.8rem;
   }
 
-  /* Desktop dashboard (reconstruído) */
-  .desktop-frame {
-    display: grid;
-    grid-template-columns: 220px 1fr;
-    gap: 16px;
-    background: linear-gradient(180deg, #11172f 0%, #0b1024 100%);
-    border-radius: 18px;
-    border: 1px solid rgba(255, 255, 255, 0.06);
-    box-shadow: 0 30px 80px rgba(5, 10, 30, 0.32);
-    padding: 16px;
-    color: #e5e7eb;
-  }
-
-  .desktop-sidebar {
-    background: rgba(255, 255, 255, 0.03);
-    border: 1px solid rgba(255, 255, 255, 0.08);
-    border-radius: 14px;
-    padding: 12px;
-    display: grid;
-    gap: 12px;
-  }
-
-  .logo-mark {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-  }
-
-  .logo-mark .star {
-    font-size: 1.3rem;
-  }
-
-  .logo-mark strong {
-    color: #60a5fa;
-    display: block;
-  }
-
-  .logo-mark small {
-    color: #9ca3af;
-    font-size: 0.8rem;
-  }
-
-  .desktop-nav {
-    display: grid;
-    gap: 8px;
-  }
-
-  .nav-item {
-    display: grid;
-    grid-template-columns: auto 1fr;
-    gap: 10px;
-    align-items: center;
-    padding: 10px;
-    border-radius: 10px;
-    background: rgba(255, 255, 255, 0.03);
-    border: 1px solid rgba(255, 255, 255, 0.06);
-    color: #e5e7eb;
-  }
-
-  .nav-item small {
-    color: #9ca3af;
-  }
-
-  .nav-item.active {
-    background: rgba(59, 130, 246, 0.15);
-    border-color: rgba(59, 130, 246, 0.25);
-  }
-
-  .desktop-main {
-    background: rgba(255, 255, 255, 0.02);
-    border: 1px solid rgba(255, 255, 255, 0.06);
-    border-radius: 14px;
-    padding: 14px;
-    display: grid;
-    gap: 14px;
-  }
-
-  .desktop-topbar {
-    display: flex;
-    justify-content: flex-end;
-    gap: 8px;
-  }
-
-  .status-group {
-    display: flex;
-    gap: 8px;
-  }
-
-  .desktop-hero {
-    background: rgba(255, 255, 255, 0.03);
-    border: 1px solid rgba(255, 255, 255, 0.08);
-    border-radius: 12px;
-    padding: 14px;
-    display: grid;
-    grid-template-columns: 1fr auto;
-    gap: 12px;
-  }
-
-  .desktop-hero h3 {
-    margin: 4px 0;
-    color: #f8fafc;
-  }
-
-  .pill-group {
-    display: flex;
-    gap: 8px;
-    flex-wrap: wrap;
-  }
-
-  .cta-group {
-    display: grid;
-    gap: 8px;
-    align-content: start;
-  }
-
-  .desktop-cards {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-    gap: 12px;
-  }
-
-  .desktop-card {
-    background: rgba(255, 255, 255, 0.02);
-    border: 1px solid rgba(255, 255, 255, 0.06);
-    border-radius: 12px;
-    padding: 12px;
-    display: grid;
-    gap: 6px;
-    color: #e5e7eb;
-  }
-
-  .desktop-card h4 {
-    margin: 0;
-    color: #fff;
-  }
-
-  .progress {
-    width: 100%;
-    height: 6px;
-    background: rgba(255, 255, 255, 0.08);
-    border-radius: 999px;
-    overflow: hidden;
-  }
-
-  .progress span {
-    display: block;
-    height: 100%;
-    background: linear-gradient(90deg, #60a5fa, #7c3aed);
-  }
   /* iMac dashboard */
   .imac-frame {
     position: relative;
@@ -1715,11 +1609,23 @@
     }
   }
 
+  @media (max-width: 768px) {
+    :global(.hero)::before {
+      left: 40%;
+      background-size: 90%;
+      opacity: 0.08;
+      animation-duration: 18s;
+    }
+  }
+
   @media (max-width: 640px) {
     .hero-visual-stack {
       display: grid;
       grid-template-columns: 1fr;
-      max-width: 380px;
+      max-width: 100%;
+      width: 100%;
+      padding: 0 12px;
+      justify-items: center;
     }
 
     .mini-app-card {
@@ -1728,9 +1634,17 @@
     }
 
     :global(.hero)::before {
-      left: 30%;
-      background-size: 140%;
-      opacity: 0.16;
+      left: 45%;
+      background-size: 80%;
+      opacity: 0.05;
+      background-position: center;
+      animation: none;
+    }
+  }
+
+  @media (max-width: 480px) {
+    :global(.hero)::before {
+      display: none;
     }
   }
 

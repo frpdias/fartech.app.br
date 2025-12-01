@@ -34,6 +34,8 @@ jobs:
           port: 21
           local-dir: build/
           server-dir: /domains/fartech.app.br/public_html/
+          # Força o diretório remoto a espelhar a build local (evita faltar _app/).
+          dangerous-clean-slate: true
           state-name: .ftp-deploy-sync-state.json
           dry-run: false
           exclude: |

@@ -1,0 +1,9 @@
+RewriteEngine On
+
+# Remove .html from URLs if the file exists
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME}\.html -f
+RewriteRule ^(.+)$ $1.html [L,QSA]
+
+# Default to index.html for directory requests
+DirectoryIndex index.html

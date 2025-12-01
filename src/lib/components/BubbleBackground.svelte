@@ -63,24 +63,39 @@
   @keyframes float {
     0%,
     100% {
-      transform: translate(-50%, -50%) scale(0.9);
-      opacity: 0.25;
+      transform: translate(-50%, -50%) scale(0.97);
+      opacity: 0.22;
     }
     50% {
-      transform: translate(-48%, -58%) scale(1.15);
-      opacity: 0.45;
+      transform: translate(-50%, -52%) scale(1.02);
+      opacity: 0.30;
     }
   }
 
   @keyframes drift {
     0% {
-      filter: blur(calc(var(--blur) * 0.95));
+      filter: blur(calc(var(--blur) * 0.9));
     }
     50% {
-      filter: blur(calc(var(--blur) * 1.1));
+      filter: blur(calc(var(--blur) * 1.02));
     }
     100% {
-      filter: blur(calc(var(--blur) * 0.95));
+      filter: blur(calc(var(--blur) * 0.9));
+    }
+  }
+
+  @media (max-width: 640px) {
+    .bubble {
+      opacity: 0.12;
+      filter: blur(calc(var(--blur) * 0.4));
+      box-shadow: none;
+      transform: translate(-50%, -50%) scale(0.7);
+      animation: float calc(var(--duration) * 0.6) ease-in-out infinite;
+    }
+
+    /* Reduz ainda mais a densidade no mobile */
+    .bubble:nth-child(n + 5) {
+      display: none;
     }
   }
 </style>

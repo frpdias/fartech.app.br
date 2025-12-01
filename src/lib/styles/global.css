@@ -101,22 +101,22 @@ img {
 }
 
 .container {
-  max-width: 100%;
+  max-width: 1280px;
   width: 100%;
   margin-inline: auto;
-  padding-left: clamp(40px, 5vw, 113px);
-  padding-right: clamp(40px, 5vw, 113px);
+  padding-left: clamp(20px, 4vw, 64px);
+  padding-right: clamp(20px, 4vw, 64px);
 }
 
 /* Force consistent container width across all sections */
 .hero .container,
 .section .container,
 .site-header .container {
-  max-width: 100% !important;
+  max-width: 1280px !important;
   width: 100% !important;
   margin-inline: auto !important;
-  padding-left: clamp(40px, 5vw, 113px) !important;
-  padding-right: clamp(40px, 5vw, 113px) !important;
+  padding-left: clamp(20px, 4vw, 64px) !important;
+  padding-right: clamp(20px, 4vw, 64px) !important;
 }
 
 .section {
@@ -1058,6 +1058,22 @@ a:not(.btn):hover::after {
   flex-wrap: wrap;
   gap: 16px;
   animation: slideUp 0.8s ease-out 0.3s backwards;
+}
+
+@media (max-width: 768px) {
+  .hero {
+    padding-block: clamp(80px, 12vw, 120px);
+  }
+}
+
+@media (max-width: 640px) {
+  .hero::before,
+  .hero::after {
+    display: none;
+    background: none;
+    animation: none;
+    opacity: 0;
+  }
 }
 
 /* Premium glass-morphism meta cards */

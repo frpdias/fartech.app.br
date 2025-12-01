@@ -194,10 +194,6 @@
     }
   }
 
-  .card h3 {
-    margin-top: 0;
-  }
-
 .valores {
   display: grid;
   gap: 12px;

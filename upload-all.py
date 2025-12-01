@@ -14,47 +14,50 @@ ftp.cwd('/public_html')
 
 print("✅ Conectado!\n")
 
-def upload_file(local_path, remote_name):
+def upload_file(local_path: str, remote_path: str):
+    """Envia um arquivo único para o caminho remoto informado."""
     try:
-        with open(local_path, 'rb') as f:
-            ftp.storbinary(f'STOR {remote_name}', f)
+        with open(local_path, "rb") as f:
+            ftp.storbinary(f"STOR {remote_path}", f)
         size = os.path.getsize(local_path)
-        print(f"✅ {remote_name} ({size} bytes)")
+        print(f"✅ {remote_path} ({size} bytes)")
         return True
     except Exception as e:
-        print(f"❌ {remote_name}: {e}")
+        print(f"❌ {remote_path}: {e}")
         return False
 
-def upload_directory(local_dir, remote_dir=''):
-    for item in os.listdir(local_dir):
-        if item.startswith('.'):
+
+def ensure_remote_dir(remote_dir: str):
+    """Garante que o diretório remoto existe (cria recursivamente)."""
+    if not remote_dir:
+        return
+    cwd_backup = ftp.pwd()
+    for part in remote_dir.split("/"):
+        if not part:
             continue
-            
-        local_path = os.path.join(local_dir, item)
-        remote_path = f"{remote_dir}/{item}" if remote_dir else item
-        
-        if os.path.isfile(local_path):
+        try:
+            ftp.mkd(part)
+        except Exception:
+            pass  # já existe
+        ftp.cwd(part)
+    ftp.cwd(cwd_backup)
+
+
+def upload_directory_recursive(local_root: str, remote_root: str = ""):
+    """Replica a árvore de diretórios de forma recursiva."""
+    for current, dirs, files in os.walk(local_root):
+        # ignora ocultos
+        dirs[:] = [d for d in dirs if not d.startswith(".")]
+        files = [f for f in files if not f.startswith(".")]
+
+        rel = os.path.relpath(current, local_root)
+        remote_dir = remote_root if rel == "." else f"{remote_root}/{rel}".strip("/")
+        ensure_remote_dir(remote_dir)
+
+        for file in files:
+            local_path = os.path.join(current, file)
+            remote_path = f"{remote_dir}/{file}" if remote_dir else file
             upload_file(local_path, remote_path)
-        elif os.path.isdir(local_path):
-            # Cria diretório no servidor
-            try:
-                ftp.mkd(remote_path)
-                print(f"📁 Criado: {remote_path}")
-            except:
-                pass  # Diretório já existe
-            
-            # Envia arquivos do subdiretório
-            cwd_backup = ftp.pwd()
-            ftp.cwd(remote_path)
-            
-            for subitem in os.listdir(local_path):
-                if subitem.startswith('.'):
-                    continue
-                sublocal = os.path.join(local_path, subitem)
-                if os.path.isfile(sublocal):
-                    upload_file(sublocal, subitem)
-            
-            ftp.cwd(cwd_backup)
 
 # Upload de todos os arquivos HTML da raiz
 print("📤 Enviando arquivos HTML...")
@@ -66,18 +69,18 @@ for html in html_files:
     if os.path.exists(local):
         upload_file(local, html)
 
-# Upload de diretórios
+# Upload de diretórios (recursivo para levar assets versionados)
 print("\n📤 Enviando diretório _app...")
-if os.path.exists('build/_app'):
-    upload_directory('build/_app', '_app')
+if os.path.exists("build/_app"):
+    upload_directory_recursive("build/_app", "_app")
 
 print("\n📤 Enviando diretório images...")
-if os.path.exists('build/images'):
-    upload_directory('build/images', 'images')
+if os.path.exists("build/images"):
+    upload_directory_recursive("build/images", "images")
 
 print("\n📤 Enviando outros arquivos...")
-for item in ['robots.txt', 'sitemap.xml', 'favicon.png']:
-    local = f'build/{item}'
+for item in ["robots.txt", "sitemap.xml", "favicon.png"]:
+    local = f"build/{item}"
     if os.path.exists(local):
         upload_file(local, item)
 

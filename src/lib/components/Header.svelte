@@ -11,10 +11,11 @@
   ];
 </script>
 
-<header class={`site-header ${transparent ? 'is-transparent' : ''}`} role="banner">
+<header class={`site-header ${transparent ? 'is-transparent' : ''}`}>
   <div class="container header-inner">
 	<a class="logo" href="/" aria-label="Fartech - Página inicial">
 		<img src="/images/logo.png" alt="Fartech Logo" />
+    <span class="logo-text">FARTECH</span>
 	</a>
     <nav aria-label="Navegação principal">
       {#each links as link}
@@ -22,7 +23,13 @@
       {/each}
     </nav>
 
-    <a class="btn btn-primary" href="/contato" aria-label="Solicitar orçamento">Solicitar Orçamento</a>
+    <a
+      class="btn btn-primary"
+      href="mailto:contato@fartech.app.br"
+      aria-label="Fale conosco por e-mail"
+    >
+      Fale Conosco
+    </a>
   </div>
 </header>
 
@@ -86,12 +93,22 @@
     flex-shrink: 0;
     background: transparent;
     mix-blend-mode: multiply;
+    gap: 12px;
   }
 
   .logo img {
     height: 100%;
     width: auto;
     object-fit: contain;
+  }
+
+  .logo-text {
+    font-family: var(--font-display, 'Inter'), sans-serif;
+    font-weight: 800;
+    font-size: clamp(20px, 2.4vw, 26px);
+    letter-spacing: -0.01em;
+    color: #0f172a;
+    line-height: 1;
   }
 
   @media (max-width: 768px) {
@@ -101,6 +118,32 @@
 
     .header-inner {
       gap: 20px;
+    }
+  }
+
+  @media (max-width: 640px) {
+    .site-header::after {
+      background: rgba(255, 255, 255, 0.96);
+    }
+
+    .header-inner {
+      padding-block: 12px;
+      gap: 14px;
+    }
+
+    .logo {
+      height: 72px;
+      gap: 8px;
+    }
+
+    .btn.btn-primary {
+      padding: 12px 16px;
+      font-size: 15px;
+      border-radius: 10px;
+    }
+
+    .logo-text {
+      font-size: 19px;
     }
   }
 </style>

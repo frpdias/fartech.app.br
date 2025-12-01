@@ -6,7 +6,7 @@
 </script>
 
 <svelte:head>
-  <title>Fartech Platform OS | Infraestrutura digital para operações críticas</title>
+  <title>FARTECH</title>
   <meta
     name="description"
     content="Fartech Platform OS conecta IoT, automação e dados corporativos com observabilidade total, segurança e entregas rápidas para operações críticas."
