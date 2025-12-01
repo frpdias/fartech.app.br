@@ -185,19 +185,19 @@
     }
     20% {
       border-radius: 35% 65% 72% 28% / 48% 68% 32% 52%;
-      transform: translate3d(-3.5px, -5.5px, 0) scale(1.025);
+      transform: translate3d(-1px, -1.5px, 0) scale(1.005);
     }
     40% {
       border-radius: 68% 32% 51% 49% / 71% 29% 71% 29%;
-      transform: translate3d(3.5px, 5.5px, 0) scale(0.98);
+      transform: translate3d(1px, 1.5px, 0) scale(0.995);
     }
     60% {
       border-radius: 28% 72% 63% 37% / 54% 71% 29% 46%;
-      transform: translate3d(-3px, 5px, 0) scale(1.02);
+      transform: translate3d(-1px, 1.5px, 0) scale(1.005);
     }
     80% {
       border-radius: 61% 39% 28% 72% / 38% 58% 42% 62%;
-      transform: translate3d(4px, -4.5px, 0) scale(0.985);
+      transform: translate3d(1px, -1px, 0) scale(0.995);
     }
     100% {
       border-radius: 73% 27% 40% 60% / 63% 44% 56% 37%;
