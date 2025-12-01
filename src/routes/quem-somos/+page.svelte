@@ -9,26 +9,26 @@
     </div>
     <div class="blob-stack">
       <div class="blob-card b1">
-        <div class="blob-img" aria-label="Fernando Dias">
+        <div class="blob-img" aria-label="Fernando Dias - CEO">
         </div>
         <p class="blob-caption">
-          <strong>Fernando Dias<br />CEO</strong><br />
+          <strong>Fernando Dias<br />CEO – Chief Executive Officer</strong><br />
           Lidera a Fartech com visão estratégica, impulsionando crescimento, inovação e direção do negócio.
         </p>
       </div>
       <div class="blob-card b2">
-        <div class="blob-img" aria-label="Fundador 2">
+        <div class="blob-img" aria-label="Ricardo - CTO">
         </div>
         <p class="blob-caption">
-          <strong>CTO – Chief Technology Officer</strong><br />
+          <strong>Ricardo<br />CTO – Chief Technology Officer</strong><br />
           Responsável por toda a tecnologia da Fartech, garantindo inovação, segurança e alta performance das soluções.
         </p>
       </div>
       <div class="blob-card b3">
-        <div class="blob-img" aria-label="Fundador 3">
+        <div class="blob-img" aria-label="Alan Merlini - CFO">
         </div>
         <p class="blob-caption">
-          <strong>CFO – Chief Financial Officer</strong><br />
+          <strong>Alan Merlini<br />CFO – Chief Financial Officer</strong><br />
           Cuida da saúde financeira da Fartech, planejando investimentos e garantindo sustentabilidade e resultados.
         </p>
       </div>
@@ -151,12 +151,23 @@
       #0b1224;
   }
 
-  /* Foto do fundador 1 */
+  /* Foto do CEO (Fernando Dias) - primeiro blob */
   .blob-card.b1 .blob-img {
     background:
-      linear-gradient(135deg, rgba(37, 99, 235, 0.55), rgba(14, 165, 233, 0.35)),
-      radial-gradient(circle at 30% 20%, rgba(124, 58, 237, 0.4), transparent 55%),
+      linear-gradient(135deg, rgba(37, 99, 235, 0.55), rgba(14, 165, 233, 0.38)),
+      radial-gradient(circle at 30% 20%, rgba(124, 58, 237, 0.42), transparent 55%),
       url('/images/fernando-dias.jpg');
+    background-size: cover;
+    background-position: center;
+    color: transparent;
+  }
+
+  /* Foto do CFO (Alan) - terceiro blob */
+  .blob-card.b3 .blob-img {
+    background:
+      linear-gradient(135deg, rgba(236, 72, 153, 0.55), rgba(124, 58, 237, 0.35)),
+      radial-gradient(circle at 20% 60%, rgba(14, 165, 233, 0.4), transparent 55%),
+      url('/images/alan.jpg');
     background-size: cover;
     background-position: center;
     color: transparent;
@@ -174,19 +185,19 @@
     }
     20% {
       border-radius: 35% 65% 72% 28% / 48% 68% 32% 52%;
-      transform: translate3d(-14px, -22px, 0) scale(1.1);
+      transform: translate3d(-7px, -11px, 0) scale(1.05);
     }
     40% {
       border-radius: 68% 32% 51% 49% / 71% 29% 71% 29%;
-      transform: translate3d(14px, 22px, 0) scale(0.92);
+      transform: translate3d(7px, 11px, 0) scale(0.96);
     }
     60% {
       border-radius: 28% 72% 63% 37% / 54% 71% 29% 46%;
-      transform: translate3d(-12px, 20px, 0) scale(1.08);
+      transform: translate3d(-6px, 10px, 0) scale(1.04);
     }
     80% {
       border-radius: 61% 39% 28% 72% / 38% 58% 42% 62%;
-      transform: translate3d(16px, -18px, 0) scale(0.94);
+      transform: translate3d(8px, -9px, 0) scale(0.97);
     }
     100% {
       border-radius: 73% 27% 40% 60% / 63% 44% 56% 37%;
