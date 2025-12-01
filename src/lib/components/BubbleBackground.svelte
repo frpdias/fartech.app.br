@@ -55,7 +55,8 @@
     opacity: 0.35;
     filter: blur(var(--blur));
     transform: translate(-50%, -50%) scale(1);
-    animation: float var(--duration) ease-in-out infinite, drift calc(var(--duration) * 1.3) linear infinite;
+    animation: float calc(var(--duration) * 1.8) ease-in-out infinite,
+      drift calc(var(--duration) * 2.2) linear infinite;
     animation-delay: var(--delay);
     mix-blend-mode: screen;
   }
@@ -63,24 +64,24 @@
   @keyframes float {
     0%,
     100% {
-      transform: translate(-50%, -50%) scale(0.97);
-      opacity: 0.22;
+      transform: translate(-50%, -50%) scale(0.99);
+      opacity: 0.2;
     }
     50% {
-      transform: translate(-50%, -52%) scale(1.02);
-      opacity: 0.30;
+      transform: translate(-50%, -50.5%) scale(1.01);
+      opacity: 0.26;
     }
   }
 
   @keyframes drift {
     0% {
-      filter: blur(calc(var(--blur) * 0.9));
+      filter: blur(calc(var(--blur) * 0.95));
     }
     50% {
-      filter: blur(calc(var(--blur) * 1.02));
+      filter: blur(calc(var(--blur) * 1.01));
     }
     100% {
-      filter: blur(calc(var(--blur) * 0.9));
+      filter: blur(calc(var(--blur) * 0.95));
     }
   }
 
