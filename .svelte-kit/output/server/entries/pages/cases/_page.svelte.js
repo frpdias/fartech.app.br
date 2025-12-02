@@ -1,6 +1,5 @@
-import { w as ensure_array_like, F as attr_style } from "../../../chunks/index.js";
-import { e as escape_html } from "../../../chunks/escaping.js";
-import { a as attr } from "../../../chunks/attributes.js";
+import { F as head, w as ensure_array_like, z as attr_style, x as attr } from "../../../chunks/index.js";
+import { e as escape_html } from "../../../chunks/context.js";
 function _page($$renderer) {
   const cases = [
     {
@@ -88,6 +87,11 @@ function _page($$renderer) {
       Z
     `;
   };
+  head("1dadcqa", $$renderer, ($$renderer2) => {
+    $$renderer2.title(($$renderer3) => {
+      $$renderer3.push(`<title>fartech.app.br</title>`);
+    });
+  });
   $$renderer.push(`<section class="section"><div class="container"><p class="eyebrow">Cases</p> <h1 class="section-title">Estudos reais e KPIs comprovados.</h1> <div class="cases-grid"><!--[-->`);
   const each_array = ensure_array_like(cases);
   for (let $$index_1 = 0, $$length = each_array.length; $$index_1 < $$length; $$index_1++) {

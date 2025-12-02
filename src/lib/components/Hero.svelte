@@ -16,9 +16,10 @@
 
 <section class="hero">
   <BubbleBackground />
-  <div class="container hero-grid">
-    <div class="hero-content">
-      <div class="hero-text-wrapper">
+  <div class="hero-container">
+    <div class="hero-grid" class:has-visual={hasVisual}>
+      <div class="hero-content">
+        <div class="hero-text-wrapper">
         <p class="eyebrow">{eyebrow}</p>
         <h1>{title}</h1>
         <p>{subtitle}</p>
@@ -49,18 +50,31 @@
         <slot name="visual" />
       </div>
     {/if}
+    </div>
   </div>
 </section>
 
 <style>
+  .hero-container {
+    max-width: min(1720px, 100%);
+    width: 100%;
+    margin-inline: auto;
+    padding-left: clamp(16px, 2.5vw, 40px);
+    padding-right: clamp(16px, 2.5vw, 40px);
+  }
+
   .hero-grid {
+    display: block;
+    width: 100%;
+    max-width: 100%;
+    overflow: visible;
+  }
+
+  .hero-grid.has-visual {
     display: grid;
     grid-template-columns: minmax(0, 1.4fr) minmax(320px, 480px);
     gap: clamp(40px, 6vw, 100px);
     align-items: center;
-    width: 100%;
-    max-width: 100%;
-    overflow: visible;
   }
 
   .hero-content {
@@ -80,7 +94,7 @@
 
   .hero h1 {
     font-family: var(--font-display);
-    font-size: clamp(44px, 4.8vw, 74px);
+    font-size: clamp(59px, 6.5vw, 100px);
     line-height: 1.04;
     margin: 0 0 24px 0;
     max-width: none;
@@ -145,14 +159,14 @@
 
   .hero-meta strong {
     display: block;
-    font-size: 1.6rem;
+    font-size: 2.16rem;
     color: var(--color-primary);
     font-weight: 800;
   }
 
   .hero-meta span {
     color: var(--color-text-secondary);
-    font-size: 0.85rem;
+    font-size: 1.15rem;
     margin-top: 6px;
     display: block;
   }
@@ -178,7 +192,7 @@
   }
 
   @media (max-width: 960px) {
-    .hero-grid {
+    .hero-grid.has-visual {
       grid-template-columns: 1fr;
       gap: clamp(40px, 6vw, 80px);
     }
@@ -193,18 +207,18 @@
   }
 
   @media (max-width: 640px) {
-    .hero-grid {
+    .hero-grid.has-visual {
       gap: 32px;
     }
 
     .hero h1 {
-      font-size: clamp(34px, 10vw, 56px);
+      font-size: clamp(46px, 13.5vw, 76px);
       line-height: 1.05;
       margin: 0 0 18px 0;
     }
 
     .hero-text-wrapper p {
-      font-size: 1rem;
+      font-size: 1.35rem;
     }
 
     .hero-actions {
@@ -227,14 +241,14 @@
 
   @media (max-width: 480px) {
     .hero h1 {
-      font-size: clamp(32px, 10vw, 44px);
+      font-size: clamp(43px, 13.5vw, 59px);
       line-height: 1.04;
       margin: 0 0 14px 0;
       letter-spacing: -0.01em;
     }
 
     .hero-text-wrapper p {
-      font-size: 0.98rem;
+      font-size: 1.32rem;
       line-height: 1.5;
     }
 

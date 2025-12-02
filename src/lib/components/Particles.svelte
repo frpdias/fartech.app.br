@@ -7,6 +7,7 @@
   let dpr = 1;
   let width = 0;
   let height = 0;
+  let scrollOffset = 0;
 
   const PARTICLE_COUNT = 160;
   const particles = [];
@@ -100,29 +101,56 @@
     initParticles();
   };
 
+  const handleScroll = () => {
+    const y = window.scrollY || window.pageYOffset || 0;
+    // aumenta range e velocidade para um parallax mais perceptível
+    const clamped = Math.max(0, Math.min(y, 400));
+    scrollOffset = clamped * 0.616; // ~50% menos que o intenso anterior
+  };
+
   onMount(() => {
     ctx = canvas.getContext('2d');
     resize();
     initParticles();
     frame = requestAnimationFrame(step);
     window.addEventListener('resize', handleResize);
+    window.addEventListener('scroll', handleScroll, { passive: true });
     return () => {
       cancelAnimationFrame(frame);
       window.removeEventListener('resize', handleResize);
+      window.removeEventListener('scroll', handleScroll);
     };
   });
 </script>
 
-<canvas class="particles-canvas" aria-hidden="true" bind:this={canvas}></canvas>
+<div class="particles-wrapper">
+  <canvas
+    class="particles-canvas"
+    aria-hidden="true"
+    bind:this={canvas}
+    style={`transform: translateY(${scrollOffset}px);`}
+  ></canvas>
+</div>
 
 <style>
-.particles-canvas {
+.particles-wrapper {
   position: fixed;
-  inset: 0;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh; /* ocupa toda a página para aparecer em todas as seções */
+  overflow: hidden;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.particles-canvas {
+  position: absolute;
+  top: 0;
+  left: 0;
   width: 100vw;
   height: 100vh;
   pointer-events: none;
-  z-index: 0;
   opacity: 0.85;
 }
 </style>

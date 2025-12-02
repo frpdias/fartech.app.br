@@ -2544,32 +2544,32 @@ const options = {
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     
     <!-- Primary Meta Tags -->
-    <meta name="title" content="Fartech Platform OS - Infraestrutura Digital Industrial" />
-    <meta name="description" content="Plataforma SaaS que conecta IoT, automação, manutenção e dados corporativos para operações críticas sempre online. 350+ empresas conectadas, 99.95% disponibilidade." />
-    <meta name="keywords" content="IoT industrial, automação industrial, manutenção preditiva, SaaS industrial, indústria 4.0, digital twin, SCADA, telemetria, lubrificação inteligente" />
-    <meta name="author" content="Fartech Soluções Industriais" />
+    <meta name="title" content="Fartech - SaaS, automação e integrações" />
+    <meta name="description" content="Desenvolvemos plataformas SaaS sob medida, automações com n8n, chatbots inteligentes e integrações via APIs e Webhooks. Da educação ao corporativo, conectamos negócios ao futuro." />
+    <meta name="keywords" content="SaaS sob medida, automação de processos, n8n, chatbots, integrações API, webhooks, desenvolvimento web, produtos digitais" />
+    <meta name="author" content="Fartech Tecnologia" />
     <meta name="robots" content="index, follow" />
     
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://fartech.com.br/" />
-    <meta property="og:title" content="Fartech Platform OS - Infraestrutura Digital Industrial" />
-    <meta property="og:description" content="Plataforma SaaS que conecta IoT, automação, manutenção e dados corporativos para operações críticas sempre online." />
-    <meta property="og:image" content="https://fartech.com.br/images/og-image.jpg" />
+    <meta property="og:url" content="https://fartech.app.br/" />
+    <meta property="og:title" content="Fartech - SaaS, automação e integrações" />
+    <meta property="og:description" content="Desenvolvemos plataformas SaaS sob medida, automações, chatbots e integrações via APIs. Conectamos negócios ao futuro." />
+    <meta property="og:image" content="https://fartech.app.br/images/og-image.jpg" />
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />
     <meta property="og:locale" content="pt_BR" />
-    <meta property="og:site_name" content="Fartech Platform OS" />
+    <meta property="og:site_name" content="Fartech" />
     
     <!-- Twitter -->
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:url" content="https://fartech.com.br/" />
-    <meta name="twitter:title" content="Fartech Platform OS - Infraestrutura Digital Industrial" />
-    <meta name="twitter:description" content="Plataforma SaaS que conecta IoT, automação, manutenção e dados corporativos para operações críticas sempre online." />
-    <meta name="twitter:image" content="https://fartech.com.br/images/og-image.jpg" />
+    <meta name="twitter:url" content="https://fartech.app.br/" />
+    <meta name="twitter:title" content="Fartech - SaaS, automação e integrações" />
+    <meta name="twitter:description" content="Desenvolvemos plataformas SaaS sob medida, automações, chatbots e integrações via APIs. Conectamos negócios ao futuro." />
+    <meta name="twitter:image" content="https://fartech.app.br/images/og-image.jpg" />
     
     <!-- Canonical -->
-    <link rel="canonical" href="https://fartech.com.br/" />
+    <link rel="canonical" href="https://fartech.app.br/" />
     
     <!-- Google Analytics 4 - Substitua G-XXXXXXXXXX pelo seu ID real -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"><\/script>
@@ -2655,7 +2655,7 @@ const options = {
 		<div class="error">
 			<span class="status">` + status + '</span>\n			<div class="message">\n				<h1>' + message + "</h1>\n			</div>\n		</div>\n	</body>\n</html>\n"
   },
-  version_hash: "igqz4s"
+  version_hash: "1bj5xxv"
 };
 async function get_hooks() {
   let handle;

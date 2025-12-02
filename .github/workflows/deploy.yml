@@ -9,6 +9,10 @@ on:
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
+    env:
+      HOSTINGER_FTP_HOST: ${{ secrets.HOSTINGER_FTP_HOST || vars.HOSTINGER_FTP_HOST }}
+      HOSTINGER_FTP_USER: ${{ secrets.HOSTINGER_FTP_USER || vars.HOSTINGER_FTP_USER }}
+      HOSTINGER_FTP_PASS: ${{ secrets.HOSTINGER_FTP_PASS || vars.HOSTINGER_FTP_PASS }}
 
     steps:
       - name: Checkout
@@ -28,9 +32,9 @@ jobs:
       - name: Deploy to Hostinger (FTP)
         uses: SamKirkland/FTP-Deploy-Action@v4.3.6
         with:
-          server: ${{ secrets.HOSTINGER_FTP_HOST }}
-          username: ${{ secrets.HOSTINGER_FTP_USER }}
-          password: ${{ secrets.HOSTINGER_FTP_PASS }}
+          server: ${{ env.HOSTINGER_FTP_HOST }}
+          username: ${{ env.HOSTINGER_FTP_USER }}
+          password: ${{ env.HOSTINGER_FTP_PASS }}
           protocol: ftp
           port: 21
           local-dir: build/

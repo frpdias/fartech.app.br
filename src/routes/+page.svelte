@@ -89,19 +89,19 @@
 
   const cases = [
     {
-      title: 'Rolamentos monitorados com IA em siderurgia',
-      description: 'Implementamos sensores + gêmeo digital e reduzimos 62% das ocorrências críticas.',
-      metric: 'Alertas -62%'
+      title: 'Plataforma ENEM com engajamento diário',
+      description: 'Desenvolvemos uma plataforma moderna de estudos para o ENEM com trilhas personalizadas, simulados e dashboards em tempo real, aumentando o número de alunos ativos por dia.',
+      metric: 'Engajamento +X%'
     },
     {
-      title: 'Linha automotiva com precisão de 98%',
-      description: 'Plataforma Fartech sincronizou MES e PLC com dados em tempo real para o time de produto.',
-      metric: 'Precisão +98%'
+      title: 'Operações conectadas sem planilhas manuais',
+      description: 'Automatizamos rotinas de coleta de dados e manutenção em diferentes áreas da operação, integrando sistemas legados, sensores e dashboards em tempo real.',
+      metric: 'Tempo manual -X%'
     },
     {
-      title: 'Operação química com 37% menos hotspots',
-      description: 'Algoritmos térmicos e automações de manutenção cortaram desperdícios e emissões.',
-      metric: 'Hotspots -37%'
+      title: 'SaaS B2B com integrações e bots',
+      description: 'Criamos um SaaS sob medida com integrações via APIs e Webhooks, além de chatbots para suporte, unificando fluxos de trabalho e reduzindo filas internas.',
+      metric: 'Filas -X%'
     }
   ];
 
@@ -208,6 +208,7 @@
 </script>
 
 <svelte:head>
+  <title>fartech.app.br</title>
   <script type="application/ld+json">
     {JSON.stringify(structuredData)}
   </script>
@@ -215,8 +216,8 @@
 
 <Hero
   eyebrow="Fartech Platform OS"
-  title="Infraestrutura digital que mantém operações críticas sempre online."
-  subtitle="Uma plataforma SaaS que conecta IoT, automação, manutenção e dados corporativos para times que precisam decidir rápido."
+  title="Integração, automação e tecnologia para manter seu negócio sempre ativo e competitivo."
+  subtitle="Conecte pessoas, processos e máquinas. Decida melhor. Aja mais rápido. Cresça sem limites."
   primaryHref="/contato"
   primaryLabel="Solicitar Orçamento"
   secondaryHref="/servicos"
@@ -236,8 +237,8 @@
 <section class="section">
   <div class="container">
     <p class="eyebrow">Por que Fartech</p>
-    <h2 class="section-title">Produto, dados e confiabilidade em uma única stack.</h2>
-    <p class="section-subtitle">Desenhamos jornadas digitais de alto impacto com times ágeis, observabilidade total e entregas mensuráveis.</p>
+    <h2 class="section-title">SaaS, IoT e integrações em um só ecossistema.</h2>
+    <p class="section-subtitle">A Fartech automatiza processos, conecta dados e garante eficiência contínua com rastreabilidade total e resultados mensuráveis.</p>
     <div class="diferenciais-grid">
       {#each diferenciais as item}
         <CardServico {...item} />
@@ -249,7 +250,8 @@
 <section class="section" id="servicos">
   <div class="container">
     <p class="eyebrow">Serviços</p>
-    <div class="section-title">Portfólio modular pronto para plug-and-play.</div>
+    <div class="section-title">Portfólio modular conectado à sua operação.</div>
+    <p class="section-subtitle">Da educação ao corporativo, levamos a mesma base tecnológica sólida para criar soluções sob medida em SaaS, automação e integrações, sempre com foco em resultado real para o seu negócio.</p>
     <div class="services-grid">
       {#each services as service}
         <CardServico {...service} />

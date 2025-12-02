@@ -1,8 +1,6 @@
-import { w as ensure_array_like, F as attr_style, G as sanitize_slots, z as slot, x as bind_props, y as head, J as spread_props, v as attr_class } from "../../chunks/index.js";
-import { a as attr } from "../../chunks/attributes.js";
+import { w as ensure_array_like, z as attr_style, x as attr, J as sanitize_slots, v as attr_class, G as slot, y as bind_props, F as head, K as spread_props } from "../../chunks/index.js";
 import { j as fallback } from "../../chunks/utils2.js";
-import { e as escape_html } from "../../chunks/escaping.js";
-import { a as ssr_context } from "../../chunks/context.js";
+import { a as ssr_context, e as escape_html } from "../../chunks/context.js";
 function onDestroy(fn) {
   /** @type {SSRContext} */
   ssr_context.r.on_destroy(fn);
@@ -45,7 +43,7 @@ function Hero($$renderer, $$props) {
     const hasVisual = Boolean($$slots.visual);
     $$renderer2.push(`<section class="hero svelte-1q37ri0">`);
     BubbleBackground($$renderer2);
-    $$renderer2.push(`<!----> <div class="container hero-grid svelte-1q37ri0"><div class="hero-content svelte-1q37ri0"><div class="hero-text-wrapper svelte-1q37ri0"><p class="eyebrow svelte-1q37ri0">${escape_html(eyebrow)}</p> <h1 class="svelte-1q37ri0">${escape_html(title)}</h1> <p class="svelte-1q37ri0">${escape_html(subtitle)}</p> <div class="hero-actions svelte-1q37ri0"><a class="btn btn-primary svelte-1q37ri0"${attr("href", primaryHref)}>${escape_html(primaryLabel)}</a> <a class="btn btn-secondary svelte-1q37ri0"${attr("href", secondaryHref)}>${escape_html(secondaryLabel)}</a></div> `);
+    $$renderer2.push(`<!----> <div class="hero-container svelte-1q37ri0"><div${attr_class("hero-grid svelte-1q37ri0", void 0, { "has-visual": hasVisual })}><div class="hero-content svelte-1q37ri0"><div class="hero-text-wrapper svelte-1q37ri0"><p class="eyebrow svelte-1q37ri0">${escape_html(eyebrow)}</p> <h1 class="svelte-1q37ri0">${escape_html(title)}</h1> <p class="svelte-1q37ri0">${escape_html(subtitle)}</p> <div class="hero-actions svelte-1q37ri0"><a class="btn btn-primary svelte-1q37ri0"${attr("href", primaryHref)}>${escape_html(primaryLabel)}</a> <a class="btn btn-secondary svelte-1q37ri0"${attr("href", secondaryHref)}>${escape_html(secondaryLabel)}</a></div> `);
     if (meta.length) {
       $$renderer2.push("<!--[-->");
       $$renderer2.push(`<div class="hero-meta svelte-1q37ri0"><!--[-->`);
@@ -74,7 +72,7 @@ function Hero($$renderer, $$props) {
     } else {
       $$renderer2.push("<!--[!-->");
     }
-    $$renderer2.push(`<!--]--></div></section>`);
+    $$renderer2.push(`<!--]--></div></div></section>`);
     bind_props($$props, {
       eyebrow,
       title,
@@ -168,19 +166,19 @@ function _page($$renderer, $$props) {
     ];
     const cases = [
       {
-        title: "Rolamentos monitorados com IA em siderurgia",
-        description: "Implementamos sensores + gêmeo digital e reduzimos 62% das ocorrências críticas.",
-        metric: "Alertas -62%"
+        title: "Plataforma ENEM com engajamento diário",
+        description: "Desenvolvemos uma plataforma moderna de estudos para o ENEM com trilhas personalizadas, simulados e dashboards em tempo real, aumentando o número de alunos ativos por dia.",
+        metric: "Engajamento +X%"
       },
       {
-        title: "Linha automotiva com precisão de 98%",
-        description: "Plataforma Fartech sincronizou MES e PLC com dados em tempo real para o time de produto.",
-        metric: "Precisão +98%"
+        title: "Operações conectadas sem planilhas manuais",
+        description: "Automatizamos rotinas de coleta de dados e manutenção em diferentes áreas da operação, integrando sistemas legados, sensores e dashboards em tempo real.",
+        metric: "Tempo manual -X%"
       },
       {
-        title: "Operação química com 37% menos hotspots",
-        description: "Algoritmos térmicos e automações de manutenção cortaram desperdícios e emissões.",
-        metric: "Hotspots -37%"
+        title: "SaaS B2B com integrações e bots",
+        description: "Criamos um SaaS sob medida com integrações via APIs e Webhooks, além de chatbots para suporte, unificando fluxos de trabalho e reduzindo filas internas.",
+        metric: "Filas -X%"
       }
     ];
     const depoimentos = [
@@ -268,14 +266,17 @@ function _page($$renderer, $$props) {
     onDestroy(() => {
     });
     head("1uha8ag", $$renderer2, ($$renderer3) => {
+      $$renderer3.title(($$renderer4) => {
+        $$renderer4.push(`<title>fartech.app.br</title>`);
+      });
       $$renderer3.push(`<script type="application/ld+json" class="svelte-1uha8ag">
     {JSON.stringify(structuredData)}
   <\/script><!---->`);
     });
     Hero($$renderer2, {
       eyebrow: "Fartech Platform OS",
-      title: "Infraestrutura digital que mantém operações críticas sempre online.",
-      subtitle: "Uma plataforma SaaS que conecta IoT, automação, manutenção e dados corporativos para times que precisam decidir rápido.",
+      title: "Integração, automação e tecnologia para manter seu negócio sempre ativo e competitivo.",
+      subtitle: "Conecte pessoas, processos e máquinas. Decida melhor. Aja mais rápido. Cresça sem limites.",
       primaryHref: "/contato",
       primaryLabel: "Solicitar Orçamento",
       secondaryHref: "/servicos",
@@ -292,13 +293,13 @@ function _page($$renderer, $$props) {
         }
       }
     });
-    $$renderer2.push(`<!----> <section class="section svelte-1uha8ag"><div class="container svelte-1uha8ag"><p class="eyebrow svelte-1uha8ag">Por que Fartech</p> <h2 class="section-title svelte-1uha8ag">Produto, dados e confiabilidade em uma única stack.</h2> <p class="section-subtitle svelte-1uha8ag">Desenhamos jornadas digitais de alto impacto com times ágeis, observabilidade total e entregas mensuráveis.</p> <div class="diferenciais-grid svelte-1uha8ag"><!--[-->`);
+    $$renderer2.push(`<!----> <section class="section svelte-1uha8ag"><div class="container svelte-1uha8ag"><p class="eyebrow svelte-1uha8ag">Por que Fartech</p> <h2 class="section-title svelte-1uha8ag">SaaS, IoT e integrações em um só ecossistema.</h2> <p class="section-subtitle svelte-1uha8ag">A Fartech automatiza processos, conecta dados e garante eficiência contínua com rastreabilidade total e resultados mensuráveis.</p> <div class="diferenciais-grid svelte-1uha8ag"><!--[-->`);
     const each_array = ensure_array_like(diferenciais);
     for (let $$index = 0, $$length = each_array.length; $$index < $$length; $$index++) {
       let item = each_array[$$index];
       CardServico($$renderer2, spread_props([item]));
     }
-    $$renderer2.push(`<!--]--></div></div></section> <section class="section svelte-1uha8ag" id="servicos"><div class="container svelte-1uha8ag"><p class="eyebrow svelte-1uha8ag">Serviços</p> <div class="section-title svelte-1uha8ag">Portfólio modular pronto para plug-and-play.</div> <div class="services-grid svelte-1uha8ag"><!--[-->`);
+    $$renderer2.push(`<!--]--></div></div></section> <section class="section svelte-1uha8ag" id="servicos"><div class="container svelte-1uha8ag"><p class="eyebrow svelte-1uha8ag">Serviços</p> <div class="section-title svelte-1uha8ag">Portfólio modular conectado à sua operação.</div> <p class="section-subtitle svelte-1uha8ag">Da educação ao corporativo, levamos a mesma base tecnológica sólida para criar soluções sob medida em SaaS, automação e integrações, sempre com foco em resultado real para o seu negócio.</p> <div class="services-grid svelte-1uha8ag"><!--[-->`);
     const each_array_1 = ensure_array_like(services);
     for (let $$index_1 = 0, $$length = each_array_1.length; $$index_1 < $$length; $$index_1++) {
       let service = each_array_1[$$index_1];

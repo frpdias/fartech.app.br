@@ -1,6 +1,5 @@
-import { w as ensure_array_like } from "../../../chunks/index.js";
-import { a as attr } from "../../../chunks/attributes.js";
-import { e as escape_html } from "../../../chunks/escaping.js";
+import { F as head, w as ensure_array_like, x as attr } from "../../../chunks/index.js";
+import { e as escape_html } from "../../../chunks/context.js";
 function _page($$renderer) {
   const services = [
     {
@@ -34,6 +33,11 @@ function _page($$renderer) {
       desc: "Checklists Fartech, score de risco automático e plano de ação digital."
     }
   ];
+  head("1s3wsov", $$renderer, ($$renderer2) => {
+    $$renderer2.title(($$renderer3) => {
+      $$renderer3.push(`<title>fartech.app.br</title>`);
+    });
+  });
   $$renderer.push(`<section class="section"><div class="container"><p class="eyebrow">Serviços</p> <h1 class="section-title">Plataforma modular que fala a língua dos times técnicos.</h1> <p class="section-subtitle">Escolha os módulos, plugue nas APIs existentes e acompanhe os KPIs no mesmo dashboard.</p> <div class="services-grid"><!--[-->`);
   const each_array = ensure_array_like(services);
   for (let $$index = 0, $$length = each_array.length; $$index < $$length; $$index++) {

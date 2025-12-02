@@ -1,0 +1,7 @@
+{
+  // Silencia avisos de importes faltantes no editor quando o ambiente Python local
+  // ainda não tem as dependências instaladas. Para checagem completa, rode
+  // `pip install -r requirements.txt` dentro de um venv.
+  "reportMissingImports": "none",
+  "reportMissingModuleSource": "none"
+}

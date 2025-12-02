@@ -1,3 +1,7 @@
+<svelte:head>
+  <title>fartech.app.br</title>
+</svelte:head>
+
 <section class="section">
   <div class="container">
     <p class="eyebrow">Blog</p>

@@ -1,0 +1,1 @@
+import{j as u,k as o,a7 as _,l as t,m as g,C as m,R as l,v as i,s as d,w as p}from"./CvdWedVZ.js";function E(n,r){let s=null,f=t;var a;if(t){s=p;for(var e=g(document.head);e!==null&&(e.nodeType!==m||e.data!==n);)e=l(e);if(e===null)i(!1);else{var y=l(e);e.remove(),d(y)}}t||(a=document.head.appendChild(u()));try{o(()=>r(a),_)}finally{f&&(i(!0),d(s))}}export{E as h};

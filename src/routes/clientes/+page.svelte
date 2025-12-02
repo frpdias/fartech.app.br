@@ -1,3 +1,7 @@
+<svelte:head>
+  <title>fartech.app.br</title>
+</svelte:head>
+
 <script>
   const logos = ['Atlas', 'Vector', 'Solaris', 'Lumin', 'Boreal', 'Synt']
 </script>

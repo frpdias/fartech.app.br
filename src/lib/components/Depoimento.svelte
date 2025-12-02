@@ -31,7 +31,7 @@
     position: absolute;
     top: 16px;
     right: 24px;
-    font-size: 3rem;
+    font-size: 4rem;
     color: rgba(9, 105, 218, 0.1);
     line-height: 0.8;
   }
@@ -50,20 +50,20 @@
 
   strong {
     font-family: var(--font-display);
-    font-size: clamp(15px, 1.8vw, 17px);
+    font-size: clamp(20px, 2.4vw, 23px);
     color: var(--color-text);
     font-weight: 600;
   }
 
   span {
     color: var(--color-muted);
-    font-size: clamp(13px, 1.6vw, 15px);
+    font-size: clamp(18px, 2.2vw, 20px);
   }
 
   .quote {
     margin: 0;
     color: var(--color-text);
-    font-size: clamp(15px, 1.8vw, 17px);
+    font-size: clamp(20px, 2.4vw, 23px);
     line-height: 1.75;
     font-style: italic;
   }

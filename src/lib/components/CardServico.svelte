@@ -50,7 +50,7 @@
   h3 {
     font-family: var(--font-display);
     margin: 0;
-    font-size: 1.15rem;
+    font-size: 1.55rem;
     position: relative;
     z-index: 1;
     font-weight: 600;
@@ -62,7 +62,7 @@
     color: var(--color-muted);
     position: relative;
     z-index: 1;
-    font-size: clamp(14px, 1.8vw, 16px);
+    font-size: clamp(19px, 2.4vw, 22px);
     line-height: 1.6;
   }
 
@@ -71,7 +71,7 @@
     color: var(--color-accent);
     position: relative;
     z-index: 1;
-    font-size: clamp(14px, 1.8vw, 16px);
+    font-size: clamp(19px, 2.4vw, 22px);
     transition: var(--transition);
   }
 

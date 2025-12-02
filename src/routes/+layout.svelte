@@ -6,10 +6,10 @@
 </script>
 
 <svelte:head>
-  <title>FARTECH</title>
+  <title>fartech.app.br</title>
   <meta
     name="description"
-    content="Fartech Platform OS conecta IoT, automação e dados corporativos com observabilidade total, segurança e entregas rápidas para operações críticas."
+    content="Fartech desenvolve SaaS sob medida, automações com n8n, chatbots inteligentes e integrações via APIs e Webhooks. Conectamos negócios ao futuro."
   />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <link rel="icon" href="/favicon.png" />
@@ -18,22 +18,22 @@
 
   <!-- Open Graph -->
   <meta property="og:type" content="website" />
-  <meta property="og:title" content="Fartech Platform OS | Infraestrutura digital" />
+  <meta property="og:title" content="Fartech - SaaS, automação e integrações" />
   <meta
     property="og:description"
-    content="Plataforma que integra automação, IA e dashboards em tempo real para manter operações críticas sempre online."
+    content="SaaS sob medida, automações, chatbots e integrações via APIs. Da educação ao corporativo, conectamos negócios ao futuro."
   />
-  <meta property="og:image" content="/images/hero-factory.jpg" />
-  <meta property="og:url" content="https://fartech.com" />
+  <meta property="og:image" content="/images/logo.png" />
+  <meta property="og:url" content="https://fartech.app.br/" />
 
   <!-- Twitter -->
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Fartech Platform OS | Infraestrutura digital" />
+  <meta name="twitter:title" content="Fartech - SaaS, automação e integrações" />
   <meta
     name="twitter:description"
-    content="Automação, IA e observabilidade total para operações críticas sempre online."
+    content="SaaS sob medida, automações, chatbots e integrações via APIs. Conectamos negócios ao futuro."
   />
-  <meta name="twitter:image" content="/images/hero-factory.jpg" />
+  <meta name="twitter:image" content="/images/logo.png" />
 </svelte:head>
 
 <div class="app-shell">

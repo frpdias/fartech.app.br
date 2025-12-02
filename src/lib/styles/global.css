@@ -4,7 +4,7 @@
   --font-display: 'Geist', system-ui, -apple-system, 'Segoe UI', sans-serif;
   --font-body: 'Geist', system-ui, -apple-system, 'Segoe UI', sans-serif;
   --font-mono: 'Geist Mono', monospace;
-  --max-width: 1320px;
+  --max-width: 1800px;
   --space-1: 2px;
   --space-2: 4px;
   --space-3: 8px;
@@ -16,7 +16,7 @@
   --space-12: 48px;
   --space-16: 72px;
   --space-24: 128px;
-  --section-padding: clamp(96px, 15vw, 200px);
+  --section-padding: clamp(48px, 8vw, 96px);
   --radius-card: 16px;
   --radius-lg: 24px;
   --radius-pill: 999px;
@@ -83,7 +83,7 @@ body {
   color: var(--color-text-primary);
   background: transparent;
   line-height: 1.72;
-  font-size: clamp(18px, 2vw, 22px);
+  font-size: clamp(24px, 2.7vw, 30px);
   letter-spacing: -0.01em;
   overflow-x: hidden;
   -webkit-font-smoothing: antialiased;
@@ -97,27 +97,19 @@ a {
 
 img {
   max-width: 100%;
+  height: auto;
   display: block;
 }
 
 .container {
-  max-width: 1280px;
+  max-width: min(1720px, 100%);
   width: 100%;
   margin-inline: auto;
-  padding-left: clamp(20px, 4vw, 64px);
-  padding-right: clamp(20px, 4vw, 64px);
+  padding-left: clamp(16px, 2.5vw, 40px);
+  padding-right: clamp(16px, 2.5vw, 40px);
 }
 
-/* Force consistent container width across all sections */
-.hero .container,
-.section .container,
-.site-header .container {
-  max-width: 1280px !important;
-  width: 100% !important;
-  margin-inline: auto !important;
-  padding-left: clamp(20px, 4vw, 64px) !important;
-  padding-right: clamp(20px, 4vw, 64px) !important;
-}
+/* Container já definido globalmente acima */
 
 .section {
   padding-block: var(--section-padding);
@@ -157,7 +149,7 @@ img {
   border-radius: 8px;
   border: 1px solid transparent;
   font-weight: 500;
-  font-size: 1rem;
+  font-size: 1.35rem;
   transition: var(--transition);
   font-family: var(--font-body);
   letter-spacing: -0.01em;
@@ -226,25 +218,25 @@ img {
 
 .section-title {
   font-family: var(--font-display);
-  font-size: clamp(80px, 8.6vw, 138px);
-  line-height: 1.12;
-  margin-bottom: 24px;
+  font-size: clamp(49px, 5.4vw, 76px);
+  line-height: 1.15;
+  margin-bottom: 20px;
   color: var(--color-primary);
-  letter-spacing: -0.03em;
-  font-weight: 800;
+  letter-spacing: -0.02em;
+  font-weight: 700;
 }
 
 .section-subtitle {
   color: var(--color-text-secondary);
-  max-width: 780px;
-  margin-bottom: 48px;
-  font-size: clamp(29px, 3.4vw, 37px);
-  line-height: 1.8;
+  max-width: 700px;
+  margin-bottom: 40px;
+  font-size: clamp(24px, 2.7vw, 30px);
+  line-height: 1.6;
   font-weight: 400;
 }
 
 .eyebrow {
-  font-size: clamp(22px, 2.5vw, 25px);
+  font-size: clamp(30px, 3.4vw, 34px);
   letter-spacing: 0.15em;
   text-transform: uppercase;
   color: var(--color-blue);
@@ -255,8 +247,8 @@ img {
 .hero {
   color: var(--color-primary);
   background: transparent;
-  padding-block: clamp(120px, 14vw, 200px);
-  min-height: 100vh;
+  padding-block: clamp(80px, 10vw, 140px);
+  min-height: min(100vh, 800px);
   display: flex;
   align-items: center;
   position: relative;
@@ -289,7 +281,7 @@ img {
 
 .hero h1 {
   font-family: var(--font-display);
-  font-size: clamp(76px, 9vw, 120px);
+  font-size: clamp(103px, 12vw, 162px);
   line-height: 1.1;
   margin: 0 0 32px 0;
   color: var(--color-primary);
@@ -298,7 +290,7 @@ img {
 }
 
 .hero p {
-  font-size: clamp(22px, 2.8vw, 28px);
+  font-size: clamp(30px, 3.8vw, 38px);
   color: var(--color-text-secondary);
   max-width: 700px;
   margin: 0 0 48px 0;
@@ -391,7 +383,7 @@ h1, h2, h3, h4, h5, h6 {
 
 p {
   margin: 0 0 1.2em 0;
-  font-size: clamp(16px, 1.8vw, 18px);
+  font-size: clamp(22px, 2.4vw, 24px);
   line-height: 1.7;
 }
 
@@ -416,7 +408,7 @@ input, textarea, select {
 .hero .eyebrow {
   color: var(--color-blue);
   letter-spacing: 0.15em;
-  font-size: clamp(15px, 1.8vw, 18px);
+  font-size: clamp(30px, 3.4vw, 34px);
   font-weight: 700;
   text-transform: uppercase;
 }
@@ -520,7 +512,7 @@ input, textarea, select {
   border-radius: 8px;
   border: 1px solid transparent;
   font-weight: 500;
-  font-size: 0.95rem;
+  font-size: 1.28rem;
   transition: var(--transition-smooth);
   font-family: var(--font-body);
   letter-spacing: -0.01em;
@@ -580,7 +572,7 @@ input, textarea, select {
 /* Premium section titles with gradient effect */
 .section-title {
   font-family: var(--font-display);
-  font-size: clamp(48px, 5.5vw, 76px);
+  font-size: clamp(65px, 7.4vw, 103px);
   line-height: 1.1;
   margin-bottom: 24px;
   color: var(--color-primary);
@@ -632,7 +624,7 @@ input, textarea, select {
 
 .hero h1 {
   font-family: var(--font-display);
-  font-size: clamp(72px, 8.5vw, 110px);
+  font-size: clamp(97px, 11.5vw, 149px);
   line-height: 1.08;
   margin: 0 0 28px 0;
   color: var(--color-primary);
@@ -642,7 +634,7 @@ input, textarea, select {
 }
 
 .hero p {
-  font-size: clamp(22px, 3vw, 30px);
+  font-size: clamp(30px, 4.1vw, 41px);
   color: var(--color-text-secondary);
   max-width: 700px;
   margin: 0 0 44px 0;
@@ -876,7 +868,7 @@ a:not(.btn):hover::after {
   border-radius: 8px;
   border: 1px solid transparent;
   font-weight: 500;
-  font-size: 0.95rem;
+  font-size: 1.28rem;
   transition: var(--transition-smooth);
   font-family: var(--font-body);
   letter-spacing: -0.01em;
@@ -979,7 +971,7 @@ a:not(.btn):hover::after {
 /* Section titles with premium text effects */
 .section-title {
   font-family: var(--font-display);
-  font-size: clamp(38px, 4.5vw, 64px);
+  font-size: clamp(51px, 6.1vw, 86px);
   line-height: 1.1;
   margin-bottom: 24px;
   color: var(--color-primary);
@@ -1030,7 +1022,7 @@ a:not(.btn):hover::after {
 
 .hero h1 {
   font-family: var(--font-display);
-  font-size: clamp(72px, 8.5vw, 110px);
+  font-size: clamp(97px, 11.5vw, 149px);
   line-height: 1.08;
   margin: 0 0 28px 0;
   color: var(--color-primary);
@@ -1044,7 +1036,7 @@ a:not(.btn):hover::after {
 }
 
 .hero p {
-  font-size: clamp(22px, 3vw, 30px);
+  font-size: clamp(30px, 4.1vw, 41px);
   color: var(--color-text-secondary);
   max-width: 700px;
   margin: 0 0 44px 0;
@@ -1234,5 +1226,68 @@ button, a, input, textarea, select {
     background-clip: text;
     -webkit-text-fill-color: transparent;
     animation: none;
+  }
+
+  /* Fontes menores em telas pequenas */
+  body {
+    font-size: clamp(20px, 2.7vw, 24px);
+  }
+
+  .section-title {
+    font-size: clamp(38px, 8vw, 57px);
+  }
+
+  .section-subtitle {
+    font-size: clamp(20px, 2.7vw, 24px);
+  }
+
+  /* Grids em coluna no mobile */
+  .services-grid,
+  .diferenciais-grid,
+  .depoimentos-grid,
+  .cases-grid {
+    grid-template-columns: 1fr;
+  }
+
+  /* Cards com padding reduzido */
+  .card {
+    padding: 20px;
+  }
+
+  /* Botões full-width */
+  .btn {
+    width: 100%;
+    justify-content: center;
+  }
+
+  /* Seções com menos padding */
+  .section {
+    padding-block: clamp(32px, 6vw, 64px);
+  }
+}
+
+/* Telas muito pequenas (< 480px) */
+@media (max-width: 480px) {
+  .container {
+    padding-left: 12px;
+    padding-right: 12px;
+  }
+
+  .section-title {
+    font-size: clamp(32px, 9.5vw, 43px);
+  }
+
+  .eyebrow {
+    font-size: clamp(16px, 4vw, 19px);
+  }
+
+  .card {
+    padding: 16px;
+    border-radius: 12px;
+  }
+
+  .btn {
+    padding: 10px 20px;
+    font-size: 19px;
   }
 }
