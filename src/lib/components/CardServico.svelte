@@ -17,9 +17,11 @@
     display: flex;
     flex-direction: column;
     gap: 16px;
-    background: linear-gradient(180deg, rgba(255, 255, 255, 0.98), rgba(255, 255, 255, 0.94));
-    border: 1px solid rgba(13, 17, 23, 0.06);
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.06);
+    background: rgba(255, 255, 255, 0.6);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    border: 1px solid rgba(255, 255, 255, 0.75);
+    box-shadow: 0 2px 8px rgba(15,23,42,0.06), inset 0 1px 0 rgba(255,255,255,0.8);
     position: relative;
     overflow: hidden;
     border-radius: 12px;
@@ -39,8 +41,9 @@
 
   .service-card:hover {
     transform: translateY(-4px);
-    border-color: rgba(9, 105, 218, 0.15);
-    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+    background: rgba(255, 255, 255, 0.82);
+    border-color: rgba(37, 99, 235, 0.2);
+    box-shadow: 0 8px 24px rgba(15,23,42,0.1), inset 0 1px 0 rgba(255,255,255,0.9);
   }
 
   .service-card:hover::after {
