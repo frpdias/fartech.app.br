@@ -144,16 +144,18 @@
 
   .hero-meta strong {
     display: block;
-    font-size: 1.375rem;
-    color: var(--color-primary);
-    font-weight: 700;
+    font-size: 1.5rem;
+    color: var(--color-blue);
+    font-weight: 800;
+    letter-spacing: -0.02em;
   }
 
   .hero-meta span {
     color: var(--color-text-secondary);
     font-size: 0.8125rem;
-    margin-top: 4px;
+    margin-top: 3px;
     display: block;
+    line-height: 1.4;
   }
 
   .enem-card {

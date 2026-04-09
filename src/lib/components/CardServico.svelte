@@ -50,7 +50,7 @@
   h3 {
     font-family: var(--font-display);
     margin: 0;
-    font-size: 1rem;
+    font-size: 1.0625rem;
     position: relative;
     z-index: 1;
     font-weight: 600;
@@ -71,11 +71,15 @@
     color: var(--color-blue);
     position: relative;
     z-index: 1;
-    font-size: 12.5px;
+    font-size: 13px;
     transition: var(--transition);
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
   }
 
   .service-card:hover span {
     transform: translateX(4px);
+    color: var(--color-blue-dark);
   }
 </style>
