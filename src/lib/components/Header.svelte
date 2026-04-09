@@ -4,10 +4,9 @@
 
   const links = [
     { label: 'Home', href: '/' },
+    { label: 'TalentForge', href: 'https://talentforge.com.br' },
+    { label: 'TalentJUD', href: 'https://talentjud.com.br' },
     { label: 'Quem Somos', href: '/quem-somos' },
-    { label: 'Serviços', href: '/servicos' },
-    { label: 'Cases', href: '/cases' },
-    { label: 'Clientes', href: '/clientes' },
     { label: 'Contato', href: '/contato' }
   ];
 

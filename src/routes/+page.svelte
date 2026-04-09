@@ -3,242 +3,274 @@
   import CardServico from '$components/CardServico.svelte';
   import Depoimento from '$components/Depoimento.svelte';
   import CaseCard from '$components/CaseCard.svelte';
+  import { onMount, onDestroy } from 'svelte';
 
   // JSON-LD Structured Data
   const structuredData = {
     "@context": "https://schema.org",
     "@type": "Organization",
-    "name": "Fartech Soluções Industriais",
-    "url": "https://fartech.com.br",
-    "logo": "https://fartech.com.br/images/logo.png",
-    "description": "Plataforma SaaS que conecta IoT, automação, manutenção e dados corporativos para operações críticas sempre online.",
-    "address": {
-      "@type": "PostalAddress",
-      "streetAddress": "Av. Industrial, 1000",
-      "addressLocality": "São Paulo",
-      "addressRegion": "SP",
-      "addressCountry": "BR"
-    },
+    "name": "Fartech",
+    "url": "https://fartech.app.br",
+    "logo": "https://fartech.app.br/images/logo.png",
+    "description": "Fartech cria produtos SaaS para RH e Jurídico: TalentForge para recrutamento e gestão de performance COPC, e TalentJUD para escritórios de advocacia.",
     "contactPoint": {
       "@type": "ContactPoint",
-      "telephone": "+55-11-99999-0000",
       "contactType": "Customer Service",
       "availableLanguage": "Portuguese"
     },
     "sameAs": [
       "https://www.linkedin.com/company/fartech",
-      "https://twitter.com/fartech"
+      "https://www.instagram.com/fartech"
     ]
   };
 
-  const diferenciais = [
+  const produtos = [
     {
-      title: 'Squads de produto dedicados',
-      description: 'Engenharia, dados e CX embarcados em cada rollout, com discovery contínuo e OKRs compartilhados.',
-      href: '/quem-somos'
+      title: 'TalentForge',
+      description: 'Plataforma de recrutamento com pipeline Kanban, avaliações DISC e módulo COPC de performance. Gerencie pessoas do primeiro contato à gestão contínua.',
+      href: 'https://talentforge.com.br'
     },
     {
-      title: 'Observabilidade em tempo real',
-      description: 'Telemetry, alertas inteligentes e dashboards prontos para diretoria técnica e C-level.',
-      href: '/contato'
-    },
-    {
-      title: 'APIs e integrações abertas',
-      description: 'SDKs, webhooks e conectores para ERPs, SCADA, IoT e BI com autenticação enterprise.',
-      href: '/cases'
-    },
-    {
-      title: 'Resultados mensuráveis',
-      description: 'KPIs impulsionados por IA, contratos baseados em SLA e playbooks de crescimento contínuo.',
-      href: '/cases'
+      title: 'TalentJUD',
+      description: 'Sistema jurídico completo: gestão de casos, CRM de leads, consulta DataJud CNJ em 28 tribunais, templates com branding e 11 recursos de IA integrados.',
+      href: 'https://talentjud.com.br'
     }
   ];
 
-  const services = [
+  const diferenciais = [
     {
-      title: 'Lubrificação inteligente',
-      description: 'Módulo SaaS que orquestra sensores IoT, supply chain e workflows automáticos.',
-      href: '/servicos/lubrificacao'
+      title: 'Multi-tenant com RLS',
+      description: 'Dados isolados por empresa com Row Level Security. Cada organização vê apenas seus próprios dados, com compliance LGPD nativo.',
+      href: '/quem-somos'
     },
     {
-      title: 'Análises de óleo com IA',
-      description: 'Pipelines laboratoriais integrados à plataforma com insights automáticos e recomendação de ação.',
-      href: '/servicos/analise-oleos'
+      title: 'IA com custo por uso',
+      description: 'Recursos de inteligência artificial cobrados por token consumido. Fatura unificada e transparente — sem mensalidade fixa de IA.',
+      href: '/contato'
     },
     {
-      title: 'Automação & dados',
-      description: 'Digital twins, SCADA conectado e analytics avançado em uma única stack.',
-      href: '/servicos/automacao'
+      title: 'Integrações nativas',
+      description: 'Google Drive, OneDrive, DataJud CNJ, Diário Oficial, Google Calendar e APIs abertas prontas para conectar seu ecossistema.',
+      href: '/cases'
     },
     {
-      title: 'Manutenção preventiva digital',
-      description: 'Motor de machine learning que prioriza ativos críticos e dispara ordens no CMMS.',
-      href: '/servicos/manutencao-preventiva'
+      title: 'Onboarding em minutos',
+      description: 'Setup inicial rápido, interfaces intuitivas e suporte dedicado para você extrair resultado desde o primeiro dia.',
+      href: '/contato'
+    }
+  ];
+
+  const funcionalidadesTF = [
+    {
+      title: 'Pipeline Kanban',
+      description: 'Gerencie candidatos por etapas com drag-and-drop. Histórico completo de cada movimentação com rastreabilidade total.',
+      href: 'https://talentforge.com.br'
     },
     {
-      title: 'Response corretivo 24/7',
-      description: 'Centro de comando com playbooks e bots que engajam squads e fornecedores em minutos.',
-      href: '/servicos/manutencao-corretiva'
+      title: 'Avaliações DISC',
+      description: 'Questionários comportamentais padronizados com análise de perfil para decisões de contratação mais assertivas.',
+      href: 'https://talentforge.com.br'
     },
     {
-      title: 'Inspeções data-driven',
-      description: 'Checklists digitais, visão mobile-first e relatórios com score de risco automáticos.',
-      href: '/servicos/inspecoes-tecnicas'
+      title: 'Módulo COPC',
+      description: 'Cadastre os indicadores da empresa e gere o quadrante de performance de cada indicador. Monitore quem está pronto para operar no padrão COPC.',
+      href: 'https://talentforge.com.br'
+    },
+    {
+      title: 'NR-1 Psicossocial',
+      description: 'Mapeamento e gestão de riscos psicossociais em 10 dimensões conforme a NR-1 revisada. Relatório de compliance automático.',
+      href: 'https://talentforge.com.br'
+    },
+    {
+      title: 'Gestão Multi-empresa',
+      description: 'Cadastre múltiplas empresas clientes. Organogramas, funcionários e módulos separados por organização.',
+      href: 'https://talentforge.com.br'
+    },
+    {
+      title: 'Score PHP Total',
+      description: 'Índice unificado de saúde organizacional nos 3 pilares: TFCI (comportamento), NR-1 (riscos) e COPC (performance).',
+      href: 'https://talentforge.com.br'
+    }
+  ];
+
+  const funcionalidadesTJud = [
+    {
+      title: 'Gestão de Casos',
+      description: 'Controle completo do ciclo de vida dos processos com timeline de movimentações, prioridades automáticas e histórico de responsáveis.',
+      href: 'https://talentjud.com.br'
+    },
+    {
+      title: 'DataJud CNJ',
+      description: 'Consulta direta à Base Nacional de Dados do Poder Judiciário — 28 tribunais, busca por CPF, número de processo e classe.',
+      href: 'https://talentjud.com.br'
+    },
+    {
+      title: 'CRM de Leads',
+      description: 'Pipeline visual de prospecção com qualificação automática por IA, score 0–10 e follow-up integrado para converter mais clientes.',
+      href: 'https://talentjud.com.br'
+    },
+    {
+      title: 'Templates Jurídicos',
+      description: 'Editor com variáveis dinâmicas (nome, CPF, data, valor), sincronização com Google Drive e OneDrive, marca d\'água e branding do escritório.',
+      href: 'https://talentjud.com.br'
+    },
+    {
+      title: 'Diário Oficial',
+      description: 'Monitoramento automático de publicações no DOU com alertas por CPF e CNPJ. Análise de impacto para cada caso com IA.',
+      href: 'https://talentjud.com.br'
+    },
+    {
+      title: '11 recursos de IA',
+      description: 'Petições, jurisprudência, Waze Jurídico, health score do cliente, priorização de casos, insights do dia e mais — billing por uso transparente.',
+      href: 'https://talentjud.com.br'
     }
   ];
 
   const cases = [
     {
-      title: 'Plataforma ENEM com engajamento diário',
-      description: 'Desenvolvemos uma plataforma moderna de estudos para o ENEM com trilhas personalizadas, simulados e dashboards em tempo real, aumentando o número de alunos ativos por dia.',
-      metric: 'Engajamento +X%'
+      title: 'Escritório de advocacia com IA integrada',
+      description: 'Implantamos o TalentJUD em um escritório de médio porte com 5 advogados, reduzindo o tempo de gestão de processos e automatizando petições com IA.',
+      metric: 'Tempo admin −60%'
     },
     {
-      title: 'Operações conectadas sem planilhas manuais',
-      description: 'Automatizamos rotinas de coleta de dados e manutenção em diferentes áreas da operação, integrando sistemas legados, sensores e dashboards em tempo real.',
-      metric: 'Tempo manual -X%'
+      title: 'RH corporativo pronto para COPC',
+      description: 'Configuramos o TalentForge com os indicadores COPC da empresa, gerando os quadrantes de performance e revelando gaps de operação em menos de 30 dias.',
+      metric: 'Performance +COPC'
     },
     {
-      title: 'SaaS B2B com integrações e bots',
-      description: 'Criamos um SaaS sob medida com integrações via APIs e Webhooks, além de chatbots para suporte, unificando fluxos de trabalho e reduzindo filas internas.',
-      metric: 'Filas -X%'
+      title: 'Recrutamento multiempresa sem planilhas',
+      description: 'Migramos o processo seletivo de uma consultoria de RH para o TalentForge, eliminando planilhas e centralizando candidatos, avaliações DISC e relatórios.',
+      metric: '3× mais rápido'
     }
   ];
 
   const depoimentos = [
     {
-      quote: 'A Fartech age como nosso time de plataforma: entregou APIs, dashboards e governança em poucas sprints.',
-      author: 'Marina Alves',
-      role: 'VP Operações • Grupo Orion'
+      quote: 'O módulo COPC do TalentForge transformou nossa gestão de KPIs. Hoje cada líder sabe exatamente onde está e o que precisa melhorar.',
+      author: 'Renata Campos',
+      role: 'Diretora de RH • Grupo Meridian'
     },
     {
-      quote: 'Criamos um centro de comando digital. Hoje tomamos decisões com dados em minutos, não dias.',
-      author: 'Carlos Moura',
-      role: 'Head de Reliability • Metalúrgica Vitta'
+      quote: 'O TalentJUD virou o escritório de cabeça para baixo — do jeito certo. DataJud em tempo real e IA que realmente entende direito.',
+      author: 'Dr. Felipe Andrade',
+      role: 'Sócio • Andrade & Matos Advogados'
     },
     {
-      quote: 'Eles falam produto, engenharia e chão de fábrica ao mesmo tempo. Resultado: uptime recorde.',
-      author: 'Patrícia Vilela',
-      role: 'COO • Indústria Térmica Sul'
+      quote: 'Contratamos mais rápido, com mais segurança. O pipeline Kanban e as avaliações DISC tornaram o processo seletivo objetivo e rastreável.',
+      author: 'Marcos Teixeira',
+      role: 'Head de Talentos • Vega Tecnologia'
     }
   ];
 
-  const pagamentos = [
-    { valor: 'R$ 1.284,90', cliente: 'Rocket Rides', mascara: '•••• •••• •••• 4487', validade: '12/28' },
-    { valor: 'R$ 2.394,10', cliente: 'Vitta Auto', mascara: '•••• •••• •••• 5521', validade: '09/27' },
-    { valor: 'R$ 892,40', cliente: 'Orion Labs', mascara: '•••• •••• •••• 1123', validade: '03/29' },
-    { valor: 'R$ 742,00', cliente: 'Estaleiro Sul', mascara: '•••• •••• •••• 9001', validade: '07/26' },
-    { valor: 'R$ 1.990,00', cliente: 'Grupo Aurora', mascara: '•••• •••• •••• 3311', validade: '11/28' }
+  // COPC indicadores para o mock do TalentForge
+  type StatusIndicador = 'verde' | 'amarelo' | 'vermelho';
+  type Indicador = { nome: string; meta: number; realizado: number; status: StatusIndicador };
+
+  const indicadoresCOPC: Indicador[] = [
+    { nome: 'FCR', meta: 85, realizado: 88, status: 'verde' },
+    { nome: 'CSAT', meta: 90, realizado: 87, status: 'amarelo' },
+    { nome: 'AHT', meta: 240, realizado: 258, status: 'vermelho' },
+    { nome: 'OEE', meta: 75, realizado: 79, status: 'verde' },
+    { nome: 'Abandono', meta: 5, realizado: 3.2, status: 'verde' },
+    { nome: 'SLA L1', meta: 95, realizado: 91, status: 'amarelo' },
   ];
 
-  type Status = 'pago' | 'analise' | 'falha';
-  type Transacao = { id: number; valor: string; descricao: string; status: Status };
-
-  let transacoes: Transacao[] = [
-    { id: 1, valor: 'R$ 1.284,90', descricao: 'Pix • Rocket Rides', status: 'pago' },
-    { id: 2, valor: 'R$ 892,40', descricao: 'Cartão • Orion Labs', status: 'analise' },
-    { id: 3, valor: 'R$ 2.394,10', descricao: 'Pix • Vitta Auto', status: 'pago' },
-    { id: 4, valor: 'R$ 742,00', descricao: 'Cartão • Estaleiro Sul', status: 'falha' }
-  ];
-
-  const novasVendas: Transacao[] = [
-    { id: 101, valor: 'R$ 1.120,50', descricao: 'Pix • Nova Rota', status: 'pago' },
-    { id: 102, valor: 'R$ 2.018,30', descricao: 'Cartão • Cygnus', status: 'analise' },
-    { id: 103, valor: 'R$ 1.678,90', descricao: 'Pix • Atlas Cargo', status: 'pago' }
-  ];
-
-  let idxNova = 0;
-
-  const badgeClass = (status: Status) => {
-    if (status === 'pago') return 'success';
-    if (status === 'analise') return 'warning';
-    return 'danger';
+  const statusColor = (s: StatusIndicador) => {
+    if (s === 'verde') return '#10b981';
+    if (s === 'amarelo') return '#f59e0b';
+    return '#ef4444';
   };
 
-  let idxPagamento = 0;
+  // Score PHP animado
+  let phpScore = 76.4;
+  let tfciScore = 82.0;
+  let nr1Score = 71.5;
+  let copcScore = 74.8;
 
-  import { onMount, onDestroy } from 'svelte';
+  // Casos TalentJUD ativos
+  type StatusCaso = 'ativo' | 'urgente' | 'aguardando';
+  type Caso = { id: string; titulo: string; cliente: string; tribunal: string; status: StatusCaso; prazo: string };
 
-  let pagamentoAtual = pagamentos[idxPagamento];
+  let casos: Caso[] = [
+    { id: '0001234-12.2024.8.26.0100', titulo: 'Ação Trabalhista', cliente: 'João R. Silva', tribunal: 'TJSP', status: 'urgente', prazo: 'Amanhã' },
+    { id: '0009871-05.2024.4.02.5101', titulo: 'Execução Fiscal', cliente: 'Omega Ltda.', tribunal: 'TRF2', status: 'ativo', prazo: '12/abr' },
+    { id: '0003390-44.2023.8.19.0001', titulo: 'Revisão Contratual', cliente: 'Ana Lima', tribunal: 'TJRJ', status: 'aguardando', prazo: '22/abr' },
+    { id: '0007712-88.2024.8.13.0024', titulo: 'Indenização Cível', cliente: 'Pedro Costa', tribunal: 'TJMG', status: 'ativo', prazo: '30/abr' },
+  ];
 
-  let intervalId: ReturnType<typeof setInterval> | undefined;
-  let transInterval: ReturnType<typeof setInterval> | undefined;
-  let mostrarRecibo = false;
-  let dadosRecibo = {
-    valor: '',
-    cliente: '',
-    data: '',
-    hora: '',
-    transacaoId: ''
+  const casoNovos: Caso[] = [
+    { id: '0000001-01.2025.8.26.0100', titulo: 'Recuperação Judicial', cliente: 'Solaris S/A', tribunal: 'TJSP', status: 'urgente', prazo: 'Hoje' },
+    { id: '0000002-02.2025.5.01.0001', titulo: 'Mandado de Segurança', cliente: 'Dr. Rui Paz', tribunal: 'TST', status: 'ativo', prazo: '15/abr' },
+  ];
+
+  const badgeCaso = (s: StatusCaso) => {
+    if (s === 'urgente') return 'danger';
+    if (s === 'ativo') return 'success';
+    return 'warning';
   };
 
-  function confirmarPagamento() {
-    const agora = new Date();
-    dadosRecibo = {
-      valor: pagamentoAtual.valor,
-      cliente: pagamentoAtual.cliente,
-      data: agora.toLocaleDateString('pt-BR'),
-      hora: agora.toLocaleTimeString('pt-BR', { hour: '2-digit', minute: '2-digit' }),
-      transacaoId: `TXN${Math.random().toString(36).substr(2, 9).toUpperCase()}`
-    };
-    mostrarRecibo = true;
-    
-    setTimeout(() => {
-      mostrarRecibo = false;
-    }, 30000);
-  }
+  let casoIdx = 0;
+  let casosInterval: ReturnType<typeof setInterval> | undefined;
 
   onMount(() => {
-    intervalId = setInterval(() => {
-      idxPagamento = (idxPagamento + 1) % pagamentos.length;
-      pagamentoAtual = pagamentos[idxPagamento];
-    }, 5000);
-
-    transInterval = setInterval(() => {
-      const nova = novasVendas[idxNova % novasVendas.length];
-      idxNova = (idxNova + 1) % novasVendas.length;
-      transacoes = [nova, ...transacoes].slice(0, 4);
-    }, 3500);
+    casosInterval = setInterval(() => {
+      const novo = casoNovos[casoIdx % casoNovos.length];
+      casoIdx = (casoIdx + 1) % casoNovos.length;
+      casos = [novo, ...casos].slice(0, 4);
+    }, 4000);
   });
 
   onDestroy(() => {
-    if (intervalId) clearInterval(intervalId);
-    if (transInterval) clearInterval(transInterval);
+    if (casosInterval) clearInterval(casosInterval);
   });
 </script>
 
 <svelte:head>
-  <title>fartech.app.br</title>
+  <title>Fartech — TalentForge e TalentJUD</title>
+  <meta name="description" content="Fartech cria produtos SaaS para RH e Jurídico. TalentForge: recrutamento, DISC e COPC. TalentJUD: gestão de casos, DataJud CNJ e IA jurídica." />
   <script type="application/ld+json">
     {JSON.stringify(structuredData)}
   </script>
 </svelte:head>
 
 <Hero
-  eyebrow="Fartech Platform OS"
-  title="Integração, automação e tecnologia para manter seu negócio sempre ativo e competitivo."
-  subtitle="Conecte pessoas, processos e máquinas. Decida melhor. Aja mais rápido. Cresça sem limites."
-  primaryHref="/contato"
-  primaryLabel="Solicitar Orçamento"
-  secondaryHref="/servicos"
-  secondaryLabel="Conhecer serviços"
+  eyebrow="Fartech · Produtos SaaS"
+  title="Tecnologia pensada para RH e para quem advoga."
+  subtitle="TalentForge para recrutamento inteligente e gestão COPC. TalentJUD para escritórios que precisam de mais que um sistema."
+  primaryHref="https://talentforge.com.br"
+  primaryLabel="Conhecer TalentForge"
+  secondaryHref="https://talentjud.com.br"
+  secondaryLabel="Conhecer TalentJUD"
   showEnemUltra={false}
   meta={[
-    { label: 'Empresas conectadas', value: '350+' },
-    { label: 'Go-live médio', value: '14 dias' },
-    { label: 'Disponibilidade', value: '99.95%' }
+    { label: 'Produtos ativos', value: '2' },
+    { label: 'Tribunais integrados', value: '28' },
+    { label: 'Setup inicial', value: '<30 min' }
   ]}
 >
-  <div slot="visual">
-    <!-- Phones movidos para seção de Dashboards -->
-  </div>
+  <div slot="visual"></div>
 </Hero>
 
+<!-- Produtos Destaque -->
+<section class="section">
+  <div class="container">
+    <p class="eyebrow">Nossos Produtos</p>
+    <h2 class="section-title">Dois produtos. Um propósito: eliminar trabalho manual.</h2>
+    <p class="section-subtitle">Construídos pela Fartech, cada produto resolve um domínio específico com profundidade — sem atalhos, sem gambiarras.</p>
+    <div class="diferenciais-grid">
+      {#each produtos as item}
+        <CardServico {...item} />
+      {/each}
+    </div>
+  </div>
+</section>
+
+<!-- Diferenciais -->
 <section class="section">
   <div class="container">
     <p class="eyebrow">Por que Fartech</p>
-    <h2 class="section-title">SaaS, IoT e integrações em um só ecossistema.</h2>
-    <p class="section-subtitle">A Fartech automatiza processos, conecta dados e garante eficiência contínua com rastreabilidade total e resultados mensuráveis.</p>
+    <h2 class="section-title">A base técnica que sustenta os dois produtos.</h2>
+    <p class="section-subtitle">Segurança, integrações e custo transparente de IA são padrão em tudo que construímos.</p>
     <div class="diferenciais-grid">
       {#each diferenciais as item}
         <CardServico {...item} />
@@ -247,18 +279,257 @@
   </div>
 </section>
 
-<section class="section" id="servicos">
+<!-- TalentForge — Funcionalidades e Mock COPC -->
+<section class="section" id="talentforge">
   <div class="container">
-    <p class="eyebrow">Serviços</p>
-    <div class="section-title">Portfólio modular conectado à sua operação.</div>
-    <p class="section-subtitle">Da educação ao corporativo, levamos a mesma base tecnológica sólida para criar soluções sob medida em SaaS, automação e integrações, sempre com foco em resultado real para o seu negócio.</p>
+    <p class="eyebrow">TalentForge</p>
+    <h2 class="section-title">Recrutamento inteligente com gestão contínua de performance.</h2>
+    <p class="section-subtitle">Do pipeline de candidatos ao quadrante COPC — tudo no mesmo lugar, com avaliações DISC, score PHP e compliance NR-1.</p>
     <div class="services-grid">
-      {#each services as service}
-        <CardServico {...service} />
+      {#each funcionalidadesTF as f}
+        <CardServico {...f} />
       {/each}
     </div>
-    <div style="margin-top:40px">
-      <a class="btn btn-secondary" href="/servicos">Ver todos os serviços</a>
+
+    <!-- Mock Dashboard COPC -->
+    <div class="hero-visual-stack" style="margin-top: 64px; align-items: flex-start;">
+
+      <!-- PHP Score Phone -->
+      <div class="phone phone-dark">
+        <div class="phone-notch dark"></div>
+        <div class="phone-body">
+          <header style="color: #e5e7eb; margin-bottom: 8px;">
+            <p style="font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.12em; color: #64748b; margin: 0 0 4px 0;">TalentForge · PHP Score</p>
+            <h3 style="font-size: 1.1rem; margin: 0 0 6px 0; color: #f1f5f9;">Saúde Organizacional</h3>
+            <span class="pill outline" style="font-size: 0.7rem;">Abril 2026</span>
+          </header>
+
+          <!-- Score Total -->
+          <div style="background: linear-gradient(135deg, rgba(99,102,241,0.2), rgba(139,92,246,0.15)); border: 1px solid rgba(139,92,246,0.3); border-radius: 14px; padding: 18px; text-align: center;">
+            <p style="color: #94a3b8; font-size: 0.65rem; text-transform: uppercase; letter-spacing: 0.1em; margin: 0 0 4px 0;">Score PHP Total</p>
+            <div style="font-size: 3rem; font-weight: 900; color: #fff; line-height: 1;">{phpScore}</div>
+            <p style="color: #a78bfa; font-size: 0.75rem; margin: 6px 0 0 0;">+4.2 vs mês anterior</p>
+          </div>
+
+          <!-- 3 Pilares -->
+          <div style="display: grid; gap: 10px; margin-top: 10px;">
+            <div style="background: rgba(30,41,59,0.6); border-radius: 10px; padding: 12px; border: 1px solid rgba(255,255,255,0.07);">
+              <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 6px;">
+                <div>
+                  <p style="color: #64748b; font-size: 0.6rem; margin: 0; text-transform: uppercase; letter-spacing: 0.08em;">TFCI · 30%</p>
+                  <p style="color: #e2e8f0; font-size: 0.82rem; font-weight: 700; margin: 2px 0 0 0;">Comportamento</p>
+                </div>
+                <span style="color: #10b981; font-size: 1.4rem; font-weight: 900;">{tfciScore}</span>
+              </div>
+              <div style="background: rgba(15,23,42,0.6); height: 6px; border-radius: 3px; overflow: hidden;">
+                <div style="background: linear-gradient(90deg, #10b981, #34d399); width: {tfciScore}%; height: 100%; border-radius: 3px;"></div>
+              </div>
+            </div>
+
+            <div style="background: rgba(30,41,59,0.6); border-radius: 10px; padding: 12px; border: 1px solid rgba(255,255,255,0.07);">
+              <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 6px;">
+                <div>
+                  <p style="color: #64748b; font-size: 0.6rem; margin: 0; text-transform: uppercase; letter-spacing: 0.08em;">NR-1 · 40%</p>
+                  <p style="color: #e2e8f0; font-size: 0.82rem; font-weight: 700; margin: 2px 0 0 0;">Riscos Psicossociais</p>
+                </div>
+                <span style="color: #f59e0b; font-size: 1.4rem; font-weight: 900;">{nr1Score}</span>
+              </div>
+              <div style="background: rgba(15,23,42,0.6); height: 6px; border-radius: 3px; overflow: hidden;">
+                <div style="background: linear-gradient(90deg, #f59e0b, #fbbf24); width: {nr1Score}%; height: 100%; border-radius: 3px;"></div>
+              </div>
+            </div>
+
+            <div style="background: rgba(30,41,59,0.6); border-radius: 10px; padding: 12px; border: 1px solid rgba(255,255,255,0.07);">
+              <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 6px;">
+                <div>
+                  <p style="color: #64748b; font-size: 0.6rem; margin: 0; text-transform: uppercase; letter-spacing: 0.08em;">COPC · 30%</p>
+                  <p style="color: #e2e8f0; font-size: 0.82rem; font-weight: 700; margin: 2px 0 0 0;">Performance</p>
+                </div>
+                <span style="color: #3b82f6; font-size: 1.4rem; font-weight: 900;">{copcScore}</span>
+              </div>
+              <div style="background: rgba(15,23,42,0.6); height: 6px; border-radius: 3px; overflow: hidden;">
+                <div style="background: linear-gradient(90deg, #3b82f6, #60a5fa); width: {copcScore}%; height: 100%; border-radius: 3px;"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Quadrante COPC Phone dark landscape -->
+      <div class="phone phone-landscape phone-dark">
+        <div class="phone-body" style="display: grid; grid-template-columns: 200px 1fr; gap: 0; padding: 0; height: 100%;">
+          <!-- Sidebar -->
+          <div style="background: linear-gradient(180deg, #1e293b 0%, #0f172a 100%); padding: 20px 14px; display: flex; flex-direction: column; gap: 12px; border-right: 1px solid rgba(255,255,255,0.07);">
+            <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 6px;">
+              <div style="width: 28px; height: 28px; background: linear-gradient(135deg, #6366f1, #8b5cf6); border-radius: 7px; display: flex; align-items: center; justify-content: center; font-weight: 900; color: white; font-size: 14px;">TF</div>
+              <strong style="color: #e5e7eb; font-size: 0.9rem;">TalentForge</strong>
+            </div>
+            <nav style="display: flex; flex-direction: column; gap: 4px;">
+              {#each ['Dashboard','Pipeline','Avaliações','COPC','NR-1','Relatórios'] as item, i}
+                <div style="padding: 7px 10px; border-radius: 7px; font-size: 0.75rem; color: {i === 3 ? '#a78bfa' : '#94a3b8'}; background: {i === 3 ? 'rgba(139,92,246,0.15)' : 'transparent'}; border: {i === 3 ? '1px solid rgba(139,92,246,0.25)' : '1px solid transparent'};">{item}</div>
+              {/each}
+            </nav>
+            <div style="margin-top: auto; background: rgba(139,92,246,0.12); border: 1px solid rgba(139,92,246,0.25); border-radius: 10px; padding: 10px 12px;">
+              <p style="color: #a78bfa; font-size: 0.65rem; text-transform: uppercase; letter-spacing: 0.08em; margin: 0 0 4px 0;">Score COPC</p>
+              <div style="color: #fff; font-size: 1.8rem; font-weight: 900;">{copcScore}</div>
+              <p style="color: #64748b; font-size: 0.65rem; margin: 2px 0 0 0;">6 indicadores ativos</p>
+            </div>
+          </div>
+
+          <!-- Área Central: Quadrante COPC -->
+          <div style="background: linear-gradient(180deg, #0f172a 0%, #0b1022 100%); padding: 20px; overflow-y: auto;">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px;">
+              <div>
+                <h3 style="color: #f1f5f9; font-size: 1rem; font-weight: 700; margin: 0 0 3px 0;">Quadrante de Performance COPC</h3>
+                <p style="color: #64748b; font-size: 0.72rem; margin: 0;">Meta vs. Realizado — Equipe Operacional</p>
+              </div>
+              <span class="pill outline" style="font-size: 0.65rem;">Abr 2026</span>
+            </div>
+
+            <!-- Tabela de Indicadores -->
+            <div style="background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.06); border-radius: 10px; overflow: hidden;">
+              <div style="display: grid; grid-template-columns: 1fr 80px 80px 80px 80px; font-size: 0.65rem; color: #64748b; text-transform: uppercase; letter-spacing: 0.06em; padding: 10px 14px; border-bottom: 1px solid rgba(255,255,255,0.06);">
+                <span>Indicador</span>
+                <span style="text-align:center;">Meta</span>
+                <span style="text-align:center;">Realizado</span>
+                <span style="text-align:center;">Dif.</span>
+                <span style="text-align:center;">Status</span>
+              </div>
+              {#each indicadoresCOPC as ind}
+                <div style="display: grid; grid-template-columns: 1fr 80px 80px 80px 80px; padding: 10px 14px; border-bottom: 1px solid rgba(255,255,255,0.04); align-items: center; font-size: 0.78rem;">
+                  <span style="color: #e2e8f0; font-weight: 600;">{ind.nome}</span>
+                  <span style="text-align:center; color: #94a3b8;">{ind.meta}{ind.nome === 'AHT' ? 's' : '%'}</span>
+                  <span style="text-align:center; color: #cbd5e1; font-weight: 700;">{ind.realizado}{ind.nome === 'AHT' ? 's' : '%'}</span>
+                  <span style="text-align:center; color: {statusColor(ind.status)}; font-weight: 700;">
+                    {ind.nome === 'AHT'
+                      ? (ind.realizado > ind.meta ? `+${(ind.realizado - ind.meta).toFixed(0)}s` : `-${(ind.meta - ind.realizado).toFixed(0)}s`)
+                      : ind.nome === 'Abandono'
+                      ? (ind.realizado < ind.meta ? `-${(ind.meta - ind.realizado).toFixed(1)}pp` : `+${(ind.realizado - ind.meta).toFixed(1)}pp`)
+                      : (ind.realizado >= ind.meta ? `+${(ind.realizado - ind.meta).toFixed(1)}pp` : `-${(ind.meta - ind.realizado).toFixed(1)}pp`)}
+                  </span>
+                  <div style="display:flex; justify-content:center;">
+                    <span style="width: 10px; height: 10px; border-radius: 50%; background: {statusColor(ind.status)}; display:inline-block; box-shadow: 0 0 6px {statusColor(ind.status)}55;"></span>
+                  </div>
+                </div>
+              {/each}
+            </div>
+
+            <!-- Legenda -->
+            <div style="display: flex; gap: 14px; margin-top: 12px; font-size: 0.68rem;">
+              <span style="color: #10b981;">● Dentro da meta</span>
+              <span style="color: #f59e0b;">● Atenção</span>
+              <span style="color: #ef4444;">● Fora da meta</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <div style="margin-top: 40px;">
+      <a class="btn btn-primary" href="https://talentforge.com.br" target="_blank" rel="noopener noreferrer">Acessar TalentForge</a>
+    </div>
+  </div>
+</section>
+
+<!-- TalentJUD — Funcionalidades e Mock de Casos -->
+<section class="section" id="talentjud">
+  <div class="container">
+    <p class="eyebrow">TalentJUD</p>
+    <h2 class="section-title">O sistema jurídico que trabalha enquanto você advoga.</h2>
+    <p class="section-subtitle">Gestão de casos, DataJud em 28 tribunais, CRM de leads, templates com branding e 11 recursos de IA — tudo em um só lugar, billing por uso transparente.</p>
+    <div class="services-grid">
+      {#each funcionalidadesTJud as f}
+        <CardServico {...f} />
+      {/each}
+    </div>
+
+    <!-- Mock Dashboard TalentJUD -->
+    <div class="hero-visual-stack" style="margin-top: 64px; align-items: flex-start;">
+
+      <!-- Casos ativos phone dark landscape -->
+      <div class="phone phone-landscape phone-dark" style="flex: 1 1 auto; max-width: 720px;">
+        <div class="phone-body" style="display: grid; grid-template-columns: 180px 1fr; gap: 0; padding: 0; height: 100%;">
+          <!-- Sidebar -->
+          <div style="background: linear-gradient(180deg, #0f172a 0%, #020617 100%); padding: 18px 12px; display: flex; flex-direction: column; gap: 10px; border-right: 1px solid rgba(255,255,255,0.06);">
+            <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 8px;">
+              <div style="width: 28px; height: 28px; background: linear-gradient(135deg, #0ea5e9, #3b82f6); border-radius: 7px; display: flex; align-items: center; justify-content: center; font-weight: 900; color: white; font-size: 12px;">TJ</div>
+              <strong style="color: #e5e7eb; font-size: 0.85rem;">TalentJUD</strong>
+            </div>
+            {#each ['Casos','CRM Leads','DataJud CNJ','Documentos','Financeiro','Agenda','IA Jurídica'] as item, i}
+              <div style="padding: 7px 10px; border-radius: 7px; font-size: 0.72rem; color: {i === 0 ? '#38bdf8' : '#94a3b8'}; background: {i === 0 ? 'rgba(14,165,233,0.15)' : 'transparent'}; border: {i === 0 ? '1px solid rgba(14,165,233,0.25)' : '1px solid transparent'};">{item}</div>
+            {/each}
+            <div style="margin-top: auto; background: rgba(14,165,233,0.1); border: 1px solid rgba(14,165,233,0.25); border-radius: 10px; padding: 10px 12px;">
+              <p style="color: #38bdf8; font-size: 0.6rem; text-transform: uppercase; letter-spacing: 0.08em; margin: 0 0 4px 0;">Processos</p>
+              <div style="color: #fff; font-size: 1.8rem; font-weight: 900;">{casos.length}</div>
+              <p style="color: #64748b; font-size: 0.65rem; margin: 2px 0 0 0;">ativos agora</p>
+            </div>
+          </div>
+
+          <!-- Lista de Casos -->
+          <div style="background: linear-gradient(180deg, #1e293b 0%, #0f172a 100%); padding: 18px; overflow-y: auto; display: flex; flex-direction: column; gap: 10px;">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 4px;">
+              <h3 style="color: #f1f5f9; font-size: 0.95rem; font-weight: 700; margin: 0;">Casos Ativos</h3>
+              <span class="pill outline" style="font-size: 0.65rem;">DataJud CNJ</span>
+            </div>
+            {#each casos as caso (caso.id)}
+              <div class="order animate" style="background: rgba(30,41,59,0.6); border: 1px solid rgba(255,255,255,0.07); border-radius: 10px; padding: 12px; display: flex; flex-direction: column; gap: 4px;">
+                <div style="display: flex; justify-content: space-between; align-items: flex-start; gap: 8px;">
+                  <div>
+                    <p style="color: #e2e8f0; font-size: 0.8rem; font-weight: 700; margin: 0;">{caso.titulo}</p>
+                    <p style="color: #94a3b8; font-size: 0.7rem; margin: 2px 0 0 0;">{caso.cliente} · {caso.tribunal}</p>
+                  </div>
+                  <span class={`pill ${badgeCaso(caso.status)}`} style="font-size: 0.62rem; white-space: nowrap;">
+                    {caso.status === 'urgente' ? 'Urgente' : caso.status === 'ativo' ? 'Ativo' : 'Aguardando'}
+                  </span>
+                </div>
+                <p style="color: #475569; font-size: 0.65rem; font-family: var(--font-mono); margin: 2px 0 0 0;">{caso.id}</p>
+                <p style="color: #64748b; font-size: 0.67rem; margin: 2px 0 0 0;">Prazo: <strong style="color: {caso.prazo === 'Hoje' || caso.prazo === 'Amanhã' ? '#f87171' : '#94a3b8'};">{caso.prazo}</strong></p>
+              </div>
+            {/each}
+          </div>
+        </div>
+      </div>
+
+      <!-- IA Jurídica Phone vertical -->
+      <div class="phone phone-dark">
+        <div class="phone-notch dark"></div>
+        <div class="phone-body">
+          <header style="margin-bottom: 10px;">
+            <p style="font-size: 0.68rem; text-transform: uppercase; letter-spacing: 0.1em; color: #64748b; margin: 0 0 4px 0;">TalentJUD · IA Jurídica</p>
+            <h3 style="color: #f1f5f9; font-size: 1rem; font-weight: 700; margin: 0 0 6px 0;">11 recursos integrados</h3>
+            <span class="pill outline" style="font-size: 0.68rem;">Billing por uso · GPT-4o-mini</span>
+          </header>
+          <div style="display: flex; flex-direction: column; gap: 8px; overflow-y: auto;">
+            {#each [
+              { nome: 'Assistente de Petição', preco: 'R$ 1,20', cor: '#60a5fa' },
+              { nome: 'Jurisprudência IA', preco: 'R$ 0,45', cor: '#a78bfa' },
+              { nome: 'Waze Jurídico', preco: 'R$ 0,80', cor: '#34d399' },
+              { nome: 'Health Score Cliente', preco: 'R$ 0,45', cor: '#fbbf24' },
+              { nome: 'Priorização de Casos', preco: 'R$ 0,80', cor: '#f87171' },
+              { nome: 'Insights do Dashboard', preco: 'R$ 0,25', cor: '#38bdf8' },
+              { nome: 'Análise DOU', preco: 'R$ 0,25', cor: '#e879f9' },
+              { nome: 'Anomalias em Auditoria', preco: 'R$ 0,50', cor: '#fb923c' },
+              { nome: 'Qualificação de Lead', preco: 'R$ 0,25', cor: '#a3e635' },
+              { nome: 'Resumo Movimentações', preco: 'R$ 0,30', cor: '#22d3ee' },
+              { nome: 'Geração de Template IA', preco: 'R$ 0,60', cor: '#818cf8' },
+            ] as rec}
+              <div style="display: flex; justify-content: space-between; align-items: center; background: rgba(30,41,59,0.5); border: 1px solid rgba(255,255,255,0.06); border-radius: 8px; padding: 9px 12px;">
+                <div style="display: flex; align-items: center; gap: 8px;">
+                  <span style="width: 6px; height: 6px; border-radius: 50%; background: {rec.cor}; flex-shrink: 0;"></span>
+                  <span style="color: #e2e8f0; font-size: 0.75rem;">{rec.nome}</span>
+                </div>
+                <span style="color: #64748b; font-size: 0.7rem; font-family: var(--font-mono);">a partir de {rec.preco}</span>
+              </div>
+            {/each}
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <div style="margin-top: 40px;">
+      <a class="btn btn-primary" href="https://talentjud.com.br" target="_blank" rel="noopener noreferrer">Acessar TalentJUD</a>
     </div>
   </div>
 </section>
@@ -266,7 +537,7 @@
 <section class="section" id="cases">
   <div class="container">
     <p class="eyebrow">Cases</p>
-    <h2 class="section-title">Resultados escaláveis monitorados em tempo real.</h2>
+    <h2 class="section-title">Resultados que os clientes já sentem.</h2>
     <div class="cases-grid">
       {#each cases as caseItem}
         <CaseCard {...caseItem} />
@@ -278,7 +549,7 @@
 <section class="section" id="depoimentos">
   <div class="container">
     <p class="eyebrow">Depoimentos</p>
-    <h2 class="section-title">Clientes que colocaram o core industrial na nuvem.</h2>
+    <h2 class="section-title">Quem usa, recomenda.</h2>
     <div class="depoimentos-grid">
       {#each depoimentos as depo}
         <Depoimento {...depo} />
@@ -287,532 +558,19 @@
   </div>
 </section>
 
-<section class="section" id="dashboards">
-  <div class="container">
-    <p class="eyebrow">Dashboards & Integrações</p>
-    <h2 class="section-title">Visualize dados em tempo real com painéis intuitivos.</h2>
-    
-    <div class="hero-visual-stack" style="margin-bottom: 60px; align-items: flex-start;">
-      <div class="phone phone-light">
-        <div class="phone-notch"></div>
-        <div class="phone-body">
-          <header class="phone-top">
-            <span class="pill ghost">Rocket Rides</span>
-            <span class="pill muted">Pesquisar</span>
-          </header>
-          <div class="phone-stats">
-            <div class="stat-card">
-              <p class="muted">Volume liquidado hoje</p>
-              <strong>R$ 3.528.198,72</strong>
-              <div class="sparkline"></div>
-            </div>
-            <div class="stat-card">
-              <p class="muted">Ticket médio</p>
-              <strong>R$ 392,74</strong>
-              <div class="pill success">+12% vs. ontem</div>
-            </div>
-            <div class="stat-card compact">
-              <p class="muted">Aprovação</p>
-              <strong>98,4%</strong>
-              <div class="pill neutral">Em tempo real</div>
-            </div>
-          </div>
-          <div class="orders-card">
-            <div class="orders-header">
-              <p class="muted">Transações recentes</p>
-              <span class="pill subtle">Atualizado em tempo real</span>
-            </div>
-            <div class="orders-list">
-              {#each transacoes as trans (trans.id)}
-                <div class="order animate">
-                  <div>
-                    <strong>{trans.valor}</strong>
-                    <p class="muted">{trans.descricao}</p>
-                  </div>
-                  <span class={`pill ${badgeClass(trans.status)}`}>
-                    {trans.status === 'pago' ? 'Pago' : trans.status === 'analise' ? 'Análise' : 'Falha'}
-                  </span>
-                </div>
-              {/each}
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="phone phone-dark">
-        <div class="phone-notch dark"></div>
-        <div class="phone-body">
-          <header class="education-head">
-            <p class="eyebrow">SaaS Educacional Municipal</p>
-            <h3>Plataforma oficial da Secretaria Municipal de Educação.</h3>
-            <p class="muted">Acompanhe matrículas, transporte e operações críticas em tempo real.</p>
-            <div class="edu-actions">
-              <span class="pill primary">Acessar Central Operacional</span>
-              <span class="pill outline">Secretaria Parceira</span>
-            </div>
-            <small class="muted">Próxima atualização 15/11</small>
-          </header>
-          <div class="edu-stats">
-            <div><strong>128</strong><span>Escolas conectadas</span></div>
-            <div><strong>52.430</strong><span>Estudantes</span></div>
-            <div><strong>2.348</strong><span>Turmas monitoradas</span></div>
-          </div>
-          <div class="edu-grid">
-            <div class="edu-card">Evasão<span>Fluxo de gravação</span></div>
-            <div class="edu-card">Painel da Secretaria<span>Indicadores em tempo real</span></div>
-            <div class="edu-card">Matrícula Online<span>Inscrição municipal</span></div>
-            <div class="edu-card">Gestão Escolar<span>Visão por unidade</span></div>
-          </div>
-        </div>
-      </div>
-
-      <div class="phone phone-pay hero-pay">
-        <div class="phone-notch dark"></div>
-        <div class="phone-body">
-          {#if !mostrarRecibo}
-          <header class="device-header">
-            <div>
-              <span class="device-label">Integração Pix Ready</span>
-              <p class="device-sub">Checkout Fartech Pay</p>
-            </div>
-            <span class="status-pill">Online</span>
-          </header>
-          <div class="device-card">
-            <div>
-              <span class="muted">Valor a receber</span>
-              <strong>{pagamentoAtual.valor}</strong>
-            </div>
-            <div>
-              <span class="muted">Cliente</span>
-              <strong>{pagamentoAtual.cliente}</strong>
-            </div>
-          </div>
-          <div class="device-form">
-            <div class="fake-field" aria-label="Cartão ilustrativo">
-              <span>Cartão</span>
-              <div class="input fake-input">
-                <span>{pagamentoAtual.mascara}</span>
-                <span class="muted">{pagamentoAtual.validade}</span>
-              </div>
-            </div>
-            <div class="fake-field" aria-label="Nome ilustrativo">
-              <span>Nome</span>
-              <div class="input fake-input">
-                <span>{pagamentoAtual.cliente}</span>
-              </div>
-            </div>
-            <button class="btn btn-primary" type="button" style="width:100%" on:click={confirmarPagamento}>Confirmar pagamento</button>
-          </div>
-          <div class="checkout-logo">
-            <img src="/images/logo.png" alt="Fartech Logo" />
-          </div>
-          {:else}
-          <div class="recibo-container">
-            <div class="recibo-header">
-              <div class="check-icon">✓</div>
-              <h3>Pagamento Confirmado</h3>
-              <p class="muted">Transação processada com sucesso</p>
-            </div>
-            <div class="recibo-details">
-              <div class="recibo-row">
-                <span class="muted">Valor</span>
-                <strong>{dadosRecibo.valor}</strong>
-              </div>
-              <div class="recibo-row">
-                <span class="muted">Cliente</span>
-                <strong>{dadosRecibo.cliente}</strong>
-              </div>
-              <div class="recibo-row">
-                <span class="muted">Data</span>
-                <strong>{dadosRecibo.data}</strong>
-              </div>
-              <div class="recibo-row">
-                <span class="muted">Horário</span>
-                <strong>{dadosRecibo.hora}</strong>
-              </div>
-              <div class="recibo-row">
-                <span class="muted">ID Transação</span>
-                <strong style="font-size: 0.85rem;">{dadosRecibo.transacaoId}</strong>
-              </div>
-            </div>
-            <div class="recibo-footer">
-              <span class="pill success">Pago</span>
-              <p class="muted" style="font-size: 0.75rem; margin-top: 12px;">Comprovante enviado por e-mail</p>
-            </div>
-            <div class="checkout-logo">
-              <img src="/images/logo.png" alt="Fartech Logo" />
-            </div>
-          </div>
-          {/if}
-        </div>
-      </div>
-
-      <div class="phone phone-dark">
-        <div class="phone-notch dark"></div>
-        <div class="phone-body">
-          <header class="imac-header" style="padding: 20px 18px 16px 18px;">
-            <div>
-              <p class="eyebrow">Avaliações ENEM</p>
-              <h3 style="font-size: 1.4rem; line-height: 1.3; margin: 8px 0 12px 0;">Histórico de desempenho 1998-2025</h3>
-              <p class="muted" style="font-size: 0.88rem;">Acompanhe a evolução da rede nos simulados oficiais e resultados do ENEM.</p>
-            </div>
-            <span class="pill outline" style="margin-top: 12px;">Próx. atualização: dez/2025</span>
-          </header>
-          <div class="imac-cards" style="padding: 0 18px; gap: 10px; grid-template-columns: 1fr;">
-            <div class="imac-card" style="padding: 14px;">
-              <p class="muted" style="font-size: 0.78rem;">2024</p>
-              <h4 style="font-size: 0.95rem; margin: 4px 0;">Melhor média histórica</h4>
-              <strong style="font-size: 1.3rem; color: #10b981;">712 pts</strong>
-              <small class="muted" style="font-size: 0.76rem; display: block; margin-top: 4px;">Rede municipal de Belo Horizonte</small>
-            </div>
-            <div class="imac-card" style="padding: 14px;">
-              <p class="muted" style="font-size: 0.78rem;">2023</p>
-              <h4 style="font-size: 0.95rem; margin: 4px 0;">Maior salto em simulados</h4>
-              <strong style="font-size: 1.3rem; color: #10b981;">+18 pts</strong>
-              <small class="muted" style="font-size: 0.76rem; display: block; margin-top: 4px;">Telemetria ENEM</small>
-            </div>
-            <div class="imac-card" style="padding: 14px;">
-              <p class="muted" style="font-size: 0.78rem;">2015</p>
-              <h4 style="font-size: 0.95rem; margin: 4px 0;">Programa de tutoria</h4>
-              <strong style="font-size: 1.3rem; color: #10b981;">+12 pts</strong>
-              <small class="muted" style="font-size: 0.76rem; display: block; margin-top: 4px;">Mentorias para 3º ano</small>
-            </div>
-          </div>
-          <div class="imac-table" style="margin: 16px 18px 0 18px; font-size: 0.82rem;">
-            <header style="font-size: 0.76rem; padding: 10px 12px;">
-              <span>Ano</span>
-              <span>Simulados</span>
-              <span>ENEM</span>
-              <span>Dif.</span>
-            </header>
-            <div class="imac-rows">
-              <div class="imac-row" style="padding: 10px 12px; font-size: 0.82rem;">
-                <span>2024</span><span>712</span><span>655</span><span class="pos">+57</span>
-              </div>
-              <div class="imac-row" style="padding: 10px 12px; font-size: 0.82rem;">
-                <span>2023</span><span>698</span><span>662</span><span class="pos">+36</span>
-              </div>
-              <div class="imac-row" style="padding: 10px 12px; font-size: 0.82rem;">
-                <span>2022</span><span>683</span><span>662</span><span class="pos">+21</span>
-              </div>
-              <div class="imac-row" style="padding: 10px 12px; font-size: 0.82rem;">
-                <span>2021</span><span>671</span><span>659</span><span class="pos">+12</span>
-              </div>
-              <div class="imac-row" style="padding: 10px 12px; font-size: 0.82rem;">
-                <span>2020</span><span>660</span><span>662</span><span class="neg">-2</span>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- Container para CEA e ENEM lado a lado -->
-    <div style="display: flex; gap: 60px; margin-top: 40px; flex-wrap: wrap; justify-content: center; width: 100%;">
-      <!-- Phone CEA -->
-      <div class="phone phone-landscape phone-dark">
-        <div class="phone-body" style="display: grid; grid-template-columns: 240px 1fr 280px; gap: 0; padding: 0; height: 100%;">
-          <!-- Sidebar -->
-          <div style="background: linear-gradient(180deg, #1e293b 0%, #0f172a 100%); padding: 20px; display: flex; flex-direction: column; gap: 16px; border-right: 1px solid rgba(255,255,255,0.08);">
-            <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 8px;">
-              <div style="width: 32px; height: 32px; background: linear-gradient(135deg, #3b82f6, #1d4ed8); border-radius: 8px; display: flex; align-items: center; justify-content: center; font-weight: 900; color: white; font-size: 18px;">📘</div>
-              <strong style="color: #e5e7eb; font-size: 1rem;">CEA</strong>
-            </div>
-            
-            <div style="background: rgba(59, 130, 246, 0.15); border: 1px solid rgba(59, 130, 246, 0.3); border-radius: 8px; padding: 12px; margin-bottom: 8px;">
-              <p style="color: rgba(229, 231, 235, 0.7); font-size: 0.72rem; margin: 0 0 4px 0;">SIMULADOS</p>
-              <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 6px; margin-top: 8px;">
-                <div style="background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.12); border-radius: 6px; padding: 8px; text-align: center; font-size: 0.85rem; color: #94a3b8;">1</div>
-                <div style="background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.12); border-radius: 6px; padding: 8px; text-align: center; font-size: 0.85rem; color: #94a3b8;">2</div>
-                <div style="background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.12); border-radius: 6px; padding: 8px; text-align: center; font-size: 0.85rem; color: #94a3b8;">3</div>
-                <div style="background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.12); border-radius: 6px; padding: 8px; text-align: center; font-size: 0.85rem; color: #94a3b8;">4</div>
-                <div style="background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.12); border-radius: 6px; padding: 8px; text-align: center; font-size: 0.85rem; color: #94a3b8;">5</div>
-                <div style="background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.12); border-radius: 6px; padding: 8px; text-align: center; font-size: 0.85rem; color: #94a3b8;">6</div>
-                <div style="background: linear-gradient(135deg, #0ea5e9, #3b82f6); border: 1px solid rgba(14, 165, 233, 0.5); border-radius: 6px; padding: 8px; text-align: center; font-size: 0.85rem; color: white; font-weight: 700; box-shadow: 0 0 12px rgba(14, 165, 233, 0.4);">7</div>
-                <div style="background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.12); border-radius: 6px; padding: 8px; text-align: center; font-size: 0.85rem; color: #94a3b8;">8</div>
-                <div style="background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.12); border-radius: 6px; padding: 8px; text-align: center; font-size: 0.85rem; color: #94a3b8;">9</div>
-                <div style="background: rgba(139, 92, 246, 0.25); border: 1px solid rgba(139, 92, 246, 0.4); border-radius: 6px; padding: 8px; text-align: center; font-size: 0.7rem; color: #e9d5ff; font-weight: 600; grid-column: span 1;">10<br/><span style="font-size: 0.6rem;">Novo 7.0</span></div>
-              </div>
-            </div>
-
-            <div style="display: flex; align-items: center; gap: 8px; padding: 10px; background: rgba(255,255,255,0.05); border-radius: 6px; cursor: pointer;">
-              <span style="font-size: 1.1rem;">🎯</span>
-              <span style="color: #cbd5e1; font-size: 0.82rem;">Produtos e Investimentos</span>
-            </div>
-            <div style="display: flex; align-items: center; gap: 8px; padding: 10px; background: rgba(255,255,255,0.05); border-radius: 6px; cursor: pointer;">
-              <span style="font-size: 1.1rem;">📝</span>
-              <span style="color: #cbd5e1; font-size: 0.82rem;">Análise & Gestão</span>
-            </div>
-            <div style="display: flex; align-items: center; gap: 8px; padding: 10px; background: rgba(255,255,255,0.05); border-radius: 6px; cursor: pointer;">
-              <span style="font-size: 1.1rem;">💹</span>
-              <span style="color: #cbd5e1; font-size: 0.82rem;">Mercado Financeiro</span>
-            </div>
-          </div>
-
-          <!-- Área da Questão -->
-          <div style="background: linear-gradient(180deg, #f8fafc 0%, #f1f5f9 100%); padding: 24px; overflow-y: auto;">
-            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
-              <h3 style="color: #1e293b; font-size: 0.9rem; letter-spacing: 0.05em; font-weight: 700; margin: 0;">QUESTÃO 5</h3>
-              <span style="background: rgba(148, 163, 184, 0.15); color: #475569; padding: 6px 14px; border-radius: 20px; font-size: 0.75rem; font-weight: 600;">Perfil e Comportamento do Investidor</span>
-            </div>
-            
-            <div style="color: #334155; font-size: 0.85rem; line-height: 1.6; margin-bottom: 20px;">
-              <p style="margin: 0 0 12px 0;">No último encontro de analistas de uma corretora em uma capital brasileira, discutiu-se de que forma a disponibilidade de informações afeta preços dos ativos no mercado acionário. Surgiu, então, o debate sobre a Hipótese do Mercado Eficiente (HME) e seus diferentes níveis (fraca, semiforte e forte). Romário Teixeira alega que seria fácil obter ganhos acima da média se fossem realizadas análises detalhadas de dados passados,</p>
-              <p style="margin: 0 0 12px 0;">enquanto Ana Maria defende que todas as informações disponíveis já estariam refletidas nos preços. O ponto central dessa discussão sobre a eficiência de mercado está relacionado principalmente ao fato de que:</p>
-              <p style="margin: 0;">Se o Índice Preço Lucro (P/L) médio do segmento é R$19,00, um especialista em investimento deverá recomendar, em função da análise da P/L das empresas, a:</p>
-            </div>
-
-            <div style="border: 2px solid #cbd5e1; border-radius: 12px; overflow: hidden; background: white;">
-              <table style="width: 100%; border-collapse: collapse;">
-                <thead>
-                  <tr style="background: linear-gradient(90deg, #1e293b, #334155);">
-                    <th style="padding: 14px; text-align: left; color: white; font-size: 0.9rem; font-weight: 700; border-right: 1px solid rgba(255,255,255,0.1);">Empresa</th>
-                    <th style="padding: 14px; text-align: center; color: white; font-size: 0.9rem; font-weight: 700; border-right: 1px solid rgba(255,255,255,0.1);">Preço de Mercado</th>
-                    <th style="padding: 14px; text-align: center; color: white; font-size: 0.9rem; font-weight: 700;">Lucro por Ação</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr style="border-bottom: 1px solid #e2e8f0;">
-                    <td style="padding: 16px; text-align: center; font-size: 1.3rem; font-weight: 900; color: #1e293b;">X</td>
-                    <td style="padding: 16px; text-align: center; font-size: 1rem; font-weight: 700; color: #0f172a;">R$ 19,00</td>
-                    <td style="padding: 16px; text-align: center; font-size: 1rem; font-weight: 700; color: #0f172a;">R$ 0,82</td>
-                  </tr>
-                  <tr style="border-bottom: 1px solid #e2e8f0; background: rgba(248, 250, 252, 0.5);">
-                    <td style="padding: 16px; text-align: center; font-size: 1.3rem; font-weight: 900; color: #1e293b;">Y</td>
-                    <td style="padding: 16px; text-align: center; font-size: 1rem; font-weight: 700; color: #0f172a;">R$ 20,00</td>
-                    <td style="padding: 16px; text-align: center; font-size: 1rem; font-weight: 700; color: #0f172a;">R$ 1,10</td>
-                  </tr>
-                  <tr>
-                    <td style="padding: 16px; text-align: center; font-size: 1.3rem; font-weight: 900; color: #1e293b;">W</td>
-                    <td style="padding: 16px; text-align: center; font-size: 1rem; font-weight: 700; color: #0f172a;">R$ 23,50</td>
-                    <td style="padding: 16px; text-align: center; font-size: 1rem; font-weight: 700; color: #0f172a;">R$ 1,05</td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
-          </div>
-
-          <!-- Sidebar Direita -->
-          <div style="background: linear-gradient(180deg, #1e293b 0%, #0f172a 100%); padding: 20px; border-left: 1px solid rgba(255,255,255,0.08); display: flex; flex-direction: column; gap: 20px;">
-            <div style="text-align: center;">
-              <div style="font-size: 2.8rem; font-weight: 900; color: white; margin-bottom: 4px;">0.00%</div>
-              <p style="color: rgba(229, 231, 235, 0.6); font-size: 0.72rem; margin: 0; letter-spacing: 0.08em;">APROVEITAMENTO</p>
-              <p style="color: rgba(229, 231, 235, 0.5); font-size: 0.68rem; margin: 4px 0 0 0;">0 simulado(s)</p>
-            </div>
-
-            <div style="background: rgba(14, 165, 233, 0.1); border: 1px solid rgba(14, 165, 233, 0.3); border-radius: 10px; padding: 16px;">
-              <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 12px;">
-                <span style="font-size: 1.2rem;">📊</span>
-                <strong style="color: #38bdf8; font-size: 0.85rem;">ESTATÍSTICAS</strong>
-              </div>
-              <div style="display: flex; flex-direction: column; gap: 10px;">
-                <div>
-                  <div style="color: #38bdf8; font-size: 1.6rem; font-weight: 900;">0</div>
-                  <div style="color: rgba(229, 231, 235, 0.6); font-size: 0.7rem;">Total de Questões</div>
-                </div>
-                <div>
-                  <div style="color: #10b981; font-size: 1.6rem; font-weight: 900;">0</div>
-                  <div style="color: rgba(229, 231, 235, 0.6); font-size: 0.7rem;">Questões Certas</div>
-                </div>
-                <div>
-                  <div style="color: #ef4444; font-size: 1.6rem; font-weight: 900;">0</div>
-                  <div style="color: rgba(229, 231, 235, 0.6); font-size: 0.7rem;">Questões Erradas</div>
-                </div>
-                <div>
-                  <div style="color: #22d3ee; font-size: 1.3rem; font-weight: 900;">0:00</div>
-                  <div style="color: rgba(229, 231, 235, 0.6); font-size: 0.7rem;">Tempo Médio</div>
-                </div>
-              </div>
-            </div>
-
-            <div style="background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); border-radius: 10px; padding: 14px;">
-              <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 8px;">
-                <span style="font-size: 1rem;">⚡</span>
-                <strong style="color: #fbbf24; font-size: 0.8rem;">AÇÕES RÁPIDAS</strong>
-              </div>
-              <div style="display: flex; flex-direction: column; gap: 8px;">
-                <button style="background: rgba(59, 130, 246, 0.2); border: 1px solid rgba(59, 130, 246, 0.4); color: #93c5fd; padding: 8px; border-radius: 6px; font-size: 0.72rem; cursor: pointer;">📋 Revisar Questões</button>
-                <button style="background: rgba(168, 85, 247, 0.2); border: 1px solid rgba(168, 85, 247, 0.4); color: #d8b4fe; padding: 8px; border-radius: 6px; font-size: 0.72rem; cursor: pointer;">🎲 Simulado Aleatório</button>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Phone ENEM -->
-      <div class="phone phone-landscape phone-dark">
-        <div class="phone-body" style="display: grid; grid-template-columns: 180px 1fr 180px; gap: 0; padding: 0; height: 100%;">
-        <!-- Sidebar Esquerda -->
-            <div style="background: linear-gradient(180deg, #0f172a 0%, #020617 100%); padding: 16px 12px; display: flex; flex-direction: column; gap: 10px; border-right: 1px solid rgba(255,255,255,0.06);">
-              <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 12px; padding-bottom: 12px; border-bottom: 1px solid rgba(255,255,255,0.08);">
-                <span style="font-size: 0.7rem; color: #64748b; text-transform: uppercase; letter-spacing: 0.1em;">Simulado em Tempo</span>
-              </div>
-
-              <div style="background: rgba(30, 41, 59, 0.5); border-radius: 10px; padding: 10px; border: 1px solid rgba(255,255,255,0.08);">
-                <p style="color: #64748b; font-size: 0.6rem; margin: 0 0 6px 0; text-transform: uppercase; letter-spacing: 0.08em;">Indicadores</p>
-                <div style="display: flex; gap: 8px; margin-top: 8px;">
-                  <div style="flex: 1; background: rgba(59, 130, 246, 0.12); border: 1px solid rgba(59, 130, 246, 0.25); border-radius: 6px; padding: 6px; text-align: center;">
-                    <div style="color: #94a3b8; font-size: 0.6rem; margin-bottom: 2px;">RESP.</div>
-                  <div style="color: #3b82f6; font-size: 1.2rem; font-weight: 900;">1</div>
-                  <div style="color: #475569; font-size: 0.55rem; margin-top: 1px;">de 50</div>
-                </div>
-                <div style="flex: 1; background: rgba(16, 185, 129, 0.12); border: 1px solid rgba(16, 185, 129, 0.25); border-radius: 6px; padding: 6px; text-align: center;">
-                  <div style="color: #94a3b8; font-size: 0.6rem; margin-bottom: 2px;">CORRETAS</div>
-                  <div style="color: #10b981; font-size: 1.2rem; font-weight: 900;">0</div>
-                  <div style="color: #475569; font-size: 0.55rem; margin-top: 1px;">0%</div>
-                </div>
-              </div>
-            </div>
-
-            <div style="background: rgba(30, 41, 59, 0.5); border-radius: 12px; padding: 12px; border: 1px solid rgba(255,255,255,0.08);">
-              <p style="color: #64748b; font-size: 0.65rem; margin: 0 0 8px 0; text-transform: uppercase; letter-spacing: 0.08em;">Progresso Geral</p>
-              <div style="color: #cbd5e1; font-size: 1.1rem; font-weight: 700; margin-bottom: 6px;">1/50</div>
-              <div style="background: rgba(15, 23, 42, 0.6); height: 8px; border-radius: 4px; overflow: hidden; margin-bottom: 8px;">
-                <div style="background: linear-gradient(90deg, #3b82f6, #0ea5e9); width: 2%; height: 100%; border-radius: 4px;"></div>
-              </div>
-            </div>
-
-            <div style="background: rgba(30, 41, 59, 0.5); border-radius: 12px; padding: 12px; border: 1px solid rgba(255,255,255,0.08);">
-              <p style="color: #64748b; font-size: 0.65rem; margin: 0 0 6px 0; text-transform: uppercase; letter-spacing: 0.08em;">Taxa de Acerto</p>
-              <div style="color: #cbd5e1; font-size: 2rem; font-weight: 900;">0.0%</div>
-            </div>
-
-            <div style="background: rgba(30, 41, 59, 0.5); border-radius: 12px; padding: 12px; border: 1px solid rgba(255,255,255,0.08); margin-top: auto;">
-              <p style="color: #64748b; font-size: 0.65rem; margin: 0 0 6px 0; text-transform: uppercase; letter-spacing: 0.08em;">Tempo Médio por Questão</p>
-              <div style="color: #38bdf8; font-size: 1.8rem; font-weight: 900;">52.4 s</div>
-            </div>
-          </div>
-
-          <!-- Área Central: Questão -->
-          <div style="background: linear-gradient(180deg, #1e293b 0%, #0f172a 100%); padding: 24px 20px; overflow-y: auto; display: flex; flex-direction: column;">
-            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px; padding-bottom: 12px; border-bottom: 1px solid rgba(255,255,255,0.08);">
-              <button style="background: transparent; border: none; color: #94a3b8; font-size: 0.85rem; cursor: pointer; display: flex; align-items: center; gap: 6px;">
-                ← Voltar
-              </button>
-              <div style="display: flex; align-items: center; gap: 8px;">
-                <span style="color: #64748b; font-size: 0.7rem;">Usuário #55 | Respostas salvas automaticamente</span>
-              </div>
-            </div>
-
-            <div style="margin-bottom: 20px;">
-              <h2 style="color: #e2e8f0; font-size: 1.4rem; font-weight: 700; margin: 0 0 12px 0;">Enem 2024</h2>
-              <p style="color: #94a3b8; font-size: 0.85rem; margin: 0;">Enem 2024</p>
-              <p style="color: #64748b; font-size: 0.8rem; margin: 4px 0 0 0;">Questão 1 de 50 · 1 respondidas</p>
-            </div>
-
-            <div style="background: rgba(30, 41, 59, 0.6); border-radius: 12px; padding: 20px; border: 1px solid rgba(255,255,255,0.08); margin-bottom: 20px;">
-              <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 16px;">
-                <span style="background: rgba(59, 130, 246, 0.2); color: #60a5fa; padding: 6px 12px; border-radius: 6px; font-size: 0.75rem; font-weight: 600;">Linguagens</span>
-                <span style="background: rgba(245, 158, 11, 0.2); color: #fbbf24; padding: 6px 12px; border-radius: 6px; font-size: 0.75rem; font-weight: 600;">Médio</span>
-                <span style="background: rgba(139, 92, 246, 0.2); color: #a78bfa; padding: 6px 12px; border-radius: 6px; font-size: 0.75rem; font-weight: 600;">ENEM 2024</span>
-              </div>
-
-              <h3 style="color: #e2e8f0; font-size: 1rem; font-weight: 700; margin: 0 0 12px 0;">Questão 2024006</h3>
-
-              <div style="background: rgba(59, 130, 246, 0.08); border-left: 3px solid #3b82f6; padding: 12px 14px; border-radius: 6px; margin-bottom: 16px;">
-                <p style="color: #cbd5e1; font-size: 0.82rem; line-height: 1.5; margin: 0;">**Expressões e termos utilizados no Amazonas são retratados em livro e em camisetas**</p>
-              </div>
-
-              <div style="color: #cbd5e1; font-size: 0.82rem; line-height: 1.7; margin-bottom: 16px;">
-                <p style="margin: 0 0 12px 0;">"Na linguagem, podemos nos ver da forma mais verdadeira: nossas crenças, nossos valores, nosso lugar no mundo", afirmou o doutor em linguística e professor da Ufam em seu livro "Amazonês: expressões e termos usados no Amazonas". Portanto, o amazonense, com todas as suas "cunhantãs" e "curumin", acaba por encontrar um lugar no mundo e formar uma unidade linguística, informalmente denominada de português "caboco", que muito se diferencia do português "mineiro", "gaúcho", "carioca" e outras "tribos" espalhadas pelo Brasil.</p>
-              </div>
-
-              <p style="color: #94a3b8; font-size: 0.75rem; line-height: 1.5; margin-bottom: 16px;">Um designer amazonense também achou o amazonês "xibata", tanto é que criou uma série de camisetas estampadas com o nome de Cabocqués Ilustrado, que une arte e humor com as expressões típicas da região. A coleção Cabocqués ilustrado já foi lançada, e os modelos têm nomes: Leseira Baré, Xibata no Balde e Até o Tucupi, e 43 ainda na fila de espera. Para o criador, as camisetas têm como objetivo "resgatar o orgulho do povo manauara, do povo do Norte".</p>
-
-              <p style="color: #94a3b8; font-size: 0.75rem; margin: 0;">Disponível em: g1.globo.com. Acesso em: 15 jan. 2024 (adaptado).</p>
-
-              <div style="background: rgba(59, 130, 246, 0.1); border: 1px solid rgba(59, 130, 246, 0.25); border-radius: 8px; padding: 14px; margin-top: 16px;">
-                <div style="display: flex; align-items: flex-start; gap: 10px;">
-                  <span style="color: #60a5fa; font-size: 1.2rem; flex-shrink: 0;">💡</span>
-                  <p style="color: #cbd5e1; font-size: 0.8rem; line-height: 1.5; margin: 0;">A reportagem apresenta duas iniciativas: o livro "Amazonês" e as camisetas do "Cabocqués ilustrado". Com temática em comum, essas iniciativas</p>
-                </div>
-              </div>
-            </div>
-
-            <div style="margin-top: auto;">
-              <p style="color: #64748b; font-size: 0.75rem; margin-bottom: 12px; font-weight: 600;">Alternativas:</p>
-              <div style="display: flex; flex-direction: column; gap: 10px;">
-                <div style="background: rgba(16, 185, 129, 0.15); border: 2px solid rgba(16, 185, 129, 0.4); border-radius: 10px; padding: 14px; cursor: pointer; display: flex; align-items: flex-start; gap: 12px;">
-                  <div style="width: 24px; height: 24px; background: rgba(16, 185, 129, 0.3); border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
-                    <span style="color: #10b981; font-weight: 900; font-size: 0.9rem;">✓</span>
-                  </div>
-                  <p style="color: #d1fae5; font-size: 0.85rem; line-height: 1.5; margin: 0;">valorizam o repertório linguístico do povo do Amazonas.</p>
-                </div>
-
-                <div style="background: rgba(239, 68, 68, 0.12); border: 2px solid rgba(239, 68, 68, 0.3); border-radius: 10px; padding: 14px; cursor: pointer; display: flex; align-items: flex-start; gap: 12px;">
-                  <div style="width: 24px; height: 24px; background: rgba(239, 68, 68, 0.25); border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
-                    <span style="color: #ef4444; font-weight: 900; font-size: 0.9rem;">✕</span>
-                  </div>
-                  <p style="color: #fecaca; font-size: 0.85rem; line-height: 1.5; margin: 0;">evidenciam produtos feitos por empreendedores da região Norte.</p>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <!-- Painel Auxiliar Direita -->
-          <div style="background: linear-gradient(180deg, #0f172a 0%, #020617 100%); padding: 16px 12px; border-left: 1px solid rgba(255,255,255,0.06); display: flex; flex-direction: column; gap: 12px;">
-            <div style="text-align: center; padding-bottom: 12px; border-bottom: 1px solid rgba(255,255,255,0.08);">
-              <p style="color: #64748b; font-size: 0.65rem; margin: 0 0 4px 0; text-transform: uppercase; letter-spacing: 0.1em;">Painel Auxiliar</p>
-              <h3 style="color: #e2e8f0; font-size: 0.9rem; font-weight: 700; margin: 0;">Insights</h3>
-            </div>
-
-            <div style="background: rgba(30, 41, 59, 0.5); border-radius: 10px; padding: 12px; text-align: center; border: 1px solid rgba(255,255,255,0.08);">
-              <div style="width: 60px; height: 60px; margin: 0 auto 8px; border-radius: 50%; background: conic-gradient(#3b82f6 0deg 7.2deg, rgba(30, 41, 59, 0.3) 7.2deg); display: flex; align-items: center; justify-content: center; position: relative;">
-                <div style="width: 45px; height: 45px; background: #0f172a; border-radius: 50%; display: flex; align-items: center; justify-content: center;">
-                  <span style="color: #3b82f6; font-size: 1rem; font-weight: 900;">2%</span>
-                </div>
-              </div>
-              <p style="color: #64748b; font-size: 0.65rem; margin: 0; text-transform: uppercase; letter-spacing: 0.08em;">Progresso</p>
-              <p style="color: #94a3b8; font-size: 0.75rem; margin: 4px 0 0 0;">1 de 50 questões</p>
-            </div>
-
-            <div style="background: rgba(30, 41, 59, 0.5); border-radius: 10px; padding: 12px; border: 1px solid rgba(255,255,255,0.08);">
-              <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
-                <p style="color: #64748b; font-size: 0.65rem; margin: 0; text-transform: uppercase; letter-spacing: 0.08em;">Tempo Médio</p>
-                <span style="color: #cbd5e1; font-size: 0.7rem; font-weight: 600;">ritmo ideal</span>
-              </div>
-              <div style="color: #38bdf8; font-size: 1.6rem; font-weight: 900; margin-bottom: 4px;">52.4s</div>
-              <p style="color: #64748b; font-size: 0.65rem; margin: 0;">Tempo real</p>
-            </div>
-
-            <div style="background: rgba(30, 41, 59, 0.5); border-radius: 10px; padding: 12px; border: 1px solid rgba(255,255,255,0.08);">
-              <div style="display: flex; align-items: center; gap: 6px; margin-bottom: 10px;">
-                <span style="font-size: 0.9rem;">📊</span>
-                <p style="color: #64748b; font-size: 0.65rem; margin: 0; text-transform: uppercase; letter-spacing: 0.08em;">Tendências</p>
-              </div>
-              <div style="display: flex; flex-direction: column; gap: 6px;">
-                <div style="display: flex; justify-content: space-between; align-items: center;">
-                  <span style="color: #fbbf24; font-size: 0.7rem;">● Em revisão</span>
-                  <span style="color: #cbd5e1; font-weight: 700; font-size: 0.8rem;">1</span>
-                </div>
-                <div style="display: flex; justify-content: space-between; align-items: center;">
-                  <span style="color: #cbd5e1; font-size: 0.7rem;">● Pendentes</span>
-                  <span style="color: #cbd5e1; font-weight: 700; font-size: 0.8rem;">49</span>
-                </div>
-              </div>
-            </div>
-
-            <button style="background: linear-gradient(135deg, #06b6d4, #3b82f6); border: none; color: white; padding: 10px; border-radius: 8px; font-size: 0.75rem; font-weight: 700; cursor: pointer; box-shadow: 0 4px 12px rgba(6, 182, 212, 0.3); margin-top: auto;">
-              Aa
-            </button>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
 <section class="section">
   <div class="container card" style="text-align:center;">
-    <p class="eyebrow">Next Step</p>
-    <h2 class="section-title">Destrave a versão cloud da sua operação.</h2>
+    <p class="eyebrow">Comece hoje</p>
+    <h2 class="section-title">Escolha o produto certo para o seu negócio.</h2>
     <p class="section-subtitle">
-      Faça um discovery com nossos product engineers e receba um blueprint com integrações, KPIs e roadmap em até 7 dias.
+      TalentForge para RH e gestão de performance. TalentJUD para escritórios de advocacia. Ambos com trial gratuito e setup em menos de 30 minutos.
     </p>
-    <a class="btn btn-primary" href="/contato">Quero meu blueprint</a>
+    <div style="display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; margin-top: 8px;">
+      <a class="btn btn-primary" href="https://talentforge.com.br/register" target="_blank" rel="noopener noreferrer">Começar no TalentForge</a>
+      <a class="btn btn-secondary" href="https://talentjud.com.br/login" target="_blank" rel="noopener noreferrer">Começar no TalentJUD</a>
+    </div>
   </div>
 </section>
-
 <style>
   
   
@@ -954,32 +712,12 @@
     padding: 8px;
   }
 
-  .phone-light {
-    background: rgba(255, 255, 255, 0.08);
-    border: 1px solid rgba(255, 255, 255, 0.08);
-    box-shadow: 0 24px 60px rgba(0, 0, 0, 0.14);
-    backdrop-filter: blur(6px);
-  }
 
   .phone-dark {
     background: linear-gradient(180deg, #0e1228 0%, #0b0f23 100%);
     border-color: rgba(255, 255, 255, 0.06);
   }
 
-  .phone-pay {
-    background: linear-gradient(180deg, #0c1228 0%, #101a38 100%);
-    border-color: rgba(255, 255, 255, 0.12);
-    box-shadow: 0 28px 70px rgba(5, 10, 30, 0.35), 0 12px 28px rgba(0, 0, 0, 0.12);
-    position: sticky;
-    top: 120px;
-  }
-
-  @media (max-width: 640px) {
-    .phone-pay {
-      position: relative;
-      top: auto;
-    }
-  }
 
   @media (max-width: 768px) {
     .phone,
@@ -1042,10 +780,6 @@
     max-height: 100%;
   }
 
-  .phone-light .phone-body {
-    background: rgba(255, 255, 255, 0.28);
-    border: 1px solid rgba(255, 255, 255, 0.2);
-  }
 
   .phone-dark .phone-body {
     background: linear-gradient(180deg, #101632 0%, #0b1022 100%);
@@ -1053,527 +787,6 @@
     border: 1px solid rgba(255, 255, 255, 0.08);
   }
 
-  .phone-pay .phone-body {
-    background: linear-gradient(180deg, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.02));
-    border: 1px solid rgba(255, 255, 255, 0.08);
-    color: #e5e7eb;
-    display: flex;
-    flex-direction: column;
-    gap: 16px;
-    justify-content: space-between;
-    align-items: stretch;
-  }
-
-  /* Checkout phone */
-  .device-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
-    gap: 8px;
-  }
-
-  .device-label {
-    font-weight: 700;
-    color: #e5e7eb;
-    font-size: 1rem;
-  }
-
-  .device-sub {
-    font-size: 0.85rem;
-    color: rgba(229, 231, 235, 0.75);
-    margin: 2px 0 0 0;
-  }
-
-  .status-pill {
-    font-size: 0.78rem;
-    padding: 6px 14px;
-    border-radius: var(--radius-pill);
-    background: rgba(16, 185, 129, 0.16);
-    color: #34d399;
-    font-weight: 700;
-    border: 1px solid rgba(16, 185, 129, 0.3);
-  }
-
-  .device-card {
-    border-radius: 16px;
-    background: rgba(255, 255, 255, 0.06);
-    padding: 14px;
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 8px;
-    border: 1px solid rgba(255, 255, 255, 0.1);
-  }
-
-  .device-card strong {
-    font-size: 1rem;
-    color: #fff;
-    display: block;
-    font-weight: 800;
-  }
-
-  .device-card span {
-    font-size: 0.86rem;
-    color: rgba(229, 231, 235, 0.8);
-  }
-
-  .device-form {
-    display: grid;
-    gap: 14px;
-  }
-
-  .fake-field {
-    display: flex;
-    flex-direction: column;
-    gap: 6px;
-    font-size: 0.9rem;
-    color: rgba(229, 231, 235, 0.9);
-  }
-
-  .input {
-    border-radius: 16px;
-    padding: 12px 14px;
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    background: rgba(255, 255, 255, 0.06);
-    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.05);
-  }
-
-  .fake-input {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    font-weight: 700;
-    color: #fff;
-  }
-
-  .split {
-    max-width: 120px;
-  }
-
-  .device-btn {
-    width: 100%;
-    border-radius: 16px;
-    justify-content: center;
-    font-size: 1rem;
-    background: linear-gradient(120deg, #0f8bff, #7c4dff);
-    border: none;
-    box-shadow: 0 16px 45px rgba(0, 102, 255, 0.35);
-    padding: 14px;
-    margin-top: auto;
-  }
-
-  .device-icons {
-    display: flex;
-    justify-content: space-between;
-    font-size: 0.78rem;
-    color: rgba(229, 231, 235, 0.7);
-    text-transform: uppercase;
-    letter-spacing: 0.08em;
-  }
-
-  .checkout-logo {
-    margin-top: 10px;
-    display: flex;
-    justify-content: center;
-    padding: 8px 0 0;
-    border-top: 1px solid rgba(255, 255, 255, 0.08);
-  }
-
-  .checkout-logo img {
-    max-width: 120px;
-    height: auto;
-    filter: drop-shadow(0 8px 24px rgba(0, 0, 0, 0.3));
-    background: transparent;
-    mix-blend-mode: multiply;
-  }
-
-  .recibo-container {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-    padding: 20px 0;
-    animation: slideUp 0.4s ease-out;
-  }
-
-  @keyframes slideUp {
-    from {
-      opacity: 0;
-      transform: translateY(20px);
-    }
-    to {
-      opacity: 1;
-      transform: translateY(0);
-    }
-  }
-
-  .recibo-header {
-    text-align: center;
-    padding-bottom: 16px;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
-  }
-
-  .check-icon {
-    width: 56px;
-    height: 56px;
-    margin: 0 auto 12px;
-    background: linear-gradient(135deg, #10b981, #059669);
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 32px;
-    color: white;
-    font-weight: bold;
-    box-shadow: 0 8px 24px rgba(16, 185, 129, 0.35);
-  }
-
-  .recibo-header h3 {
-    font-size: 1.25rem;
-    color: #fff;
-    margin: 0 0 6px 0;
-    font-weight: 700;
-  }
-
-  .recibo-details {
-    display: flex;
-    flex-direction: column;
-    gap: 14px;
-    padding: 0 4px;
-  }
-
-  .recibo-row {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 10px 0;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.06);
-  }
-
-  .recibo-row:last-child {
-    border-bottom: none;
-  }
-
-  .recibo-row span {
-    font-size: 0.88rem;
-  }
-
-  .recibo-row strong {
-    font-size: 0.95rem;
-    color: #fff;
-    font-weight: 700;
-  }
-
-  .recibo-footer {
-    text-align: center;
-    padding-top: 12px;
-    border-top: 1px solid rgba(255, 255, 255, 0.08);
-  }
-
-  .phone-top {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 10px;
-  }
-
-  .phone-stats {
-    display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 10px;
-  }
-
-  .phone-stats .stat-card:last-child {
-    grid-column: span 2;
-  }
-
-  .stat-card {
-    background: var(--color-surface);
-    border-radius: 12px;
-    padding: 12px;
-    box-shadow: var(--shadow-sm);
-    border: 1px solid var(--color-line);
-  }
-
-  .stat-card strong {
-    display: block;
-    color: var(--color-primary);
-    font-size: 0.95rem;
-    margin-bottom: 4px;
-    font-weight: 700;
-  }
-
-  .stat-card p {
-    color: var(--color-text-secondary);
-    font-size: 0.75rem;
-    margin: 0;
-  }
-
-  .sparkline {
-    height: 32px;
-    border-radius: 10px;
-    background: linear-gradient(180deg, rgba(0, 102, 255, 0.08), rgba(124, 58, 237, 0.05));
-    position: relative;
-    overflow: hidden;
-    margin-top: 6px;
-  }
-
-  .sparkline::after {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background: url('data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 80" preserveAspectRatio="none"%3E%3Cpolyline fill="none" stroke="%230066ff" stroke-width="6" stroke-linecap="round" points="0,60 40,50 80,60 120,35 160,45 200,30"/%3E%3C/svg%3E');
-    background-size: cover;
-    opacity: 0.85;
-  }
-
-  .orders-card {
-    background: var(--color-surface);
-    border-radius: 14px;
-    border: 1px solid var(--color-line);
-    box-shadow: var(--shadow-sm);
-    padding: 12px;
-    display: grid;
-    gap: 10px;
-  }
-
-  .orders-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding-bottom: 8px;
-    border-bottom: 1px solid var(--color-line);
-  }
-
-  .orders-header p {
-    color: var(--color-text-secondary);
-    font-size: 0.8rem;
-    margin: 0;
-    font-weight: 500;
-  }
-
-  .orders-list {
-    display: grid;
-    gap: 8px;
-  }
-
-  .order {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 10px;
-    border-radius: 10px;
-    background: var(--color-line-light);
-    border: 1px solid var(--color-line);
-    font-size: 0.8rem;
-  }
-
-  .order.animate {
-    animation: fadeSlide 0.35s ease-out;
-  }
-
-  @keyframes fadeSlide {
-    from {
-      opacity: 0;
-      transform: translateY(10px);
-    }
-    to {
-      opacity: 1;
-      transform: translateY(0);
-    }
-  }
-
-  .order strong {
-    display: block;
-    color: var(--color-primary);
-    font-weight: 700;
-    margin-bottom: 2px;
-    font-size: 0.9rem;
-  }
-
-  .order .muted {
-    color: var(--color-text-secondary);
-    font-size: 0.75rem;
-  }
-
-  /* Phone educação */
-  .education-head h3 {
-    margin: 6px 0;
-    color: #e5e7eb;
-  }
-
-  .education-head .muted {
-    color: #b5bed1;
-  }
-
-  .edu-actions {
-    display: flex;
-    gap: 10px;
-    flex-wrap: wrap;
-    margin: 8px 0;
-  }
-
-  .edu-stats {
-    display: grid;
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-    gap: 8px;
-    background: rgba(255, 255, 255, 0.02);
-    border: 1px solid rgba(255, 255, 255, 0.06);
-    border-radius: 14px;
-    padding: 10px;
-  }
-
-  .edu-stats div {
-    display: grid;
-    gap: 4px;
-  }
-
-  .edu-stats strong {
-    color: #fff;
-  }
-
-  .edu-stats span {
-    color: #b5bed1;
-    font-size: 0.8rem;
-  }
-
-  .edu-grid {
-    display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 10px;
-  }
-
-  .edu-card {
-    background: rgba(255, 255, 255, 0.02);
-    border: 1px solid rgba(255, 255, 255, 0.06);
-    border-radius: 12px;
-    padding: 10px;
-    color: #e5e7eb;
-    display: grid;
-    gap: 4px;
-  }
-
-  .edu-card span {
-    color: #9ca3af;
-    font-size: 0.8rem;
-  }
-
-  /* iMac dashboard */
-  .imac-frame {
-    position: relative;
-    width: 520px;
-    max-width: 100%;
-    margin: 0 auto;
-    background: #0c1024;
-    border-radius: 16px 16px 8px 8px;
-    box-shadow: 0 30px 80px rgba(5, 10, 30, 0.35);
-    border: 1px solid rgba(255, 255, 255, 0.04);
-    overflow: hidden;
-    display: grid;
-    gap: 0;
-  }
-
-  .imac-screen {
-    background: radial-gradient(circle at 20% 20%, rgba(59, 130, 246, 0.14), transparent 45%),
-      radial-gradient(circle at 80% 10%, rgba(124, 58, 237, 0.16), transparent 45%),
-      #0f1328;
-    padding: 24px;
-    display: grid;
-    gap: 16px;
-  }
-
-  .imac-header {
-    display: flex;
-    justify-content: space-between;
-    gap: 16px;
-    align-items: flex-start;
-    color: #e5e7eb;
-  }
-
-  .imac-header h3 {
-    margin: 6px 0;
-    color: #f8fafc;
-  }
-
-  .imac-header .muted {
-    color: #b5bed1;
-  }
-
-  .imac-cards {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
-    gap: 12px;
-  }
-
-  .imac-card {
-    background: rgba(255, 255, 255, 0.04);
-    border: 1px solid rgba(255, 255, 255, 0.08);
-    border-radius: 12px;
-    padding: 12px;
-    color: #e5e7eb;
-    display: grid;
-    gap: 6px;
-  }
-
-  .imac-card h4 {
-    margin: 0;
-    color: #fff;
-    font-size: 1rem;
-  }
-
-  .imac-card strong {
-    font-size: 1.1rem;
-    color: #60a5fa;
-  }
-
-  .imac-card .muted {
-    color: #9ca3af;
-  }
-
-  .imac-table {
-    background: rgba(255, 255, 255, 0.02);
-    border: 1px solid rgba(255, 255, 255, 0.06);
-    border-radius: 12px;
-    padding: 12px;
-    display: grid;
-    gap: 10px;
-    color: #e5e7eb;
-  }
-
-  .imac-table header,
-  .imac-row {
-    display: grid;
-    grid-template-columns: repeat(4, minmax(0, 1fr));
-    gap: 8px;
-    font-size: 0.85rem;
-  }
-
-  .imac-row {
-    color: #d1d5db;
-  }
-
-  .imac-row .pos {
-    color: #34d399;
-  }
-
-  .imac-row .neg {
-    color: #f87171;
-  }
-
-  .imac-rows {
-    display: grid;
-    gap: 6px;
-  }
-
-  .imac-stand {
-    height: 14px;
-    background: linear-gradient(90deg, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.02));
-    border-radius: 0 0 8px 8px;
-  }
-
-  @media (max-width: 768px) {
-    .imac-frame {
-      width: 100%;
-    }
-  }
 
   :global(.hero) {
     isolation: isolate;
@@ -1769,27 +982,7 @@
     position: relative;
   }
 
-  /* Stat cards with delayed animation */
-  .stat-card {
-    animation: slideUp 0.6s ease-out forwards;
-  }
 
-  .stat-card:nth-child(1) {
-    animation-delay: 0.3s;
-  }
-
-  .stat-card:nth-child(2) {
-    animation-delay: 0.4s;
-  }
-
-  .stat-card:nth-child(3) {
-    animation-delay: 0.5s;
-  }
-
-  /* Orders card with animation */
-  .orders-card {
-    animation: slideUp 0.6s ease-out 0.5s backwards;
-  }
 
   /* Button animations */
   :global(.btn) {

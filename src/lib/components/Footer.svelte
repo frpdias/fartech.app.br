@@ -3,8 +3,8 @@
     <div class="footer-columns">
       <div>
         <h4 class="footer-title">Fartech</h4>
-        <p>Fartech Platform — infraestrutura digital para operações críticas, dados em tempo real e squads de produto embarcados.</p>
-        <small>© Fartech 2025 • CNPJ 00.000.000/0000-00</small>
+        <p>Fartech cria produtos SaaS para RH e Jurídico. TalentForge para recrutamento inteligente e gestão COPC. TalentJUD para escritórios de advocacia com IA.</p>
+        <small>© Fartech 2026 • CNPJ 00.000.000/0000-00</small>
       </div>
       <div>
         <h4 class="footer-title">Contato</h4>
@@ -17,9 +17,9 @@
       <div>
         <h4 class="footer-title">Links</h4>
         <ul class="list-reset" aria-label="Links de navegação">
+          <li><a href="https://talentforge.com.br" target="_blank" rel="noopener noreferrer">TalentForge</a></li>
+          <li><a href="https://talentjud.com.br" target="_blank" rel="noopener noreferrer">TalentJUD</a></li>
           <li><a href="/quem-somos">Quem Somos</a></li>
-          <li><a href="/servicos">Serviços</a></li>
-          <li><a href="/cases">Cases</a></li>
           <li><a href="/contato">Contato</a></li>
         </ul>
       </div>
