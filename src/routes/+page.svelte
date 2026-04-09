@@ -12,11 +12,38 @@
     "name": "Fartech",
     "url": "https://fartech.app.br",
     "logo": "https://fartech.app.br/images/logo.png",
-    "description": "Fartech cria produtos SaaS para RH e Jurídico: TalentForge para recrutamento e gestão de performance COPC, e TalentJUD para escritórios de advocacia.",
+    "description": "Fartech cria produtos SaaS para RH e Jurídico: TalentForge para recrutamento, DISC e gestão COPC, e TalentJUD para escritórios de advocacia com DataJud CNJ e IA jurídica.",
+    "foundingDate": "2024",
+    "areaServed": "BR",
     "contactPoint": {
       "@type": "ContactPoint",
+      "email": "contato@fartech.app.br",
       "contactType": "Customer Service",
       "availableLanguage": "Portuguese"
+    },
+    "hasOfferCatalog": {
+      "@type": "OfferCatalog",
+      "name": "Produtos Fartech",
+      "itemListElement": [
+        {
+          "@type": "SoftwareApplication",
+          "name": "TalentForge",
+          "url": "https://talentforge.com.br",
+          "applicationCategory": "BusinessApplication",
+          "operatingSystem": "Web",
+          "description": "Plataforma SaaS de recrutamento com pipeline Kanban, avaliações DISC, módulo COPC de performance, compliance NR-1 e score PHP organizacional.",
+          "offers": { "@type": "Offer", "priceCurrency": "BRL", "availability": "https://schema.org/OnlineOnly" }
+        },
+        {
+          "@type": "SoftwareApplication",
+          "name": "TalentJUD",
+          "url": "https://talentjud.com.br",
+          "applicationCategory": "LegalService",
+          "operatingSystem": "Web",
+          "description": "Sistema jurídico completo com gestão de casos, DataJud CNJ em 28 tribunais, CRM de leads, templates com branding e 11 recursos de IA com billing por uso.",
+          "offers": { "@type": "Offer", "priceCurrency": "BRL", "availability": "https://schema.org/OnlineOnly" }
+        }
+      ]
     },
     "sameAs": [
       "https://www.linkedin.com/company/fartech",

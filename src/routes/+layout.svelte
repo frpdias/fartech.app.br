@@ -6,34 +6,32 @@
 </script>
 
 <svelte:head>
-  <title>fartech.app.br</title>
+  <title>Fartech — TalentForge e TalentJUD</title>
   <meta
     name="description"
-    content="Fartech desenvolve SaaS sob medida, automações com n8n, chatbots inteligentes e integrações via APIs e Webhooks. Conectamos negócios ao futuro."
+    content="Fartech cria produtos SaaS para RH e Jurídico. TalentForge para recrutamento inteligente e gestão COPC. TalentJUD para escritórios de advocacia com DataJud e IA."
   />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <link rel="icon" href="/favicon.png" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 
   <!-- Open Graph -->
   <meta property="og:type" content="website" />
-  <meta property="og:title" content="Fartech - SaaS, automação e integrações" />
+  <meta property="og:title" content="Fartech — TalentForge e TalentJUD" />
   <meta
     property="og:description"
-    content="SaaS sob medida, automações, chatbots e integrações via APIs. Da educação ao corporativo, conectamos negócios ao futuro."
+    content="Produtos SaaS para RH e Jurídico. TalentForge: recrutamento, DISC e COPC. TalentJUD: gestão de casos, DataJud CNJ e IA jurídica."
   />
-  <meta property="og:image" content="/images/logo.png" />
+  <meta property="og:image" content="https://fartech.app.br/images/og-image.jpg" />
   <meta property="og:url" content="https://fartech.app.br/" />
 
   <!-- Twitter -->
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Fartech - SaaS, automação e integrações" />
+  <meta name="twitter:title" content="Fartech — TalentForge e TalentJUD" />
   <meta
     name="twitter:description"
-    content="SaaS sob medida, automações, chatbots e integrações via APIs. Conectamos negócios ao futuro."
+    content="Produtos SaaS para RH e Jurídico. TalentForge: recrutamento, DISC e COPC. TalentJUD: gestão de casos, DataJud CNJ e IA jurídica."
   />
-  <meta name="twitter:image" content="/images/logo.png" />
+  <meta name="twitter:image" content="https://fartech.app.br/images/og-image.jpg" />
 </svelte:head>
 
 <div class="app-shell">
