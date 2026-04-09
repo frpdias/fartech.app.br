@@ -266,7 +266,7 @@
 </section>
 
 <!-- Diferenciais -->
-<section class="section">
+<section class="section section-alt">
   <div class="container">
     <p class="eyebrow">Por que Fartech</p>
     <h2 class="section-title">A base técnica que sustenta os dois produtos.</h2>
@@ -433,7 +433,7 @@
 </section>
 
 <!-- TalentJUD — Funcionalidades e Mock de Casos -->
-<section class="section" id="talentjud">
+<section class="section section-alt" id="talentjud">
   <div class="container">
     <p class="eyebrow">TalentJUD</p>
     <h2 class="section-title">O sistema jurídico que trabalha enquanto você advoga.</h2>
@@ -546,7 +546,7 @@
   </div>
 </section>
 
-<section class="section" id="depoimentos">
+<section class="section section-alt" id="depoimentos">
   <div class="container">
     <p class="eyebrow">Depoimentos</p>
     <h2 class="section-title">Quem usa, recomenda.</h2>

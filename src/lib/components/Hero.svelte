@@ -56,11 +56,11 @@
 
 <style>
   .hero-container {
-    max-width: min(1720px, 100%);
+    max-width: min(var(--max-width), 100%);
     width: 100%;
     margin-inline: auto;
-    padding-left: clamp(16px, 2.5vw, 40px);
-    padding-right: clamp(16px, 2.5vw, 40px);
+    padding-left: clamp(20px, 3.5vw, 48px);
+    padding-right: clamp(20px, 3.5vw, 48px);
   }
 
   .hero-grid {
@@ -94,29 +94,14 @@
 
   .hero h1 {
     font-family: var(--font-display);
-    font-size: clamp(59px, 6.5vw, 100px);
-    line-height: 1.04;
-    margin: 0 0 24px 0;
-    max-width: none;
-    background: linear-gradient(
-      90deg,
-      #0ea5e9 0%,
-      #3b82f6 20%,
-      #7c3aed 40%,
-      #a855f7 60%,
-      #22d3ee 80%,
-      #0ea5e9 100%
-    );
-    background-size: 400% 400%;
-    -webkit-background-clip: text;
-    background-clip: text;
-    -webkit-text-fill-color: transparent;
-    color: transparent;
-    animation: heroParallax 6s ease-in-out infinite;
-    font-weight: 900;
+    font-size: clamp(34px, 4.2vw, 60px);
+    line-height: 1.08;
+    margin: 0 0 18px 0;
+    font-weight: 800;
     letter-spacing: -0.03em;
+    color: var(--color-text-primary);
     position: relative;
-    z-index: 100;
+    z-index: 10;
     word-break: keep-all;
     overflow-wrap: normal;
     white-space: normal;
@@ -159,15 +144,15 @@
 
   .hero-meta strong {
     display: block;
-    font-size: 2.16rem;
+    font-size: 1.375rem;
     color: var(--color-primary);
-    font-weight: 800;
+    font-weight: 700;
   }
 
   .hero-meta span {
     color: var(--color-text-secondary);
-    font-size: 1.15rem;
-    margin-top: 6px;
+    font-size: 0.8125rem;
+    margin-top: 4px;
     display: block;
   }
 
@@ -212,13 +197,13 @@
     }
 
     .hero h1 {
-      font-size: clamp(46px, 13.5vw, 76px);
-      line-height: 1.05;
-      margin: 0 0 18px 0;
+      font-size: clamp(26px, 7.5vw, 40px);
+      line-height: 1.1;
+      margin: 0 0 14px 0;
     }
 
     .hero-text-wrapper p {
-      font-size: 1.35rem;
+      font-size: 14px;
     }
 
     .hero-actions {
@@ -241,15 +226,15 @@
 
   @media (max-width: 480px) {
     .hero h1 {
-      font-size: clamp(43px, 13.5vw, 59px);
-      line-height: 1.04;
-      margin: 0 0 14px 0;
-      letter-spacing: -0.01em;
+      font-size: clamp(22px, 7vw, 32px);
+      line-height: 1.1;
+      margin: 0 0 12px 0;
+      letter-spacing: -0.02em;
     }
 
     .hero-text-wrapper p {
-      font-size: 1.32rem;
-      line-height: 1.5;
+      font-size: 13.5px;
+      line-height: 1.6;
     }
 
     .hero-actions {
@@ -261,15 +246,5 @@
     }
   }
 
-  @keyframes heroParallax {
-    0% {
-      background-position: 0% 50%;
-    }
-    50% {
-      background-position: 100% 50%;
-    }
-    100% {
-      background-position: 0% 50%;
-    }
-  }
+
 </style>

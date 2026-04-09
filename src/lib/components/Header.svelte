@@ -104,7 +104,7 @@
     gap: 4px;
     font-weight: 500;
     color: var(--color-text-primary);
-    font-size: clamp(19px, 2.4vw, 22px);
+    font-size: 14px;
     letter-spacing: -0.01em;
   }
 
@@ -125,11 +125,11 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    height: 100px;
+    height: 40px;
     flex-shrink: 0;
     background: transparent;
     mix-blend-mode: multiply;
-    gap: 12px;
+    gap: 10px;
   }
 
   .logo img {
@@ -141,7 +141,7 @@
   .logo-text {
     font-family: var(--font-display, 'Inter'), sans-serif;
     font-weight: 800;
-    font-size: clamp(27px, 3.2vw, 35px);
+    font-size: clamp(16px, 1.4vw, 20px);
     letter-spacing: -0.01em;
     color: #0f172a;
     line-height: 1;

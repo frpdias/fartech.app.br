@@ -50,28 +50,28 @@
   h3 {
     font-family: var(--font-display);
     margin: 0;
-    font-size: 1.55rem;
+    font-size: 1rem;
     position: relative;
     z-index: 1;
     font-weight: 600;
-    color: var(--color-text);
+    color: var(--color-text-primary);
   }
 
   p {
     margin: 0;
-    color: var(--color-muted);
+    color: var(--color-text-secondary);
     position: relative;
     z-index: 1;
-    font-size: clamp(19px, 2.4vw, 22px);
-    line-height: 1.6;
+    font-size: clamp(12.5px, 1.05vw, 14px);
+    line-height: 1.65;
   }
 
   span {
     font-weight: 600;
-    color: var(--color-accent);
+    color: var(--color-blue);
     position: relative;
     z-index: 1;
-    font-size: clamp(19px, 2.4vw, 22px);
+    font-size: 12.5px;
     transition: var(--transition);
   }
 
