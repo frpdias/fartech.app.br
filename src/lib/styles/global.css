@@ -444,6 +444,10 @@ button, input, textarea, select { transition: var(--transition); }
   .eyebrow { font-size: 10px; }
 }
 
+/* ---- Utilities ---- */
+.text-center { text-align: center; }
+.text-center .section-subtitle { margin-inline: auto; }
+
 /* ---- Reduced motion ---- */
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after {

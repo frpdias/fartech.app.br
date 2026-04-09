@@ -235,28 +235,28 @@
 
 <Hero
   eyebrow="Fartech · Produtos SaaS"
-  title="Tecnologia pensada para RH e para quem advoga."
-  subtitle="TalentForge para recrutamento inteligente e gestão COPC. TalentJUD para escritórios que precisam de mais que um sistema."
+  title="Do recrutamento ao jurídico — menos planilha, mais resultado."
+  subtitle="Contrate melhor, forme equipes e gerencie processos jurídicos sem sair de um único lugar."
   primaryHref="https://talentforge.com.br"
   primaryLabel="Conhecer TalentForge"
   secondaryHref="https://talentjud.com.br"
   secondaryLabel="Conhecer TalentJUD"
   showEnemUltra={false}
   meta={[
-    { label: 'Produtos ativos', value: '2' },
+    { label: 'Processos mais rápidos', value: '3×' },
     { label: 'Tribunais integrados', value: '28' },
-    { label: 'Setup inicial', value: '<30 min' }
+    { label: 'Setup em', value: '<30 min' }
   ]}
->
-  <div slot="visual"></div>
-</Hero>
+/>
 
 <!-- Produtos Destaque -->
 <section class="section">
   <div class="container">
-    <p class="eyebrow">Nossos Produtos</p>
-    <h2 class="section-title">Dois produtos. Um propósito: eliminar trabalho manual.</h2>
-    <p class="section-subtitle">Construídos pela Fartech, cada produto resolve um domínio específico com profundidade — sem atalhos, sem gambiarras.</p>
+    <div class="text-center">
+      <p class="eyebrow">Nossos Produtos</p>
+      <h2 class="section-title">Dois produtos. Um propósito: eliminar trabalho manual.</h2>
+      <p class="section-subtitle">Cada produto domina seu setor com profundidade real — sem soluções genéricas, sem funcionalidades de enfeite.</p>
+    </div>
     <div class="diferenciais-grid">
       {#each produtos as item}
         <CardServico {...item} />
@@ -268,9 +268,11 @@
 <!-- Diferenciais -->
 <section class="section section-alt">
   <div class="container">
-    <p class="eyebrow">Por que Fartech</p>
-    <h2 class="section-title">A base técnica que sustenta os dois produtos.</h2>
-    <p class="section-subtitle">Segurança, integrações e custo transparente de IA são padrão em tudo que construímos.</p>
+    <div class="text-center">
+      <p class="eyebrow">Por que Fartech</p>
+      <h2 class="section-title">Seguro, integrado e transparente — por padrão.</h2>
+      <p class="section-subtitle">Compliance LGPD, integrações nativas e custo de IA por uso são requisitos mínimos em tudo que construímos.</p>
+    </div>
     <div class="diferenciais-grid">
       {#each diferenciais as item}
         <CardServico {...item} />
@@ -283,8 +285,8 @@
 <section class="section" id="talentforge">
   <div class="container">
     <p class="eyebrow">TalentForge</p>
-    <h2 class="section-title">Recrutamento inteligente com gestão contínua de performance.</h2>
-    <p class="section-subtitle">Do pipeline de candidatos ao quadrante COPC — tudo no mesmo lugar, com avaliações DISC, score PHP e compliance NR-1.</p>
+    <h2 class="section-title">Recrute, avalie e acompanhe o desempenho da sua equipe em um só lugar.</h2>
+    <p class="section-subtitle">Pipeline Kanban, avaliações DISC, quadrante COPC e compliance NR-1 integrados — para decisões de RH baseadas em dados, não em intuição.</p>
     <div class="services-grid">
       {#each funcionalidadesTF as f}
         <CardServico {...f} />
@@ -536,8 +538,10 @@
 
 <section class="section" id="cases">
   <div class="container">
-    <p class="eyebrow">Cases</p>
-    <h2 class="section-title">Resultados que os clientes já sentem.</h2>
+    <div class="text-center">
+      <p class="eyebrow">Cases</p>
+      <h2 class="section-title">Resultados que os clientes já sentem.</h2>
+    </div>
     <div class="cases-grid">
       {#each cases as caseItem}
         <CaseCard {...caseItem} />
@@ -548,8 +552,10 @@
 
 <section class="section section-alt" id="depoimentos">
   <div class="container">
-    <p class="eyebrow">Depoimentos</p>
-    <h2 class="section-title">Quem usa, recomenda.</h2>
+    <div class="text-center">
+      <p class="eyebrow">Depoimentos</p>
+      <h2 class="section-title">Quem usa, recomenda.</h2>
+    </div>
     <div class="depoimentos-grid">
       {#each depoimentos as depo}
         <Depoimento {...depo} />
