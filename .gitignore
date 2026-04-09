@@ -1,0 +1,34 @@
+# Dependências
+node_modules/
+
+# Build outputs
+build/
+.svelte-kit/
+.vite/
+dist/
+
+# Ambiente Python
+.venv/
+__pycache__/
+*.pyc
+
+# Variáveis de ambiente
+.env
+.env.local
+.env.*.local
+
+# Arquivos de sistema
+.DS_Store
+Thumbs.db
+
+# Editor
+.vscode/settings.json
+
+# Logs
+*.log
+npm-debug.log*
+
+# Arquivos temporários de deploy
+*.txt.bak
+ricardo-b64.txt
+ricardo-datauri.txt

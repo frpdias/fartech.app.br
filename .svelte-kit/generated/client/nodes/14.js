@@ -1,1 +1,0 @@
-export { default as component } from "../../../../src/routes/servicos/manutencao-preventiva/+page.svelte";
